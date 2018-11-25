@@ -1,0 +1,744 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、copy概念及入门1、【理解】copy的概念
+Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。
+常见的复制有：文件复制
+作用：利用一个源文件产生一个副本文件
+特点：
+修改源文件的内容，不会影响副本文件
+修改副本文件的内容，不会影响源文件
+ OC中的copy
+
+
+
+
+作用：利用一个源对象产生一个副本对象
+特点：
+修改源对象的属性和行为，不会影响副本对象
+修改副本对象的属性和行为，不">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Copy">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/copy/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、copy概念及入门1、【理解】copy的概念
+Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。
+常见的复制有：文件复制
+作用：利用一个源文件产生一个副本文件
+特点：
+修改源文件的内容，不会影响副本文件
+修改副本文件的内容，不会影响源文件
+ OC中的copy
+
+
+
+
+作用：利用一个源对象产生一个副本对象
+特点：
+修改源对象的属性和行为，不会影响副本对象
+修改副本对象的属性和行为，不">
+<meta property="og:updated_time" content="2016-07-08T09:32:47.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Copy">
+<meta name="twitter:description" content="一、copy概念及入门1、【理解】copy的概念
+Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。
+常见的复制有：文件复制
+作用：利用一个源文件产生一个副本文件
+特点：
+修改源文件的内容，不会影响副本文件
+修改副本文件的内容，不会影响源文件
+ OC中的copy
+
+
+
+
+作用：利用一个源对象产生一个副本对象
+特点：
+修改源对象的属性和行为，不会影响副本对象
+修改副本对象的属性和行为，不">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/05/copy/"/>
+
+  <title> Copy | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Copy
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T10:32:54+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index">
+                    <span itemprop="name">OC</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、copy概念及入门"><a href="#一、copy概念及入门" class="headerlink" title="一、copy概念及入门"></a>一、copy概念及入门</h2><h4 id="1、【理解】copy的概念"><a href="#1、【理解】copy的概念" class="headerlink" title="1、【理解】copy的概念"></a>1、【理解】copy的概念</h4><ul>
+<li>Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。</li>
+<li><strong>常见的复制有：文件复制</strong></li>
+<li>作用：利用一个源文件产生一个副本文件</li>
+<li>特点：<ul>
+<li>修改源文件的内容，不会影响副本文件<ul>
+<li>修改副本文件的内容，不会影响源文件</li>
+<li><strong> OC中的copy</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>作用：利用一个源对象产生一个副本对象</li>
+<li>特点：<ul>
+<li>修改源对象的属性和行为，不会影响副本对象</li>
+<li>修改副本对象的属性和行为，不会影响源对象</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、copy快速入门"><a href="#2、copy快速入门" class="headerlink" title="2、copy快速入门"></a>2、copy快速入门</h4><ul>
+<li><p>如何使用copy功能<br>一个对象可以调用copy或mutableCopy方法来创建一个副本对象</p>
+<ul>
+<li>copy : 创建的是不可变副本(如NSString、NSArray、NSDictionary)</li>
+<li>mutableCopy :创建的是可变副本(如NSMutableString、NSMutableArray、NSMutableDictionary)</li>
+<li><p>使用copy功能的前提<br>copy : 需要遵守NSCopying协议，实现copyWithZone:方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"> <span class="class"><span class="keyword">@protocol</span> <span class="title">NSCopying</span></span></div><div class="line"> - (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<p>mutableCopy :需要遵守NSMutableCopying协议，实现mutableCopyWithZone:方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">NSMutableCopying</span></span></div><div class="line">- (<span class="keyword">id</span>)mutableCopyWithZone:(<span class="built_in">NSZone</span> *)zone;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、copy与内存管理"><a href="#二、copy与内存管理" class="headerlink" title="二、copy与内存管理"></a>二、copy与内存管理</h2><h4 id="1、copy与内存管理"><a href="#1、copy与内存管理" class="headerlink" title="1、copy与内存管理"></a>1、copy与内存管理</h4><ul>
+<li>copy一次，retainCount +1</li>
+</ul>
+<h4 id="2、深浅拷贝总结"><a href="#2、深浅拷贝总结" class="headerlink" title="2、深浅拷贝总结"></a>2、深浅拷贝总结</h4><ul>
+<li><p>深复制（深拷贝，内容拷贝，deep copy）</p>
+<ul>
+<li>源对象和副本对象是不同的两个对象,源对象引用计数器不变, 副本对象计数器为1（因为是新产生的）</li>
+<li>本质是：产生了新的对象</li>
+</ul>
+</li>
+<li><p>浅复制（浅拷贝，指针拷贝，shallow copy）</p>
+<ul>
+<li>源对象和副本对象是同一个对象，源对象（副本对象）引用计数器 + 1, 相当于做一次retain操作</li>
+<li>本质是：没有产生新的对象</li>
+</ul>
+</li>
+</ul>
+<p><code>只有源对象和副本对象都不可变时，才是浅复制，其它都是深复制</code></p>
+<h2 id="三、-property中的copy的关键字"><a href="#三、-property中的copy的关键字" class="headerlink" title="三、@property中的copy的关键字"></a>三、@property中的copy的关键字</h2><h4 id="1、-property中的copy作用"><a href="#1、-property中的copy作用" class="headerlink" title="1、@property中的copy作用"></a>1、@property中的copy作用</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">分析代码:</div><div class="line"><span class="comment">//创建可变字符串</span></div><div class="line"><span class="built_in">NSMutableString</span> *str = [<span class="built_in">NSMutableString</span> string]; <span class="comment">//设定字符串的内容</span></div><div class="line">str.string = <span class="string">@"zhangsan"</span>;</div><div class="line"><span class="comment">//创建对象</span></div><div class="line">Person *person = [Person new]; <span class="comment">//给person的实例变量赋值 person.name = str;</span></div><div class="line"><span class="comment">//修改字符串内容</span></div><div class="line">[str appendString:<span class="string">@"xxxx"</span>];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"name = %@"</span>,person.name); <span class="built_in">NSLog</span>(<span class="string">@"str = %@"</span>,str);</div><div class="line"><span class="comment">// 输出结果：</span></div><div class="line">name = zhangsanxxxx</div><div class="line">str = zhangsanxxxx</div><div class="line"></div><div class="line">这显然不符合我们的要求,因为str修改后,会影响person.name 的值 解决方法:</div><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *name;</div><div class="line">set方法展开形式为:</div><div class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)name</div><div class="line">&#123;</div><div class="line">  <span class="keyword">if</span> (_name != name)</div><div class="line">&#123;</div><div class="line">  [_name release];</div><div class="line">  [_name release];</div><div class="line">  _name = [name mutableCopy];</div><div class="line">&#125; &#125;</div></pre></td></tr></table></figure>
+<h4 id="2、-property内存管理策略选择"><a href="#2、-property内存管理策略选择" class="headerlink" title="2、@property内存管理策略选择"></a>2、@property内存管理策略选择</h4><ul>
+<li>@property内存管理策略的选择<ul>
+<li>1.非ARC<ul>
+<li>1&gt; copy : 只用于NSString\block</li>
+<li>2&gt; retain : 除NSString\block以外的OC对象</li>
+<li>3&gt; assign:基本数据类型、枚举、结构体(非OC对象),当2个对象相互引用,一端用retain,一端用assign</li>
+</ul>
+</li>
+<li>2.ARC<ul>
+<li>1&gt; copy : 只用于NSString\block</li>
+<li>2&gt; strong : 除NSString\block以外的OC对象</li>
+<li>3&gt; weak : 当2个对象相互引用,一端用strong,一端用weak</li>
+<li>4&gt; assgin : 基本数据类型、枚举、结构体(非OC对象)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="四、为自定义的类实现copy操作"><a href="#四、为自定义的类实现copy操作" class="headerlink" title="四、为自定义的类实现copy操作"></a>四、为自定义的类实现copy操作</h2><h4 id="1-为自定义类实现copy操作"><a href="#1-为自定义类实现copy操作" class="headerlink" title="1.为自定义类实现copy操作"></a>1.为自定义类实现copy操作</h4><h5 id="自定义对象copy步骤"><a href="#自定义对象copy步骤" class="headerlink" title="自定义对象copy步骤"></a>自定义对象copy步骤</h5><ul>
+<li>新建Person类</li>
+<li>为Person类实现copy操作<ul>
+<li>1.让Person类遵守NSCopying协议</li>
+<li>2.实现 copyWithZone:方法,在该方法中返回一个对象的副本即可。</li>
+<li>3.在copyWithZone方法中,创建一个新的对象,并设置该对象的数据与现有对象一致, 并返回该对象.</li>
+<li>创建Person对象, 调用copy方法, 查看地址。</li>
+</ul>
+</li>
+<li><p>细节介绍:</p>
+<ul>
+<li>1、 调用copy其实就是调用copyWithZone方法,所以要实现copyWithZone方法。(查看NSObject协议中的copy方法的介绍)</li>
+<li>2、 copyWithZone方法返回值类型是id类型,需要返回一个对象的副本。</li>
+<li>3、 关于copyWithZone的参数zone问题:<ul>
+<li>zone: 表示空间,分配对象是需要内存空间的,如果指定了zone,就可以指定新建对象对应的内存空间。但是:zone是一个非常古老的技术,为了避免在堆中出现内存碎片而使用的。在今天的开发中,zone几乎可以忽略</li>
+<li>查看NSCopying协议中的allocWithZone:方法介绍(zone参数可以被忽略,是历史 原因)</li>
+</ul>
+</li>
+<li>4、如果对象没有 可变/不可变 的版本区别,只要实现 copyWithZone 方法即可.</li>
+<li><p>5、copyWithZone:方法的具体实现:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone&#123;</div><div class="line"><span class="comment">//创建对象</span></div><div class="line">Person *p1 = [[Person alloc] init]; <span class="comment">//用当前对象值给新对象的实例变量赋值 p1.age = self.age;</span></div><div class="line"><span class="comment">//返回新对象</span></div><div class="line"><span class="keyword">return</span> p1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>为Person类实现mutableCopy操作</p>
+<ul>
+<li>1.遵守NSMutableCopying协议</li>
+<li><p>2.实现协议对你的方法</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">id</span>)mutableCopyWithZone:(<span class="built_in">NSZone</span> *)zone&#123;</div><div class="line"><span class="comment">//创建对象</span></div><div class="line">Person *p1 = [[Person alloc] init]; <span class="comment">//用当前对象值给新对象的实例变量赋值 p1.age = self.age;</span></div><div class="line"><span class="comment">//返回新对象</span></div><div class="line"><span class="keyword">return</span> p1;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/05/UINavigationcontroller/" rel="next" title="UINavigationController">
+                <i class="fa fa-chevron-left"></i> UINavigationController
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/06/NSNumber:NSValue的介绍/" rel="prev" title="NSNumber/NSValue的介绍">
+                NSNumber/NSValue的介绍 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、copy概念及入门"><span class="nav-number">1.</span> <span class="nav-text">一、copy概念及入门</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、【理解】copy的概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、【理解】copy的概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、copy快速入门"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、copy快速入门</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、copy与内存管理"><span class="nav-number">2.</span> <span class="nav-text">二、copy与内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、copy与内存管理"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、copy与内存管理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、深浅拷贝总结"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、深浅拷贝总结</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、-property中的copy的关键字"><span class="nav-number">3.</span> <span class="nav-text">三、@property中的copy的关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、-property中的copy作用"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、@property中的copy作用</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、-property内存管理策略选择"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、@property内存管理策略选择</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、为自定义的类实现copy操作"><span class="nav-number">4.</span> <span class="nav-text">四、为自定义的类实现copy操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-为自定义类实现copy操作"><span class="nav-number">4.0.1.</span> <span class="nav-text">1.为自定义类实现copy操作</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义对象copy步骤"><span class="nav-number">4.0.1.1.</span> <span class="nav-text">自定义对象copy步骤</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

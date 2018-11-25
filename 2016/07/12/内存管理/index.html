@@ -1,0 +1,750 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、理解】内存管理的原则1、内存管理的原则
+1.原则
+只要还有人在使用某个对象,那么这个对象就不会被回收;
+只要你想使用这个对象,那么就应该让这个对象的引用计数器+1;
+当你不想使用这个对象时,应该让对象的引用计数器-1;
+
+
+2.谁创建,谁release
+1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法.
+2)不是你创建的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="内存管理">
+<meta property="og:url" content="http://yoursite.com/2016/07/12/内存管理/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、理解】内存管理的原则1、内存管理的原则
+1.原则
+只要还有人在使用某个对象,那么这个对象就不会被回收;
+只要你想使用这个对象,那么就应该让这个对象的引用计数器+1;
+当你不想使用这个对象时,应该让对象的引用计数器-1;
+
+
+2.谁创建,谁release
+1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法.
+2)不是你创建的">
+<meta property="og:updated_time" content="2016-07-08T04:08:04.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="内存管理">
+<meta name="twitter:description" content="一、理解】内存管理的原则1、内存管理的原则
+1.原则
+只要还有人在使用某个对象,那么这个对象就不会被回收;
+只要你想使用这个对象,那么就应该让这个对象的引用计数器+1;
+当你不想使用这个对象时,应该让对象的引用计数器-1;
+
+
+2.谁创建,谁release
+1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法.
+2)不是你创建的">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/12/内存管理/"/>
+
+  <title> 内存管理 | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                内存管理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-12T10:31:39+08:00" content="2016-07-12">
+              2016-07-12
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index">
+                    <span itemprop="name">OC</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、理解】内存管理的原则"><a href="#一、理解】内存管理的原则" class="headerlink" title="一、理解】内存管理的原则"></a>一、理解】内存管理的原则</h2><h4 id="1、内存管理的原则"><a href="#1、内存管理的原则" class="headerlink" title="1、内存管理的原则"></a>1、内存管理的原则</h4><ul>
+<li>1.原则<ul>
+<li>只要还有人在使用某个对象,那么这个对象就不会被回收;</li>
+<li>只要你想使用这个对象,那么就应该让这个对象的引用计数器+1;</li>
+<li>当你不想使用这个对象时,应该让对象的引用计数器-1;</li>
+</ul>
+</li>
+<li>2.谁创建,谁release<ul>
+<li>1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法.</li>
+<li>2)不是你创建的就不用你去负责</li>
+</ul>
+</li>
+<li>3.谁retain,谁release<ul>
+<li>只要你调用了retain,无论这个对象时如何生成的,你都要调用release</li>
+</ul>
+</li>
+<li>4.总结<ul>
+<li>有始有终,有加就应该有减。曾经让某个对象计数器加1,就应该让其在最后-1.</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、内存管理研究内容"><a href="#2、内存管理研究内容" class="headerlink" title="2、内存管理研究内容"></a>2、内存管理研究内容</h4><ol>
+<li>野指针(僵尸对象)<ul>
+<li>僵尸对象: 已经被销毁的对象(不能再使用的对象).</li>
+<li>野指针:指向僵尸对象(不可用内存)的指针.</li>
+<li>空指针: 没有指向存储空间的指针(里面存的是nil, 也就是0)</li>
+</ul>
+</li>
+<li><p>内存泄露</p>
+<ul>
+<li><p>如果在程序结束后，对象没有被释放，此时称为内存泄露。</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Student *s = [[Student alloc] init];</div><div class="line">Student *s1 = [s <span class="keyword">retain</span>];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>那么，问题来了，最后由谁释放？</li>
+<li><p>由s释放</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Student *s = [[Student alloc] init];</div><div class="line">Student *s1 = [s <span class="keyword">retain</span>];</div><div class="line">[s release];</div><div class="line">[s release];</div></pre></td></tr></table></figure>
+<ul>
+<li><p>由s1释放</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Student *s = [[Student alloc] init];</div><div class="line">Student *s1 = [s <span class="keyword">retain</span>];</div><div class="line">[s1 release];</div><div class="line">[s1 release];</div></pre></td></tr></table></figure>
+</li>
+<li><p>两种方式都可以释放内存。</p>
+</li>
+<li>但是，如果没有一种统一的释放原则，那么就会造成代码的混乱，舍都可以释放, 好比一个公司所有的领导没有分工一样, 任何事儿, 任何一个领导都可以插一嘴，很显然这样就没法干了， 因此需要有一个规范去约束使用。</li>
+</ul>
+</li>
+</ul>
+<h2 id="二、单个对象内存管理（野指针）"><a href="#二、单个对象内存管理（野指针）" class="headerlink" title="二、单个对象内存管理（野指针）"></a>二、单个对象内存管理（野指针）</h2><h4 id="1、单个对象的野指针问题"><a href="#1、单个对象的野指针问题" class="headerlink" title="1、单个对象的野指针问题"></a>1、单个对象的野指针问题</h4><ul>
+<li><p>思考：对象在堆区的空间已经释放了,还能再使用p吗?</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Person *p = [[Person alloc] init];</div><div class="line">[p release];</div><div class="line"><span class="comment">// 因为P已经被释放，此时调用p的run方法，此时会报错。</span></div><div class="line"><span class="comment">// 我们把p叫做野指针，把p指向的对象叫做僵尸对象。</span></div><div class="line">[p run];</div></pre></td></tr></table></figure>
+</li>
+<li><p>野指针错误:访问了一块坏的内存(已经被回收的,不可用的内存)。</p>
+</li>
+<li>僵尸对象:所占内存已经被回收的对象,僵尸对象不能再被使用。(默认情况下xcode为了提高编码效率,不会时时检查僵尸对象,打开僵尸对象检测方法)</li>
+<li><p>注意:</p>
+<ul>
+<li><p><strong>1–空指针:没有指向任何东西的指针,给空指针发送消息不会报错.</strong></p>
+</li>
+<li><p>关于nil和Nil及NULL的区别:</p>
+<ul>
+<li><p>1.nil: A null pointer to an Objective-C object. ( #define nil ((id)0) )</p>
+<ul>
+<li>nil 是一个对象值。</li>
+<li>Person *p = [Person new];</li>
+<li>p = nil;</li>
+</ul>
+</li>
+<li><p>2.Nil: A null pointer to an Objective-C class.</p>
+<ul>
+<li>如:Class someClass = Nil;给类对象赋值</li>
+</ul>
+</li>
+<li><p>3.NULL: A null pointer to anything else. ( #define NULL ((void *)0) )</p>
+<ul>
+<li>NULL是一个通用指针(泛型指针)。</li>
+</ul>
+</li>
+<li><p>4.NSNull: A class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).</p>
+<ul>
+<li>[NSNull null]: The singleton instance of NSNull。</li>
+<li>[NSNull null]是一个对象,他用在不能使用nil的场合。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>2–不能使用[p retain]让僵尸对象起死复生。</strong></p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、避免使用僵尸对象的方法"><a href="#2、避免使用僵尸对象的方法" class="headerlink" title="2、避免使用僵尸对象的方法"></a>2、避免使用僵尸对象的方法</h4><ul>
+<li>为了防止不小心调用了僵尸对象,可以将对象赋值nil(对象的空值)</li>
+<li><p>给空指针发消息是没有任何反应的。</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">  Student *s = [[Student alloc] init];</div><div class="line"></div><div class="line">  [s release];</div><div class="line"></div><div class="line">  s = <span class="literal">nil</span>;</div><div class="line"></div><div class="line">  <span class="comment">// 打印对象的引用计数器值</span></div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>,[s retainCount]);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="三、多个对象内存管理"><a href="#三、多个对象内存管理" class="headerlink" title="三、多个对象内存管理"></a>三、多个对象内存管理</h2><h5 id="解决方案：在使用房间时，对房间进行一次release。"><a href="#解决方案：在使用房间时，对房间进行一次release。" class="headerlink" title="解决方案：在使用房间时，对房间进行一次release。"></a>解决方案：在使用房间时，对房间进行一次release。</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 声明类</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Gamer</span> : <span class="title">NSObject</span></span></div><div class="line">&#123;</div><div class="line">    Room *_room;</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)setRoom:(Room *)room;</div><div class="line">- (Room *)room;</div><div class="line"></div><div class="line"><span class="comment">// 实现类</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Gamer</span></span></div><div class="line">- (<span class="keyword">void</span>)setRoom:(Room *)room</div><div class="line">&#123;</div><div class="line"></div><div class="line">    [room <span class="keyword">retain</span>];</div><div class="line">    _room = room;</div><div class="line">&#125;</div><div class="line">- (Room *)room&#123;</div><div class="line">    <span class="keyword">return</span> _room;</div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)dealloc</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"玩家被释放"</span>);</div><div class="line">    [<span class="keyword">super</span> dealloc];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="comment">// main函数实现</span></div><div class="line">  <span class="comment">// 1、创建玩家对象</span></div><div class="line">    Gamer *game = [[Gamer alloc] init];</div><div class="line"></div><div class="line">    <span class="comment">// 2、创建房间对象</span></div><div class="line">    Room *room = [[Room alloc] init];</div><div class="line"></div><div class="line">    <span class="comment">// 3、让玩家进入房间</span></div><div class="line">    game.room = room;</div><div class="line"></div><div class="line">    <span class="comment">// 4、释放房间对象</span></div><div class="line">    [room release];</div><div class="line"></div><div class="line">    <span class="comment">// 5、输出玩家的房间</span></div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"玩家的房间是：%@"</span>,game.room);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>问题：房间无法被释放了怎么办？</p>
+</li>
+<li><p>解决方法：</p>
+<ul>
+<li><p>在对象被释放时，要把该对象的所有对象类型的成员变量在dealloc当中进行释放:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Gamer</span></span></div><div class="line">- (<span class="keyword">void</span>)dealloc</div><div class="line">&#123;</div><div class="line">    [_room release];</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"玩家被释放"</span>);</div><div class="line">    [<span class="keyword">super</span> dealloc];</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>需求：让玩家反复进入这个房间。</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</div><div class="line">    <span class="keyword">@autoreleasepool</span> &#123;</div><div class="line">        Gamer *g = [Gamer new];</div><div class="line"></div><div class="line">        Room *r = [Room new];</div><div class="line"></div><div class="line">        g.room = r;</div><div class="line">        g.room = r;</div><div class="line">        g.room = r;</div><div class="line"></div><div class="line">        [g release];</div><div class="line">        [r release];</div><div class="line"></div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="number">0</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>问题：房间对象无法被释放，怎么办？</p>
+</li>
+<li><p>解决方案：判断新进房间与之前是否是同一个房间。</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setRoom:(Room *)room</div><div class="line">&#123;</div><div class="line">    <span class="keyword">if</span> (_room != room) &#123;</div><div class="line">        [room <span class="keyword">retain</span>];</div><div class="line">        _room = room;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>总的来说，有以下几点规律：</p>
+<ul>
+<li>1）只要还有人使用某对象，那么这个对象就不会被回收。</li>
+<li>2）只要想要使用1个对象，那么就让对象的引用计数器+1。</li>
+<li>3）当不再使用这个对象时，就让对象的引用计数器-1。</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/11/block/" rel="next" title="block">
+                <i class="fa fa-chevron-left"></i> block
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/13/autorelease/" rel="prev" title="autorelease">
+                autorelease <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、理解】内存管理的原则"><span class="nav-number">1.</span> <span class="nav-text">一、理解】内存管理的原则</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、内存管理的原则"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、内存管理的原则</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、内存管理研究内容"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、内存管理研究内容</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、单个对象内存管理（野指针）"><span class="nav-number">2.</span> <span class="nav-text">二、单个对象内存管理（野指针）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、单个对象的野指针问题"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、单个对象的野指针问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、避免使用僵尸对象的方法"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、避免使用僵尸对象的方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、多个对象内存管理"><span class="nav-number">3.</span> <span class="nav-text">三、多个对象内存管理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#解决方案：在使用房间时，对房间进行一次release。"><span class="nav-number">3.0.0.1.</span> <span class="nav-text">解决方案：在使用房间时，对房间进行一次release。</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

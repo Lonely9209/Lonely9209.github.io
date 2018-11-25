@@ -1,0 +1,699 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、基本图形绘制
+线段（线宽、线段样式）
+矩形（空心、实心、颜色）
+三角形、四边形等形状
+1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等
+当 view 第一次被显示的时候调用(调用一次)
+或者是重绘事件被触发的时候
+不要手动去调用这个方法
+
+
+
+
+手动调用重绘方法 setNeedsDisplay 或者 setNeedsDisplayInRect:12">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Quartz2D(绘图)">
+<meta property="og:url" content="http://yoursite.com/2016/07/07/Quartz2d(绘图)/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、基本图形绘制
+线段（线宽、线段样式）
+矩形（空心、实心、颜色）
+三角形、四边形等形状
+1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等
+当 view 第一次被显示的时候调用(调用一次)
+或者是重绘事件被触发的时候
+不要手动去调用这个方法
+
+
+
+
+手动调用重绘方法 setNeedsDisplay 或者 setNeedsDisplayInRect:12">
+<meta property="og:updated_time" content="2016-07-08T12:22:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Quartz2D(绘图)">
+<meta name="twitter:description" content="一、基本图形绘制
+线段（线宽、线段样式）
+矩形（空心、实心、颜色）
+三角形、四边形等形状
+1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等
+当 view 第一次被显示的时候调用(调用一次)
+或者是重绘事件被触发的时候
+不要手动去调用这个方法
+
+
+
+
+手动调用重绘方法 setNeedsDisplay 或者 setNeedsDisplayInRect:12">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/07/Quartz2d(绘图)/"/>
+
+  <title> Quartz2D(绘图) | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Quartz2D(绘图)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-07T10:31:23+08:00" content="2016-07-07">
+              2016-07-07
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/提高篇/" itemprop="url" rel="index">
+                    <span itemprop="name">提高篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、基本图形绘制"><a href="#一、基本图形绘制" class="headerlink" title="一、基本图形绘制"></a>一、基本图形绘制</h2><ul>
+<li>线段（线宽、线段样式）</li>
+<li>矩形（空心、实心、颜色）</li>
+<li>三角形、四边形等形状</li>
+<li>1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等<ul>
+<li>当 view 第一次被显示的时候调用(调用一次)</li>
+<li>或者是重绘事件被触发的时候</li>
+<li>不要手动去调用这个方法</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li><strong>手动调用重绘方法 setNeedsDisplay 或者 setNeedsDisplayInRect:</strong><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">setNeedsDisplay 方法会把之前的内容都清除掉, 然后再重绘。</div><div class="line">setNeedsDisplayInRect:&lt;<span class="meta">#(CGRect)#&gt;局部刷新</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>2、说明为什么要在 - (void)drawRect:(CGRect)rect 方法中进行绘图</li>
+<li><strong>只有在这个方法中才能获取当前 View 的绘图上下文</strong></li>
+</ul>
+<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ol>
+<li>当要向UIView上绘图的时候, 必须重写UIView的drawRect:方法, 然后在这个方法中进行绘图</li>
+<li>在drawRect:方法中获取的参数rect, 指的就是当前view的bounds属性</li>
+<li>为什么向当前view中绘制图形, 必须在drawRect:方法中进行?<ul>
+<li>3.1 原因: 只有在当前view的drawRect:方法中才能成功的获取当前view的”图形上下文”, 有了图形上下文才能进行绘图</li>
+<li>3.2 为什么只有在drawRect:方法中才能获取当前view的图形上下文呢？</li>
+<li>3.3 原因: 是因为系统在调用drawRect:方法之前已经帮我们创建好了一个与当前view相关的图形上下文了, 然后才调用的drawRect:方法, 所以在drawRect:方法中, 我们就可以成功获取当前view的图形上下文了。</li>
+<li>3.4 如何创建一个图形上下文？（后面说）<ul>
+<li>3.5 drawRect:方法是谁来调用的？什么时候调用的？<ul>
+<li>3.5.1 drawRect:方法是系统帮我们调用的, 千万别手动去调用这个方法。原因是, 自己手动去调用drawRect:方法的时候无法保证系统已经帮我们创建好了”图形上下文”, 所以这样就无法保证在drawRect:方法中获取”图形上下文”对象, 所以也就无法绘图。</li>
+<li>3.5.2 drawRect:方法的什么时候被调用？<ul>
+<li>1&gt; 当这个View第一次显示的时候会条用一次drawRect:方法。</li>
+<li>2&gt; 当这个View执行重绘操作的时候, 会重新调用drawRect:方法来进行绘图。</li>
+<li>3&gt; 通过调用【[self setNeedsDisplay];// 把这个view都重绘一次】 或 【[self setNeedsDisplayInRect:(CGRect)]// 把view中的某个区域重绘一次】 来实现重绘</li>
+<li>4&gt; 在每次调用 setNeedsDisplay 或 setNeedsDisplayInRect:方法的时候, 内部会先创建一个与当前view相关连的”图形上下文”然后再调用drawRect:实现重绘。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><strong>注意: UIBezierPath 对象可以独立使用,  无需手动获取“图形上下文”对象，此处为了更好的理解“图形上下文对象”所以暂时还是采用手动获取“图形上下文”对象的方式来绘图
+</strong>        </p>
+<h4 id="参考代码"><a href="#参考代码" class="headerlink" title="参考代码"></a>参考代码</h4><h6 id="1、绘制一个”三角形”"><a href="#1、绘制一个”三角形”" class="headerlink" title="1、绘制一个”三角形”"></a>1、绘制一个”三角形”</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 获取当前的图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">// 2. 在上下文中绘制图形（拼接路径）</span></div><div class="line"><span class="comment">// 2.1 设置一个起点</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">20</span>, <span class="number">20</span>);</div><div class="line"><span class="comment">// 2.2 添加一条直线到(100, 100)这个点</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="comment">// 2.3 再添加一条线</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">120</span>, <span class="number">30</span>);</div><div class="line"><span class="comment">// 2.4 再添加一条线段</span></div><div class="line"><span class="comment">//CGContextAddLineToPoint(ctx, 20, 20);</span></div><div class="line"><span class="comment">// 另外一种做法: 直接关闭路径（连接最后一个点和起点）</span></div><div class="line"><span class="built_in">CGContextClosePath</span>(ctx);</div><div class="line"><span class="comment">// 3. 把上下文渲染显示到 HMView01上</span></div><div class="line"><span class="comment">// StrokePath 表示把路径以空心的形式渲染出来。</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<h6 id="2、绘制一个实心”矩形”"><a href="#2、绘制一个实心”矩形”" class="headerlink" title="2、绘制一个实心”矩形”"></a>2、绘制一个实心”矩形”</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 绘制一个"四边形"</span></div><div class="line"><span class="comment">// 1. 获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">// 2. 开始绘制路径</span></div><div class="line"><span class="built_in">CGContextAddRect</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>, <span class="number">120</span>));</div><div class="line"><span class="comment">// 3. 渲染</span></div><div class="line"><span class="built_in">CGContextFillPath</span>(ctx);</div></pre></td></tr></table></figure>
+<h6 id="3、设置图形的颜色"><a href="#3、设置图形的颜色" class="headerlink" title="3、设置图形的颜色"></a>3、设置图形的颜色</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 绘制一个"四边形"</span></div><div class="line"><span class="comment">// 1. 获取当前图形上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">// 2. 开始绘制路径</span></div><div class="line"><span class="built_in">CGContextAddRect</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">100</span>, <span class="number">120</span>));</div><div class="line"></div><div class="line"><span class="comment">//============ C 语言的方式设置颜色 =================</span></div><div class="line"><span class="built_in">CGContextSetRGBFillColor</span>(ctx, <span class="number">200</span>/<span class="number">255.0</span>, <span class="number">100</span>/<span class="number">255.0</span>, <span class="number">50</span>/<span class="number">255.0</span>, <span class="number">1.0</span>);</div><div class="line"><span class="comment">//CGContextSetRGBStrokeColor(&lt;#CGContextRef context#&gt;, &lt;#CGFloat red#&gt;, &lt;#CGFloat green#&gt;, &lt;#CGFloat blue#&gt;, &lt;#CGFloat alpha#&gt;)</span></div><div class="line"><span class="comment">//============ C 语言的方式设置颜色 =================</span></div><div class="line"></div><div class="line"><span class="comment">//============ OC 的方式设置颜色 =================</span></div><div class="line"><span class="comment">// 设置空心图形的线条颜色</span></div><div class="line"><span class="comment">// [[UIColor redColor] setStroke];</span></div><div class="line"><span class="comment">// 设置实心图形的填充颜色</span></div><div class="line"><span class="comment">// [[UIColor redColor] setFill];</span></div><div class="line"><span class="comment">// 统一设置"空心图形" 和 "实心图形"的颜色</span></div><div class="line"><span class="comment">//[[UIColor redColor] set];</span></div><div class="line"><span class="comment">//============ OC 的方式设置颜色 =================</span></div><div class="line"><span class="comment">// 3. 渲染</span></div><div class="line"><span class="built_in">CGContextFillPath</span>(ctx);</div></pre></td></tr></table></figure>
+<h6 id="4、设置不同线段-不同颜色"><a href="#4、设置不同线段-不同颜色" class="headerlink" title="4、设置不同线段, 不同颜色"></a>4、设置不同线段, 不同颜色</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//画两根线, 一根红色, 一根蓝色</span></div><div class="line"><span class="comment">// 1. 获取上下文对象</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">// 2. 绘制图形</span></div><div class="line"><span class="comment">// 2.1 设置起点</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">50</span>, <span class="number">50</span>);</div><div class="line"><span class="comment">// 2.2 添加一根线</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">50</span>, <span class="number">150</span>);</div><div class="line"><span class="comment">// 2.3 设置线段颜色</span></div><div class="line">[[<span class="built_in">UIColor</span> redColor] set];</div><div class="line"><span class="comment">// 2.4 设置线宽</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">10</span>);</div><div class="line"><span class="comment">// 渲染一次</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div><div class="line"></div><div class="line"><span class="comment">// 再移动到一个新的起点</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">100</span>, <span class="number">50</span>);</div><div class="line"><span class="comment">// 再添加一根线</span></div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">150</span>);</div><div class="line"><span class="comment">// 设置线的颜色</span></div><div class="line">[[<span class="built_in">UIColor</span> blueColor] set];</div><div class="line"><span class="comment">// 3. 渲染"上下文对象"到 view 上</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<h6 id="5、设置线段”头尾部”的样式"><a href="#5、设置线段”头尾部”的样式" class="headerlink" title="5、设置线段”头尾部”的样式"></a>5、设置线段”头尾部”的样式</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"> <span class="comment">// 1. 获取上下文对象</span></div><div class="line"> <span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"> <span class="comment">// 2. 绘制路径</span></div><div class="line"> <span class="comment">// 2.1 移动到起点</span></div><div class="line"> <span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">20</span>, <span class="number">20</span>);</div><div class="line"> <span class="comment">// 2.2 添加一条线段</span></div><div class="line"> <span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"> <span class="comment">// 2.3 设置颜色</span></div><div class="line"> [[<span class="built_in">UIColor</span> redColor] set];</div><div class="line"> <span class="comment">// 2.4 设置线段宽度</span></div><div class="line"> <span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">15</span>);</div><div class="line"> <span class="comment">// 2.5 设置线段头尾部样式</span></div><div class="line"><span class="comment">//enum CGLineCap &#123;</span></div><div class="line"><span class="comment">//kCGLineCapButt, 默认值</span></div><div class="line"><span class="comment">//kCGLineCapRound, 圆角</span></div><div class="line"><span class="comment">//kCGLineCapSquare 方角</span></div><div class="line"><span class="comment">//&#125;;</span></div><div class="line"><span class="built_in">CGContextSetLineCap</span>(ctx, kCGLineCapSquare);</div><div class="line"><span class="comment">// 3. 渲染</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<h6 id="6、设置转折点样式"><a href="#6、设置转折点样式" class="headerlink" title="6、设置转折点样式"></a>6、设置转折点样式</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 2.4 设置线段宽度</span></div><div class="line"><span class="built_in">CGContextSetLineWidth</span>(ctx, <span class="number">15</span>);</div><div class="line"><span class="comment">// 2.5 设置线段头尾部样式</span></div><div class="line"><span class="built_in">CGContextSetLineCap</span>(ctx, kCGLineCapRound);</div><div class="line"><span class="comment">// 2.6 设置转折点样式</span></div><div class="line"><span class="built_in">CGContextSetLineJoin</span>(ctx, kCGLineJoinBevel);</div></pre></td></tr></table></figure>
+<h6 id="7、文字绘制-通过OC-来绘制图形"><a href="#7、文字绘制-通过OC-来绘制图形" class="headerlink" title="7、文字绘制(通过OC 来绘制图形)"></a>7、文字绘制(通过OC 来绘制图形)</h6><p><strong>1、绘制一段文字(思路: 直接使用 OC 的方法, 无需手动获取上下文对象)</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *str = <span class="string">@"哈哈, 黑马程序员 iOS学院。"</span>;</div><div class="line"><span class="built_in">NSDictionary</span> *attrs = @&#123;</div><div class="line">    <span class="built_in">NSForegroundColorAttributeName</span> : [<span class="built_in">UIColor</span> redColor],</div><div class="line">    <span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">20</span>]</div><div class="line">&#125;;</div><div class="line">[str drawAtPoint:<span class="built_in">CGPointMake</span>(<span class="number">30</span>, <span class="number">50</span>) withAttributes:attrs];</div></pre></td></tr></table></figure></p>
+<p><strong>2、绘制一段文字到一个指定的区域</strong></p>
+<p>思路: 调用字符串的 drawInRect: 方法.<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 绘制文字</span></div><div class="line"><span class="built_in">NSString</span> *str = <span class="string">@"哈哈, 黑马程序员 iOS。"</span>;</div><div class="line"><span class="built_in">NSDictionary</span> *attrs = @&#123;</div><div class="line"><span class="built_in">NSForegroundColorAttributeName</span> : [<span class="built_in">UIColor</span> redColor],</div><div class="line"><span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">20</span>]</div><div class="line">&#125;;</div><div class="line"></div><div class="line">[str drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">250</span>) withAttributes:attrs];</div><div class="line"><span class="comment">// 1. 获取上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">// 2. 把矩形画出来</span></div><div class="line"><span class="built_in">CGContextAddRect</span>(ctx,<span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">20</span>, <span class="number">50</span>, <span class="number">250</span>));</div><div class="line"><span class="comment">// 3. 渲染</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure></p>
+<h6 id="8、图片绘制-通过OC-来绘制图形"><a href="#8、图片绘制-通过OC-来绘制图形" class="headerlink" title="8、图片绘制(通过OC 来绘制图形)"></a>8、图片绘制(通过OC 来绘制图形)</h6><p><strong>1、绘制一张图片到 UIView 上</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 获取图片</span></div><div class="line"><span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"dst2"</span>];</div><div class="line"><span class="comment">// 2. 把图片画到当前的 view中</span></div><div class="line">[img drawAtPoint:<span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>)];</div></pre></td></tr></table></figure></p>
+<p><strong>2、在指定的矩形中绘制图片（会自动拉伸）</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 获取图片</span></div><div class="line"><span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"dst2"</span>];</div><div class="line"><span class="comment">// 2. 把图片画到当前的 view中</span></div><div class="line">[img drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">150</span>, <span class="number">150</span>)];</div></pre></td></tr></table></figure></p>
+<p><strong>3、画格子花纹效果(（pattern）), 思路: 调用drawAsPatternInRect:方法</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 获取图片</span></div><div class="line"><span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"abc"</span>];</div><div class="line"><span class="comment">// 2. 把图片画到当前的 view中</span></div><div class="line">[img drawAsPatternInRect:<span class="keyword">self</span>.bounds];</div><div class="line"><span class="comment">// 3. 在右下角显示文字</span></div><div class="line"><span class="built_in">NSString</span> *str = <span class="string">@"@Lonely ios"</span>;</div><div class="line"><span class="built_in">NSDictionary</span> *attrs = @&#123;</div><div class="line"><span class="built_in">NSForegroundColorAttributeName</span> : [<span class="built_in">UIColor</span> redColor],</div><div class="line"><span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">20</span>]</div><div class="line">&#125;;</div><div class="line">[ str drawInRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">100</span>, <span class="number">200</span>, <span class="number">30</span>) withAttributes:attrs];</div></pre></td></tr></table></figure></p>
+<h2 id="二、图形上下文栈"><a href="#二、图形上下文栈" class="headerlink" title="二、图形上下文栈"></a>二、图形上下文栈</h2><ul>
+<li><strong>CGContextSaveGState(ctx);// 保存ctx这个绘图上下文对象</strong></li>
+<li><strong>CGContextRestoreGState(ctx); // 恢复 ctx这个图形上下文</strong></li>
+</ul>
+<h4 id="参考代码-1"><a href="#参考代码-1" class="headerlink" title="参考代码"></a>参考代码</h4><h6 id="1、矩阵操作"><a href="#1、矩阵操作" class="headerlink" title="1、矩阵操作"></a>1、矩阵操作</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 1. 获取上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">// 保存上下文</span></div><div class="line"><span class="built_in">CGContextSaveGState</span>(ctx);</div><div class="line"><span class="comment">//======================= 矩阵操作 ============================</span></div><div class="line"><span class="comment">// 1.1 旋转</span></div><div class="line"><span class="built_in">CGContextRotateCTM</span>(ctx, M_PI_4 * <span class="number">0.5</span>);</div><div class="line"><span class="comment">// 1.2 缩放</span></div><div class="line"><span class="built_in">CGContextScaleCTM</span>(ctx, <span class="number">0.5</span>, <span class="number">0.5</span>);</div><div class="line"><span class="comment">//======================= 矩阵操作 ============================</span></div><div class="line"><span class="comment">// 2. 绘制一些图形</span></div><div class="line"><span class="built_in">CGContextMoveToPoint</span>(ctx, <span class="number">10</span>, <span class="number">10</span>);</div><div class="line"><span class="built_in">CGContextAddLineToPoint</span>(ctx, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line"><span class="built_in">CGContextAddEllipseInRect</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">130</span>, <span class="number">150</span>, <span class="number">100</span>, <span class="number">100</span>));</div><div class="line"><span class="comment">// 恢复上下文</span></div><div class="line"><span class="built_in">CGContextRestoreGState</span>(ctx);</div><div class="line"><span class="built_in">CGContextAddRect</span>(ctx, <span class="built_in">CGRectMake</span>(<span class="number">70</span>, <span class="number">90</span>, <span class="number">100</span>, <span class="number">80</span>));</div><div class="line"><span class="comment">// 3. 渲染</span></div><div class="line"><span class="built_in">CGContextStrokePath</span>(ctx);</div></pre></td></tr></table></figure>
+<p><strong>注：在绘制任何图形前保存上下文, 在绘制最后一个图形前恢复上下文</strong></p>
+<h6 id="2、图片裁剪"><a href="#2、图片裁剪" class="headerlink" title="2、图片裁剪"></a>2、图片裁剪</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">CGContextRef</span> ctx = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">// 1. 画圆，这里最好使用 Ellipse 来绘制圆（画圆和画图片都从0,0点开始）。</span></div><div class="line"><span class="built_in">CGContextAddArc</span>(ctx, <span class="number">100</span>, <span class="number">100</span>, <span class="number">90</span>, <span class="number">0</span>, M_PI * <span class="number">2</span>, <span class="number">1</span>);</div><div class="line"><span class="comment">// 2. 裁剪上下文, 注意裁剪完毕就只能在裁剪好的区域内画东西了, 超出的地方无法绘制图形。</span></div><div class="line"><span class="built_in">CGContextClip</span>(ctx);</div><div class="line"><span class="comment">// 3. 把图片绘制上去</span></div><div class="line"><span class="built_in">UIImage</span> *img = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"dst2"</span>];</div><div class="line">[img drawAtPoint:<span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>)];</div></pre></td></tr></table></figure>
+<h6 id="3、图片裁剪（返回圆形边框View）"><a href="#3、图片裁剪（返回圆形边框View）" class="headerlink" title="3、图片裁剪（返回圆形边框View）"></a>3、图片裁剪（返回圆形边框View）</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UIImage</span> *)zc_circleImage</div><div class="line">&#123;</div><div class="line"><span class="comment">//NO -&gt; 透明</span></div><div class="line"><span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="number">0.0</span>);</div><div class="line"><span class="comment">//获取上下文</span></div><div class="line"><span class="built_in">CGContextRef</span> contex = <span class="built_in">UIGraphicsGetCurrentContext</span>();</div><div class="line"><span class="comment">//添加圆</span></div><div class="line"><span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.size.width, <span class="keyword">self</span>.size.height);</div><div class="line"><span class="built_in">CGContextAddEllipseInRect</span>(contex, rect);</div><div class="line"><span class="comment">//裁剪</span></div><div class="line"><span class="built_in">CGContextClip</span>(contex);</div><div class="line"><span class="comment">//将图片画上去</span></div><div class="line">[<span class="keyword">self</span> drawInRect:rect];</div><div class="line"><span class="comment">//获取图片</span></div><div class="line"><span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</div><div class="line"><span class="comment">//关闭</span></div><div class="line"><span class="built_in">UIGraphicsEndImageContext</span>();</div><div class="line"><span class="keyword">return</span> image;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong> 因为绘图操作是 CPU密集型操作（会大量使用到 CPU），所以如果可以使用普通 UIView 来代替的就不要自己进行绘图</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/07/UICollectionview/" rel="next" title="UICollectionView">
+                <i class="fa fa-chevron-left"></i> UICollectionView
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/07/Markdown语法/" rel="prev" title="Markdown语法">
+                Markdown语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、基本图形绘制"><span class="nav-number">1.</span> <span class="nav-text">一、基本图形绘制</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">1.0.1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码"><span class="nav-number">1.0.2.</span> <span class="nav-text">参考代码</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、绘制一个”三角形”"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">1、绘制一个”三角形”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、绘制一个实心”矩形”"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">2、绘制一个实心”矩形”</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、设置图形的颜色"><span class="nav-number">1.0.2.0.3.</span> <span class="nav-text">3、设置图形的颜色</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4、设置不同线段-不同颜色"><span class="nav-number">1.0.2.0.4.</span> <span class="nav-text">4、设置不同线段, 不同颜色</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5、设置线段”头尾部”的样式"><span class="nav-number">1.0.2.0.5.</span> <span class="nav-text">5、设置线段”头尾部”的样式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6、设置转折点样式"><span class="nav-number">1.0.2.0.6.</span> <span class="nav-text">6、设置转折点样式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7、文字绘制-通过OC-来绘制图形"><span class="nav-number">1.0.2.0.7.</span> <span class="nav-text">7、文字绘制(通过OC 来绘制图形)</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8、图片绘制-通过OC-来绘制图形"><span class="nav-number">1.0.2.0.8.</span> <span class="nav-text">8、图片绘制(通过OC 来绘制图形)</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、图形上下文栈"><span class="nav-number">2.</span> <span class="nav-text">二、图形上下文栈</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#参考代码-1"><span class="nav-number">2.0.1.</span> <span class="nav-text">参考代码</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、矩阵操作"><span class="nav-number">2.0.1.0.1.</span> <span class="nav-text">1、矩阵操作</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、图片裁剪"><span class="nav-number">2.0.1.0.2.</span> <span class="nav-text">2、图片裁剪</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、图片裁剪（返回圆形边框View）"><span class="nav-number">2.0.1.0.3.</span> <span class="nav-text">3、图片裁剪（返回圆形边框View）</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

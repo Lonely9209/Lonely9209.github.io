@@ -1,0 +1,753 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、UINavigationController的基本使用
+初始化UINavigationController
+设置UIWindow的rootViewController为UINavigationController
+将第一个视图控制器设置为UINavigationController的根视图控制器
+通过push方法新建子控制器
+通过pop方法可以返回到上一个控制器
+
+1、UINavigation">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UINavigationController">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/UINavigationcontroller/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、UINavigationController的基本使用
+初始化UINavigationController
+设置UIWindow的rootViewController为UINavigationController
+将第一个视图控制器设置为UINavigationController的根视图控制器
+通过push方法新建子控制器
+通过pop方法可以返回到上一个控制器
+
+1、UINavigation">
+<meta property="og:updated_time" content="2016-07-08T08:15:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UINavigationController">
+<meta name="twitter:description" content="一、UINavigationController的基本使用
+初始化UINavigationController
+设置UIWindow的rootViewController为UINavigationController
+将第一个视图控制器设置为UINavigationController的根视图控制器
+通过push方法新建子控制器
+通过pop方法可以返回到上一个控制器
+
+1、UINavigation">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/05/UINavigationcontroller/"/>
+
+  <title> UINavigationController | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UINavigationController
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T10:31:23+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UI/" itemprop="url" rel="index">
+                    <span itemprop="name">UI</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、UINavigationController的基本使用"><a href="#一、UINavigationController的基本使用" class="headerlink" title="一、UINavigationController的基本使用"></a>一、UINavigationController的基本使用</h2><ul>
+<li>初始化UINavigationController</li>
+<li>设置UIWindow的rootViewController为UINavigationController</li>
+<li>将第一个视图控制器设置为UINavigationController的根视图控制器</li>
+<li>通过push方法新建子控制器</li>
+<li>通过pop方法可以返回到上一个控制器</li>
+</ul>
+<h4 id="1、UINavigationController子控制器"><a href="#1、UINavigationController子控制器" class="headerlink" title="1、UINavigationController子控制器"></a>1、UINavigationController子控制器</h4><ul>
+<li><p>栈内所有子控制器的集合</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UIViewController</span> *&gt; *viewControllers;</div></pre></td></tr></table></figure>
+</li>
+<li><p>栈顶控制器</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">strong</span>) <span class="built_in">UIViewController</span> *topViewController;</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过push方法将控制器压栈  </p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated;</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过pop方法将栈顶控制器移出栈</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIViewController</span> *)popViewControllerAnimated:(<span class="built_in">BOOL</span>)animated</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>回到指定控制器</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSArray</span> *)popToViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated;</div></pre></td></tr></table></figure>
+</li>
+<li><p>回到根控制器</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">NSArray</span> *)popToRootViewControllerAnimated:(<span class="built_in">BOOL</span>)animated;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2、修改导航栏的内容"><a href="#2、修改导航栏的内容" class="headerlink" title="2、修改导航栏的内容"></a>2、修改导航栏的内容</h4><h6 id="导航栏的内容由栈顶控制器的navigationItem属性决定"><a href="#导航栏的内容由栈顶控制器的navigationItem属性决定" class="headerlink" title="导航栏的内容由栈顶控制器的navigationItem属性决定"></a>导航栏的内容由栈顶控制器的navigationItem属性决定</h6><h6 id="UINavigationItem有以下属性影响着导航栏的内容"><a href="#UINavigationItem有以下属性影响着导航栏的内容" class="headerlink" title="UINavigationItem有以下属性影响着导航栏的内容"></a>UINavigationItem有以下属性影响着导航栏的内容</h6><ul>
+<li><p>左上角的返回按钮</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIBarButtonItem</span> *backBarButtonItem;</div></pre></td></tr></table></figure>
+</li>
+<li><p>中间的标题视图</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIView</span>          *titleView;</div></pre></td></tr></table></figure>
+</li>
+<li><p>中间的标题文字</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>)   <span class="built_in">NSString</span>        *title;</div></pre></td></tr></table></figure>
+</li>
+<li><p>左上角的按钮</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIBarButtonItem</span> *leftBarButtonItem;</div></pre></td></tr></table></figure>
+</li>
+<li><p>右上角的按钮</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIBarButtonItem</span> *rightBarButtonItem;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="当子控制器重新设置了返回键怎样保留手势退出功能"><a href="#当子控制器重新设置了返回键怎样保留手势退出功能" class="headerlink" title="当子控制器重新设置了返回键怎样保留手势退出功能"></a>当子控制器重新设置了返回键怎样保留手势退出功能</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//保留pop手势（清空代理，让控制器重新设置这个功能滑动移除控制器）</span></div><div class="line"><span class="keyword">self</span>.interactivePopGestureRecognizer.delegate = <span class="literal">nil</span>;</div></pre></td></tr></table></figure>
+<h4 id="3、UINavigationBar属性"><a href="#3、UINavigationBar属性" class="headerlink" title="3、UINavigationBar属性"></a>3、UINavigationBar属性</h4><ul>
+<li><p>导航栏颜色</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>,<span class="keyword">strong</span>) <span class="built_in">UIColor</span> *barTintColor</div></pre></td></tr></table></figure>
+</li>
+<li><p>导航栏渲染色</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">null_resettable</span>, <span class="keyword">nonatomic</span>,<span class="keyword">strong</span>) <span class="built_in">UIColor</span> *tintColor;</div></pre></td></tr></table></figure>
+</li>
+<li><p>导航栏背景图片</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)setBackgroundImage:(<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)backgroundImage forBarPosition:(<span class="built_in">UIBarPosition</span>)barPosition barMetrics:(<span class="built_in">UIBarMetrics</span>)barMetrics  <span class="built_in">UI_APPEARANCE_SELECTOR</span>;</div><div class="line">	</div><div class="line">- (<span class="keyword">nullable</span> <span class="built_in">UIImage</span> *)backgroundImageForBarPosition:(<span class="built_in">UIBarPosition</span>)barPosition barMetrics:(<span class="built_in">UIBarMetrics</span>)barMetrics <span class="built_in">UI_APPEARANCE_SELECTOR</span>;</div></pre></td></tr></table></figure>
+</li>
+<li><p>标题属性</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>,<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *titleTextAttributes</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4、修改状态栏颜色"><a href="#4、修改状态栏颜色" class="headerlink" title="4、修改状态栏颜色"></a>4、修改状态栏颜色</h4><h6 id="创建一个高20的假状态栏背景"><a href="#创建一个高20的假状态栏背景" class="headerlink" title="创建一个高20的假状态栏背景"></a>创建一个高20的假状态栏背景</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UIView</span> *statusBarView = [[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">-20</span>, screenWidth, <span class="number">20</span>)];</div><div class="line">statusBarView.backgroundColor=[<span class="built_in">UIColor</span> blackColor];</div></pre></td></tr></table></figure>
+<h6 id="添加到导航栏上"><a href="#添加到导航栏上" class="headerlink" title="添加到导航栏上"></a>添加到导航栏上</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.navigationController.navigationBar addSubview:statusBarView];</div></pre></td></tr></table></figure>
+<h6 id="设置导航栏的背景图片"><a href="#设置导航栏的背景图片" class="headerlink" title="设置导航栏的背景图片"></a>设置导航栏的背景图片</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.navigationController.navigationBarsetBackgroundImage:[<span class="built_in">UIImageimageNamed</span>:<span class="string">@"bg.jpg"</span>] forBarMetrics:<span class="built_in">UIBarMetricsDefault</span>];</div></pre></td></tr></table></figure>
+<h2 id="二、Segue"><a href="#二、Segue" class="headerlink" title="二、Segue"></a>二、Segue</h2><h4 id="1、什么是Segue"><a href="#1、什么是Segue" class="headerlink" title="1、什么是Segue"></a>1、什么是Segue</h4><ul>
+<li>Storyboard上每一根用来界面跳转的线，都是一个UIStoryboardSegue对象（简称Segue）</li>
+</ul>
+<h4 id="2、Segue的属性"><a href="#2、Segue的属性" class="headerlink" title="2、Segue的属性"></a>2、Segue的属性</h4><h6 id="每一个Segue对象，都有3个属性"><a href="#每一个Segue对象，都有3个属性" class="headerlink" title="每一个Segue对象，都有3个属性"></a>每一个Segue对象，都有3个属性</h6><ul>
+<li><p>唯一标识    </p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="built_in">NSString</span> *identifier;</div></pre></td></tr></table></figure>
+</li>
+<li><p>来源控制器</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="keyword">id</span> sourceViewController;</div></pre></td></tr></table></figure>
+</li>
+<li><p>目标控制器</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">readonly</span>) <span class="keyword">id</span> destinationViewController;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3、Segue的类型"><a href="#3、Segue的类型" class="headerlink" title="3、Segue的类型"></a>3、Segue的类型</h4><h6 id="根据Segue的执行（跳转）时刻，Segue可以分为2大类型"><a href="#根据Segue的执行（跳转）时刻，Segue可以分为2大类型" class="headerlink" title="根据Segue的执行（跳转）时刻，Segue可以分为2大类型"></a>根据Segue的执行（跳转）时刻，Segue可以分为2大类型</h6><ul>
+<li><p>自动型：点击某个控件后（比如按钮），自动执行Segue，自动完成界面跳转</p>
+<ul>
+<li><p>按住Control键，直接从控件拖线到目标控制器</p>
+<p>  <strong>注：如果点击某个控件，不需要做任何判断，直接跳转到下一个界面，建议使用“自动型Segue”</strong> </p>
+</li>
+</ul>
+</li>
+<li>手动型：需要通过写代码手动执行Segue，才能完成界面跳转<ul>
+<li>按住Control键，从来源控制器拖线到目标控制器</li>
+<li>手动型的Segue需要设置一个标识（如右图）</li>
+<li>在需要的时刻，由来源控制器执行perform方法调用对应的Segue</li>
+<li>[self performSegueWithIdentifier:@”login2contacts” sender:nil];<ul>
+<li>如果点击某个控件，需要做一些处理之后才跳转到下一个界面，建议使用“手动型Segue”</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="4、performSegueWithIdentifier-sender"><a href="#4、performSegueWithIdentifier-sender" class="headerlink" title="4、performSegueWithIdentifier:sender:"></a>4、performSegueWithIdentifier:sender:</h4><ul>
+<li><p>1、利用performSegueWithIdentifier:方法可以执行某个Segue，跳转界面</p>
+<ul>
+<li>完整执行过程如下：  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span> performSegueWithIdentifier:<span class="string">@"login2contacts"</span> sender:<span class="literal">nil</span>];</div><div class="line"><span class="keyword">self</span>是来源控制器</div><div class="line">根据identifier去storyboard中找到对应的线，新建<span class="built_in">UIStoryboardSegue</span>对象</div><div class="line">设置Segue对象的sourceViewController（来源控制器）</div><div class="line">新建并且设置Segue对象的destinationViewController（目标控制器）</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>2、调用sourceViewController的下面方法，做跳转前的准备工作并传入创建好的Segue对象</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)prepareForSegue:(<span class="built_in">UIStoryboardSegue</span> *)segue sender:(<span class="keyword">id</span>)sender;</div></pre></td></tr></table></figure>
+<p><strong>提示：sender是调用performSegueWithIdentifier:sender:方法时传入的对象</strong></p>
+</li>
+<li>3、调用Segue对象的- (void)perform;方法开始执行界面跳转操作<ul>
+<li>如果segue的style是push<ul>
+<li>取得sourceViewController所在的UINavigationController</li>
+<li>调用UINavigationController的push方法将destinationViewController压入栈中，完成跳转</li>
+</ul>
+</li>
+<li>如果segue的style是modal<ul>
+<li>调用sourceViewController的presentViewController方法将destinationViewController展示出来</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="三、Modal"><a href="#三、Modal" class="headerlink" title="三、Modal"></a>三、Modal</h2><ul>
+<li>除了push之外，还有另外一种控制器的切换方式，那就是Modal</li>
+<li>任何控制器都能通过Modal的形式展示出来</li>
+<li>Modal的默认效果：新控制器从屏幕的最底部往上钻，直到盖住之前的控制器为止</li>
+<li><p>以Modal的形式展示控制器</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)presentViewController:(<span class="built_in">UIViewController</span> *)viewControllerToPresent animated: (<span class="built_in">BOOL</span>)flag completion:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completion</div></pre></td></tr></table></figure>
+</li>
+<li><p>关闭当初Modal出来的控制器</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)dismissViewControllerAnimated: (<span class="built_in">BOOL</span>)flag completion: (<span class="keyword">void</span> (^)(<span class="keyword">void</span>))completion;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>原则：谁Modal，谁dismiss</strong></p>
+<h2 id="四、案例"><a href="#四、案例" class="headerlink" title="四、案例"></a>四、案例</h2><h4 id="1、统一设置导航栏样式"><a href="#1、统一设置导航栏样式" class="headerlink" title="1、统一设置导航栏样式"></a>1、统一设置导航栏样式</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">+ (<span class="keyword">void</span>)initialize</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 当导航栏用在BSNavViewController中, appearance设置才会生效</span></div><div class="line">    <span class="comment">//    UINavigationBar *bar = [UINavigationBar appearanceWhenContainedIn:[self class], nil];</span></div><div class="line">    <span class="comment">// 设置导航栏背景色和标题</span></div><div class="line">    <span class="built_in">UINavigationBar</span> *bar = [<span class="built_in">UINavigationBar</span> appearance];</div><div class="line">    [bar setBackgroundImage:[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"navigationbarBackgroundWhite"</span>] forBarMetrics:<span class="built_in">UIBarMetricsDefault</span>];</div><div class="line">    [bar setTitleTextAttributes:@&#123;<span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> boldSystemFontOfSize:<span class="number">20</span>]&#125;];</div><div class="line">    </div><div class="line">    <span class="comment">// 设置导航栏按钮内容格式</span></div><div class="line">    <span class="built_in">UIBarButtonItem</span> *item = [<span class="built_in">UIBarButtonItem</span> appearance];</div><div class="line">    <span class="comment">// UIControlStateNormal</span></div><div class="line">    <span class="built_in">NSMutableDictionary</span> *attrs = [<span class="built_in">NSMutableDictionary</span> dictionary];</div><div class="line">    attrs[<span class="built_in">NSFontAttributeName</span>] = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">17</span>];</div><div class="line">    attrs[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> blackColor];</div><div class="line">    [item setTitleTextAttributes:attrs forState:<span class="built_in">UIControlStateNormal</span>];</div><div class="line">    </div><div class="line">    <span class="comment">//UIControlStateDisabled</span></div><div class="line">    <span class="built_in">NSMutableDictionary</span> *disabledAttrs = [<span class="built_in">NSMutableDictionary</span> dictionary];</div><div class="line">    disabledAttrs[<span class="built_in">NSFontAttributeName</span>] = attrs[<span class="built_in">NSFontAttributeName</span>];</div><div class="line">    disabledAttrs[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> lightGrayColor];</div><div class="line">    [item setTitleTextAttributes:disabledAttrs forState:<span class="built_in">UIControlStateDisabled</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="2、拦截导航栏push方法统一设置子控制器导航栏样式"><a href="#2、拦截导航栏push方法统一设置子控制器导航栏样式" class="headerlink" title="2、拦截导航栏push方法统一设置子控制器导航栏样式"></a>2、拦截导航栏push方法统一设置子控制器导航栏样式</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)pushViewController:(<span class="built_in">UIViewController</span> *)viewController animated:(<span class="built_in">BOOL</span>)animated &#123;</div><div class="line">    <span class="comment">//判断当前是否push到子控制器(当super写在前面时，count &gt; 1,但此时外界无法修改，因为每当外界修改完时，下面的代码又重新设置了)</span></div><div class="line">    <span class="keyword">if</span> (<span class="keyword">self</span>.childViewControllers.count &gt; <span class="number">0</span>) &#123;</div><div class="line">        <span class="comment">//设置子控制器的返回键</span></div><div class="line">        viewController.navigationItem.leftBarButtonItem = [<span class="built_in">UIBarButtonItem</span> itemWithTitle:<span class="string">@"返回"</span> image:<span class="string">@"navigationButtonReturn"</span> highImage:<span class="string">@"navigationButtonReturnClick"</span> target:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(pop)];</div><div class="line">        <span class="comment">//将按钮往左边偏移(设置button的button.imageEdgeInsets和titleEdgeInsets)</span></div><div class="line">        viewController.hidesBottomBarWhenPushed = <span class="literal">YES</span>;</div><div class="line">    &#125;</div><div class="line">    [<span class="keyword">super</span> pushViewController:viewController animated:<span class="literal">YES</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/05/GCD:RunLoop/" rel="next" title="GCD/RunLoop">
+                <i class="fa fa-chevron-left"></i> GCD/RunLoop
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/05/copy/" rel="prev" title="Copy">
+                Copy <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、UINavigationController的基本使用"><span class="nav-number">1.</span> <span class="nav-text">一、UINavigationController的基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、UINavigationController子控制器"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、UINavigationController子控制器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、修改导航栏的内容"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、修改导航栏的内容</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#导航栏的内容由栈顶控制器的navigationItem属性决定"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">导航栏的内容由栈顶控制器的navigationItem属性决定</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#UINavigationItem有以下属性影响着导航栏的内容"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">UINavigationItem有以下属性影响着导航栏的内容</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#当子控制器重新设置了返回键怎样保留手势退出功能"><span class="nav-number">1.0.3.</span> <span class="nav-text">当子控制器重新设置了返回键怎样保留手势退出功能</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、UINavigationBar属性"><span class="nav-number">1.0.4.</span> <span class="nav-text">3、UINavigationBar属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、修改状态栏颜色"><span class="nav-number">1.0.5.</span> <span class="nav-text">4、修改状态栏颜色</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#创建一个高20的假状态栏背景"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">创建一个高20的假状态栏背景</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#添加到导航栏上"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">添加到导航栏上</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#设置导航栏的背景图片"><span class="nav-number">1.0.5.0.3.</span> <span class="nav-text">设置导航栏的背景图片</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、Segue"><span class="nav-number">2.</span> <span class="nav-text">二、Segue</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、什么是Segue"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、什么是Segue</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、Segue的属性"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、Segue的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#每一个Segue对象，都有3个属性"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">每一个Segue对象，都有3个属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、Segue的类型"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、Segue的类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#根据Segue的执行（跳转）时刻，Segue可以分为2大类型"><span class="nav-number">2.0.3.0.1.</span> <span class="nav-text">根据Segue的执行（跳转）时刻，Segue可以分为2大类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、performSegueWithIdentifier-sender"><span class="nav-number">2.0.4.</span> <span class="nav-text">4、performSegueWithIdentifier:sender:</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、Modal"><span class="nav-number">3.</span> <span class="nav-text">三、Modal</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、案例"><span class="nav-number">4.</span> <span class="nav-text">四、案例</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、统一设置导航栏样式"><span class="nav-number">4.0.1.</span> <span class="nav-text">1、统一设置导航栏样式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、拦截导航栏push方法统一设置子控制器导航栏样式"><span class="nav-number">4.0.2.</span> <span class="nav-text">2、拦截导航栏push方法统一设置子控制器导航栏样式</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

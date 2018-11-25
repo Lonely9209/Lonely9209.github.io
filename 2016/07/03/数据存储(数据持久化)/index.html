@@ -1,0 +1,733 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、iOS应用数据存储的常用方式
+XML属性列表（plist）归档
+Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称)
+NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。
+SQLite3  当非常大量的数据存储时使用
+Core Data  就是对SQLite的封装
+
+二、应用沙盒1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="数据存储(数据持久化)">
+<meta property="og:url" content="http://yoursite.com/2016/07/03/数据存储(数据持久化)/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、iOS应用数据存储的常用方式
+XML属性列表（plist）归档
+Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称)
+NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。
+SQLite3  当非常大量的数据存储时使用
+Core Data  就是对SQLite的封装
+
+二、应用沙盒1">
+<meta property="og:updated_time" content="2016-07-08T12:00:33.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="数据存储(数据持久化)">
+<meta name="twitter:description" content="一、iOS应用数据存储的常用方式
+XML属性列表（plist）归档
+Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称)
+NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。
+SQLite3  当非常大量的数据存储时使用
+Core Data  就是对SQLite的封装
+
+二、应用沙盒1">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/03/数据存储(数据持久化)/"/>
+
+  <title> 数据存储(数据持久化) | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                数据存储(数据持久化)
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-03T10:31:23+08:00" content="2016-07-03">
+              2016-07-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/提高篇/" itemprop="url" rel="index">
+                    <span itemprop="name">提高篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、iOS应用数据存储的常用方式"><a href="#一、iOS应用数据存储的常用方式" class="headerlink" title="一、iOS应用数据存储的常用方式"></a>一、iOS应用数据存储的常用方式</h2><ul>
+<li>XML属性列表（plist）归档</li>
+<li>Preference(偏好设置)<br>  <code>本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称)</code></li>
+<li>NSKeyedArchiver归档(NSCoding)<br>  <code>把任何对象, 直接保存为文件的方式。</code></li>
+<li>SQLite3<br>  <code>当非常大量的数据存储时使用</code></li>
+<li>Core Data<br>  <code>就是对SQLite的封装</code></li>
+</ul>
+<h2 id="二、应用沙盒"><a href="#二、应用沙盒" class="headerlink" title="二、应用沙盒"></a>二、应用沙盒</h2><h4 id="1、应用沙盒结构分析"><a href="#1、应用沙盒结构分析" class="headerlink" title="1、应用沙盒结构分析"></a>1、应用沙盒结构分析</h4><ul>
+<li>应用程序包：(上图中的Layer)包含了所有的资源文件和可执行文件</li>
+<li><p>Documents：保存应用运行时生成的需要持久化的数据，iTunes同步设备时会备份该目录。例如，游戏应用可将游戏存档保存在该目录。保存相对重要的数据。</p>
+</li>
+<li><p>tmp：保存应用运行时所需的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行时，系统也可能会清除该目录下的文件。iTunes同步设备时不会备份该目录。保存不重要的并且大的数据。</p>
+</li>
+<li><p>Library/Caches：保存应用运行时生成的需要持久化的数据，iTunes同步设备时不会备份该目录。一般存储体积大、不需要备份的非重要数据</p>
+</li>
+<li><p>Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)应用会在该目录中查找应用的设置信息。iTunes同步设备时会备份该目录。该目录由系统管理, 无需我们来管理。通常用来存储一些基本的软件配置信息, 比如记住密码、自动登录等。</p>
+</li>
+</ul>
+<p><strong>总结: 我们平时操作数据主要使用Documents目录。</strong></p>
+<h4 id="2、应用沙盒目录的常见获取方式"><a href="#2、应用沙盒目录的常见获取方式" class="headerlink" title="2、应用沙盒目录的常见获取方式"></a>2、应用沙盒目录的常见获取方式</h4><h6 id="1、沙盒根目录：NSString-home-NSHomeDirectory"><a href="#1、沙盒根目录：NSString-home-NSHomeDirectory" class="headerlink" title="1、沙盒根目录：NSString *home = NSHomeDirectory();"></a>1、沙盒根目录：NSString *home = NSHomeDirectory();</h6><ul>
+<li>Documents：(2种方式)</li>
+<li><p>利用沙盒根目录拼接”Documents”字符串</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *home = <span class="built_in">NSHomeDirectory</span>();</div><div class="line"><span class="built_in">NSString</span> *documents = [home stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</div></pre></td></tr></table></figure>
+<p>  <strong>不建议采用，因为新版本的操作系统可能会修改目录名</strong></p>
+</li>
+</ul>
+<h6 id="2、利用NSSearchPathForDirectoriesInDomains函数"><a href="#2、利用NSSearchPathForDirectoriesInDomains函数" class="headerlink" title="2、利用NSSearchPathForDirectoriesInDomains函数"></a>2、利用NSSearchPathForDirectoriesInDomains函数</h6><ul>
+<li>NSUserDomainMask 代表从用户文件夹下找</li>
+<li><p>YES 代表展开路径中的波浪字符“~”</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSArray</span> *array =  <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);</div></pre></td></tr></table></figure>
+</li>
+<li><p>在iOS中，只有一个目录跟传入的参数匹配，所以这个集合里面只有一个元素</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSString</span> *documents = [array objectAtIndex:<span class="number">0</span>];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="3、Tmp、Library-Caches、Library-Preference"><a href="#3、Tmp、Library-Caches、Library-Preference" class="headerlink" title="3、Tmp、Library/Caches、Library/Preference"></a>3、Tmp、Library/Caches、Library/Preference</h6><ul>
+<li>tmp：NSString *tmp = NSTemporaryDirectory();</li>
+<li>Library/Caches：(跟Documents类似的2种方法)<ul>
+<li>利用沙盒根目录拼接”Caches”字符串</li>
+<li>利用NSSearchPathForDirectoriesInDomains函数(将函数的第2个参数改为：NSCachesDirectory即可)</li>
+</ul>
+</li>
+<li>Library/Preference：通过NSUserDefaults类存取该目录下的设置信息</li>
+</ul>
+<h2 id="三、属性列表（plist）"><a href="#三、属性列表（plist）" class="headerlink" title="三、属性列表（plist）"></a>三、属性列表（plist）</h2><ul>
+<li>属性列表是一种XML格式的文件，拓展名为plist</li>
+<li>如果对象是NSString、NSDictionary、NSArray、NSData、NSNumber等类型，就可以使用writeToFile:atomically:方法直接将对象写到属性列表文件中</li>
+</ul>
+<h4 id="1、属性列表-归档NSDictionary"><a href="#1、属性列表-归档NSDictionary" class="headerlink" title="1、属性列表-归档NSDictionary"></a>1、属性列表-归档NSDictionary</h4><h6 id="将一个NSDictionary对象归档到一个plist属性列表中"><a href="#将一个NSDictionary对象归档到一个plist属性列表中" class="headerlink" title="将一个NSDictionary对象归档到一个plist属性列表中"></a>将一个NSDictionary对象归档到一个plist属性列表中</h6><ul>
+<li><p>将数据封装成字典</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</div><div class="line">[dict setObject:<span class="string">@"母鸡"</span> forKey:<span class="string">@"name"</span>];</div><div class="line">[dict setObject:<span class="string">@"15013141314"</span> forKey:<span class="string">@"phone"</span>];</div><div class="line">[dict setObject:<span class="string">@"27"</span> forKey:<span class="string">@"age"</span>];</div></pre></td></tr></table></figure>
+</li>
+<li><p>将字典持久化到Documents/stu.plist文件中</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[dict writeToFile:path atomically:<span class="literal">YES</span>];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="2、属性列表-恢复NSDictionary"><a href="#2、属性列表-恢复NSDictionary" class="headerlink" title="2、属性列表-恢复NSDictionary"></a>2、属性列表-恢复NSDictionary</h4><ul>
+<li>读取属性列表，恢复NSDictionary对象</li>
+<li><p>读取Documents/stu.plist的内容，实例化NSDictionary</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSDictionary</span> *dict = [<span class="built_in">NSDictionary</span> dictionaryWithContentsOfFile:path];</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"name:%@"</span>, [dict objectForKey:<span class="string">@"name"</span>]);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"phone:%@"</span>, [dict objectForKey:<span class="string">@"phone"</span>]);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"age:%@"</span>, [dict objectForKey:<span class="string">@"age"</span>]);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="四、偏好设置"><a href="#四、偏好设置" class="headerlink" title="四、偏好设置"></a>四、偏好设置</h2><ul>
+<li>读取上次保存的设置  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSUserDefaults</span> *defaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</div><div class="line"><span class="built_in">NSString</span> *username = [defaults stringForKey:<span class="string">@"username"</span>];</div><div class="line"><span class="keyword">float</span> textSize = [defaults floatForKey:<span class="string">@"text_size"</span>];</div><div class="line"><span class="built_in">BOOL</span> autoLogin = [defaults boolForKey:<span class="string">@"auto_login"</span>];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入</strong><br>[defaults synchornize];</p>
+<h2 id="五、归档"><a href="#五、归档" class="headerlink" title="五、归档"></a>五、归档</h2><h4 id="对象必须遵守NSCoding协议"><a href="#对象必须遵守NSCoding协议" class="headerlink" title="对象必须遵守NSCoding协议"></a>对象必须遵守NSCoding协议</h4><ul>
+<li>通过”plist”文件来保存数据, 无法直接将一个对象保存到文件中。比如Person对象就没有writeToFile方法。</li>
+<li>“归档”是一种可以把任何对象, 直接保存为文件的方式。(其中包括”归档”与”反归档（读档）”)</li>
+<li><p>归档: 对象 -&gt; 文件</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:person toFile:filePath];</div></pre></td></tr></table></figure>
+</li>
+<li><p>反归档(读档): 文件 -&gt; 对象</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:filePath];</div></pre></td></tr></table></figure>
+</li>
+<li><p>通过”归档”的方式能将任何遵守了NSCoding协议的”对象”存储到文件中</p>
+</li>
+<li><p>NSCoding协议的两个重要的方法:</p>
+<ul>
+<li><p>1、- (void)encodeWithCoder:(NSCoder *)aCoder;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">示例代码:</div><div class="line"><span class="comment">// 归档时调用该方法</span></div><div class="line">- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder</div><div class="line">&#123;</div><div class="line">   [aCoder encodeObject:<span class="keyword">self</span>.name forKey:<span class="string">@"name"</span>];</div><div class="line">   [aCoder encodeInteger:<span class="keyword">self</span>.age forKey:<span class="string">@"age"</span>];</div><div class="line">   [aCoder encodeDouble:<span class="keyword">self</span>.height forKey:<span class="string">@"height"</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 通过调用NSKeyedArchiver的archiveRootObject方法来实现归档</span></div><div class="line">CZPerson *person = [[SteveZPerson alloc] init];</div><div class="line">person.name = <span class="string">@"JackMeng"</span>;</div><div class="line">person.age = <span class="number">27</span>;</div><div class="line">person.height = <span class="number">1.75</span>;</div><div class="line"></div><div class="line"><span class="comment">// 获取沙盒路径</span></div><div class="line"><span class="built_in">NSString</span> *sandBoxPath = <span class="built_in">NSHomeDirectory</span>();</div><div class="line"><span class="comment">// 获取Documents的路径</span></div><div class="line"><span class="built_in">NSString</span> *docPath = [sandBoxPath stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</div><div class="line"><span class="comment">// 获取文件路径</span></div><div class="line"><span class="built_in">NSString</span> *filePath = [docPath stringByAppendingPathComponent:<span class="string">@"person.plist"</span>];</div><div class="line"></div><div class="line"><span class="comment">// 将对象person归档</span></div><div class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:person toFile:filePath];</div></pre></td></tr></table></figure>
+</li>
+<li><p>2、 - (id)initWithCoder:(NSCoder *)aDecoder;</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 读档时调用该方法</span></div><div class="line">       - (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</div><div class="line">       &#123;</div><div class="line">           <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</div><div class="line">           <span class="keyword">self</span>.name = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];</div><div class="line">           <span class="keyword">self</span>.age = [aDecoder decodeIntegerForKey:<span class="string">@"age"</span>];</div><div class="line">           <span class="keyword">self</span>.height = [aDecoder decodeDoubleForKey:<span class="string">@"height"</span>];</div><div class="line">       &#125;</div><div class="line">          <span class="keyword">return</span> <span class="keyword">self</span>;</div><div class="line">       &#125;</div><div class="line">       </div><div class="line">       <span class="comment">// 获取沙盒路径</span></div><div class="line">       <span class="built_in">NSString</span> *sandBoxPath = <span class="built_in">NSHomeDirectory</span>();</div><div class="line">       <span class="comment">// 获取Documents的路径</span></div><div class="line">       <span class="built_in">NSString</span> *docPath = [sandBoxPath stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</div><div class="line">       <span class="comment">// 获取文件路径</span></div><div class="line">       <span class="built_in">NSString</span> *filePath = [docPath stringByAppendingPathComponent:<span class="string">@"person.bin"</span>];</div><div class="line">       </div><div class="line">       CZPerson *person = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:filePath];</div><div class="line">       </div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"name: %@, age: %ld, height: %f"</span>, person.name, person.age, person.height);</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>如果父类中也有属性需要归档、读档, 在子类中必须调用super的相关方法</strong></p>
+<p>如果父类也遵守了NSCoding协议，请注意：<br>应该在encodeWithCoder:方法中加上一句<br>[super encodeWithCode:encode];<br>确保继承的实例变量也能被编码，即也能被归档<br>应该在initWithCoder:方法中加上一句<br>self = [super initWithCoder:decoder];<br>确保继承的实例变量也能被解码，即也能被恢复</p>
+<h4 id="归档小节"><a href="#归档小节" class="headerlink" title="归档小节"></a>归档小节</h4><ul>
+<li>自定义对象归档(归档：数据存储)<ul>
+<li>1、自定义对象如何归档：用NSKeyedArchiver,调用archiveRootObject:toFile:方法，需要传一个对象，自定义一个对象，传进去。<ul>
+<li>会报错,说对象没有encodeWithCoder方法，说明归档的时候默认会调用这个方法，去实现这个方法。</li>
+<li>默认打不出encodeWithCoder，必须遵守NSCoding协议才能实现这个方法。</li>
+<li>encodeWithCoder什么时候调用：对象归档时候调用</li>
+<li>encodeWithCoder作用：告诉系统对象里的哪些属性需要归档，怎么去归档，根据一个key去归档，目的就是以后取的时候，也根据这个key去取数据。</li>
+</ul>
+</li>
+<li>2、自定义对象如何解档:用NSKeyedUnarchiver,调用unarchiveObjectWithFile方法，需要传一个文件名。<ul>
+<li>会报错,说对象没有initWithCoder方法，说明解档的时候默认会调用这个方法，去实现这个方法。</li>
+<li>initWithCoder什么时候调用：对象解档时候调用</li>
+<li>initWithCoder作用：告诉系统对象里的哪些属性需要解档，怎么去解档，根据之前存储的key去解档</li>
+<li>initWithCoder是一个初始化方法，需要先初始化父类的，但是不能调用[super initWithCoder:],因为父类NSObject没有遵守NSCoding协议。</li>
+</ul>
+</li>
+<li>3、initWithCoder什么时候需要调用[super initWithCoder:]<ul>
+<li>initWithCoder原理:只要解析文件就会调用，xib,storyboard都是文件，因此只要解析这两个文件，就会调用initWithCoder。</li>
+<li><strong>因此如果在storyboard使用自定义view,重写initWithCoder方法，一定要调用[super initWithCoder:]，因为只有系统才知道怎么解析storyboard，如果没有调用，就解析不了这个文件</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/03/HTTP请求和数据安全/" rel="next" title="HTTP请求和数据安全">
+                <i class="fa fa-chevron-left"></i> HTTP请求和数据安全
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/03/UIResponder:触摸事件/" rel="prev" title="UIResponder/触摸事件">
+                UIResponder/触摸事件 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、iOS应用数据存储的常用方式"><span class="nav-number">1.</span> <span class="nav-text">一、iOS应用数据存储的常用方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、应用沙盒"><span class="nav-number">2.</span> <span class="nav-text">二、应用沙盒</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、应用沙盒结构分析"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、应用沙盒结构分析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、应用沙盒目录的常见获取方式"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、应用沙盒目录的常见获取方式</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、沙盒根目录：NSString-home-NSHomeDirectory"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">1、沙盒根目录：NSString *home = NSHomeDirectory();</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、利用NSSearchPathForDirectoriesInDomains函数"><span class="nav-number">2.0.2.0.2.</span> <span class="nav-text">2、利用NSSearchPathForDirectoriesInDomains函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3、Tmp、Library-Caches、Library-Preference"><span class="nav-number">2.0.2.0.3.</span> <span class="nav-text">3、Tmp、Library/Caches、Library/Preference</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、属性列表（plist）"><span class="nav-number">3.</span> <span class="nav-text">三、属性列表（plist）</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、属性列表-归档NSDictionary"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、属性列表-归档NSDictionary</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#将一个NSDictionary对象归档到一个plist属性列表中"><span class="nav-number">3.0.1.0.1.</span> <span class="nav-text">将一个NSDictionary对象归档到一个plist属性列表中</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、属性列表-恢复NSDictionary"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、属性列表-恢复NSDictionary</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、偏好设置"><span class="nav-number">4.</span> <span class="nav-text">四、偏好设置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、归档"><span class="nav-number">5.</span> <span class="nav-text">五、归档</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#对象必须遵守NSCoding协议"><span class="nav-number">5.0.1.</span> <span class="nav-text">对象必须遵守NSCoding协议</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#归档小节"><span class="nav-number">5.0.2.</span> <span class="nav-text">归档小节</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

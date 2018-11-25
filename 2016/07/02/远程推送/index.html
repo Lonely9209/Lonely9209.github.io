@@ -1,0 +1,751 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、推送1、推送通知iOS中提供了2种推送通知
+本地推送通知（Local Notification）
+远程推送通知（Remote Notification）
+
+2、推送通知的作用
+可以让不在前台运行的app，告知用户app内部发生了什么事情
+
+3、推送通知的呈现效果总结
+在屏幕顶部显示一块横幅（显示具体内容）
+在屏幕中间弹出一个UIAlertView（显示具体内容）
+在锁屏界面显示一块横幅（锁屏状">
+<meta property="og:type" content="article">
+<meta property="og:title" content="推送">
+<meta property="og:url" content="http://yoursite.com/2016/07/02/远程推送/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、推送1、推送通知iOS中提供了2种推送通知
+本地推送通知（Local Notification）
+远程推送通知（Remote Notification）
+
+2、推送通知的作用
+可以让不在前台运行的app，告知用户app内部发生了什么事情
+
+3、推送通知的呈现效果总结
+在屏幕顶部显示一块横幅（显示具体内容）
+在屏幕中间弹出一个UIAlertView（显示具体内容）
+在锁屏界面显示一块横幅（锁屏状">
+<meta property="og:updated_time" content="2016-07-08T11:51:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="推送">
+<meta name="twitter:description" content="一、推送1、推送通知iOS中提供了2种推送通知
+本地推送通知（Local Notification）
+远程推送通知（Remote Notification）
+
+2、推送通知的作用
+可以让不在前台运行的app，告知用户app内部发生了什么事情
+
+3、推送通知的呈现效果总结
+在屏幕顶部显示一块横幅（显示具体内容）
+在屏幕中间弹出一个UIAlertView（显示具体内容）
+在锁屏界面显示一块横幅（锁屏状">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/02/远程推送/"/>
+
+  <title> 推送 | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                推送
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-02T20:25:10+08:00" content="2016-07-02">
+              2016-07-02
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/提高篇/" itemprop="url" rel="index">
+                    <span itemprop="name">提高篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="一、推送"><a href="#一、推送" class="headerlink" title="一、推送"></a>一、推送</h1><h3 id="1、推送通知"><a href="#1、推送通知" class="headerlink" title="1、推送通知"></a>1、推送通知</h3><h5 id="iOS中提供了2种推送通知"><a href="#iOS中提供了2种推送通知" class="headerlink" title="iOS中提供了2种推送通知"></a>iOS中提供了2种推送通知</h5><ul>
+<li>本地推送通知（Local Notification）</li>
+<li>远程推送通知（Remote Notification）</li>
+</ul>
+<h3 id="2、推送通知的作用"><a href="#2、推送通知的作用" class="headerlink" title="2、推送通知的作用"></a>2、推送通知的作用</h3><ul>
+<li>可以让不在前台运行的app，告知用户app内部发生了什么事情</li>
+</ul>
+<h3 id="3、推送通知的呈现效果总结"><a href="#3、推送通知的呈现效果总结" class="headerlink" title="3、推送通知的呈现效果总结"></a>3、推送通知的呈现效果总结</h3><ul>
+<li>在屏幕顶部显示一块横幅（显示具体内容）</li>
+<li>在屏幕中间弹出一个UIAlertView（显示具体内容）</li>
+<li>在锁屏界面显示一块横幅（锁屏状态下，显示具体内容）</li>
+<li>更新app图标的数字（说明新内容的数量）</li>
+<li>播放音效（提醒作用）</li>
+</ul>
+<h3 id="4、推送通知的呈现效果设置"><a href="#4、推送通知的呈现效果设置" class="headerlink" title="4、推送通知的呈现效果设置"></a>4、推送通知的呈现效果设置</h3><h5 id="用户也可以决定是否要开启以下4个功能："><a href="#用户也可以决定是否要开启以下4个功能：" class="headerlink" title="用户也可以决定是否要开启以下4个功能："></a>用户也可以决定是否要开启以下4个功能：</h5><ul>
+<li>显示App图标数字</li>
+<li>播放音效</li>
+<li>锁屏显示</li>
+<li>显示在“通知中心”</li>
+</ul>
+<h3 id="5、推送通知的使用细节"><a href="#5、推送通知的使用细节" class="headerlink" title="5、推送通知的使用细节"></a>5、推送通知的使用细节</h3><ul>
+<li>发出推送通知时，如果当前程序正运行在前台，那么推送通知就不会被呈现出来</li>
+<li>点击推送通知后，默认会自动打开发出推送通知的app</li>
+<li>不管app打开还是关闭，推送通知都能如期发出</li>
+</ul>
+<h1 id="二、本地推送通知"><a href="#二、本地推送通知" class="headerlink" title="二、本地推送通知"></a>二、本地推送通知</h1><h3 id="1、什么是本地推送通知"><a href="#1、什么是本地推送通知" class="headerlink" title="1、什么是本地推送通知"></a>1、什么是本地推送通知</h3><ul>
+<li>顾名思义，就是不需要联网就能发出的推送通知（不需要服务器的支持）</li>
+</ul>
+<h3 id="2、如何发出本地推送通知"><a href="#2、如何发出本地推送通知" class="headerlink" title="2、如何发出本地推送通知"></a>2、如何发出本地推送通知</h3><h5 id="1、创建本地推送通知对象"><a href="#1、创建本地推送通知对象" class="headerlink" title="1、创建本地推送通知对象"></a>1、创建本地推送通知对象</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">UILocalNotification</span> *ln = [[<span class="built_in">UILocalNotification</span> alloc] init];</div></pre></td></tr></table></figure>
+<h5 id="2、设置本地推送通知属性"><a href="#2、设置本地推送通知属性" class="headerlink" title="2、设置本地推送通知属性"></a>2、设置本地推送通知属性</h5><ul>
+<li><p>推送通知的触发时间（何时发出推送通知）</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSDate</span> *fireDate;</div></pre></td></tr></table></figure>
+</li>
+<li><p>推送通知的具体内容</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *alertBody;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在锁屏时显示的动作标题（完整标题：“滑动来” + alertAction）</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *alertAction;</div></pre></td></tr></table></figure>
+</li>
+<li><p>音效文件名</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *soundName;</div></pre></td></tr></table></figure>
+</li>
+<li><p>app图标数字</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">NSInteger</span> applicationIconBadgeNumber;</div></pre></td></tr></table></figure>
+</li>
+<li><p>每隔多久重复发一次推送通知</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">NSCalendarUnit</span> repeatInterval;</div></pre></td></tr></table></figure>
+</li>
+<li><p>点击推送通知打开app时显示的启动图片</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *alertLaunchImage;</div></pre></td></tr></table></figure>
+</li>
+<li><p>附加的额外信息</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSDictionary</span> *userInfo;</div></pre></td></tr></table></figure>
+</li>
+<li><p>时区</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSTimeZone</span> *timeZone;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>（一般设置为[NSTimeZone defaultTimeZone] ，跟随手机的时区）</strong></p>
+<h5 id="3、如何发出本地推送通知"><a href="#3、如何发出本地推送通知" class="headerlink" title="3、如何发出本地推送通知"></a>3、如何发出本地推送通知</h5><ul>
+<li><p>调度本地推送通知（调度完毕后，推送通知会在特地时间fireDate发出）</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">[[<span class="built_in">UIApplication</span> sharedApplication] scheduleLocalNotification:ln];</div></pre></td></tr></table></figure>
+</li>
+<li><p>获得被调度(定制)的所有本地推送通知</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span> *scheduledLocalNotifications;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>（已经发出且过期的推送通知就算调度结束，会自动从这个数组中移除）</strong></p>
+<ul>
+<li><p>取消调度本地推送通知</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)cancelLocalNotification:(<span class="built_in">UILocalNotification</span> *)notification;</div><div class="line">- (<span class="keyword">void</span>)cancelAllLocalNotifications;</div></pre></td></tr></table></figure>
+</li>
+<li><p>立即发出本地推送通知</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)presentLocalNotificationNow:(<span class="built_in">UILocalNotification</span> *)notification;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3、点击本地推送通知"><a href="#3、点击本地推送通知" class="headerlink" title="3、点击本地推送通知"></a>3、点击本地推送通知</h3><h5 id="当用户点击本地推送通知，会自动打开app，这里有2种情况"><a href="#当用户点击本地推送通知，会自动打开app，这里有2种情况" class="headerlink" title="当用户点击本地推送通知，会自动打开app，这里有2种情况"></a>当用户点击本地推送通知，会自动打开app，这里有2种情况</h5><ul>
+<li><p>app并没有关闭，一直隐藏在后台</p>
+<pre><code>让app进入前台，并会调用AppDelegate的下面方法（并非重新启动app）
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification;
+</code></pre></li>
+<li><p>app已经被关闭（进程已死）</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">启动app，启动完毕会调用AppDelegate的下面方法</div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions;</div><div class="line">launchOptions参数通过<span class="built_in">UIApplicationLaunchOptionsLocalNotificationKey</span>取出本地推送通知对象</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="三、远程推送通知"><a href="#三、远程推送通知" class="headerlink" title="三、远程推送通知"></a>三、远程推送通知</h1><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><h5 id="1、什么是远程推送通知"><a href="#1、什么是远程推送通知" class="headerlink" title="1、什么是远程推送通知"></a>1、什么是远程推送通知</h5><ul>
+<li>顾名思义，就是从远程服务器推送给客户端的通知（需要联网）</li>
+<li>远程推送服务，又称为APNs（Apple Push Notification Services）</li>
+</ul>
+<h5 id="2、为什么需要远程推送通知？"><a href="#2、为什么需要远程推送通知？" class="headerlink" title="2、为什么需要远程推送通知？"></a>2、为什么需要远程推送通知？</h5><ul>
+<li>传统获取数据的局限性</li>
+<li>只要用户关闭了app，就无法跟app的服务器沟通，无法从服务器上获得最新的数据内容</li>
+</ul>
+<h5 id="3、远程推送通知可以解决以上问题"><a href="#3、远程推送通知可以解决以上问题" class="headerlink" title="3、远程推送通知可以解决以上问题"></a>3、远程推送通知可以解决以上问题</h5><p>不管用户打开还是关闭app，只要联网了，都能接收到服务器推送的远程通知</p>
+<h3 id="2、远程推送通知使用须知"><a href="#2、远程推送通知使用须知" class="headerlink" title="2、远程推送通知使用须知"></a>2、远程推送通知使用须知</h3><pre><code>所有的苹果设备，在联网状态下，都会与苹果的服务器建立长连接
+什么是长连接
+只要联网了，就一直建立连接
+
+长连接的作用
+时间校准
+系统升级
+查找我的iPhone
+.. ...
+
+长连接的好处
+数据传输速度快
+数据保持最新状态
+</code></pre><h3 id="3、注册远程推送通知"><a href="#3、注册远程推送通知" class="headerlink" title="3、注册远程推送通知"></a>3、注册远程推送通知</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">客户端如果想接收APNs的远程推送通知，必须先注册（得到用户的授权）</div><div class="line">一般在App启动完毕后就马上注册</div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</div><div class="line">&#123;</div><div class="line">    <span class="comment">// 注册远程通知</span></div><div class="line">       <span class="built_in">UIRemoteNotificationType</span> type = <span class="built_in">UIRemoteNotificationTypeAlert</span> | <span class="built_in">UIRemoteNotificationTypeBadge</span> | <span class="built_in">UIRemoteNotificationTypeSound</span>;</div><div class="line">    [application registerForRemoteNotificationTypes:type];</div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">注册成功后会调用AppDelegate的下面方法，得到设备的deviceToken</div><div class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didRegisterForRemoteNotificationsWithDeviceToken:(<span class="built_in">NSData</span> *)deviceToken</div><div class="line">&#123;</div><div class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, deviceToken);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="4、点击远程推送通知"><a href="#4、点击远程推送通知" class="headerlink" title="4、点击远程推送通知"></a>4、点击远程推送通知</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">当用户点击远程推送通知，会自动打开app，这里有<span class="number">2</span>种情况</div><div class="line">app并没有关闭，一直隐藏在后台</div><div class="line">让app进入前台，并会调用AppDelegate的下面方法（并非重新启动app）</div><div class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="built_in">NSDictionary</span> *)userInfo;</div><div class="line"></div><div class="line">app已经被关闭（进程已死）</div><div class="line">启动app，启动完毕会调用AppDelegate的下面方法</div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions;</div><div class="line">launchOptions参数通过<span class="built_in">UIApplicationLaunchOptionsRemoteNotificationKey</span>取出服务器返回的字典内容</div></pre></td></tr></table></figure>
+<h1 id="四、远程推送应用配置过程"><a href="#四、远程推送应用配置过程" class="headerlink" title="四、远程推送应用配置过程"></a>四、远程推送应用配置过程</h1><ol>
+<li>创建支持远程推送功能的App ID</li>
+<li>申请开发者证书，并选中刚刚创建的App ID</li>
+<li>下载CER文件，并导入钥匙串管理</li>
+<li>申请发布证书，并选中刚刚创建的App ID</li>
+<li>下载CER文件，并导入钥匙串管理</li>
+<li>检查App ID，确认证书已经指定</li>
+</ol>
+<h3 id="远程推送应用程序开发过程"><a href="#远程推送应用程序开发过程" class="headerlink" title="远程推送应用程序开发过程"></a>远程推送应用程序开发过程</h3><ol>
+<li>新建应用程序</li>
+<li>指定AppID，在developer.apple.com上设置的AppID</li>
+</ol>
+<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#ifdef __IPHONE_8_0</span></div><div class="line"><span class="comment">// 注册接收通知的类型</span></div><div class="line"><span class="built_in">UIUserNotificationSettings</span> *settings = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeAlert</span> | <span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span> categories:<span class="literal">nil</span>];</div><div class="line">[application registerUserNotificationSettings:settings];</div><div class="line"></div><div class="line"><span class="comment">// 注册允许接收远程推送通知</span></div><div class="line">[application registerForRemoteNotifications];</div><div class="line"><span class="meta">#else</span></div><div class="line"><span class="comment">// 如果是iOS7.0，使用以下方法注册</span></div><div class="line">[application registerForRemoteNotificationTypes:<span class="built_in">UIUserNotificationTypeAlert</span> | <span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span>];</div><div class="line"><span class="meta">#endif</span></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">// 当得到苹果的APNs服务器返回的DeviceToken就会被调用</span></div><div class="line"><span class="comment">// 7040f7d5 5a974598 c5cf31b5 3e340b39 68affd25 122f0ce1 3f315226 396c2e5b</span></div><div class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didRegisterForRemoteNotificationsWithDeviceToken:(<span class="built_in">NSData</span> *)deviceToken &#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"deviceToken是：%@"</span>, deviceToken);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 接收到远程通知，触发方法和本地通知一致</span></div><div class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="built_in">NSDictionary</span> *)userInfo &#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, userInfo);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="使用后台的远程消息推送"><a href="#使用后台的远程消息推送" class="headerlink" title="使用后台的远程消息推送"></a>使用后台的远程消息推送</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#123;<span class="string">"aps"</span> : &#123;<span class="string">"content-available"</span> : <span class="number">1</span>&#125;,<span class="string">"content-id"</span> : <span class="number">42</span>&#125;</div><div class="line"></div><div class="line">执行completionHandler有两个目的</div><div class="line"><span class="number">1</span>&gt; 系统会估量App消耗的电量，并根据传递的<span class="built_in">UIBackgroundFetchResult</span> 参数记录新数据是否可用</div><div class="line"><span class="number">2</span>&gt; 调用完成的处理代码时，应用的界面缩略图会自动更新</div></pre></td></tr></table></figure>
+<p><strong>注意：接收到远程通知到执行完网络请求之间的时间不能超过30秒</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (userInfo) &#123;</div><div class="line">   <span class="keyword">int</span> contentId = [userInfo[<span class="string">@"content-id"</span>] intValue];</div><div class="line">   </div><div class="line">   ViewController *vc = (ViewController *)application.keyWindow.rootViewController;</div><div class="line">   [vc loadDataWithContentID:contentId completion:^(<span class="built_in">NSArray</span> *dataList) &#123;</div><div class="line">       vc.dataList = dataList;</div><div class="line">   </div><div class="line">       <span class="built_in">NSLog</span>(<span class="string">@"刷新数据结束"</span>);</div><div class="line">       </div><div class="line">       completionHandler(<span class="built_in">UIBackgroundFetchResultNewData</span>);</div><div class="line">   &#125;];</div><div class="line">&#125; <span class="keyword">else</span> &#123;</div><div class="line">   completionHandler(<span class="built_in">UIBackgroundFetchResultNoData</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/02/使用NSURL读写字符串/" rel="next" title="使用NSURL读写字符串">
+                <i class="fa fa-chevron-left"></i> 使用NSURL读写字符串
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/03/HTTP请求和数据安全/" rel="prev" title="HTTP请求和数据安全">
+                HTTP请求和数据安全 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、推送"><span class="nav-number">1.</span> <span class="nav-text">一、推送</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、推送通知"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、推送通知</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#iOS中提供了2种推送通知"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">iOS中提供了2种推送通知</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、推送通知的作用"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、推送通知的作用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、推送通知的呈现效果总结"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、推送通知的呈现效果总结</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、推送通知的呈现效果设置"><span class="nav-number">1.0.4.</span> <span class="nav-text">4、推送通知的呈现效果设置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#用户也可以决定是否要开启以下4个功能："><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">用户也可以决定是否要开启以下4个功能：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、推送通知的使用细节"><span class="nav-number">1.0.5.</span> <span class="nav-text">5、推送通知的使用细节</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、本地推送通知"><span class="nav-number">2.</span> <span class="nav-text">二、本地推送通知</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、什么是本地推送通知"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、什么是本地推送通知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、如何发出本地推送通知"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、如何发出本地推送通知</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、创建本地推送通知对象"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">1、创建本地推送通知对象</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、设置本地推送通知属性"><span class="nav-number">2.0.2.0.2.</span> <span class="nav-text">2、设置本地推送通知属性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、如何发出本地推送通知"><span class="nav-number">2.0.2.0.3.</span> <span class="nav-text">3、如何发出本地推送通知</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、点击本地推送通知"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、点击本地推送通知</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#当用户点击本地推送通知，会自动打开app，这里有2种情况"><span class="nav-number">2.0.3.0.1.</span> <span class="nav-text">当用户点击本地推送通知，会自动打开app，这里有2种情况</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、远程推送通知"><span class="nav-number">3.</span> <span class="nav-text">三、远程推送通知</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、定义"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、定义</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、什么是远程推送通知"><span class="nav-number">3.0.1.0.1.</span> <span class="nav-text">1、什么是远程推送通知</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、为什么需要远程推送通知？"><span class="nav-number">3.0.1.0.2.</span> <span class="nav-text">2、为什么需要远程推送通知？</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、远程推送通知可以解决以上问题"><span class="nav-number">3.0.1.0.3.</span> <span class="nav-text">3、远程推送通知可以解决以上问题</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、远程推送通知使用须知"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、远程推送通知使用须知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、注册远程推送通知"><span class="nav-number">3.0.3.</span> <span class="nav-text">3、注册远程推送通知</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、点击远程推送通知"><span class="nav-number">3.0.4.</span> <span class="nav-text">4、点击远程推送通知</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、远程推送应用配置过程"><span class="nav-number">4.</span> <span class="nav-text">四、远程推送应用配置过程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#远程推送应用程序开发过程"><span class="nav-number">4.0.1.</span> <span class="nav-text">远程推送应用程序开发过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#案例"><span class="nav-number">4.0.2.</span> <span class="nav-text">案例</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用后台的远程消息推送"><span class="nav-number">4.0.3.</span> <span class="nav-text">使用后台的远程消息推送</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

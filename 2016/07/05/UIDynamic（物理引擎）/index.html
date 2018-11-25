@@ -1,0 +1,700 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做)
+* 物理仿真元素(Dynamic Item)
+* 是任何遵守了UIDynamicItem协议的对象
+b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画)
+* 物理仿真行为(Dynamic Behavior) 
+* 仿真行为,是动力学行为的父类,基本的动力学行为类
+UIGravityBehavior、UICollisionBehavio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIDynamic（物理引擎）">
+<meta property="og:url" content="http://yoursite.com/2016/07/05/UIDynamic（物理引擎）/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做)
+* 物理仿真元素(Dynamic Item)
+* 是任何遵守了UIDynamicItem协议的对象
+b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画)
+* 物理仿真行为(Dynamic Behavior) 
+* 仿真行为,是动力学行为的父类,基本的动力学行为类
+UIGravityBehavior、UICollisionBehavio">
+<meta property="og:updated_time" content="2016-07-08T12:07:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIDynamic（物理引擎）">
+<meta name="twitter:description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做)
+* 物理仿真元素(Dynamic Item)
+* 是任何遵守了UIDynamicItem协议的对象
+b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画)
+* 物理仿真行为(Dynamic Behavior) 
+* 仿真行为,是动力学行为的父类,基本的动力学行为类
+UIGravityBehavior、UICollisionBehavio">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/05/UIDynamic（物理引擎）/"/>
+
+  <title> UIDynamic（物理引擎） | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UIDynamic（物理引擎）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-05T10:31:23+08:00" content="2016-07-05">
+              2016-07-05
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/提高篇/" itemprop="url" rel="index">
+                    <span itemprop="name">提高篇</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><h4 id="1、相关概念"><a href="#1、相关概念" class="headerlink" title="1、相关概念"></a>1、相关概念</h4><p>a. 谁要进行物理仿真?(要谁做)</p>
+<pre><code>* 物理仿真元素(Dynamic Item)
+* 是任何遵守了UIDynamicItem协议的对象
+</code></pre><p>b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画)</p>
+<pre><code>* 物理仿真行为(Dynamic Behavior) 
+* 仿真行为,是动力学行为的父类,基本的动力学行为类
+UIGravityBehavior、UICollisionBehavior、UIAttachmentBehavior、UISnapBehavi or、UIPushBehavior以及UIDynamicItemBehavior均继承自该父类,可以组合使用
+</code></pre><p>c. 让物理仿真元素执行具体的物理仿真行为(开始做) </p>
+<pre><code>* 物理仿真器(Dynamic Animator)
+* 为动力学元素提供物理学相关的能力及动画,同时为这些元素提供相关的上 
+* 下文,是动力学元素与底层iOS物理引擎之间的中介,将Behavior对象添加到 Animator即可实现动力仿真
+</code></pre><p>d. 注意不是任何对象都可以做物理仿真效果 </p>
+<pre><code>* 物理仿真元素要素:
+* 任何遵守了UIDynamicItem协议的对象 UIView默认已经遵守了    * UIDynamicItem协议,因此任何UI控件都能做物理仿真     * UICollectionViewLayoutAttributes类默认也遵守UIDynamicItem协议
+</code></pre><p><strong>仿真器使用时必须设置一个strong属性使其不会立即销毁</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIDynamicAnimator</span> *animator;</div><div class="line">```	</div><div class="line"><span class="meta">#### 2、使用步骤</span></div><div class="line">a. 创建一个<span class="built_in">UIDynamicAnimator</span>对象b. 创建行为对象(<span class="built_in">UIDynamicBehavior</span>)c. 将要执行动画的对象添加到<span class="built_in">UIDynamicBehavior</span>中一般会将 <span class="built_in">UIView</span> 添加到行为对象中 <span class="built_in">UIView</span> 遵守了<span class="built_in">UIDynamicItem</span>协议</div><div class="line"></div><div class="line"><span class="meta">## 二、物理仿真行为</span></div><div class="line"><span class="meta">#### 1、重力行为(Gravity)</span></div><div class="line"><span class="meta">###### 1、重力行为用于给动力学元素指定一个重力向量</span></div><div class="line"><span class="meta">###### 2、代码示例</span></div><div class="line">```objc</div><div class="line"><span class="comment">//1 创建物理仿真器</span><span class="built_in">UIDynamicAnimator</span> *animator = [[<span class="built_in">UIDynamicAnimator</span> alloc]initWithReferenceView:<span class="keyword">self</span>.redView];<span class="keyword">self</span>.animator = animator;<span class="comment">//2 创建重力行为(物理行为)</span><span class="built_in">UIGravityBehavior</span> *behavior = [[<span class="built_in">UIGravityBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.redView]]; <span class="comment">//量级(用来控制加速度,1.0代表加速度是1000 points</span>/second2) behavior.magnitude = <span class="number">0.2</span>; <span class="comment">//方向</span><span class="comment">//</span>behavior.gravityDirection = <span class="built_in">CGVectorMake</span>(<span class="number">1</span>, <span class="number">1</span>);behavior.angle = <span class="number">0</span>;<span class="comment">//3 把物理行为添加到物理仿真器中 开始动画</span>[animator addBehavior:behavior];</div></pre></td></tr></table></figure></p>
+<h4 id="2、碰撞行为-Collision"><a href="#2、碰撞行为-Collision" class="headerlink" title="2、碰撞行为(Collision)"></a>2、碰撞行为(Collision)</h4><h6 id="1、相关属性"><a href="#1、相关属性" class="headerlink" title="1、相关属性"></a>1、相关属性</h6><p>translatesReferenceBoundsIntoBoundary</p>
+<pre><code class="objc">translatesReferenceBoundsIntoBoundary设置为<span class="literal">YES</span>而不是明确的添加边界的坐标。这样会使这
+个边界使用 <span class="built_in">UIDynamicAnimator</span> 提供的参考系的边界。
+</code></pre>
+<p>collisionMode</p>
+<pre><code class="objc"><span class="built_in">UICollisionBehaviorModeItems</span> 碰到元素碰撞,边界不碰撞 <span class="built_in">UICollisionBehaviorModeBoundaries</span> 碰到边界碰撞,元素不碰撞 <span class="built_in">UICollisionBehaviorModeEverything</span> 默认,碰到边界或元素会发生碰撞
+&lt;!--￼<span class="number">1</span>--&gt;
+
+<span class="meta">###### 3、碰撞行为-其它</span>
+<span class="number">1.</span> 两种自定义边界的方式,设置直线 
+    a. 添加边界,设置两个点
+    ```objc
+    [collision addBoundaryWithIdentifier:<span class="string">@"b1"</span> fromPoint:<span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">200</span>) toPoint:<span class="built_in">CGPointMake</span>(<span class="number">180</span>, <span class="number">250</span>)];
+</code></pre>
+<pre><code>b. 使用路径的方式
+```objc
+UIBezierPath *path = [UIBezierPath bezierPath];
+[path moveToPoint:CGPointMake(0, 200)];
+[path addLineToPoint:CGPointMake(180, 250)];
+[collision addBoundaryWithIdentifier:@&quot;b1&quot; forPath:path];
+```
+</code></pre><ol>
+<li><p>自定义边界,设置矩形的边界</p>
+<pre><code class="objc"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">200</span>, <span class="number">180</span>, <span class="number">20</span>)]; [collision addBoundaryWithIdentifier:<span class="string">@"b2"</span> forPath:path];
+</code></pre>
+</li>
+<li><p>碰撞过程中监听frame的变化 </p>
+<pre><code class="objc">[collision setAction:^{
+<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromCGRect</span>(<span class="keyword">self</span>.redView.frame)); }];
+</code></pre>
+</li>
+<li>碰撞行为的弹力系数(0-1之间)<pre><code class="objc"><span class="built_in">UIDynamicItemBehavior</span> *item = [[<span class="built_in">UIDynamicItemBehavior</span> alloc] initWithItems: @[<span class="keyword">self</span>.redView]];
+item.elasticity = <span class="number">1</span>;
+</code></pre>
+添加到物理仿真器中<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[<span class="keyword">self</span>.animator addBehavior:item];</div><div class="line">```<span class="number">5.</span> 设置碰撞行为的代理,碰撞到边界以后改变物体的状态</div><div class="line">```objc- (<span class="keyword">void</span>)collisionBehavior:(<span class="built_in">UICollisionBehavior</span> *)behavior beganContactForItem:(<span class="keyword">id</span>&lt;<span class="built_in">UIDynamicItem</span>&gt;)item withBoundaryIdentifier:(<span class="keyword">id</span>&lt;<span class="built_in">NSCopying</span>&gt;)identifier atPoint:(<span class="built_in">CGPoint</span>)p &#123;<span class="comment">//开始的碰撞物体</span><span class="built_in">UIView</span> *view = (<span class="built_in">UIView</span> *)item;<span class="comment">//边界的id</span><span class="built_in">NSString</span> *strId = (<span class="built_in">NSString</span> *)identifier; <span class="comment">//当碰撞到黄色边界以后改变当前物体的颜色 if ([strId isEqualToString:@"b2"]) &#123;</span>[<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123; view.backgroundColor = [<span class="built_in">UIColor</span> blackColor];&#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;view.backgroundColor = [<span class="built_in">UIColor</span> redColor]; &#125;];&#125; &#125;</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="3、捕捉行为-Snap"><a href="#3、捕捉行为-Snap" class="headerlink" title="3、捕捉行为(Snap)"></a>3、捕捉行为(Snap)</h4><h6 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1 物理仿真器</span><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span>.view];<span class="comment">//2 创建捕捉行为</span><span class="built_in">UISnapBehavior</span> *snap = [[<span class="built_in">UISnapBehavior</span> alloc] initWithItem:<span class="keyword">self</span>.redView snapToPoint:location]; <span class="comment">//阻尼,减幅,衰减 取值(0-1)</span>snap.damping = <span class="number">0</span>;<span class="comment">//3 把行为添加到物理仿真器</span>[<span class="keyword">self</span>.animator addBehavior:snap];</div></pre></td></tr></table></figure>
+<h4 id="4、附着行为-Attachment"><a href="#4、附着行为-Attachment" class="headerlink" title="4、附着行为(Attachment)"></a>4、附着行为(Attachment)</h4><p><strong>附着行为描述一个视图与一个锚点或者另一个视图相连接的情况附着 行为描述的是两点之间的连接情况,可以模拟刚性或者弹性连接在多 个物体间设定多个UIAttachmentBehavior,可以模拟多物体连接</strong></p>
+<h6 id="1、属性"><a href="#1、属性" class="headerlink" title="1、属性"></a>1、属性</h6><ul>
+<li>attachedBehaviorType:连接类型(连接到锚点或视图) items:连接视图数组</li>
+<li>anchorPoint:连接锚点</li>
+<li>length:距离连接锚点的距离 只要设置了以下两个属性,即为弹性连接 * damping:振幅大小</li>
+<li>frequency:振动频率</li>
+</ul>
+<h6 id="2、示例代码"><a href="#2、示例代码" class="headerlink" title="2、示例代码"></a>2、示例代码</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//1 物理仿真器</span><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc]initWithReferenceView:<span class="keyword">self</span>.view];<span class="comment">//2 重力行为</span><span class="built_in">UIGravityBehavior</span> *gravity = [[<span class="built_in">UIGravityBehavior</span> alloc] initWithItems:@[<span class="keyword">self</span>.redView]]; [gravity setAction:^&#123;view.startPoint = <span class="keyword">self</span>.redView.center;view.endPoint = point; &#125;];<span class="comment">//2.1 添加附着行为</span><span class="built_in">UIAttachmentBehavior</span> *attachment = [[<span class="built_in">UIAttachmentBehavior</span> alloc] initWithItem:<span class="keyword">self</span>.redView attachedToAnchor:point];<span class="comment">//弹性行为</span>attachment.frequency = <span class="number">0.5</span>; attachment.damping = <span class="number">0.5</span>;<span class="comment">//3 把行为添加到仿真器</span>[<span class="keyword">self</span>.animator addBehavior:gravity]; [<span class="keyword">self</span>.animator addBehavior:attachment];</div></pre></td></tr></table></figure>
+<h4 id="5、推动行为-Push"><a href="#5、推动行为-Push" class="headerlink" title="5、推动行为(Push)"></a>5、推动行为(Push)</h4><p><strong>推行为可以为一个视图施加一个作用力,该力可以是持续的,也可以是一次性的可以设置力的大小,方向和作用点等信息</strong></p>
+<h6 id="1、属性-1"><a href="#1、属性-1" class="headerlink" title="1、属性"></a>1、属性</h6><ul>
+<li>mode:推动类型(一次性或是持续推) </li>
+<li>angle:推动角度</li>
+<li>magnitude:推动力量</li>
+</ul>
+<h6 id="2、示例代码-1"><a href="#2、示例代码-1" class="headerlink" title="2、示例代码"></a>2、示例代码</h6><pre><code class="objc"><span class="comment">//1 物理仿真器</span>
+<span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span>.view]; <span class="comment">//2 一次性推动行为(持续性推动行为)</span>
+<span class="built_in">UIPushBehavior</span> *push = [[<span class="built_in">UIPushBehavior</span> alloc] initWithItems:@[<span class="keyword">self</span>.redView]
+mode:<span class="built_in">UIPushBehaviorModeContinuous</span>];
+<span class="comment">//</span>
+<span class="comment">//设置推动的方向和推力的大小 push.angle = M_PI_2; push.magnitude = 1; //设置向量</span>
+push.pushDirection = <span class="built_in">CGVectorMake</span>(<span class="number">0</span>, <span class="number">100</span>); <span class="comment">//3 把推动行为添加都物理仿真器</span>
+[<span class="keyword">self</span>.animator addBehavior:push];
+</code></pre>
+<h4 id="6、UIDynamicItemBehavior"><a href="#6、UIDynamicItemBehavior" class="headerlink" title="6、UIDynamicItemBehavior"></a>6、UIDynamicItemBehavior</h4><p><strong>UIDynamicItemBehavior:元素行为</strong></p>
+<h6 id="1、属性-2"><a href="#1、属性-2" class="headerlink" title="1、属性"></a>1、属性</h6><ul>
+<li>DynamicItem是一个辅助的行为,用来设置运动学元素参与物理仿真过程中的参数,如:弹 性系数、摩擦系数、密度、阻力、角阻力以及是否允许旋转等</li>
+<li>elasticity(弹性系数):决定了碰撞的弹性程度,比如碰撞时物体的弹性 * friction(摩擦系数) :决定了沿接触面滑动时的摩擦力大小</li>
+<li>density(密度): 跟size结合使用,计算物体的总质量。质量越大,物体加速或减速就越 困难</li>
+<li>resistance(阻力):决定线性移动的阻力大小,与摩擦系数不同,摩擦系数只作用于滑动 运动</li>
+<li>angularResistance(角阻力) :决定旋转运动时的阻力大小</li>
+<li>allowsRotation(允许旋转):这个属性很有意思,它在真实的物理世界没有对应的模型。 设置这个属性为 NO 物体就完全不会转动,而无论施加多大的转动力</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/04/NSDictionary:NSMutableDictionary的介绍/" rel="next" title="NSDictionary/NSMutableDictionary的介绍及使用">
+                <i class="fa fa-chevron-left"></i> NSDictionary/NSMutableDictionary的介绍及使用
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/05/GCD:RunLoop/" rel="prev" title="GCD/RunLoop">
+                GCD/RunLoop <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、介绍"><span class="nav-number">1.</span> <span class="nav-text">一、介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、相关概念"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、相关概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、碰撞行为-Collision"><span class="nav-number">1.0.2.</span> <span class="nav-text">2、碰撞行为(Collision)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、相关属性"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">1、相关属性</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、捕捉行为-Snap"><span class="nav-number">1.0.3.</span> <span class="nav-text">3、捕捉行为(Snap)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#代码示例"><span class="nav-number">1.0.3.0.1.</span> <span class="nav-text">代码示例</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、附着行为-Attachment"><span class="nav-number">1.0.4.</span> <span class="nav-text">4、附着行为(Attachment)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、属性"><span class="nav-number">1.0.4.0.1.</span> <span class="nav-text">1、属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、示例代码"><span class="nav-number">1.0.4.0.2.</span> <span class="nav-text">2、示例代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、推动行为-Push"><span class="nav-number">1.0.5.</span> <span class="nav-text">5、推动行为(Push)</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、属性-1"><span class="nav-number">1.0.5.0.1.</span> <span class="nav-text">1、属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2、示例代码-1"><span class="nav-number">1.0.5.0.2.</span> <span class="nav-text">2、示例代码</span></a></li></ol></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、UIDynamicItemBehavior"><span class="nav-number">1.0.6.</span> <span class="nav-text">6、UIDynamicItemBehavior</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1、属性-2"><span class="nav-number">1.0.6.0.1.</span> <span class="nav-text">1、属性</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

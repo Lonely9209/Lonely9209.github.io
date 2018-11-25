@@ -1,0 +1,734 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、分类（Category）概念及使用流程123456// 学习引入：@interface Person :NSObject -(void)run;-(void)eat;-(void)study;@end -(void)playlol;
+1、分类的概念及作用1、分类的概念：
+Category：类别、类目、分类。
+
+2、分类的作用
+1）将1个类中的不同方法分到多个不同的文件中存储，便于对类进行模块化">
+<meta property="og:type" content="article">
+<meta property="og:title" content="分类（Category）">
+<meta property="og:url" content="http://yoursite.com/2016/07/15/分类（Category）/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、分类（Category）概念及使用流程123456// 学习引入：@interface Person :NSObject -(void)run;-(void)eat;-(void)study;@end -(void)playlol;
+1、分类的概念及作用1、分类的概念：
+Category：类别、类目、分类。
+
+2、分类的作用
+1）将1个类中的不同方法分到多个不同的文件中存储，便于对类进行模块化">
+<meta property="og:updated_time" content="2016-07-08T07:04:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="分类（Category）">
+<meta name="twitter:description" content="一、分类（Category）概念及使用流程123456// 学习引入：@interface Person :NSObject -(void)run;-(void)eat;-(void)study;@end -(void)playlol;
+1、分类的概念及作用1、分类的概念：
+Category：类别、类目、分类。
+
+2、分类的作用
+1）将1个类中的不同方法分到多个不同的文件中存储，便于对类进行模块化">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/15/分类（Category）/"/>
+
+  <title> 分类（Category） | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                分类（Category）
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-15T10:31:23+08:00" content="2016-07-15">
+              2016-07-15
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/OC/" itemprop="url" rel="index">
+                    <span itemprop="name">OC</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、分类（Category）概念及使用流程"><a href="#一、分类（Category）概念及使用流程" class="headerlink" title="一、分类（Category）概念及使用流程"></a>一、分类（Category）概念及使用流程</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 学习引入：</span></div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> :<span class="title">NSObject</span> </span></div><div class="line">-(<span class="keyword">void</span>)run;</div><div class="line">-(<span class="keyword">void</span>)eat;</div><div class="line">-(<span class="keyword">void</span>)study;</div><div class="line"><span class="keyword">@end</span> -(<span class="keyword">void</span>)playlol;</div></pre></td></tr></table></figure>
+<h4 id="1、分类的概念及作用"><a href="#1、分类的概念及作用" class="headerlink" title="1、分类的概念及作用"></a>1、分类的概念及作用</h4><h5 id="1、分类的概念："><a href="#1、分类的概念：" class="headerlink" title="1、分类的概念："></a>1、分类的概念：</h5><ul>
+<li>Category：类别、类目、分类。</li>
+</ul>
+<h5 id="2、分类的作用"><a href="#2、分类的作用" class="headerlink" title="2、分类的作用"></a>2、分类的作用</h5><ul>
+<li>1）将1个类中的不同方法分到多个不同的文件中存储，便于对类进行模块化设计和团队开发。</li>
+<li>2）可以在不修改原来类的基础上，为这个类扩充一些方法。</li>
+<li>3）注意：<ul>
+<li>分类中只能增加“方法”，不能增加成员变量。</li>
+<li>分类中可以访问原来类中的成员变量。</li>
+</ul>
+</li>
+</ul>
+<h5 id="3、使用分类的目的"><a href="#3、使用分类的目的" class="headerlink" title="3、使用分类的目的"></a>3、使用分类的目的</h5><ul>
+<li>1）对现有类进行扩展:<ul>
+<li>比如,你可以扩展Cocoa touch框架中的类,你在类别中增加的方法会被子类所继承,而且在运行 时跟其他的方法没有区别。</li>
+</ul>
+</li>
+<li>2）作为子类的替代手段:<ul>
+<li>不需要定义和使用一个子类,你可以通过类别直接向已有的类里增加方法。</li>
+</ul>
+</li>
+<li>3）对类中的方法归类:<ul>
+<li>利用category把一个庞大的类划分为小块来分别进行开发,从而更好的对类中的方法进行更新和维护。</li>
+</ul>
+</li>
+</ul>
+<h5 id="4、分类的使用流程"><a href="#4、分类的使用流程" class="headerlink" title="4、分类的使用流程"></a>4、分类的使用流程</h5><ul>
+<li>声明分类–&gt;实现分类–&gt;使用分类</li>
+<li>注意:分类的命名规则:类名+扩展方法,如“NSString+countNum”。 分类的接口声明与类的定义十分相似,但分类不继承父类,只需要带有一个括号,表明该分类的主要用途。</li>
+</ul>
+<h2 id="二、分类（Category）声明和实现"><a href="#二、分类（Category）声明和实现" class="headerlink" title="二、分类（Category）声明和实现"></a>二、分类（Category）声明和实现</h2><h4 id="1、声明和实现一个分类"><a href="#1、声明和实现一个分类" class="headerlink" title="1、声明和实现一个分类"></a>1、声明和实现一个分类</h4><ul>
+<li><p>在.h文件中,声明分类:</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> 类名 (分类名)</span></div><div class="line"><span class="comment">//方法;</span></div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>说明:</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">声明分类格式</div><div class="line"><span class="number">1</span>）新添加的方法必须写在 <span class="class"><span class="keyword">@interface</span> 与 @<span class="title">end</span> 之间</span></div><div class="line"><span class="number">2</span>）ClassName 现有类的类名(要为哪个类扩展方法)。</div><div class="line"><span class="number">3</span>）CategoryName 待声明的分类名称</div><div class="line"><span class="number">4</span>）NewMethod 新添加的方法</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h5><ul>
+<li><p>不允许在声明分类的时候定义变量</p>
+   <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>(<span class="title">sport</span>)</span></div><div class="line">&#123;</div><div class="line">   <span class="keyword">int</span> _age; <span class="comment">// 报错</span></div><div class="line"> &#125;</div><div class="line">- (<span class="keyword">void</span>)run;</div><div class="line">- (<span class="keyword">void</span>)jump;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>在.m文件中(也可以在.h中实现),实现分类:</strong></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ClassName</span>(<span class="title">CategoryName</span>) <span class="title">NewMethod</span></span></div><div class="line">&#123;</div><div class="line">......</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+<ul>
+<li>说明:<ul>
+<li>实现类别格式<ul>
+<li>1)新方法的实现必须写在@ implementation与@end之间</li>
+<li>2)ClassName 现有类的类名</li>
+<li>3)CategoryName 待声明的分类名称</li>
+<li>4)NewMethod 新添加的方法的实现</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="2、调用分类中的方法"><a href="#2、调用分类中的方法" class="headerlink" title="2、调用分类中的方法"></a>2、调用分类中的方法</h6><ul>
+<li>调用分类中的方法与一般方法调用，完全一样（需要导入头文件）</li>
+</ul>
+<h2 id="三、分类（Catefory）使用注意事项"><a href="#三、分类（Catefory）使用注意事项" class="headerlink" title="三、分类（Catefory）使用注意事项"></a>三、分类（Catefory）使用注意事项</h2><h4 id="1、分类的使用注意事项"><a href="#1、分类的使用注意事项" class="headerlink" title="1、分类的使用注意事项"></a>1、分类的使用注意事项</h4><ul>
+<li>1）分类只能增加方法, 不能增加成员变量</li>
+<li>2）可以书写@property,此时只生成get和set方法,不会生成私有变量</li>
+<li>3)如果分类和原来类出现同名的方法, 优先调用分类中的方法, 原来类中的方法会被屏蔽</li>
+</ul>
+<h4 id="2、分类的编译的顺序"><a href="#2、分类的编译的顺序" class="headerlink" title="2、分类的编译的顺序"></a>2、分类的编译的顺序</h4><ul>
+<li>1）当分类与主类中都有同一个方法时，优先调用分类中的方法。</li>
+<li>2）当多个分类中都有同样的一个方法时，优先调用最后一个参与编译的分类中的方法。</li>
+</ul>
+<h2 id="四、分类（Category）非正式协议"><a href="#四、分类（Category）非正式协议" class="headerlink" title="四、分类（Category）非正式协议"></a>四、分类（Category）非正式协议</h2><ul>
+<li><p>显然这个名词是相对于正式协议而言的。在解释非正式协议之前,先引用两段话:</p>
+</li>
+<li><p>1、在《Cocoa设计模式》第六章类别的6.3.2把分类用于非正式协议一节中,这样写到:<code>非正式协议通常定义为NSObject的分类</code>。分类接口中指定的方法可能会或者可能不会被框架类实际地实现,而是被子类重写。</p>
+</li>
+<li><p>2、苹果官方文档Cocoa CoreCompetencies一文中是这样介绍非正式协议的:An informal protocol is a category on NSObject, which implicitly makes almost all objects adopters of the protocol. (A category is a language feature that enables you to add methods to a class without subclassing it.) Implementation of the methods in an informal protocol is optional. Before invoking a method, the calling object checks to see whether the target object implements it. Until optional protocol methods were introduced in Objective-C 2.0, informal protocols were essential to the way Foundation and AppKit classes implemented delegation.</p>
+</li>
+<li><p>大概意思:非正式协议是NSObject类(显而易见,还包括它的子类)的分类,其所有的子类都含蓄地接受了这个协议。(分类是Objective-C的一个语言特点,可以让你在无需子类化的前提下为一个类增加方法。)非正式协议中的方法是否实现都是可选的,因此在调用非正式协议中的方法之前,需要去检查对象类是否实现了它。在Objective-C2.0中引入可选的正式协议方法之前,非正式协议是Foundation和AppKit类实现委托的唯一方式。<br><code>所谓的非正式协议就是分类,即凡是NSObject或其子类Foundation框架中的类,增加的分类,都是非正式协议。</code></p>
+</li>
+<li><p>思考：</p>
+<ul>
+<li>统计一个字符串中数字的个数</li>
+<li>NSString *s = @”dahfkd234234hkj324lk432bkb42”;</li>
+</ul>
+</li>
+<li><p>解决方法：遍历字符串中的每个字符，判断是否在0-9之间。</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSString</span> (<span class="title">count</span>)</span></div><div class="line">-(<span class="keyword">void</span>)countStrNum;</div><div class="line"><span class="keyword">@end</span></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">count</span>)</span></div><div class="line">-(<span class="keyword">void</span>)countStrNum</div><div class="line">&#123;</div><div class="line"><span class="keyword">int</span> count=<span class="number">0</span>;</div><div class="line"></div><div class="line"><span class="comment">//遍历字符串</span></div><div class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="keyword">self</span>.length;i++)</div><div class="line">&#123;</div><div class="line"><span class="comment">//获取字符串的每一个字符</span></div><div class="line"><span class="keyword">unichar</span> c = [<span class="keyword">self</span> characterAtIndex:i];</div><div class="line"></div><div class="line"><span class="comment">//判断是否是阿拉伯数字</span></div><div class="line"><span class="keyword">if</span> (c&gt;=<span class="string">'0'</span> &amp;&amp; c&lt;=<span class="string">'9'</span>)</div><div class="line">&#123;</div><div class="line"><span class="comment">//如果是阿拉伯数字,则+1</span></div><div class="line">count++;</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"count = %d"</span>,count);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="五、分类（Catefory）延展"><a href="#五、分类（Catefory）延展" class="headerlink" title="五、分类（Catefory）延展"></a>五、分类（Catefory）延展</h2><h4 id="1、类的延展的概念"><a href="#1、类的延展的概念" class="headerlink" title="1、类的延展的概念"></a>1、类的延展的概念</h4><ul>
+<li>延展类别又称为扩展(Extendsion)</li>
+<li>Extension是Category的一个特例</li>
+<li><p>其名字为匿名(为空),并且新添加的方法一定要予以实现。(Category没有这个限制)</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyClass</span> ()</span></div><div class="line">&#123;</div><div class="line">   <span class="comment">//类扩展 float value;</span></div><div class="line">&#125;</div><div class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">float</span>)newValue;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>这种写法的类别叫<code>匿名分类</code>,又叫<code>类扩展</code>,所谓的扩展,其实就是为一个类添加额外的原来没有的变量、方法或者合成属性。</p>
+</li>
+</ul>
+<p>#####2、类扩展的作用：</p>
+<ul>
+<li>为本类扩充一些私有的成员变量和私有方法。</li>
+</ul>
+<h5 id="3、延展的实现"><a href="#3、延展的实现" class="headerlink" title="3、延展的实现"></a>3、延展的实现</h5><ul>
+<li><p>1）通过延展来实现方法的私有,延展的头文件独立。这种方法不能实现真正的方法私有,当在别的文件中引入延展的头文件,那么在这个文件中定义的类的对象就可以直接调用在延展中定义所谓 私有的方法.</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 对类的延展,隐藏方法的一种手段</span></div><div class="line">.h文件</div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SceneManager</span> ()</span></div><div class="line">+ (<span class="keyword">void</span>) wrap;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line">.m类的实现文件中</div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SceneManager</span></span></div><div class="line">+ (<span class="keyword">void</span>) wrap &#123;</div><div class="line">  <span class="built_in">NSLog</span>(<span class="string">@"method of wrap"</span>);</div><div class="line">&#125;</div><div class="line"><span class="keyword">@end</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>调用</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">[SceneManager wrap];</div><div class="line"><span class="comment">// 这里会报一个警告:Class method of "+ wrap" not found</span></div><div class="line"><span class="comment">// 不过虽然是警告,不过运行是正常的,不过这么写在自我规范上不好,即使编译器没有做强制限制,我们自己也要限制自己。</span></div><div class="line"><span class="comment">// 不然,延展方法就毫无意义可言。</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>2）第二种实现延展的方式是延展没有独立的头文件,在类的实现文件.m中声明和实现延展,这种方法可以很好的实现方法的私有,因为在OC中是不能引入.m的文件的。</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> .m文件</div><div class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SceneManager</span> ()</span></div><div class="line">+ (<span class="keyword">void</span>) wrap;</div><div class="line"><span class="keyword">@end</span></div><div class="line"></div><div class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SceneManager</span></span></div><div class="line">+ (<span class="keyword">void</span>) wrap &#123;</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"method of wrap"</span>); &#125;</div><div class="line"><span class="keyword">@end</span></div><div class="line">调用</div><div class="line">[SceneManager wrap];</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="分类和类扩展的区别："><a href="#分类和类扩展的区别：" class="headerlink" title="分类和类扩展的区别："></a>分类和类扩展的区别：</h5><ul>
+<li>1、类别中只能增加方法;</li>
+<li>2、是的,你没看错,类扩展不仅可以增加方法,还可以增加实例变量(或者合成属性),只是该<code>实例变量默认是私有类型的</code>(作用范围只能在自身类,而不是子类或其他地方);</li>
+<li>3、类扩展中声明的方法没被实现,编译器会报警,但是类别中的方法没被实现编译器是不会有任何警告的。这是因为类扩展是在编译阶段被添加到类中,而类别是在运行时添加到类中。</li>
+<li>4、类扩展不能像类别那样拥有独立的实现部分(@implementation部分),也就是说,类扩展所声明的方法必须依托对应类的实现部分来实现。</li>
+<li>5、定义在 .m 文件中的类扩展方法为私有的,定义在 .h 文件(头文件)中的类扩展方法为公有 的。类扩展是在 .m 文件中声明私有方法的非常好的方式。</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/14/Protocol（协议）/" rel="next" title="Protocol（协议）">
+                <i class="fa fa-chevron-left"></i> Protocol（协议）
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/19/ios面试题集/" rel="prev" title="ios面试题集">
+                ios面试题集 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、分类（Category）概念及使用流程"><span class="nav-number">1.</span> <span class="nav-text">一、分类（Category）概念及使用流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、分类的概念及作用"><span class="nav-number">1.0.1.</span> <span class="nav-text">1、分类的概念及作用</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、分类的概念："><span class="nav-number">1.0.1.1.</span> <span class="nav-text">1、分类的概念：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、分类的作用"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">2、分类的作用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3、使用分类的目的"><span class="nav-number">1.0.1.3.</span> <span class="nav-text">3、使用分类的目的</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4、分类的使用流程"><span class="nav-number">1.0.1.4.</span> <span class="nav-text">4、分类的使用流程</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、分类（Category）声明和实现"><span class="nav-number">2.</span> <span class="nav-text">二、分类（Category）声明和实现</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、声明和实现一个分类"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、声明和实现一个分类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#注意"><span class="nav-number">2.0.1.1.</span> <span class="nav-text">注意:</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#2、调用分类中的方法"><span class="nav-number">2.0.1.1.1.</span> <span class="nav-text">2、调用分类中的方法</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、分类（Catefory）使用注意事项"><span class="nav-number">3.</span> <span class="nav-text">三、分类（Catefory）使用注意事项</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、分类的使用注意事项"><span class="nav-number">3.0.1.</span> <span class="nav-text">1、分类的使用注意事项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、分类的编译的顺序"><span class="nav-number">3.0.2.</span> <span class="nav-text">2、分类的编译的顺序</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、分类（Category）非正式协议"><span class="nav-number">4.</span> <span class="nav-text">四、分类（Category）非正式协议</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、分类（Catefory）延展"><span class="nav-number">5.</span> <span class="nav-text">五、分类（Catefory）延展</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、类的延展的概念"><span class="nav-number">5.0.1.</span> <span class="nav-text">1、类的延展的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3、延展的实现"><span class="nav-number">5.0.1.1.</span> <span class="nav-text">3、延展的实现</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#分类和类扩展的区别："><span class="nav-number">5.0.1.2.</span> <span class="nav-text">分类和类扩展的区别：</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

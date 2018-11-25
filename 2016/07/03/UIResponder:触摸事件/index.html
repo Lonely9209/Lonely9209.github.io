@@ -1,0 +1,710 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Lonely920" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一、响应者对象UIResponder
+在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象”
+UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件
+
+UIResponder的成员UIResponder内部提供了以下方法来处理事件
+1、触摸">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIResponder/触摸事件">
+<meta property="og:url" content="http://yoursite.com/2016/07/03/UIResponder:触摸事件/index.html">
+<meta property="og:site_name" content="Lonely920">
+<meta property="og:description" content="一、响应者对象UIResponder
+在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象”
+UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件
+
+UIResponder的成员UIResponder内部提供了以下方法来处理事件
+1、触摸">
+<meta property="og:updated_time" content="2016-07-08T07:31:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="UIResponder/触摸事件">
+<meta name="twitter:description" content="一、响应者对象UIResponder
+在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象”
+UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件
+
+UIResponder的成员UIResponder内部提供了以下方法来处理事件
+1、触摸">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/07/03/UIResponder:触摸事件/"/>
+
+  <title> UIResponder/触摸事件 | Lonely920 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Lonely920</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">Sun</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UIResponder/触摸事件
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-03T10:31:23+08:00" content="2016-07-03">
+              2016-07-03
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/UI/" itemprop="url" rel="index">
+                    <span itemprop="name">UI</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、响应者对象UIResponder"><a href="#一、响应者对象UIResponder" class="headerlink" title="一、响应者对象UIResponder"></a>一、响应者对象UIResponder</h2><ul>
+<li>在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象”</li>
+<li>UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件</li>
+</ul>
+<h4 id="UIResponder的成员"><a href="#UIResponder的成员" class="headerlink" title="UIResponder的成员"></a>UIResponder的成员</h4><h6 id="UIResponder内部提供了以下方法来处理事件"><a href="#UIResponder内部提供了以下方法来处理事件" class="headerlink" title="UIResponder内部提供了以下方法来处理事件"></a>UIResponder内部提供了以下方法来处理事件</h6><ul>
+<li>1、触摸事件</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</div><div class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</div><div class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</div><div class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</div></pre></td></tr></table></figure>
+<ul>
+<li>2、加速计事件</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)motionBegan:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</div><div class="line">- (<span class="keyword">void</span>)motionEnded:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</div><div class="line">- (<span class="keyword">void</span>)motionCancelled:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</div></pre></td></tr></table></figure>
+<ul>
+<li>3、远程控制事件</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)remoteControlReceivedWithEvent:(<span class="built_in">UIEvent</span> *)event;</div></pre></td></tr></table></figure>
+<h2 id="二、触摸事件"><a href="#二、触摸事件" class="headerlink" title="二、触摸事件"></a>二、触摸事件</h2><h4 id="1、UIView的触摸事件处理"><a href="#1、UIView的触摸事件处理" class="headerlink" title="1、UIView的触摸事件处理"></a>1、UIView的触摸事件处理</h4><p><strong>UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触摸事件</strong></p>
+<ul>
+<li>一根或者多根手指开始触摸view<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>一根或者多根手指在view上移动，系统会自动调用view的下面方法（随着手指的移动，会持续调用该方法）</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div></pre></td></tr></table></figure>
+</li>
+<li><p>一根或者多根手指离开view，系统会自动调用view的下面方法</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div></pre></td></tr></table></figure>
+</li>
+<li><p>触摸结束前，某个系统事件(例如电话呼入)会打断触摸过程，系统会自动调用view的下面方法</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>touches中存放的都是UITouch对象</strong></p>
+<h4 id="2、UITouch"><a href="#2、UITouch" class="headerlink" title="2、UITouch"></a>2、UITouch</h4><ul>
+<li>当用户用一根手指触摸屏幕时，会创建一个与手指相关联的UITouch对象</li>
+<li>一根手指对应一个UITouch对象</li>
+<li>UITouch的作用<ul>
+<li>保存着跟本次手指触摸相关的信息，比如触摸的位置、时间、阶段</li>
+<li>当手指移动时，系统会更新同一个UITouch对象，使之能够一直保存该手指在的触摸位置</li>
+<li>当手指离开屏幕时，系统会销毁相应的UITouch对象<br><strong>提示：iPhone开发中，要避免使用双击事件！</strong>    </li>
+</ul>
+</li>
+</ul>
+<h4 id="3、UITouch的属性"><a href="#3、UITouch的属性" class="headerlink" title="3、UITouch的属性"></a>3、UITouch的属性</h4><ul>
+<li><p>触摸产生时所处的窗口</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">UIWindow</span>    *window;</div></pre></td></tr></table></figure>
+</li>
+<li><p>触摸产生时所处的视图</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">UIView</span>      *view;</div></pre></td></tr></table></figure>
+</li>
+<li><p>短时间内点按屏幕的次数，可以根据tapCount判断单击、双击或更多的点击</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSUInteger</span>          tapCount;</div></pre></td></tr></table></figure>
+</li>
+<li><p>记录了触摸事件产生或变化时的时间，单位是秒</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>      timestamp;</div></pre></td></tr></table></figure>
+</li>
+<li><p>当前触摸事件所处的状态</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UITouchPhase</span>        phase;</div><div class="line">	```	</div><div class="line"><span class="meta">#### 4、UITouch的方法</span></div><div class="line">* <span class="number">1</span>、- (<span class="built_in">CGPoint</span>)locationInView:(<span class="built_in">UIView</span> *)view;</div><div class="line">* 返回值表示触摸在view上的位置</div><div class="line">* 这里返回的位置是针对view的坐标系的（以view的左上角为原点(<span class="number">0</span>, <span class="number">0</span>)）</div><div class="line">* 调用时传入的view参数为<span class="literal">nil</span>的话，返回的是触摸点在<span class="built_in">UIWindow</span>的位置</div><div class="line">* <span class="number">2</span>、- (<span class="built_in">CGPoint</span>)previousLocationInView:(<span class="built_in">UIView</span> *)view;</div><div class="line">* 该方法记录了前一个触摸点的位置</div><div class="line"></div><div class="line"><span class="meta">#### 5、UIEvent</span></div><div class="line">* 每产生一个事件，就会产生一个<span class="built_in">UIEvent</span>对象</div><div class="line">* <span class="built_in">UIEvent</span>：称为事件对象，记录事件产生的时刻和类型</div><div class="line">* 常见属性</div><div class="line">* 事件类型</div><div class="line">	```objc</div><div class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventType</span>     type;</div><div class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventSubtype</span>  subtype;</div></pre></td></tr></table></figure>
+</li>
+<li><p>事件产生的时间</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>  timestamp;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>UIEvent还提供了相应的方法可以获得在某个view上面的触摸对象（UITouch）</strong></p>
+<h4 id="6、事件传递"><a href="#6、事件传递" class="headerlink" title="6、事件传递"></a>6、事件传递</h4><ul>
+<li>hitTest:方法介绍<ul>
+<li>pointInside:withEvent:方法介绍:</li>
+<li>在 hitTest 方法内部调用 pointInside:withEvent:方法来查找给定的点在不在当前的控件范围之内。</li>
+</ul>
+</li>
+<li>触摸事件：touchesXxxxx</li>
+</ul>
+<h2 id="三、介绍控件不能接受用户交互的情况"><a href="#三、介绍控件不能接受用户交互的情况" class="headerlink" title="三、介绍控件不能接受用户交互的情况"></a>三、介绍控件不能接受用户交互的情况</h2><ul>
+<li>演示要求:在控制器 view 中创建多个 UIView, 并且为每个 UIView 指定一个自定义 View, 实现 touchesBegan 方法.</li>
+<li>1、查看默认情况下 touchesBegan: 事件的触发顺序</li>
+<li>2、控件的userInteractionEnabled = NO 的情况下不能与用户交互 <strong>注意: 如果父容器不能与用户交互, 那么在该容器中的所有子控件也不能与用户交互（例如: 添加在 UIImageView 中的按钮）</strong></li>
+<li>3、透明度小于等于0.01, alpha = 0.01</li>
+<li>4、控件被隐藏的时候, hidden = YES</li>
+<li>5、如果子视图的位置超出了父视图的有效范围, 那么子视图也是无法与用户交互的, 即使设置了父视图的 clipsToBounds = NO, 可以看到, 但是也是无法与用户交互的</li>
+<li>6、默认情况下, 从控件库中拖拽的 UIImageView 是无法接受用户的触摸事件的</li>
+<li><strong> 演示向 UIImageView 中添加一个按钮, 监听按钮的点击事件。</strong></li>
+<li><strong>UIImageView 默认是不支持多点触摸, 也不响应用户事件的。</strong></li>
+<li>补充: 直接从媒体库中把图片拖拽进来（通过这种方式拖进来的UIImageView, 默认即支持多点触摸也支持用户交互, 并且图片框大小就是图片的实际大小）</li>
+</ul>
+<h2 id="四、响应者链事件处理过程"><a href="#四、响应者链事件处理过程" class="headerlink" title="四、响应者链事件处理过程"></a>四、响应者链事件处理过程</h2><h4 id="如果hit-test视图无法处理事件，则通过响应者链向上传递"><a href="#如果hit-test视图无法处理事件，则通过响应者链向上传递" class="headerlink" title="如果hit-test视图无法处理事件，则通过响应者链向上传递"></a>如果hit-test视图无法处理事件，则通过响应者链向上传递</h4><ul>
+<li>1、如果hit-test视图的控制器存在，就传递给控制器；如果控制器不存在，则将其传递给它的父视图</li>
+<li>2、如果视图或它的控制器无法处理收到的事件或消息，则将其传递给该视图的父视图</li>
+<li>3、每一个在视图继承树中的上层视图如果不能处理收到的事件或消息，则重复上面的步骤1，2</li>
+<li>4、在视图层次结构的最顶级视图，如果也不能处理收到的事件或消息，则其将事件或消息传递给window对象进行处理</li>
+<li>5、如果window对象也不处理，则其将事件或消息传递给UIApplication对象</li>
+<li>6、如果UIApplication也不能处理该事件或消息，则将其丢弃</li>
+</ul>
+<h2 id="五、响应者链的事件传递过程"><a href="#五、响应者链的事件传递过程" class="headerlink" title="五、响应者链的事件传递过程"></a>五、响应者链的事件传递过程</h2><ul>
+<li>如果view的控制器存在，就传递给控制器；如果控制器不存在，则将其传递给它的父视图</li>
+<li>在视图层次结构的最顶级视图，如果也不能处理收到的事件或消息，则其将事件或消息传递给window对象进行处理</li>
+<li>如果window对象也不处理，则其将事件或消息传递给UIApplication对象</li>
+<li>如果UIApplication也不能处理该事件或消息，则将其丢弃</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/03/数据存储(数据持久化)/" rel="next" title="数据存储(数据持久化)">
+                <i class="fa fa-chevron-left"></i> 数据存储(数据持久化)
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/07/03/NSArray:NSMutableArray的介绍/" rel="prev" title="NSArray/NSMutableArray的介绍和基本使用">
+                NSArray/NSMutableArray的介绍和基本使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Lonely920" />
+          <p class="site-author-name" itemprop="name">Lonely920</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">43</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、响应者对象UIResponder"><span class="nav-number">1.</span> <span class="nav-text">一、响应者对象UIResponder</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#UIResponder的成员"><span class="nav-number">1.0.1.</span> <span class="nav-text">UIResponder的成员</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#UIResponder内部提供了以下方法来处理事件"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">UIResponder内部提供了以下方法来处理事件</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、触摸事件"><span class="nav-number">2.</span> <span class="nav-text">二、触摸事件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、UIView的触摸事件处理"><span class="nav-number">2.0.1.</span> <span class="nav-text">1、UIView的触摸事件处理</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、UITouch"><span class="nav-number">2.0.2.</span> <span class="nav-text">2、UITouch</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、UITouch的属性"><span class="nav-number">2.0.3.</span> <span class="nav-text">3、UITouch的属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6、事件传递"><span class="nav-number">2.0.4.</span> <span class="nav-text">6、事件传递</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、介绍控件不能接受用户交互的情况"><span class="nav-number">3.</span> <span class="nav-text">三、介绍控件不能接受用户交互的情况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、响应者链事件处理过程"><span class="nav-number">4.</span> <span class="nav-text">四、响应者链事件处理过程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如果hit-test视图无法处理事件，则通过响应者链向上传递"><span class="nav-number">4.0.1.</span> <span class="nav-text">如果hit-test视图无法处理事件，则通过响应者链向上传递</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、响应者链的事件传递过程"><span class="nav-number">5.</span> <span class="nav-text">五、响应者链的事件传递过程</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lonely920</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
