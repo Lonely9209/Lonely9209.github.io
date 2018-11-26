@@ -843,181 +843,6 @@ iii.NSOperation里提供的方便的操作
 
 
   
-    <article id="post-GCD:RunLoop" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/05/GCD:RunLoop/">GCD/RunLoop</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/05/GCD:RunLoop/" class="archive-article-date">
-  	<time datetime="2016-07-05T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、GCD"><a href="#一、GCD" class="headerlink" title="一、GCD"></a>一、GCD</h2><h4 id="1、GCD简介"><a href="#1、GCD简介" class="headerlink" title="1、GCD简介"></a>1、GCD简介</h4><h6 id="什么是GCD"><a href="#什么是GCD" class="headerlink" title="什么是GCD"></a>什么是GCD</h6><ul>
-<li>全称是Grand Central Dispatch</li>
-<li>纯C语言，提供了非常多强大的函数</li>
-</ul>
-<h6 id="GCD的优势"><a href="#GCD的优势" class="headerlink" title="GCD的优势"></a>GCD的优势</h6><ul>
-<li>GCD是苹果公司为多核的并行运算提出的解决方案</li>
-<li>GCD会自动利用更多的CPU内核（比如双核、四核）</li>
-<li>GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程）</li>
-<li>程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码</li>
-</ul>
-<h4 id="2、任务和队列"><a href="#2、任务和队列" class="headerlink" title="2、任务和队列"></a>2、任务和队列</h4><h6 id="GCD中有2个核心概念"><a href="#GCD中有2个核心概念" class="headerlink" title="GCD中有2个核心概念"></a>GCD中有2个核心概念</h6><ul>
-<li>任务：执行什么操作</li>
-<li>队列：用来存放任务</li>
-</ul>
-<h6 id="GCD的使用就2个步骤"><a href="#GCD的使用就2个步骤" class="headerlink" title="GCD的使用就2个步骤"></a>GCD的使用就2个步骤</h6><ul>
-<li>定制任务:确定想做的事情</li>
-<li>将任务添加到队列中:指定运行方式<ul>
-<li>GCD会自动将队列中的任务取出，放到对应的线程中执行</li>
-<li>任务的取出遵循队列的FIFO原则：先进先出，后进后出</li>
-</ul>
-</li>
-</ul>
-<h6 id="队列的类型"><a href="#队列的类型" class="headerlink" title="队列的类型"></a>队列的类型</h6><ul>
-<li><p>并发队列（Concurrent Dispatch Queue）</p>
-<pre><code>可以让多个任务并发（同时）执行（自动开启多个线程同时执行任务）
-</code></pre><p>并发功能只有在异步（dispatch_async）函数下才有</p>
-</li>
-<li><p>串行队列（Serial Dispatch Queue）</p>
-<pre><code>让任务一个接着一个地执行（一个任务执行完毕后，再执行下一个任务
-</code></pre></li>
-<li><p>主队列</p>
-<pre><code>特殊的串行队列，代表主线程
-</code></pre></li>
-</ul>
-<h6 id="执行任务"><a href="#执行任务" class="headerlink" title="执行任务"></a>执行任务</h6><p><strong>GCD中有2个用来执行任务的函数</strong></p>
-<ul>
-<li><p>同步的方式执行任务</p>
-<pre><code>dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
-</code></pre></li>
-<li>异步的方式执行任务  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(<span class="built_in">dispatch_queue_t</span> queue, dispatch_block_t block);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="3、容易混淆的术语"><a href="#3、容易混淆的术语" class="headerlink" title="3、容易混淆的术语"></a>3、容易混淆的术语</h4><p><strong>有4个术语比较容易混淆：同步、异步、并发、串行</strong></p>
-<h6 id="同步和异步决定了要不要开启新的线程"><a href="#同步和异步决定了要不要开启新的线程" class="headerlink" title="同步和异步决定了要不要开启新的线程"></a>同步和异步决定了要不要开启新的线程</h6><ul>
-<li>同步：在当前线程中执行任务，不具备开启新线程的能力</li>
-<li>异步：在新的线程中执行任务，具备开启新线程的能力</li>
-</ul>
-<h6 id="并发和串行决定了任务的执行方式"><a href="#并发和串行决定了任务的执行方式" class="headerlink" title="并发和串行决定了任务的执行方式"></a>并发和串行决定了任务的执行方式</h6><ul>
-<li>并发：多个任务并发（同时）执行</li>
-<li>串行：一个任务执行完毕后，再执行下一个任务</li>
-</ul>
-<h4 id="4、串行队列"><a href="#4、串行队列" class="headerlink" title="4、串行队列"></a>4、串行队列</h4><ul>
-<li>以先进先出的方式，顺序调度队列中的任务执行</li>
-<li>无论队列中所指定的执行任务函数是同步还是异步，都会等待前一个任务执行完成后，再调度后面的任务</li>
-</ul>
-<h6 id="串行队列的执行"><a href="#串行队列的执行" class="headerlink" title="串行队列的执行"></a>串行队列的执行</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">串行队列，同步执行</span><br><span class="line">不开线程，同步执行(在当前线程执行)</span><br><span class="line"><span class="meta">#define DISPATCH_QUEUE_SERIAL NULL</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> q = dispatch_queue_create(<span class="string">"test"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="comment">//同步执行</span></span><br><span class="line">    <span class="built_in">dispatch_sync</span>(q, ^&#123;</span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"%@ -- %d"</span>,[<span class="built_in">NSThread</span> currentThread],i);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">串行队列，异步执行</span><br><span class="line">开一个线程，顺序执行</span><br><span class="line">只有一个线程，因为是串行队列，只有一个线程就可以按顺序执行队列中的所有任务</span><br><span class="line"><span class="built_in">dispatch_queue_t</span> q = dispatch_queue_create(<span class="string">"test"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="comment">//异步执行</span></span><br><span class="line">        <span class="built_in">dispatch_async</span>(q, ^&#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@ -- %d"</span>,[<span class="built_in">NSThread</span> currentThread],i);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<h4 id="5、并发-并行-队列"><a href="#5、并发-并行-队列" class="headerlink" title="5、并发(并行)队列"></a>5、并发(并行)队列</h4><ul>
-<li>以先进先出的方式，并发调度队列中的任务执行</li>
-<li>如果当前调度的任务是同步执行的，会等待任务执行完成后，再调度后续的任务</li>
-<li>如果当前调度的任务是异步执行的，同时底层线程池有可用的线程资源，会再新的线程调度后续任务的执行</li>
-</ul>
-<h6 id="并行队列的执行"><a href="#并行队列的执行" class="headerlink" title="并行队列的执行"></a>并行队列的执行</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">并行队列，异步执行</span><br><span class="line">开多个线程，异步执行</span><br><span class="line">开多个线程，异步执行，每次开启多少个线程是不固定的(线程数，不由我们控制)，线程数是由gcd来决定的</span><br><span class="line"><span class="built_in">dispatch_queue_t</span> q = dispatch_queue_create(<span class="string">"test"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="comment">//异步执行</span></span><br><span class="line">        <span class="built_in">dispatch_async</span>(q, ^&#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@ -- %d"</span>,[<span class="built_in">NSThread</span> currentThread],i);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">并行队列，同步执行</span><br><span class="line">不开线程，顺序执行 ,与串行队列同步执行一样</span><br></pre></td></tr></table></figure>
-<h4 id="6、主队列"><a href="#6、主队列" class="headerlink" title="6、主队列"></a>6、主队列</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">主队列，异步任务</span><br><span class="line">不开线程，同步执行</span><br><span class="line">主队列特点：如果主线程正在执行代码暂时不调度任务，等主线程执行结束后在执行任务</span><br><span class="line">主队列又叫 全局串行队列</span><br><span class="line"></span><br><span class="line">主队列，同步执行</span><br><span class="line">程序执行不出来（死锁）</span><br><span class="line">主队列：如果主线程正在执行代码，就不调度任务</span><br><span class="line">同步执行：如果第一个任务没有执行，就继续等待第一个任务执行完成，再执行下一个任务此时互相等待，程序无法往下执行（死锁）</span><br><span class="line"><span class="built_in">dispatch_sync</span>(q, ^&#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@ -- %d"</span>,[<span class="built_in">NSThread</span> currentThread],i);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<p><strong>注：主队列同步执行死锁</strong></p>
-<h4 id="7、线程间通信示例"><a href="#7、线程间通信示例" class="headerlink" title="7、线程间通信示例"></a>7、线程间通信示例</h4><h6 id="从子线程回到主线程"><a href="#从子线程回到主线程" class="headerlink" title="从子线程回到主线程"></a>从子线程回到主线程</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(</span><br><span class="line">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    <span class="comment">// 执行耗时的异步操作...</span></span><br><span class="line">      <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="comment">// 回到主线程，执行UI刷新操作</span></span><br><span class="line">        &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="8、延时执行"><a href="#8、延时执行" class="headerlink" title="8、延时执行"></a>8、延时执行</h4><p><strong>iOS常见的延时执行有2种方式</strong></p>
-<h6 id="调用NSObject的方法"><a href="#调用NSObject的方法" class="headerlink" title="调用NSObject的方法"></a>调用NSObject的方法</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(run) withObject:<span class="literal">nil</span> afterDelay:<span class="number">2.0</span>];</span><br></pre></td></tr></table></figure>
-<h6 id="使用GCD函数"><a href="#使用GCD函数" class="headerlink" title="使用GCD函数"></a>使用GCD函数</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    <span class="comment">// 2秒后异步执行这里的代码...</span></span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="9、队列组"><a href="#9、队列组" class="headerlink" title="9、队列组"></a>9、队列组</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">有这么<span class="number">1</span>种需求</span><br><span class="line">首先：分别异步执行<span class="number">2</span>个耗时的操作</span><br><span class="line">其次：等<span class="number">2</span>个异步操作都执行完毕后，再回到主线程执行操作</span><br><span class="line"></span><br><span class="line">如果想要快速高效地实现上述需求，可以考虑用队列组</span><br><span class="line">dispatch_group_t group =  dispatch_group_create();</span><br><span class="line">dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    <span class="comment">// 执行1个耗时的异步操作</span></span><br><span class="line">&#125;);</span><br><span class="line">dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    <span class="comment">// 执行1个耗时的异步操作</span></span><br><span class="line">&#125;);</span><br><span class="line">dispatch_group_notify(group, dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    <span class="comment">// 等前面的异步操作都执行完毕后，回到主线程...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h4 id="10、单例模式"><a href="#10、单例模式" class="headerlink" title="10、单例模式"></a>10、单例模式</h4><h6 id="单例模式的作用"><a href="#单例模式的作用" class="headerlink" title="单例模式的作用"></a>单例模式的作用</h6><ul>
-<li>可以保证在程序运行过程，一个类只有一个实例，而且该实例易于供外界访问</li>
-<li>从而方便地控制了实例个数，并节约系统资源<h6 id="单例模式的使用场合"><a href="#单例模式的使用场合" class="headerlink" title="单例模式的使用场合"></a>单例模式的使用场合</h6></li>
-<li>在整个应用程序中，共享一份资源（这份资源只需要创建初始化1次）  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken; </span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line"><span class="comment">//要初始化的代码</span></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="二、RunLoop"><a href="#二、RunLoop" class="headerlink" title="二、RunLoop"></a>二、RunLoop</h2><h4 id="1、什么是RunLoop"><a href="#1、什么是RunLoop" class="headerlink" title="1、什么是RunLoop?"></a>1、什么是RunLoop?</h4><ul>
-<li>RunLoop就是消息循环,每一个线程内部都有一个消息循环。</li>
-<li>只有主线程的消息循环默认开启,子线程的消息循环默认不开启。</li>
-</ul>
-<h4 id="2、RunLoop的目的"><a href="#2、RunLoop的目的" class="headerlink" title="2、RunLoop的目的"></a>2、RunLoop的目的</h4><ul>
-<li>hn保证程序不退出 。</li>
-<li>负责处理输入事件。</li>
-<li>如果没有事件发生,会让程序进入休眠状态  。</li>
-</ul>
-<h4 id="3、如何使用"><a href="#3、如何使用" class="headerlink" title="3、如何使用"></a>3、如何使用</h4><h6 id="添加消息到循环中"><a href="#添加消息到循环中" class="headerlink" title="添加消息到循环中"></a>添加消息到循环中</h6><ul>
-<li>（1）创建输入源。(以NSTimer为例)</li>
-<li>（2）指定该事件（源）在循环中运行的模式，并加入循环。  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--- [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(demo2) onThread:thread withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">NO</span>];</span><br><span class="line">---[[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="使用总结"><a href="#使用总结" class="headerlink" title="使用总结"></a>使用总结</h6><ol>
-<li>创建消息</li>
-<li>把消息放入循环，并指定消息运行的模式</li>
-<li>在与循环的模式匹配的时候，消息运行</li>
-</ol>
-<h4 id="4、循环常用模式"><a href="#4、循环常用模式" class="headerlink" title="4、循环常用模式"></a>4、循环常用模式</h4><ul>
-<li>NSDefaultRunLoopMode–默认模式</li>
-<li>NSRunLoopCommonModes–普通模式</li>
-</ul>
-<h4 id="5、子线程中的消息循环"><a href="#5、子线程中的消息循环" class="headerlink" title="5、子线程中的消息循环"></a>5、子线程中的消息循环</h4><ul>
-<li>特点：子线程默认不开启消息循环,主线程默认开启消息循环。</li>
-<li>手动开启注意   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">执行完[[<span class="built_in">NSRunLoop</span> currentRunLoop] run];后面的代码不会执行,也关不了循环。</span><br><span class="line">可用[[<span class="built_in">NSRunLoop</span> currentRunLoop] runUntilDate:[<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">5</span>]];</span><br></pre></td></tr></table></figure></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/05/GCD:RunLoop/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-UINavigationcontroller" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1355,6 +1180,181 @@ push.pushDirection = <span class="built_in">CGVectorMake</span>(<span class="num
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/05/UIDynamic（物理引擎）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-GCD:RunLoop" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/05/GCD:RunLoop/">GCD/RunLoop</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/05/GCD:RunLoop/" class="archive-article-date">
+  	<time datetime="2016-07-05T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、GCD"><a href="#一、GCD" class="headerlink" title="一、GCD"></a>一、GCD</h2><h4 id="1、GCD简介"><a href="#1、GCD简介" class="headerlink" title="1、GCD简介"></a>1、GCD简介</h4><h6 id="什么是GCD"><a href="#什么是GCD" class="headerlink" title="什么是GCD"></a>什么是GCD</h6><ul>
+<li>全称是Grand Central Dispatch</li>
+<li>纯C语言，提供了非常多强大的函数</li>
+</ul>
+<h6 id="GCD的优势"><a href="#GCD的优势" class="headerlink" title="GCD的优势"></a>GCD的优势</h6><ul>
+<li>GCD是苹果公司为多核的并行运算提出的解决方案</li>
+<li>GCD会自动利用更多的CPU内核（比如双核、四核）</li>
+<li>GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程）</li>
+<li>程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码</li>
+</ul>
+<h4 id="2、任务和队列"><a href="#2、任务和队列" class="headerlink" title="2、任务和队列"></a>2、任务和队列</h4><h6 id="GCD中有2个核心概念"><a href="#GCD中有2个核心概念" class="headerlink" title="GCD中有2个核心概念"></a>GCD中有2个核心概念</h6><ul>
+<li>任务：执行什么操作</li>
+<li>队列：用来存放任务</li>
+</ul>
+<h6 id="GCD的使用就2个步骤"><a href="#GCD的使用就2个步骤" class="headerlink" title="GCD的使用就2个步骤"></a>GCD的使用就2个步骤</h6><ul>
+<li>定制任务:确定想做的事情</li>
+<li>将任务添加到队列中:指定运行方式<ul>
+<li>GCD会自动将队列中的任务取出，放到对应的线程中执行</li>
+<li>任务的取出遵循队列的FIFO原则：先进先出，后进后出</li>
+</ul>
+</li>
+</ul>
+<h6 id="队列的类型"><a href="#队列的类型" class="headerlink" title="队列的类型"></a>队列的类型</h6><ul>
+<li><p>并发队列（Concurrent Dispatch Queue）</p>
+<pre><code>可以让多个任务并发（同时）执行（自动开启多个线程同时执行任务）
+</code></pre><p>并发功能只有在异步（dispatch_async）函数下才有</p>
+</li>
+<li><p>串行队列（Serial Dispatch Queue）</p>
+<pre><code>让任务一个接着一个地执行（一个任务执行完毕后，再执行下一个任务
+</code></pre></li>
+<li><p>主队列</p>
+<pre><code>特殊的串行队列，代表主线程
+</code></pre></li>
+</ul>
+<h6 id="执行任务"><a href="#执行任务" class="headerlink" title="执行任务"></a>执行任务</h6><p><strong>GCD中有2个用来执行任务的函数</strong></p>
+<ul>
+<li><p>同步的方式执行任务</p>
+<pre><code>dispatch_sync(dispatch_queue_t queue, dispatch_block_t block);
+</code></pre></li>
+<li>异步的方式执行任务  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(<span class="built_in">dispatch_queue_t</span> queue, dispatch_block_t block);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="3、容易混淆的术语"><a href="#3、容易混淆的术语" class="headerlink" title="3、容易混淆的术语"></a>3、容易混淆的术语</h4><p><strong>有4个术语比较容易混淆：同步、异步、并发、串行</strong></p>
+<h6 id="同步和异步决定了要不要开启新的线程"><a href="#同步和异步决定了要不要开启新的线程" class="headerlink" title="同步和异步决定了要不要开启新的线程"></a>同步和异步决定了要不要开启新的线程</h6><ul>
+<li>同步：在当前线程中执行任务，不具备开启新线程的能力</li>
+<li>异步：在新的线程中执行任务，具备开启新线程的能力</li>
+</ul>
+<h6 id="并发和串行决定了任务的执行方式"><a href="#并发和串行决定了任务的执行方式" class="headerlink" title="并发和串行决定了任务的执行方式"></a>并发和串行决定了任务的执行方式</h6><ul>
+<li>并发：多个任务并发（同时）执行</li>
+<li>串行：一个任务执行完毕后，再执行下一个任务</li>
+</ul>
+<h4 id="4、串行队列"><a href="#4、串行队列" class="headerlink" title="4、串行队列"></a>4、串行队列</h4><ul>
+<li>以先进先出的方式，顺序调度队列中的任务执行</li>
+<li>无论队列中所指定的执行任务函数是同步还是异步，都会等待前一个任务执行完成后，再调度后面的任务</li>
+</ul>
+<h6 id="串行队列的执行"><a href="#串行队列的执行" class="headerlink" title="串行队列的执行"></a>串行队列的执行</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">串行队列，同步执行</span><br><span class="line">不开线程，同步执行(在当前线程执行)</span><br><span class="line"><span class="meta">#define DISPATCH_QUEUE_SERIAL NULL</span></span><br><span class="line"><span class="built_in">dispatch_queue_t</span> q = dispatch_queue_create(<span class="string">"test"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">    <span class="comment">//同步执行</span></span><br><span class="line">    <span class="built_in">dispatch_sync</span>(q, ^&#123;</span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"%@ -- %d"</span>,[<span class="built_in">NSThread</span> currentThread],i);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">串行队列，异步执行</span><br><span class="line">开一个线程，顺序执行</span><br><span class="line">只有一个线程，因为是串行队列，只有一个线程就可以按顺序执行队列中的所有任务</span><br><span class="line"><span class="built_in">dispatch_queue_t</span> q = dispatch_queue_create(<span class="string">"test"</span>, DISPATCH_QUEUE_SERIAL);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="comment">//异步执行</span></span><br><span class="line">        <span class="built_in">dispatch_async</span>(q, ^&#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@ -- %d"</span>,[<span class="built_in">NSThread</span> currentThread],i);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="5、并发-并行-队列"><a href="#5、并发-并行-队列" class="headerlink" title="5、并发(并行)队列"></a>5、并发(并行)队列</h4><ul>
+<li>以先进先出的方式，并发调度队列中的任务执行</li>
+<li>如果当前调度的任务是同步执行的，会等待任务执行完成后，再调度后续的任务</li>
+<li>如果当前调度的任务是异步执行的，同时底层线程池有可用的线程资源，会再新的线程调度后续任务的执行</li>
+</ul>
+<h6 id="并行队列的执行"><a href="#并行队列的执行" class="headerlink" title="并行队列的执行"></a>并行队列的执行</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">并行队列，异步执行</span><br><span class="line">开多个线程，异步执行</span><br><span class="line">开多个线程，异步执行，每次开启多少个线程是不固定的(线程数，不由我们控制)，线程数是由gcd来决定的</span><br><span class="line"><span class="built_in">dispatch_queue_t</span> q = dispatch_queue_create(<span class="string">"test"</span>, DISPATCH_QUEUE_CONCURRENT);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">        <span class="comment">//异步执行</span></span><br><span class="line">        <span class="built_in">dispatch_async</span>(q, ^&#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@ -- %d"</span>,[<span class="built_in">NSThread</span> currentThread],i);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">并行队列，同步执行</span><br><span class="line">不开线程，顺序执行 ,与串行队列同步执行一样</span><br></pre></td></tr></table></figure>
+<h4 id="6、主队列"><a href="#6、主队列" class="headerlink" title="6、主队列"></a>6、主队列</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">主队列，异步任务</span><br><span class="line">不开线程，同步执行</span><br><span class="line">主队列特点：如果主线程正在执行代码暂时不调度任务，等主线程执行结束后在执行任务</span><br><span class="line">主队列又叫 全局串行队列</span><br><span class="line"></span><br><span class="line">主队列，同步执行</span><br><span class="line">程序执行不出来（死锁）</span><br><span class="line">主队列：如果主线程正在执行代码，就不调度任务</span><br><span class="line">同步执行：如果第一个任务没有执行，就继续等待第一个任务执行完成，再执行下一个任务此时互相等待，程序无法往下执行（死锁）</span><br><span class="line"><span class="built_in">dispatch_sync</span>(q, ^&#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@ -- %d"</span>,[<span class="built_in">NSThread</span> currentThread],i);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+<p><strong>注：主队列同步执行死锁</strong></p>
+<h4 id="7、线程间通信示例"><a href="#7、线程间通信示例" class="headerlink" title="7、线程间通信示例"></a>7、线程间通信示例</h4><h6 id="从子线程回到主线程"><a href="#从子线程回到主线程" class="headerlink" title="从子线程回到主线程"></a>从子线程回到主线程</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_async</span>(</span><br><span class="line">dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    <span class="comment">// 执行耗时的异步操作...</span></span><br><span class="line">      <span class="built_in">dispatch_async</span>(dispatch_get_main_queue(), ^&#123;</span><br><span class="line">        <span class="comment">// 回到主线程，执行UI刷新操作</span></span><br><span class="line">        &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="8、延时执行"><a href="#8、延时执行" class="headerlink" title="8、延时执行"></a>8、延时执行</h4><p><strong>iOS常见的延时执行有2种方式</strong></p>
+<h6 id="调用NSObject的方法"><a href="#调用NSObject的方法" class="headerlink" title="调用NSObject的方法"></a>调用NSObject的方法</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(run) withObject:<span class="literal">nil</span> afterDelay:<span class="number">2.0</span>];</span><br></pre></td></tr></table></figure>
+<h6 id="使用GCD函数"><a href="#使用GCD函数" class="headerlink" title="使用GCD函数"></a>使用GCD函数</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(<span class="number">2.0</span> * <span class="built_in">NSEC_PER_SEC</span>)), dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    <span class="comment">// 2秒后异步执行这里的代码...</span></span><br><span class="line">	&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="9、队列组"><a href="#9、队列组" class="headerlink" title="9、队列组"></a>9、队列组</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">有这么<span class="number">1</span>种需求</span><br><span class="line">首先：分别异步执行<span class="number">2</span>个耗时的操作</span><br><span class="line">其次：等<span class="number">2</span>个异步操作都执行完毕后，再回到主线程执行操作</span><br><span class="line"></span><br><span class="line">如果想要快速高效地实现上述需求，可以考虑用队列组</span><br><span class="line">dispatch_group_t group =  dispatch_group_create();</span><br><span class="line">dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    <span class="comment">// 执行1个耗时的异步操作</span></span><br><span class="line">&#125;);</span><br><span class="line">dispatch_group_async(group, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>), ^&#123;</span><br><span class="line">    <span class="comment">// 执行1个耗时的异步操作</span></span><br><span class="line">&#125;);</span><br><span class="line">dispatch_group_notify(group, dispatch_get_main_queue(), ^&#123;</span><br><span class="line">    <span class="comment">// 等前面的异步操作都执行完毕后，回到主线程...</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h4 id="10、单例模式"><a href="#10、单例模式" class="headerlink" title="10、单例模式"></a>10、单例模式</h4><h6 id="单例模式的作用"><a href="#单例模式的作用" class="headerlink" title="单例模式的作用"></a>单例模式的作用</h6><ul>
+<li>可以保证在程序运行过程，一个类只有一个实例，而且该实例易于供外界访问</li>
+<li>从而方便地控制了实例个数，并节约系统资源<h6 id="单例模式的使用场合"><a href="#单例模式的使用场合" class="headerlink" title="单例模式的使用场合"></a>单例模式的使用场合</h6></li>
+<li>在整个应用程序中，共享一份资源（这份资源只需要创建初始化1次）  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> <span class="built_in">dispatch_once_t</span> onceToken; </span><br><span class="line"><span class="built_in">dispatch_once</span>(&amp;onceToken, ^&#123;</span><br><span class="line"><span class="comment">//要初始化的代码</span></span><br><span class="line"> &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、RunLoop"><a href="#二、RunLoop" class="headerlink" title="二、RunLoop"></a>二、RunLoop</h2><h4 id="1、什么是RunLoop"><a href="#1、什么是RunLoop" class="headerlink" title="1、什么是RunLoop?"></a>1、什么是RunLoop?</h4><ul>
+<li>RunLoop就是消息循环,每一个线程内部都有一个消息循环。</li>
+<li>只有主线程的消息循环默认开启,子线程的消息循环默认不开启。</li>
+</ul>
+<h4 id="2、RunLoop的目的"><a href="#2、RunLoop的目的" class="headerlink" title="2、RunLoop的目的"></a>2、RunLoop的目的</h4><ul>
+<li>hn保证程序不退出 。</li>
+<li>负责处理输入事件。</li>
+<li>如果没有事件发生,会让程序进入休眠状态  。</li>
+</ul>
+<h4 id="3、如何使用"><a href="#3、如何使用" class="headerlink" title="3、如何使用"></a>3、如何使用</h4><h6 id="添加消息到循环中"><a href="#添加消息到循环中" class="headerlink" title="添加消息到循环中"></a>添加消息到循环中</h6><ul>
+<li>（1）创建输入源。(以NSTimer为例)</li>
+<li>（2）指定该事件（源）在循环中运行的模式，并加入循环。  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--- [<span class="keyword">self</span> performSelector:<span class="keyword">@selector</span>(demo2) onThread:thread withObject:<span class="literal">nil</span> waitUntilDone:<span class="literal">NO</span>];</span><br><span class="line">---[[<span class="built_in">NSRunLoop</span> currentRunLoop] addTimer:timer forMode:<span class="built_in">NSDefaultRunLoopMode</span>];</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="使用总结"><a href="#使用总结" class="headerlink" title="使用总结"></a>使用总结</h6><ol>
+<li>创建消息</li>
+<li>把消息放入循环，并指定消息运行的模式</li>
+<li>在与循环的模式匹配的时候，消息运行</li>
+</ol>
+<h4 id="4、循环常用模式"><a href="#4、循环常用模式" class="headerlink" title="4、循环常用模式"></a>4、循环常用模式</h4><ul>
+<li>NSDefaultRunLoopMode–默认模式</li>
+<li>NSRunLoopCommonModes–普通模式</li>
+</ul>
+<h4 id="5、子线程中的消息循环"><a href="#5、子线程中的消息循环" class="headerlink" title="5、子线程中的消息循环"></a>5、子线程中的消息循环</h4><ul>
+<li>特点：子线程默认不开启消息循环,主线程默认开启消息循环。</li>
+<li>手动开启注意   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">执行完[[<span class="built_in">NSRunLoop</span> currentRunLoop] run];后面的代码不会执行,也关不了循环。</span><br><span class="line">可用[[<span class="built_in">NSRunLoop</span> currentRunLoop] runUntilDate:[<span class="built_in">NSDate</span> dateWithTimeIntervalSinceNow:<span class="number">5</span>]];</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/05/GCD:RunLoop/">展开全文 >></a>
         </p>
       
 
