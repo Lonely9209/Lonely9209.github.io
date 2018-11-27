@@ -55,6 +55,8 @@
 			
 				<li><a href="/">主页</a></li>
 	        
+				<li><a href="/categories/">分类</a></li>
+	        
 				<li><a href="/tags/">随笔</a></li>
 	        
 			</ul>
@@ -113,6 +115,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -130,12 +134,14 @@
 			</nav>
 
 			<nav class="header-menu js-header-menu">
-				<ul style="width: 50%">
+				<ul style="width: 70%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
+					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+		        
+					<li style="width: 33.333333333333336%"><a href="/tags/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -151,6 +157,106 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-UITabBarController" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/04/UITabBarController/">UITabBarController</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/04/UITabBarController/" class="archive-article-date">
+  	<time datetime="2016-07-04T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-04</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、UITabBarController属性-方法"><a href="#一、UITabBarController属性-方法" class="headerlink" title="一、UITabBarController属性/方法"></a>一、UITabBarController属性/方法</h2><ul>
+<li><p>子控制器数组</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UIViewController</span> *&gt; *viewControllers</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前选中的子控制器</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>, <span class="keyword">assign</span>) __kindof <span class="built_in">UIViewController</span> *selectedViewController;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前选中子控制器的下标</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">NSUInteger</span> selectedIndex;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="二、UITabBar属性-方法"><a href="#二、UITabBar属性-方法" class="headerlink" title="二、UITabBar属性/方法"></a>二、UITabBar属性/方法</h2><ul>
+<li><p>item数组</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>,<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span>&lt;<span class="built_in">UITabBarItem</span> *&gt; *items;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>当前选中的item</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>,<span class="keyword">nonatomic</span>,<span class="keyword">assign</span>) <span class="built_in">UITabBarItem</span> *selectedItem;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UITabBar颜色</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>,<span class="keyword">strong</span>) <span class="built_in">UIColor</span> *barTintColor</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>UITabBar渲染颜色</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">null_resettable</span>, <span class="keyword">nonatomic</span>,<span class="keyword">strong</span>) <span class="built_in">UIColor</span> *tintColor   <span class="built_in">UI_APPEARANCE_SELECTOR</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="使用KVC自定义Tabbar"><a href="#使用KVC自定义Tabbar" class="headerlink" title="使用KVC自定义Tabbar"></a>使用KVC自定义Tabbar</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> setValue:[[BSTabBar alloc] init] forKey:<span class="string">@"tabBar"</span>];</span><br></pre></td></tr></table></figure>
+<h2 id="三、统一设置tabbar样式"><a href="#三、统一设置tabbar样式" class="headerlink" title="三、统一设置tabbar样式"></a>三、统一设置tabbar样式</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)initialize &#123;	</span><br><span class="line">    [<span class="built_in">UITabBar</span> appearance].backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span> setTitleAttributes];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//统一设置文字样式</span></span><br><span class="line">+ (<span class="keyword">void</span>)setTitleAttributes &#123;</span><br><span class="line">    <span class="built_in">UITabBarItem</span> *item = [<span class="built_in">UITabBarItem</span> appearance];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *norDict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    norDict[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> lightGrayColor];</span><br><span class="line">    norDict[<span class="built_in">NSFontAttributeName</span>] = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *selDict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    selDict[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> grayColor];</span><br><span class="line">    selDict[<span class="built_in">NSFontAttributeName</span>] = norDict[<span class="built_in">NSFontAttributeName</span>];</span><br><span class="line">    </span><br><span class="line">    [item setTitleTextAttributes:norDict forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [item setTitleTextAttributes:selDict forState:<span class="built_in">UIControlStateSelected</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、TabBar添加控制器一般方法"><a href="#四、TabBar添加控制器一般方法" class="headerlink" title="四、TabBar添加控制器一般方法"></a>四、TabBar添加控制器一般方法</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> addChildVc:[[BSEssenceViewController alloc] init] title:<span class="string">@"精华"</span> image:<span class="string">@"tabBar_essence_icon"</span> selectedImage:<span class="string">@"tabBar_essence_click_icon"</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> addChildVc:[[BSNewViewController alloc] init] title:<span class="string">@"新帖"</span> image:<span class="string">@"tabBar_new_icon"</span> selectedImage:<span class="string">@"tabBar_new_click_icon"</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> addChildVc:[[BSFriendTrendsViewController alloc] init] title:<span class="string">@"关注"</span> image:<span class="string">@"tabBar_friendTrends_icon"</span> selectedImage:<span class="string">@"tabBar_friendTrends_click_icon"</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> addChildVc:[[BSMeViewController alloc] initWithStyle:<span class="built_in">UITableViewStyleGrouped</span>] title:<span class="string">@"我的"</span> image:<span class="string">@"tabBar_me_icon"</span> selectedImage:<span class="string">@"tabBar_me_click_icon"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//替换tabBar(KVC)</span></span><br><span class="line">    [<span class="keyword">self</span> setValue:[[BSTabBar alloc] init] forKey:<span class="string">@"tabBar"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加子控制器</span></span><br><span class="line">- (<span class="keyword">void</span>)addChildVc:(<span class="built_in">UIViewController</span> *)vc title:(<span class="built_in">NSString</span> *)title image:(<span class="built_in">NSString</span> *)image selectedImage:(<span class="built_in">NSString</span> *)selectedImage &#123;</span><br><span class="line">    BSNavViewController *nav = [[BSNavViewController alloc] initWithRootViewController:vc];</span><br><span class="line">    nav.tabBarItem.title = title;</span><br><span class="line">    nav.tabBarItem.image = [<span class="built_in">UIImage</span> imageNamed:image];</span><br><span class="line">    nav.tabBarItem.selectedImage = [<span class="built_in">UIImage</span> imageNamed:selectedImage];</span><br><span class="line">    [<span class="keyword">self</span> addChildViewController:nav];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/04/UITabBarController/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-文字:图片处理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
@@ -202,160 +308,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/04/文字:图片处理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-多线程概念和NSThread" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/04/多线程概念和NSThread/">多线程概念和NSThread</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/04/多线程概念和NSThread/" class="archive-article-date">
-  	<time datetime="2016-07-04T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、多线程的基本概念"><a href="#一、多线程的基本概念" class="headerlink" title="一、多线程的基本概念"></a>一、多线程的基本概念</h2><h4 id="1、多线程的基本概念"><a href="#1、多线程的基本概念" class="headerlink" title="1、多线程的基本概念"></a>1、多线程的基本概念</h4><ol>
-<li>同步:顺序执行</li>
-<li>异步:同时运行</li>
-<li>进程:正在运行的程序,一个或多个线程组成</li>
-<li>线程:最基本的执行单元</li>
-</ol>
-<h4 id="2、特征"><a href="#2、特征" class="headerlink" title="2、特征"></a>2、特征</h4><ul>
-<li>(单核CPU)同一时间,cpu只能处理1个线程,只有1个线程在执行 </li>
-<li>多线程同时执行:是CPU快速的在多个线程之间的切换</li>
-<li>cpu调度线程的时间足够快,就造成了多线程的“同时”执行</li>
-<li>如果线程数非常多,cpu会在n个线程之间切换,消耗大量的cpu资源 </li>
-<li>每个线程被调度的次数会降低,线程的执行效率降低 </li>
-</ul>
-<h6 id="多线程的优点"><a href="#多线程的优点" class="headerlink" title="多线程的优点"></a>多线程的优点</h6><ul>
-<li>能<strong>适当</strong>提高程序的执行效率</li>
-<li>能<strong>适当</strong>提高资源的利用率（CPU&amp;内存）</li>
-<li>线程上得任务执行完后自动销毁</li>
-</ul>
-<h6 id="多线程的缺点"><a href="#多线程的缺点" class="headerlink" title="多线程的缺点"></a>多线程的缺点</h6><ul>
-<li>开启线程需要占用一定的内存空间(默认情况下,每一个线程都占512KB) </li>
-<li>如果开启大量的线程,会占用大量的内存空间,降低程序的性能</li>
-<li>线程越多,cpu在调用线程上的开销就越大</li>
-<li>程序设计更加复杂,比如线程间的通信、多线程的数据共享 </li>
-<li><strong>时间成本和空间成本</strong></li>
-</ul>
-<h6 id="主线程"><a href="#主线程" class="headerlink" title="主线程"></a>主线程</h6><ul>
-<li>一个程序运行后,默认会开启1个线程,称为“主线程”或“UI线程”</li>
-<li>主线程一般用来 刷新UI界面 ,处理UI事件(比如:点击、滚动、拖拽等事件) </li>
-<li>主线程使用注意 <ul>
-<li>别将耗时的操作放到主线程中</li>
-<li>耗时操作会卡住主线程,严重影响UI的流畅度,给用户一种卡的坏体验</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、NSThread"><a href="#二、NSThread" class="headerlink" title="二、NSThread"></a>二、NSThread</h2><h4 id="1、创建和启动线程"><a href="#1、创建和启动线程" class="headerlink" title="1、创建和启动线程"></a>1、创建和启动线程</h4><p><strong>一个NSThread对象就代表一条线程</strong></p>
-<h6 id="创建、启动线程"><a href="#创建、启动线程" class="headerlink" title="创建、启动线程"></a>创建、启动线程</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSThread</span> *thread = [[<span class="built_in">NSThread</span> alloc] initWithTarget:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(run) object:<span class="literal">nil</span>];</span><br><span class="line">[thread start];</span><br><span class="line"><span class="comment">// 线程一启动，就会在线程thread中执行self的run方法</span></span><br></pre></td></tr></table></figure>
-<h6 id="其他创建线程方式"><a href="#其他创建线程方式" class="headerlink" title="其他创建线程方式"></a>其他创建线程方式</h6><p>1、创建线程后自动启动线程<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSThread</span> detachNewThreadSelector:<span class="keyword">@selector</span>(run) toTarget:<span class="keyword">self</span> withObject:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure></p>
-<p>2、隐式创建并启动线程<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> performSelectorInBackground:<span class="keyword">@selector</span>(run) withObject:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure></p>
-<p>3、上述2种创建线程方式的优缺点</p>
-<pre><code>优点：简单快捷
-缺点：无法对线程进行更详细的设置
-</code></pre><h4 id="2、控制线程状态"><a href="#2、控制线程状态" class="headerlink" title="2、控制线程状态"></a>2、控制线程状态</h4><h6 id="启动线程"><a href="#启动线程" class="headerlink" title="启动线程"></a>启动线程</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)start;</span><br></pre></td></tr></table></figure>
-<p>// 进入就绪状态 -&gt; 运行状态。当线程任务执行完毕，自动进入死亡状态</p>
-<h6 id="阻塞（暂停）线程"><a href="#阻塞（暂停）线程" class="headerlink" title="阻塞（暂停）线程"></a>阻塞（暂停）线程</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)sleepUntilDate:(<span class="built_in">NSDate</span> *)date;</span><br><span class="line">+ (<span class="keyword">void</span>)sleepForTimeInterval:(<span class="built_in">NSTimeInterval</span>)ti;</span><br></pre></td></tr></table></figure>
-<p>// 进入阻塞状态</p>
-<h6 id="强制停止线程"><a href="#强制停止线程" class="headerlink" title="强制停止线程"></a>强制停止线程</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)exit;</span><br></pre></td></tr></table></figure>
-<p>// 进入死亡状态</p>
-<p><strong>注意：一旦线程停止（死亡）了，就不能再次开启任务</strong></p>
-<h4 id="3、常用属性方法"><a href="#3、常用属性方法" class="headerlink" title="3、常用属性方法"></a>3、常用属性方法</h4><h6 id="获得当前线程"><a href="#获得当前线程" class="headerlink" title="获得当前线程"></a>获得当前线程</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSThread</span> *current = [<span class="built_in">NSThread</span> currentThread];</span><br></pre></td></tr></table></figure>
-<h6 id="线程的调度优先级"><a href="#线程的调度优先级" class="headerlink" title="线程的调度优先级"></a>线程的调度优先级</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">double</span>)threadPriority;</span><br></pre></td></tr></table></figure>
-<p>调度优先级的取值范围是0.0 ~ 1.0，默认0.5，值越大，优先级越高</p>
-<h6 id="线程的名字"><a href="#线程的名字" class="headerlink" title="线程的名字"></a>线程的名字</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setName:(<span class="built_in">NSString</span> *)n;</span><br><span class="line">- (<span class="built_in">NSString</span> *)name;</span><br></pre></td></tr></table></figure>
-<h6 id="主线程相关用法"><a href="#主线程相关用法" class="headerlink" title="主线程相关用法"></a>主线程相关用法</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">NSThread</span> *)mainThread; <span class="comment">// 获得主线程</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isMainThread; <span class="comment">// 是否为主线程</span></span><br></pre></td></tr></table></figure>
-<h4 id="4、多线程的安全隐患"><a href="#4、多线程的安全隐患" class="headerlink" title="4、多线程的安全隐患"></a>4、多线程的安全隐患</h4><h6 id="资源共享"><a href="#资源共享" class="headerlink" title="资源共享"></a>资源共享</h6><ul>
-<li>1块资源可能会被多个线程共享，也就是多个线程可能会访问同一块资源</li>
-<li>比如多个线程访问同一个对象、同一个变量、同一个文件</li>
-<li>当多个线程访问同一块资源时，很容易引发数据错乱和数据安全问题</li>
-</ul>
-<h4 id="5、安全隐患解决-–-互斥锁"><a href="#5、安全隐患解决-–-互斥锁" class="headerlink" title="5、安全隐患解决 – 互斥锁"></a>5、安全隐患解决 – 互斥锁</h4><h6 id="互斥锁使用格式"><a href="#互斥锁使用格式" class="headerlink" title="互斥锁使用格式"></a>互斥锁使用格式</h6><pre><code>@synchronized(锁对象) { // 需要锁定的代码  }
-</code></pre><p><strong>注意：锁定1份代码只用1把锁，用多把锁是无效的</strong></p>
-<h6 id="互斥锁的优缺点"><a href="#互斥锁的优缺点" class="headerlink" title="互斥锁的优缺点"></a>互斥锁的优缺点</h6><pre><code>优点：能有效防止因多线程抢夺资源造成的数据安全问题
-缺点：需要消耗大量的CPU资源
-</code></pre><p><strong>互斥锁的使用前提：多条线程抢夺同一块资源</strong></p>
-<h6 id="相关专业术语：线程同步"><a href="#相关专业术语：线程同步" class="headerlink" title="相关专业术语：线程同步"></a>相关专业术语：线程同步</h6><pre><code>线程同步的意思是：多条线程按顺序地执行任务
-互斥锁，就是使用了线程同步技术
-</code></pre><h4 id="6、原子和非原子属性"><a href="#6、原子和非原子属性" class="headerlink" title="6、原子和非原子属性"></a>6、原子和非原子属性</h4><h6 id="OC在定义属性时有nonatomic和atomic两种选择"><a href="#OC在定义属性时有nonatomic和atomic两种选择" class="headerlink" title="OC在定义属性时有nonatomic和atomic两种选择"></a>OC在定义属性时有nonatomic和atomic两种选择</h6><ul>
-<li>atomic：原子属性，为setter方法加锁（默认就是atomic）</li>
-<li>nonatomic：非原子属性，不会为setter方法加锁</li>
-</ul>
-<h4 id="7、线程间通信"><a href="#7、线程间通信" class="headerlink" title="7、线程间通信"></a>7、线程间通信</h4><h6 id="什么叫做线程间通信"><a href="#什么叫做线程间通信" class="headerlink" title="什么叫做线程间通信"></a>什么叫做线程间通信</h6><p>在1个进程中，线程往往不是孤立存在的，多个线程之间需要经常进行通信</p>
-<h6 id="线程间通信的体现"><a href="#线程间通信的体现" class="headerlink" title="线程间通信的体现"></a>线程间通信的体现</h6><ul>
-<li>1个线程传递数据给另1个线程</li>
-<li>在1个线程中执行完特定任务后，转到另1个线程继续执行任务</li>
-</ul>
-<h6 id="线程间通信常用方法"><a href="#线程间通信常用方法" class="headerlink" title="线程间通信常用方法"></a>线程间通信常用方法</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)performSelectorOnMainThread:(SEL)aSelector withObject:(<span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait;</span><br><span class="line">- (<span class="keyword">void</span>)performSelector:(SEL)aSelector onThread:(<span class="built_in">NSThread</span> *)thr withObject:(<span class="keyword">id</span>)arg waitUntilDone:(<span class="built_in">BOOL</span>)wait;</span><br></pre></td></tr></table></figure>
-<h4 id="8、什么时候使用自动释放池"><a href="#8、什么时候使用自动释放池" class="headerlink" title="8、什么时候使用自动释放池"></a>8、什么时候使用自动释放池</h4><p><strong>If you write a loop that creates many temporary objects.</strong><br>You may use an autorelease pool block inside the loop to dispose of those objects before the next iteration. Using an autorelease pool block in the loop helps to reduce the maximum memory footprint of the application. </p>
-<p>循环中创建了许多临时对象，在循环里面使用自动释放池，用来减少高内存占用。</p>
-<p><strong>If you spawn a secondary thread.</strong><br>You must create your own autorelease pool block as soon<br>as the thread begins executing; otherwise, your application will leak objects. (See Autorelease Pool Blocks and Threads for details.) </p>
-<p>开启子线程的时候要自己创建自动释放池，否则可能会发生内存泄露</p>
-<h6 id="自动释放池常见面试代码"><a href="#自动释放池常见面试代码" class="headerlink" title="自动释放池常见面试代码"></a>自动释放池常见面试代码</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; largeNumber; ++i) &#123;</span><br><span class="line">    <span class="built_in">NSString</span> *str = <span class="string">@"Hello World"</span>;</span><br><span class="line">    str = [str stringByAppendingFormat:<span class="string">@" - %d"</span>, i];</span><br><span class="line">    str = [str uppercaseString];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, str);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>在for循环内部加入一个自动释放池</strong></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/04/多线程概念和NSThread/">展开全文 >></a>
         </p>
       
 
@@ -1824,6 +1776,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">个人随笔</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
