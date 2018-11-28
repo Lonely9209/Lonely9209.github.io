@@ -596,6 +596,83 @@
 
 
   
+    <article id="post-服务器配置笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/01/服务器配置笔记/">服务器配置笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/01/服务器配置笔记/" class="archive-article-date">
+  	<time datetime="2016-07-01T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="服务器配置步骤"><a href="#服务器配置步骤" class="headerlink" title="服务器配置步骤:"></a>服务器配置步骤:</h2><h4 id="1、打开服务器配置目录"><a href="#1、打开服务器配置目录" class="headerlink" title="1、打开服务器配置目录"></a>1、打开服务器配置目录</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/</span><br></pre></td></tr></table></figure>
+<h4 id="2、查看当前目录下内容"><a href="#2、查看当前目录下内容" class="headerlink" title="2、查看当前目录下内容"></a>2、查看当前目录下内容</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+<h4 id="3、修改服务器根路径"><a href="#3、修改服务器根路径" class="headerlink" title="3、修改服务器根路径"></a>3、修改服务器根路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    sudo vim httpd.conf  <span class="comment">//进入服务器配置文件</span></span><br><span class="line">    </span><br><span class="line">    /DocumentRoot 回车 <span class="comment">//查找服务器默认根路径</span></span><br><span class="line">    </span><br><span class="line">    将默认根路径 DocumentRoot <span class="string">"/Library/WebServer/Documents"</span> 注释掉;</span><br><span class="line">    </span><br><span class="line">    在注释掉的根路径下面一行增加新的根路径</span><br><span class="line">    DocumentRoot <span class="string">"/Users/likaining/Sites"</span></span><br><span class="line">    </span><br><span class="line">    将 &lt;Directory <span class="string">"/Library/WebServer/Documents"</span>&gt; 注释掉;</span><br><span class="line">    增加新的 &lt;Directory <span class="string">"/Users/likaining/Sites"</span>&gt;</span><br><span class="line">    </span><br><span class="line">    注意: Mac <span class="number">10.10</span> 的 Apache 增加如下操作！</span><br><span class="line">    </span><br><span class="line">    (看<span class="string">"服务器配置视频\02-Mac10.10 Apache配置.mp4"</span>)</span><br><span class="line">    </span><br><span class="line">    在 httpd.conf 中找到</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options FollowSymLinks Multiviews"</span></span><br><span class="line">    </span><br><span class="line">    加一个单词 Indexes，修改后的结果如下：</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options Indexes FollowSymLinks Multiviews"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4、保存退出"><a href="#4、保存退出" class="headerlink" title="4、保存退出"></a>4、保存退出</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">:wq 回车</span><br><span class="line"></span><br><span class="line"><span class="string">"注意"</span>:如果感觉修改错误了,想重新进入修改,就做不保存退出的操作</span><br><span class="line">不保存退出</span><br><span class="line">:q! 回车</span><br><span class="line"></span><br><span class="line">启动服务器</span><br><span class="line">sudo apachectl -k start 或者 sudo apachectl start</span><br><span class="line"></span><br><span class="line">关闭服务器:</span><br><span class="line">sudo apachectl -k stop 或者 sudo apachectl stop</span><br><span class="line"></span><br><span class="line">重新启动服务器</span><br><span class="line">sudo apachectl -k restart 或者 $sudo apachectl restart</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/01/服务器配置笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-项目文件介绍" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -716,83 +793,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/01/项目文件介绍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-服务器配置笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/服务器配置笔记/">服务器配置笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/01/服务器配置笔记/" class="archive-article-date">
-  	<time datetime="2016-07-01T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="服务器配置步骤"><a href="#服务器配置步骤" class="headerlink" title="服务器配置步骤:"></a>服务器配置步骤:</h2><h4 id="1、打开服务器配置目录"><a href="#1、打开服务器配置目录" class="headerlink" title="1、打开服务器配置目录"></a>1、打开服务器配置目录</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/</span><br></pre></td></tr></table></figure>
-<h4 id="2、查看当前目录下内容"><a href="#2、查看当前目录下内容" class="headerlink" title="2、查看当前目录下内容"></a>2、查看当前目录下内容</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
-<h4 id="3、修改服务器根路径"><a href="#3、修改服务器根路径" class="headerlink" title="3、修改服务器根路径"></a>3、修改服务器根路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    sudo vim httpd.conf  <span class="comment">//进入服务器配置文件</span></span><br><span class="line">    </span><br><span class="line">    /DocumentRoot 回车 <span class="comment">//查找服务器默认根路径</span></span><br><span class="line">    </span><br><span class="line">    将默认根路径 DocumentRoot <span class="string">"/Library/WebServer/Documents"</span> 注释掉;</span><br><span class="line">    </span><br><span class="line">    在注释掉的根路径下面一行增加新的根路径</span><br><span class="line">    DocumentRoot <span class="string">"/Users/likaining/Sites"</span></span><br><span class="line">    </span><br><span class="line">    将 &lt;Directory <span class="string">"/Library/WebServer/Documents"</span>&gt; 注释掉;</span><br><span class="line">    增加新的 &lt;Directory <span class="string">"/Users/likaining/Sites"</span>&gt;</span><br><span class="line">    </span><br><span class="line">    注意: Mac <span class="number">10.10</span> 的 Apache 增加如下操作！</span><br><span class="line">    </span><br><span class="line">    (看<span class="string">"服务器配置视频\02-Mac10.10 Apache配置.mp4"</span>)</span><br><span class="line">    </span><br><span class="line">    在 httpd.conf 中找到</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options FollowSymLinks Multiviews"</span></span><br><span class="line">    </span><br><span class="line">    加一个单词 Indexes，修改后的结果如下：</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options Indexes FollowSymLinks Multiviews"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4、保存退出"><a href="#4、保存退出" class="headerlink" title="4、保存退出"></a>4、保存退出</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">:wq 回车</span><br><span class="line"></span><br><span class="line"><span class="string">"注意"</span>:如果感觉修改错误了,想重新进入修改,就做不保存退出的操作</span><br><span class="line">不保存退出</span><br><span class="line">:q! 回车</span><br><span class="line"></span><br><span class="line">启动服务器</span><br><span class="line">sudo apachectl -k start 或者 sudo apachectl start</span><br><span class="line"></span><br><span class="line">关闭服务器:</span><br><span class="line">sudo apachectl -k stop 或者 sudo apachectl stop</span><br><span class="line"></span><br><span class="line">重新启动服务器</span><br><span class="line">sudo apachectl -k restart 或者 $sudo apachectl restart</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/01/服务器配置笔记/">展开全文 >></a>
         </p>
       
 

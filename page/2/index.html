@@ -342,119 +342,6 @@
 
 
   
-    <article id="post-文件上传" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/08/文件上传/">文件上传</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/08/文件上传/" class="archive-article-date">
-  	<time datetime="2016-07-08T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-08</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、POST上传单个文件"><a href="#一、POST上传单个文件" class="headerlink" title="一、POST上传单个文件"></a>一、POST上传单个文件</h2><p><strong>重点:1.单个文件上传(四个步骤) 2.设置请求体格式</strong></p>
-<h4 id="1、为什么要上传文件"><a href="#1、为什么要上传文件" class="headerlink" title="1、为什么要上传文件:"></a>1、为什么要上传文件:</h4><ul>
-<li>以前很多服务器对上传文件的大小有限制,PHP 限制是 2M</li>
-<li>目前很多服务器不仅不限制大小,而且鼓励上传多个文件!</li>
-<li>云服务器的普及!</li>
-<li>软件商希望获得更多的用户数据!</li>
-</ul>
-<p><strong>提示:abc 的目录是用来保存上传文件的,需要设置访问权限!</strong></p>
-<h4 id="2、步骤"><a href="#2、步骤" class="headerlink" title="2、步骤"></a>2、步骤</h4><h6 id="1、文件上传使用-POST-方法"><a href="#1、文件上传使用-POST-方法" class="headerlink" title="1、文件上传使用 POST 方法"></a>1、文件上传使用 POST 方法</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求为可变请求</span></span><br><span class="line"><span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:url];</span><br><span class="line"><span class="comment">// 制定请求方法为 POST</span></span><br><span class="line">request.HTTPMethod = <span class="string">@"POST"</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="2、设置请求头-告诉服务器请求体中的内容包含文件参数"><a href="#2、设置请求头-告诉服务器请求体中的内容包含文件参数" class="headerlink" title="2、设置请求头,告诉服务器请求体中的内容包含文件参数"></a>2、设置请求头,告诉服务器请求体中的内容包含文件参数</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[request setValue:<span class="string">@"multipart/form-data; boundary=kBoundary"</span> forHTTPHeaderField:<span class="string">@"Content-Type"</span>];</span><br></pre></td></tr></table></figure>
-<h6 id="3、设置请求体-注意-必须严格按照格式设置"><a href="#3、设置请求体-注意-必须严格按照格式设置" class="headerlink" title="3、设置请求体(注意:必须严格按照格式设置)"></a>3、设置请求体(注意:必须严格按照格式设置)</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上边界</span></span><br><span class="line">--boundary\r\n</span><br><span class="line">Content-Disposition: form-data; name=userfile; filename=<span class="number">555</span>\r\n</span><br><span class="line">Content-Type: application/json\r\n\r\n</span><br><span class="line">文件内容的二进制数据</span><br><span class="line"><span class="comment">// 下边界</span></span><br><span class="line">\r\n--boundary--</span><br><span class="line">注意<span class="number">1</span>:请求体内容分为三个部分:</span><br><span class="line">* 上边界部分,告诉服务器要做数据上传,包含了服务器的接收字段name=userfile,文件在服务器中保存的名称filename=<span class="number">555</span>,以及上传文件的数据类型 application/json(需要严格按照字符串格式来设置)</span><br><span class="line">* 上传文件的数据部分(二进制数据)</span><br><span class="line">* 下边界部分,严格按照字符串格式来设置.</span><br><span class="line">上边界部分和下边界部分的字符串,最后都要转换成二进制数据,和文件部分的二进制数据拼接在一起,作为请求体发送给服务器.</span><br><span class="line">注意<span class="number">2</span>:</span><br><span class="line">* userfile =&gt; 负责上传文件脚本中的 字段名,开发的时候,可以咨询后端程序员</span><br><span class="line">* filename =&gt; 将文件保存在服务器上的文件名称</span><br><span class="line">* Content-Type: 客户端告诉服务器上传文件的文件类型</span><br><span class="line">注意<span class="number">3</span>:</span><br><span class="line">* 每一行末尾需要有一定的 \r\n</span><br><span class="line">* 提示：有些服务器可以直接使用 \n，但是新浪微博如果使用 \n 上传文件，服务器会返回“没有权限”的错误！</span><br></pre></td></tr></table></figure>
-<h6 id="4、发送请求-用-NSURLConnection异步发送请求"><a href="#4、发送请求-用-NSURLConnection异步发送请求" class="headerlink" title="4、发送请求(用 NSURLConnection异步发送请求)"></a>4、发送请求(用 NSURLConnection异步发送请求)</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:request queue:[<span class="built_in">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSData</span> *data, <span class="built_in">NSError</span> *connectionError) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="built_in">NSString</span> *string = [[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,string);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-<h2 id="二、多文件上传"><a href="#二、多文件上传" class="headerlink" title="二、多文件上传"></a>二、多文件上传</h2><p><strong>重点:1.掌握多文件上传的数据格式 2.学会封装多文件上传的方法</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">多文件上传和单文件上传的基本思路是一样的,唯一的区别在于对请求体的封装.</span><br><span class="line">多文件的请求体部分格式<span class="number">1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 第一个文件参数的上边界</span></span><br><span class="line">    \r\n--boundary\r\n</span><br><span class="line">    Content-Disposition: form-data; name=userfile[]; filename=美女\r\n</span><br><span class="line">    Content-Type:image/jpeg\r\n\r\n</span><br><span class="line">    上传文件的二进制数据部分</span><br><span class="line">    <span class="comment">// 第一个文件参数的下边界</span></span><br><span class="line">    \r\n--boundary--</span><br><span class="line">    <span class="comment">// 第二个文件参数的上边界</span></span><br><span class="line">    \r\n--boundary\r\n</span><br><span class="line">    Content-Disposition: form-data; name=userfile[]; filename=JSON\r\n</span><br><span class="line">    Content-Type:text/plain\r\n\r\n</span><br><span class="line">    上传文件的二进制数据部分</span><br><span class="line">    <span class="comment">// 第二个文件参数的下边界</span></span><br><span class="line">    \r\n--boundary--</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    多文件上传的请求体格式<span class="number">2</span></span><br><span class="line">    <span class="comment">// 上边界</span></span><br><span class="line">    <span class="comment">// 第一个文件参数</span></span><br><span class="line">    \r\n--boundary\r\n</span><br><span class="line">    Content-Disposition: form-data; name=userfile[]; filename=美女\r\n</span><br><span class="line">    Content-Type:image/jpeg\r\n\r\n</span><br><span class="line">    上传文件的二进制数据部分</span><br><span class="line">    <span class="comment">// 第二个文件参数</span></span><br><span class="line">    \r\n--boundary\r\n</span><br><span class="line">    Content-Disposition: form-data; name=userfile[]; filename=JSON\r\n</span><br><span class="line">    Content-Type:text/plain\r\n\r\n</span><br><span class="line">    上传文件的二进制数据部分</span><br><span class="line">    <span class="comment">// 下边界</span></span><br><span class="line">    \r\n--boundary--</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="三、获取文件的-MIMEType"><a href="#三、获取文件的-MIMEType" class="headerlink" title="三、获取文件的 MIMEType"></a>三、获取文件的 MIMEType</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">上传文件的时候,需要告诉服务器文件类型(即Content-Type),这时,需要获取文件的 MIMEType.</span><br><span class="line"></span><br><span class="line">获取文件的 MIMEType 方法:加载文件时,通过 response 获得</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSURLResponse</span> *response = <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">NSURLConnection</span> sendSynchronousRequest:request returningResponse:&amp;response error:<span class="literal">NULL</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,response.MIMEType);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">response.MIMEType 即为 Content-Type 的类型.</span><br><span class="line"></span><br><span class="line">如果不想告诉服务器具体的文件类型,可以使用这个 Content-Type : application/octet-stream(<span class="number">8</span>进制流)</span><br><span class="line"></span><br><span class="line">常见的 Content-Type 类型:</span><br><span class="line">&#123;</span><br><span class="line">    - 大类型/小类型</span><br><span class="line">    - text/plain</span><br><span class="line">    - image/jpg</span><br><span class="line">    - image/png</span><br><span class="line">    - image/gif</span><br><span class="line">    - text/html</span><br><span class="line">    - application/json</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四、多文件-普通文本上传"><a href="#四、多文件-普通文本上传" class="headerlink" title="四、多文件 + 普通文本上传"></a>四、多文件 + 普通文本上传</h2><ul>
-<li>有些服务器可以在上传文件的同时,提交一些文本内容给服务器</li>
-<li>典型应用:<ul>
-<li><1>新浪微博: 上传图片的同时,发送一条微博信息!</1></li>
-<li><2>购物评论: 购买商品之后发表评论的时候图片+评论内容!</2></li>
-</ul>
-</li>
-<li><p>多文件上传的数据格式：</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: multipart/form-data; boundary=boundary</span><br><span class="line"><span class="comment">// ------ 以下内容，是提供给服务器的二进制数据格式</span></span><br><span class="line">--boundary\r\n</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"userfile[]"</span>; filename=<span class="string">"aaa.txt"</span>\r\n</span><br><span class="line">Content-Type: application/octet-stream\r\n\r\n</span><br><span class="line"></span><br><span class="line">文件二进制数据</span><br><span class="line">\r\n</span><br><span class="line">--boundary\r\n</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"userfile[]"</span>; filename=<span class="string">"aaa副本.txt"</span>\r\n</span><br><span class="line">Content-Type: application/octet-stream\r\n\r\n</span><br><span class="line"></span><br><span class="line">文件二进制数据</span><br><span class="line">\r\n</span><br><span class="line">--boundary\r\n</span><br><span class="line"><span class="comment">// username 是脚本文件接收参数的名称</span></span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"username"</span>\r\n\r\n</span><br><span class="line"></span><br><span class="line">普通文本二进制数据</span><br><span class="line">\r\n</span><br><span class="line">--boundary--</span><br><span class="line"><span class="comment">// ------</span></span><br></pre></td></tr></table></figure>
-<p>  以上部分，是发送给服务器的二进制数据的组成格式(示例)</p>
-</li>
-<li><p>如果在 iOS 中,要实现POST上传文件,需要按照上述格式,拼接数据!</p>
-</li>
-<li>因为:格式是 W3C 指定的标准格式,苹果没有做任何封装!其他语言,都做了封装!</li>
-<li>以上三种数据拼接格式,需要大家了解并且能够自己会拼接一种!</li>
-<li>“第三方框架做文件上传:<ul>
-<li>AFN 能够同时实现上传”一个文件”,有些格式的文件,用 AFN 无法上传!</li>
-<li>ASI 能够同时实现上传多个文件,MRC的,2012年就停止更新了,设计的目标平台, iOS 2.0/iOS 3.0 !</li>
-</ul>
-</li>
-</ul>
-<h2 id="五、RESTful设计风格"><a href="#五、RESTful设计风格" class="headerlink" title="五、RESTful设计风格"></a>五、RESTful设计风格</h2><p>为了简化开发流程,使开发更加直观,解读更加容易,现在有一种非常流行的程序设计风格—-&gt;RESTful设计风格</p>
-<p>RESTful设计风格:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    主要用于后端开发,主要的表现形式为使用同一个 URL,不同的 HTTP 访问方法,表达不同的语义.</span><br><span class="line">&#123;</span><br><span class="line">    示例: http:/\/\www.xxx.com/product/<span class="number">123</span></span><br><span class="line">    </span><br><span class="line">    -GET http:/\/\www.xxx.com/product/<span class="number">123</span>   语义:从服务器<span class="string">"获取"</span>产品ID 为<span class="number">123</span>的产品信息.</span><br><span class="line">    </span><br><span class="line">    -POST http:/\/\www.xxx.com/product/<span class="number">123</span>   语义:在服务器<span class="string">"新增"</span>产品ID 为<span class="number">123</span>的产品信息.</span><br><span class="line">    </span><br><span class="line">    * 提交二进制数据,需要提交一个 JSON 格式的二进制数据,后端程序员可以直接反序列化,得到 JSON 中得字典信息.</span><br><span class="line">    * POST JSON</span><br><span class="line"></span><br><span class="line">    -PUT http:/\/\www.xxx.com/product/<span class="number">123</span>   语义:在服务器<span class="string">"修改"</span>产品ID 为<span class="number">123</span>的产品信息.</span><br><span class="line"></span><br><span class="line">    -DELETE http:/\/\www.xxx.com/product/<span class="number">123</span>   语义:从服务器<span class="string">"删除"</span>产品ID 为<span class="number">123</span>的产品信息.</span><br><span class="line"></span><br><span class="line">    RESTful设计风格目前在国际上非常流行,国内也逐渐开始普及.</span><br><span class="line">    </span><br><span class="line">    作为前端程序员,只需要知道有这种设计风格就可以.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h2 id="六、AFN-上传文件"><a href="#六、AFN-上传文件" class="headerlink" title="六、AFN 上传文件"></a>六、AFN 上传文件</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1. 创建管理者</span></span><br><span class="line">    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2. 发送请求</span></span><br><span class="line">    [mgr POST:<span class="string">@"http://localhost/upload/upload.php"</span> parameters:<span class="literal">nil</span> constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) &#123;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">// formData :设置上传文件所需要的参数,两种上传方法:</span></span><br><span class="line">        <span class="comment">// &lt;1&gt; 通过本地文件的 url 上传</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *fromFile = <span class="string">@"/Users/likaining/Desktop/meinv.jpg"</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"file:///Users/likaining/Desktop/meinv.jpg"</span>];</span><br><span class="line">            <span class="comment">// url :需要上传文件的文件路径</span></span><br><span class="line">            <span class="comment">// name :服务器接收的文件名.</span></span><br><span class="line">            <span class="comment">// fileName: 文件在服务器中保存的名字</span></span><br><span class="line">            <span class="comment">// mimeType : 文件类型</span></span><br><span class="line">            [formData appendPartWithFileURL:url name:<span class="string">@"userfile"</span> fileName:<span class="string">@"meinv"</span> mimeType:<span class="string">@"image/jpg"</span> error:<span class="literal">NULL</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// &lt;2&gt; 通过文件的 二进制数据 上传</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:zipFile];</span><br><span class="line">            </span><br><span class="line">            [formData appendPartWithFileData:data name:<span class="string">@"userfile"</span> fileName:<span class="string">@"meinv.zip"</span> mimeType:<span class="string">@"gzip"</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        &#125; success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) &#123;</span><br><span class="line">            <span class="comment">// 上传成功之后的回调</span></span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,responseObject);</span><br><span class="line">        </span><br><span class="line">        &#125; failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">            <span class="comment">//  上传失败之后的回调</span></span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"失败"</span>);</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="七、监测网络状态"><a href="#七、监测网络状态" class="headerlink" title="七、监测网络状态"></a>七、监测网络状态</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="number">1.</span> AFN 监测网络状态</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 创建 网络状态管理者</span></span><br><span class="line">        AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 监测网络状态的改变</span></span><br><span class="line">        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) &#123;</span><br><span class="line">            <span class="comment">// 当网络状态发生改变的时候调用这个block</span></span><br><span class="line">            <span class="keyword">switch</span> (status) &#123;</span><br><span class="line">                <span class="keyword">case</span> AFNetworkReachabilityStatusReachableViaWiFi:</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"WIFI网络"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">case</span> AFNetworkReachabilityStatusReachableViaWWAN:</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"蜂窝网络"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">case</span> AFNetworkReachabilityStatusNotReachable:</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"没有网络"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">case</span> AFNetworkReachabilityStatusUnknown:</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"未知网络"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line">        <span class="comment">// 开始监控</span></span><br><span class="line">        [mgr startMonitoring];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="number">2.</span>Reachability 监测网络状态</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 注册通知观察者,网络状态改变时,接收通知!</span></span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(InternetStatusChanged) name:kReachabilityChangedNotification object:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 控制器销毁时,移除通知观察者.</span></span><br><span class="line">        -(<span class="keyword">void</span>)dealloc</span><br><span class="line">        &#123;</span><br><span class="line">            [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 根据当前网络状态,做出不同的响应.</span></span><br><span class="line">        - (<span class="keyword">void</span>)InternetStatusChanged</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"网络状态改变了"</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> ([Reachability reachabilityForLocalWiFi].currentReachabilityStatus == ReachableViaWiFi) &#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"Wifi 网络"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ([Reachability reachabilityForInternetConnection].currentReachabilityStatus == ReachableViaWWAN) &#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"蜂窝移动网络"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ([Reachability reachabilityForInternetConnection].currentReachabilityStatus == NotReachable)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"没有网络"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 创建 Reachability 对象,开始监测网络状态的改变</span></span><br><span class="line">        - (<span class="keyword">void</span>)MonitorInternetStatus</span><br><span class="line">        &#123;</span><br><span class="line">            Reachability *CZReachability = [Reachability reachabilityForInternetConnection];</span><br><span class="line">            </span><br><span class="line">            [CZReachability startNotifier];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">self</span>.reachability = CZReachability;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        - (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">        &#123;</span><br><span class="line">            [<span class="keyword">self</span> MonitorInternetStatus];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/08/文件上传/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-CoreAnimation（核心动画）" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -634,6 +521,119 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/08/CoreAnimation（核心动画）/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-文件上传" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/08/文件上传/">文件上传</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/08/文件上传/" class="archive-article-date">
+  	<time datetime="2016-07-08T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-08</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、POST上传单个文件"><a href="#一、POST上传单个文件" class="headerlink" title="一、POST上传单个文件"></a>一、POST上传单个文件</h2><p><strong>重点:1.单个文件上传(四个步骤) 2.设置请求体格式</strong></p>
+<h4 id="1、为什么要上传文件"><a href="#1、为什么要上传文件" class="headerlink" title="1、为什么要上传文件:"></a>1、为什么要上传文件:</h4><ul>
+<li>以前很多服务器对上传文件的大小有限制,PHP 限制是 2M</li>
+<li>目前很多服务器不仅不限制大小,而且鼓励上传多个文件!</li>
+<li>云服务器的普及!</li>
+<li>软件商希望获得更多的用户数据!</li>
+</ul>
+<p><strong>提示:abc 的目录是用来保存上传文件的,需要设置访问权限!</strong></p>
+<h4 id="2、步骤"><a href="#2、步骤" class="headerlink" title="2、步骤"></a>2、步骤</h4><h6 id="1、文件上传使用-POST-方法"><a href="#1、文件上传使用-POST-方法" class="headerlink" title="1、文件上传使用 POST 方法"></a>1、文件上传使用 POST 方法</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 请求为可变请求</span></span><br><span class="line"><span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:url];</span><br><span class="line"><span class="comment">// 制定请求方法为 POST</span></span><br><span class="line">request.HTTPMethod = <span class="string">@"POST"</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="2、设置请求头-告诉服务器请求体中的内容包含文件参数"><a href="#2、设置请求头-告诉服务器请求体中的内容包含文件参数" class="headerlink" title="2、设置请求头,告诉服务器请求体中的内容包含文件参数"></a>2、设置请求头,告诉服务器请求体中的内容包含文件参数</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[request setValue:<span class="string">@"multipart/form-data; boundary=kBoundary"</span> forHTTPHeaderField:<span class="string">@"Content-Type"</span>];</span><br></pre></td></tr></table></figure>
+<h6 id="3、设置请求体-注意-必须严格按照格式设置"><a href="#3、设置请求体-注意-必须严格按照格式设置" class="headerlink" title="3、设置请求体(注意:必须严格按照格式设置)"></a>3、设置请求体(注意:必须严格按照格式设置)</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 上边界</span></span><br><span class="line">--boundary\r\n</span><br><span class="line">Content-Disposition: form-data; name=userfile; filename=<span class="number">555</span>\r\n</span><br><span class="line">Content-Type: application/json\r\n\r\n</span><br><span class="line">文件内容的二进制数据</span><br><span class="line"><span class="comment">// 下边界</span></span><br><span class="line">\r\n--boundary--</span><br><span class="line">注意<span class="number">1</span>:请求体内容分为三个部分:</span><br><span class="line">* 上边界部分,告诉服务器要做数据上传,包含了服务器的接收字段name=userfile,文件在服务器中保存的名称filename=<span class="number">555</span>,以及上传文件的数据类型 application/json(需要严格按照字符串格式来设置)</span><br><span class="line">* 上传文件的数据部分(二进制数据)</span><br><span class="line">* 下边界部分,严格按照字符串格式来设置.</span><br><span class="line">上边界部分和下边界部分的字符串,最后都要转换成二进制数据,和文件部分的二进制数据拼接在一起,作为请求体发送给服务器.</span><br><span class="line">注意<span class="number">2</span>:</span><br><span class="line">* userfile =&gt; 负责上传文件脚本中的 字段名,开发的时候,可以咨询后端程序员</span><br><span class="line">* filename =&gt; 将文件保存在服务器上的文件名称</span><br><span class="line">* Content-Type: 客户端告诉服务器上传文件的文件类型</span><br><span class="line">注意<span class="number">3</span>:</span><br><span class="line">* 每一行末尾需要有一定的 \r\n</span><br><span class="line">* 提示：有些服务器可以直接使用 \n，但是新浪微博如果使用 \n 上传文件，服务器会返回“没有权限”的错误！</span><br></pre></td></tr></table></figure>
+<h6 id="4、发送请求-用-NSURLConnection异步发送请求"><a href="#4、发送请求-用-NSURLConnection异步发送请求" class="headerlink" title="4、发送请求(用 NSURLConnection异步发送请求)"></a>4、发送请求(用 NSURLConnection异步发送请求)</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:request queue:[<span class="built_in">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSData</span> *data, <span class="built_in">NSError</span> *connectionError) &#123;</span><br><span class="line">    <span class="comment">//</span></span><br><span class="line">    <span class="built_in">NSString</span> *string = [[<span class="built_in">NSString</span> alloc] initWithData:data encoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,string);</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<h2 id="二、多文件上传"><a href="#二、多文件上传" class="headerlink" title="二、多文件上传"></a>二、多文件上传</h2><p><strong>重点:1.掌握多文件上传的数据格式 2.学会封装多文件上传的方法</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">多文件上传和单文件上传的基本思路是一样的,唯一的区别在于对请求体的封装.</span><br><span class="line">多文件的请求体部分格式<span class="number">1</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 第一个文件参数的上边界</span></span><br><span class="line">    \r\n--boundary\r\n</span><br><span class="line">    Content-Disposition: form-data; name=userfile[]; filename=美女\r\n</span><br><span class="line">    Content-Type:image/jpeg\r\n\r\n</span><br><span class="line">    上传文件的二进制数据部分</span><br><span class="line">    <span class="comment">// 第一个文件参数的下边界</span></span><br><span class="line">    \r\n--boundary--</span><br><span class="line">    <span class="comment">// 第二个文件参数的上边界</span></span><br><span class="line">    \r\n--boundary\r\n</span><br><span class="line">    Content-Disposition: form-data; name=userfile[]; filename=JSON\r\n</span><br><span class="line">    Content-Type:text/plain\r\n\r\n</span><br><span class="line">    上传文件的二进制数据部分</span><br><span class="line">    <span class="comment">// 第二个文件参数的下边界</span></span><br><span class="line">    \r\n--boundary--</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">    多文件上传的请求体格式<span class="number">2</span></span><br><span class="line">    <span class="comment">// 上边界</span></span><br><span class="line">    <span class="comment">// 第一个文件参数</span></span><br><span class="line">    \r\n--boundary\r\n</span><br><span class="line">    Content-Disposition: form-data; name=userfile[]; filename=美女\r\n</span><br><span class="line">    Content-Type:image/jpeg\r\n\r\n</span><br><span class="line">    上传文件的二进制数据部分</span><br><span class="line">    <span class="comment">// 第二个文件参数</span></span><br><span class="line">    \r\n--boundary\r\n</span><br><span class="line">    Content-Disposition: form-data; name=userfile[]; filename=JSON\r\n</span><br><span class="line">    Content-Type:text/plain\r\n\r\n</span><br><span class="line">    上传文件的二进制数据部分</span><br><span class="line">    <span class="comment">// 下边界</span></span><br><span class="line">    \r\n--boundary--</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="三、获取文件的-MIMEType"><a href="#三、获取文件的-MIMEType" class="headerlink" title="三、获取文件的 MIMEType"></a>三、获取文件的 MIMEType</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">上传文件的时候,需要告诉服务器文件类型(即Content-Type),这时,需要获取文件的 MIMEType.</span><br><span class="line"></span><br><span class="line">获取文件的 MIMEType 方法:加载文件时,通过 response 获得</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSURLRequest</span> *request = [<span class="built_in">NSURLRequest</span> requestWithURL:url];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSURLResponse</span> *response = <span class="literal">nil</span>;</span><br><span class="line">    </span><br><span class="line">    [<span class="built_in">NSURLConnection</span> sendSynchronousRequest:request returningResponse:&amp;response error:<span class="literal">NULL</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,response.MIMEType);</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line">response.MIMEType 即为 Content-Type 的类型.</span><br><span class="line"></span><br><span class="line">如果不想告诉服务器具体的文件类型,可以使用这个 Content-Type : application/octet-stream(<span class="number">8</span>进制流)</span><br><span class="line"></span><br><span class="line">常见的 Content-Type 类型:</span><br><span class="line">&#123;</span><br><span class="line">    - 大类型/小类型</span><br><span class="line">    - text/plain</span><br><span class="line">    - image/jpg</span><br><span class="line">    - image/png</span><br><span class="line">    - image/gif</span><br><span class="line">    - text/html</span><br><span class="line">    - application/json</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="四、多文件-普通文本上传"><a href="#四、多文件-普通文本上传" class="headerlink" title="四、多文件 + 普通文本上传"></a>四、多文件 + 普通文本上传</h2><ul>
+<li>有些服务器可以在上传文件的同时,提交一些文本内容给服务器</li>
+<li>典型应用:<ul>
+<li><1>新浪微博: 上传图片的同时,发送一条微博信息!</1></li>
+<li><2>购物评论: 购买商品之后发表评论的时候图片+评论内容!</2></li>
+</ul>
+</li>
+<li><p>多文件上传的数据格式：</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">Content-Type: multipart/form-data; boundary=boundary</span><br><span class="line"><span class="comment">// ------ 以下内容，是提供给服务器的二进制数据格式</span></span><br><span class="line">--boundary\r\n</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"userfile[]"</span>; filename=<span class="string">"aaa.txt"</span>\r\n</span><br><span class="line">Content-Type: application/octet-stream\r\n\r\n</span><br><span class="line"></span><br><span class="line">文件二进制数据</span><br><span class="line">\r\n</span><br><span class="line">--boundary\r\n</span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"userfile[]"</span>; filename=<span class="string">"aaa副本.txt"</span>\r\n</span><br><span class="line">Content-Type: application/octet-stream\r\n\r\n</span><br><span class="line"></span><br><span class="line">文件二进制数据</span><br><span class="line">\r\n</span><br><span class="line">--boundary\r\n</span><br><span class="line"><span class="comment">// username 是脚本文件接收参数的名称</span></span><br><span class="line">Content-Disposition: form-data; name=<span class="string">"username"</span>\r\n\r\n</span><br><span class="line"></span><br><span class="line">普通文本二进制数据</span><br><span class="line">\r\n</span><br><span class="line">--boundary--</span><br><span class="line"><span class="comment">// ------</span></span><br></pre></td></tr></table></figure>
+<p>  以上部分，是发送给服务器的二进制数据的组成格式(示例)</p>
+</li>
+<li><p>如果在 iOS 中,要实现POST上传文件,需要按照上述格式,拼接数据!</p>
+</li>
+<li>因为:格式是 W3C 指定的标准格式,苹果没有做任何封装!其他语言,都做了封装!</li>
+<li>以上三种数据拼接格式,需要大家了解并且能够自己会拼接一种!</li>
+<li>“第三方框架做文件上传:<ul>
+<li>AFN 能够同时实现上传”一个文件”,有些格式的文件,用 AFN 无法上传!</li>
+<li>ASI 能够同时实现上传多个文件,MRC的,2012年就停止更新了,设计的目标平台, iOS 2.0/iOS 3.0 !</li>
+</ul>
+</li>
+</ul>
+<h2 id="五、RESTful设计风格"><a href="#五、RESTful设计风格" class="headerlink" title="五、RESTful设计风格"></a>五、RESTful设计风格</h2><p>为了简化开发流程,使开发更加直观,解读更加容易,现在有一种非常流行的程序设计风格—-&gt;RESTful设计风格</p>
+<p>RESTful设计风格:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">    主要用于后端开发,主要的表现形式为使用同一个 URL,不同的 HTTP 访问方法,表达不同的语义.</span><br><span class="line">&#123;</span><br><span class="line">    示例: http:/\/\www.xxx.com/product/<span class="number">123</span></span><br><span class="line">    </span><br><span class="line">    -GET http:/\/\www.xxx.com/product/<span class="number">123</span>   语义:从服务器<span class="string">"获取"</span>产品ID 为<span class="number">123</span>的产品信息.</span><br><span class="line">    </span><br><span class="line">    -POST http:/\/\www.xxx.com/product/<span class="number">123</span>   语义:在服务器<span class="string">"新增"</span>产品ID 为<span class="number">123</span>的产品信息.</span><br><span class="line">    </span><br><span class="line">    * 提交二进制数据,需要提交一个 JSON 格式的二进制数据,后端程序员可以直接反序列化,得到 JSON 中得字典信息.</span><br><span class="line">    * POST JSON</span><br><span class="line"></span><br><span class="line">    -PUT http:/\/\www.xxx.com/product/<span class="number">123</span>   语义:在服务器<span class="string">"修改"</span>产品ID 为<span class="number">123</span>的产品信息.</span><br><span class="line"></span><br><span class="line">    -DELETE http:/\/\www.xxx.com/product/<span class="number">123</span>   语义:从服务器<span class="string">"删除"</span>产品ID 为<span class="number">123</span>的产品信息.</span><br><span class="line"></span><br><span class="line">    RESTful设计风格目前在国际上非常流行,国内也逐渐开始普及.</span><br><span class="line">    </span><br><span class="line">    作为前端程序员,只需要知道有这种设计风格就可以.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="六、AFN-上传文件"><a href="#六、AFN-上传文件" class="headerlink" title="六、AFN 上传文件"></a>六、AFN 上传文件</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 1. 创建管理者</span></span><br><span class="line">    AFHTTPRequestOperationManager *mgr = [AFHTTPRequestOperationManager manager];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2. 发送请求</span></span><br><span class="line">    [mgr POST:<span class="string">@"http://localhost/upload/upload.php"</span> parameters:<span class="literal">nil</span> constructingBodyWithBlock:^(<span class="keyword">id</span>&lt;AFMultipartFormData&gt; formData) &#123;</span><br><span class="line">    </span><br><span class="line">        <span class="comment">// formData :设置上传文件所需要的参数,两种上传方法:</span></span><br><span class="line">        <span class="comment">// &lt;1&gt; 通过本地文件的 url 上传</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSString</span> *fromFile = <span class="string">@"/Users/likaining/Desktop/meinv.jpg"</span>;</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"file:///Users/likaining/Desktop/meinv.jpg"</span>];</span><br><span class="line">            <span class="comment">// url :需要上传文件的文件路径</span></span><br><span class="line">            <span class="comment">// name :服务器接收的文件名.</span></span><br><span class="line">            <span class="comment">// fileName: 文件在服务器中保存的名字</span></span><br><span class="line">            <span class="comment">// mimeType : 文件类型</span></span><br><span class="line">            [formData appendPartWithFileURL:url name:<span class="string">@"userfile"</span> fileName:<span class="string">@"meinv"</span> mimeType:<span class="string">@"image/jpg"</span> error:<span class="literal">NULL</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// &lt;2&gt; 通过文件的 二进制数据 上传</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSData</span> *data = [<span class="built_in">NSData</span> dataWithContentsOfFile:zipFile];</span><br><span class="line">            </span><br><span class="line">            [formData appendPartWithFileData:data name:<span class="string">@"userfile"</span> fileName:<span class="string">@"meinv.zip"</span> mimeType:<span class="string">@"gzip"</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        &#125; success:^(AFHTTPRequestOperation *operation, <span class="keyword">id</span> responseObject) &#123;</span><br><span class="line">            <span class="comment">// 上传成功之后的回调</span></span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,responseObject);</span><br><span class="line">        </span><br><span class="line">        &#125; failure:^(AFHTTPRequestOperation *operation, <span class="built_in">NSError</span> *error) &#123;</span><br><span class="line">            <span class="comment">//  上传失败之后的回调</span></span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"失败"</span>);</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="七、监测网络状态"><a href="#七、监测网络状态" class="headerlink" title="七、监测网络状态"></a>七、监测网络状态</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="number">1.</span> AFN 监测网络状态</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 创建 网络状态管理者</span></span><br><span class="line">        AFNetworkReachabilityManager *mgr = [AFNetworkReachabilityManager sharedManager];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 监测网络状态的改变</span></span><br><span class="line">        [mgr setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) &#123;</span><br><span class="line">            <span class="comment">// 当网络状态发生改变的时候调用这个block</span></span><br><span class="line">            <span class="keyword">switch</span> (status) &#123;</span><br><span class="line">                <span class="keyword">case</span> AFNetworkReachabilityStatusReachableViaWiFi:</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"WIFI网络"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">case</span> AFNetworkReachabilityStatusReachableViaWWAN:</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"蜂窝网络"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">case</span> AFNetworkReachabilityStatusNotReachable:</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"没有网络"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                    </span><br><span class="line">                <span class="keyword">case</span> AFNetworkReachabilityStatusUnknown:</span><br><span class="line">                    <span class="built_in">NSLog</span>(<span class="string">@"未知网络"</span>);</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                <span class="keyword">default</span>:</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;];</span><br><span class="line">        <span class="comment">// 开始监控</span></span><br><span class="line">        [mgr startMonitoring];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="number">2.</span>Reachability 监测网络状态</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 注册通知观察者,网络状态改变时,接收通知!</span></span><br><span class="line">        [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(InternetStatusChanged) name:kReachabilityChangedNotification object:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 控制器销毁时,移除通知观察者.</span></span><br><span class="line">        -(<span class="keyword">void</span>)dealloc</span><br><span class="line">        &#123;</span><br><span class="line">            [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 根据当前网络状态,做出不同的响应.</span></span><br><span class="line">        - (<span class="keyword">void</span>)InternetStatusChanged</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"网络状态改变了"</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">if</span> ([Reachability reachabilityForLocalWiFi].currentReachabilityStatus == ReachableViaWiFi) &#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"Wifi 网络"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ([Reachability reachabilityForInternetConnection].currentReachabilityStatus == ReachableViaWWAN) &#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"蜂窝移动网络"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> ([Reachability reachabilityForInternetConnection].currentReachabilityStatus == NotReachable)</span><br><span class="line">            &#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"没有网络"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 创建 Reachability 对象,开始监测网络状态的改变</span></span><br><span class="line">        - (<span class="keyword">void</span>)MonitorInternetStatus</span><br><span class="line">        &#123;</span><br><span class="line">            Reachability *CZReachability = [Reachability reachabilityForInternetConnection];</span><br><span class="line">            </span><br><span class="line">            [CZReachability startNotifier];</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">self</span>.reachability = CZReachability;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        - (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br><span class="line">        &#123;</span><br><span class="line">            [<span class="keyword">self</span> MonitorInternetStatus];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/08/文件上传/">展开全文 >></a>
         </p>
       
 
@@ -884,7 +884,7 @@
 <h4 id="Blockquotes"><a href="#Blockquotes" class="headerlink" title="Blockquotes"></a>Blockquotes</h4><blockquote>
 <p>Right angle brackets &gt; are used for block quotes.</p>
 </blockquote>
-<h4 id="Links-and-Email"><a href="#Links-and-Email" class="headerlink" title="Links and Email"></a>Links and Email</h4><p>An email <a href="mailto:&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#64;&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;" target="_blank" rel="noopener">&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#64;&#101;&#x78;&#x61;&#x6d;&#112;&#x6c;&#x65;&#46;&#x63;&#111;&#109;</a> link.</p>
+<h4 id="Links-and-Email"><a href="#Links-and-Email" class="headerlink" title="Links and Email"></a>Links and Email</h4><p>An email <a href="mailto:&#101;&#120;&#97;&#109;&#112;&#x6c;&#x65;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#109;" target="_blank" rel="noopener">&#101;&#120;&#97;&#109;&#112;&#x6c;&#x65;&#64;&#x65;&#120;&#97;&#109;&#112;&#108;&#x65;&#x2e;&#99;&#111;&#109;</a> link.</p>
 <p>Simple inline link <a href="http://chenluois.com" target="_blank" rel="noopener">http://chenluois.com</a>, another inline link <a href="http://25.io/smaller/" target="_blank" rel="noopener">Smaller</a>, one more inline link with title <a href="http://resizesafari.com" title="a Safari extension" target="_blank" rel="noopener">Resize</a>.</p>
 <p>A <a href="http://25.io/mou/" title="Markdown editor on Mac OS X" target="_blank" rel="noopener">reference style</a> link. Input id, then anywhere in the doc, define the link with corresponding id:</p>
 <p>Titles ( or called tool tips ) in the links are optional.</p>
@@ -1064,18 +1064,18 @@ var Mou = exactlyTheAppIwant;
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/随笔//" class="article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -1220,157 +1220,6 @@ var Mou = exactlyTheAppIwant;
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/07/Quartz2d(绘图)/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据解析" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/07/数据解析/">数据解析</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/07/数据解析/" class="archive-article-date">
-  	<time datetime="2016-07-07T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-07</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、JSON数据"><a href="#一、JSON数据" class="headerlink" title="一、JSON数据"></a>一、JSON数据</h2><h4 id="1、什么是JSON数据"><a href="#1、什么是JSON数据" class="headerlink" title="1、什么是JSON数据"></a>1、什么是JSON数据</h4><h6 id="1、JSON-是一种轻量级的传输数据格式-用于数据交互"><a href="#1、JSON-是一种轻量级的传输数据格式-用于数据交互" class="headerlink" title="1、JSON:是一种轻量级的传输数据格式,用于数据交互"></a>1、JSON:是一种轻量级的传输数据格式,用于数据交互</h6><ul>
-<li>JSON是javascript语言的一个子集.javascript是个脚本语言(不需要编译),用来给HTML增加动态功能.</li>
-<li>javascript和java没有半毛钱的关系!</li>
-<li>服务器返回给客户端的数据,一般都是JSON格式或者XML格式(文件下载除外).</li>
-<li><p>语法规则: </p>
-<ul>
-<li><p><1> 数据以键值的方式保存;</1></p>
-<p>  键(key)必须用双引号(“key”),与键值之间* 以’:’分隔; {“name”:”小明”}</p>
-</li>
-<li><p><2> 数据和数据之间以逗号(,)分隔. {“name”:”小明”,”age”:13}</2></p>
-</li>
-<li><p><3> {}表示对象. “person”:{“name”:”小明”,”age”:13}</3></p>
-</li>
-<li><p><4> []表示数组. “persons”:[</4></p>
-<pre><code>{&quot;name&quot;:&quot;小明&quot;,&quot;age&quot;:13},
-{&quot;name&quot;:&quot;小红&quot;,&quot;age&quot;:14},
-{&quot;name&quot;:&quot;小花&quot;,&quot;age&quot;:15}
-</code></pre><p>  ]</p>
-</li>
-</ul>
-</li>
-</ul>
-<h6 id="2、JSON与OC转换对照"><a href="#2、JSON与OC转换对照" class="headerlink" title="2、JSON与OC转换对照:"></a>2、JSON与OC转换对照:</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">大括号 &#123;&#125; == <span class="built_in">NSDictionary</span>;</span><br><span class="line">中括号 [] == <span class="built_in">NSArray</span>;</span><br><span class="line">双引号<span class="string">" "</span> == <span class="built_in">NSString</span>;</span><br><span class="line">数字<span class="number">13</span>,<span class="number">13.5</span> == <span class="built_in">NSNumber</span>;</span><br></pre></td></tr></table></figure>
-<h6 id="3、数据传输过程"><a href="#3、数据传输过程" class="headerlink" title="3、数据传输过程:"></a>3、数据传输过程:</h6><ul>
-<li>客户端发送请求给服务器,服务器接收到客户端的请求之后,返回给客户端JSON数据.</li>
-<li>客户端需要把服务器返回的JSON数据转换为OC的数据格式(数组/字典等).</li>
-</ul>
-<h4 id="2、JSON数据解析"><a href="#2、JSON数据解析" class="headerlink" title="2、JSON数据解析"></a>2、JSON数据解析</h4><h6 id="1、JSON数据解析方法"><a href="#1、JSON数据解析方法" class="headerlink" title="1、JSON数据解析方法:"></a>1、JSON数据解析方法:</h6><ul>
-<li>在iOS中,常见的JSON数据解析方案有4种:   </li>
-<li>第三方框架:JSONKit, SBJson, TouchJson.性能从左到右,依次变差.(iOS 5(2011年)以前)</li>
-<li>苹果原生(自带):NSJSONSerialization (性能是最好的.iOS5以后推出).</li>
-</ul>
-<h6 id="2、解析JSON数据"><a href="#2、解析JSON数据" class="headerlink" title="2、解析JSON数据"></a>2、解析JSON数据</h6><p><strong>反序列化(解析):</strong></p>
-<ul>
-<li><p>将从服务器接收到的JSON数据(二进制数据)转换成OC数据类型(NSArray,NSDictionary等.)的过程.</p>
-</li>
-<li><p>目的: JSON数据 –&gt; OC对象; 得到数据字典或者数据数组</p>
-</li>
-<li><p>好处: 简化程序的开发,方便后续的字典转模型.</p>
-</li>
-<li><p>方法:</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">id</span>)JSONObjectWithData:(<span class="built_in">NSData</span> *)data options:(<span class="built_in">NSJSONReadingOptions</span>)opt error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>序列化:</strong></p>
-<ul>
-<li>将数组或者字典发送给服务器之前,转换成二进制数据.</li>
-<li>目的:OC对象 –&gt; JSON数据;得到二进制JSON数据 NSData.</li>
-<li>好处:方便网络传输,提高传输速度.</li>
-<li>方法:  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="built_in">NSData</span> *)dataWithJSONObject:(<span class="keyword">id</span>)obj options:(<span class="built_in">NSJSONWritingOptions</span>)opt error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>需要注意的是,在做序列化之前,一定要检测一下对象是否能够被序列化.（使用 isValidJSONObject 检测一下要序列化的对象，是否能够正确被序列化）</strong></p>
-<h2 id="二、XML数据"><a href="#二、XML数据" class="headerlink" title="二、XML数据"></a>二、XML数据</h2><h4 id="1、什么是XML"><a href="#1、什么是XML" class="headerlink" title="1、什么是XML"></a>1、什么是XML</h4><h6 id="1、XML-eXtensible-Markup-Language-’可扩展标记语言’"><a href="#1、XML-eXtensible-Markup-Language-’可扩展标记语言’" class="headerlink" title="1、XML(eXtensible Markup Language)’可扩展标记语言’"></a>1、XML(eXtensible Markup Language)’可扩展标记语言’</h6><ul>
-<li>XML跟JSON一样,也是用来数据交互.</li>
-<li>HTML是超文本标记语言.用来表示网页页面.<h6 id="2、XML语法简介"><a href="#2、XML语法简介" class="headerlink" title="2、XML语法简介"></a>2、XML语法简介</h6></li>
-<li><p>一个完整的XML文件叫XML文档(XML Document).一个XML文档一般由以下几部分组成:</p>
-<ul>
-<li><p><1> 文档声明:</1></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> standalone=<span class="string">"yes"</span>?&gt;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><2> 元素(Element)</2></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt; 一个元素包括开始标签和结束标签.</span><br><span class="line">	&lt;name&gt;小红&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">	一个元素可以没有元素内容,没有元素内容可以简写.</span><br><span class="line">	&lt;/person&gt;</span><br><span class="line"></span><br><span class="line">	XML中所有的空格和换行,都会当做具体的内容处理.</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; 一个元素可以嵌套若干个子元素(不能出现交叉嵌套).</span><br><span class="line">	&lt;person&gt;</span><br><span class="line">	&lt;name&gt;小花&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;16&lt;/age&gt;</span><br><span class="line">	&lt;/person&gt;</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>&gt; 规范的XML文档最多只能有一个根元素,其他元素都是根元素的子元素.</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><3> 属性(Attribute)</3></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt; 一个元素可以拥有多个属性.</span><br><span class="line">&lt;person name = <span class="string">"小明"</span> age = <span class="string">"18"</span>/&gt;</span><br><span class="line">2&gt; 属性值必须用双引号""或者单引号''括住.</span><br><span class="line"><span class="number">3</span>&gt; 属性信息可以用元素内容来表示.</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2、XML两种解析方式"><a href="#2、XML两种解析方式" class="headerlink" title="2、XML两种解析方式"></a>2、XML两种解析方式</h4><ul>
-<li>XML 解析有两种不同的思路:  SAX 解析  DOM 解析.</li>
-<li>SAX 解析: 从 XML 文档的根元素开始,一行一行的逐行解析XML元素中的内容!  在移动端使用比较多!可以较小内存开销!</li>
-<li>DOM 解析: 将整个 XML 文档加载到内存中,然后在解析! 占用内存比较多,在 PC(电脑) 中使用比较多<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    XML解析:</span><br><span class="line">    </span><br><span class="line">        所谓XML解析,指的就是将XML中元素的内容取出来或者将元素中的属性值提取出来.</span><br><span class="line">    </span><br><span class="line">    XML解析方式: <span class="number">1.</span>SAX <span class="number">2.</span>DOM</span><br><span class="line">    </span><br><span class="line">    <span class="number">1.</span>SAX解析:</span><br><span class="line">    </span><br><span class="line">        从根元素开始,一个元素一个元素的按顺序往下解析.</span><br><span class="line">    </span><br><span class="line">        比较适合大文件的解析.</span><br><span class="line">    </span><br><span class="line">    * 解析方法:</span><br><span class="line">    </span><br><span class="line">        苹果原生: <span class="built_in">NSXMLParser</span> ,使用简单.设置代理就可以了.</span><br><span class="line">    </span><br><span class="line">        <span class="built_in">NSXMLParser</span> 采用SAX方式逐行往下解析,当扫描到下面的情况都会通知代理.</span><br><span class="line">    </span><br><span class="line">            &lt;<span class="number">1</span>&gt; 扫描到文档(Doucument)的开始与结束的时候,会通知代理.</span><br><span class="line">    </span><br><span class="line">            &lt;<span class="number">2</span>&gt; 扫描到元素(Element)的开始与结束的时候,会通知代理.</span><br><span class="line">    </span><br><span class="line">            &lt;<span class="number">3</span>&gt; 扫描到元素中的内容的时候,会通知代理.</span><br><span class="line">    </span><br><span class="line">    * 使用步骤:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 1.传入XML,创建解析器</span></span><br><span class="line">        <span class="built_in">NSXMLParser</span> *parser = [[<span class="built_in">NSXMLParser</span> alloc] initWithData:data];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2.设置代理,监听解析过程</span></span><br><span class="line">        parser.delegate = <span class="keyword">self</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 3.开始解析</span></span><br><span class="line">        [parser parse];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 4.解析完毕之后刷新表格数据</span></span><br><span class="line">        [<span class="keyword">self</span>.tableView reloadData];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 4.实现代理方法</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 1.当扫描到文档的开始时调用（开始解析）</span></span><br><span class="line">            - (<span class="keyword">void</span>)parserDidStartDocument:(<span class="built_in">NSXMLParser</span> *)parser;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 2.当扫描到元素的开始时调用（attributeDict存放着元素的属性）</span></span><br><span class="line">            - (<span class="keyword">void</span>)parser:(<span class="built_in">NSXMLParser</span> *)parser didStartElement:(<span class="built_in">NSString</span> *)elementName namespaceURI:(<span class="built_in">NSString</span> *)namespaceURI qualifiedName:(<span class="built_in">NSString</span> *)qName attributes:(<span class="built_in">NSDictionary</span> *)attributeDict;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 3.发现元素中的内容的时候开始调用</span></span><br><span class="line">            - (<span class="keyword">void</span>)parser:(<span class="built_in">NSXMLParser</span> *)parser foundCharacters:(<span class="built_in">NSString</span> *)string;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 4.当扫描到元素结束时调用</span></span><br><span class="line">            - (<span class="keyword">void</span>)parser:(<span class="built_in">NSXMLParser</span> *)parser didEndElement:(<span class="built_in">NSString</span> *)elementName namespaceURI:(<span class="built_in">NSString</span> *)namespaceURI qualifiedName:(<span class="built_in">NSString</span> *)qName;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 5.当扫描到文档的结束时调用（解析完毕）</span></span><br><span class="line">            - (<span class="keyword">void</span>)parserDidEndDocument:(<span class="built_in">NSXMLParser</span> *)parser;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="number">2.</span>DOM解析:</span><br><span class="line">    </span><br><span class="line">        一次性将整个XML文档加载进内存,内存消耗比较大.</span><br><span class="line">    </span><br><span class="line">        比较适合小文件.更加适用于Mac.</span><br><span class="line">    </span><br><span class="line">    * 解析方法:</span><br><span class="line">    </span><br><span class="line">        第三方框架:</span><br><span class="line">    </span><br><span class="line">        * libxml2: 纯C语言,默认包含在iOS SDK中,同时支持SAX和DOM方式解析.</span><br><span class="line">        </span><br><span class="line">        * GDateXML: DOM方式解析,由Google开发,基于libxml2.</span><br><span class="line">    </span><br><span class="line">    * GDataXML使用步骤:</span><br><span class="line">    &#123;</span><br><span class="line">        &lt;<span class="number">1</span>&gt; 导入第三方框架 GDateXML;</span><br><span class="line">        </span><br><span class="line">        &lt;<span class="number">2</span>&gt; 注意修改三个地方:</span><br><span class="line">        </span><br><span class="line">            <span class="number">1</span>&gt; Header Search Paths : /usr/include/libxml2</span><br><span class="line">        </span><br><span class="line">            <span class="number">2</span>&gt; Other Linker Flags : -lxml2</span><br><span class="line">        </span><br><span class="line">            <span class="number">3</span>&gt; 添加非ARC :-fno-objc-arc</span><br><span class="line">        </span><br><span class="line">        &lt;<span class="number">3</span>&gt; 使用方法:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 1.加载整个XML文档</span></span><br><span class="line">            GDataXMLDocument *dom = [[GDataXMLDocument alloc] initWithData:data options:<span class="number">0</span> error:<span class="literal">NULL</span>];</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 2.获得文档的根元素</span></span><br><span class="line">            GDataXMLElement *element = dom.rootElement;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 3.得到根元素中包含的元素(vedio元素)</span></span><br><span class="line">            [element.children enumerateObjectsUsingBlock:^(<span class="keyword">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">                </span><br><span class="line">                GDataXMLElement *vedio = obj;</span><br><span class="line">                </span><br><span class="line">                ITVedio *ITvedio = [[ITVedio alloc] init];</span><br><span class="line">                <span class="comment">// 4.得到vedio元素中包含的元素内容</span></span><br><span class="line">                [vedio.children enumerateObjectsUsingBlock:^(<span class="keyword">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">                    </span><br><span class="line">                    GDataXMLElement *ele = obj;</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">// 5.将元素内容取出赋值.</span></span><br><span class="line">                    [ITvedio setValue:ele.stringValue forKeyPath:ele.name];</span><br><span class="line">                    </span><br><span class="line">                &#125;];</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 将数据模型放在数据源中.</span></span><br><span class="line">                [<span class="keyword">self</span>.vedios addObject:ITvedio];</span><br><span class="line">                </span><br><span class="line">            &#125;];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="补充知识点"><a href="#补充知识点" class="headerlink" title="补充知识点"></a>补充知识点</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    注意:播放视频</span><br><span class="line">    </span><br><span class="line">    <span class="number">1.</span> 导入: MediaPlayer/MediaPlayer.h</span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;MediaPlayer/MediaPlayer.h&gt;</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="number">2.</span> 创建视频播放控制器</span><br><span class="line">    <span class="built_in">MPMoviePlayerViewController</span> *mv = [[<span class="built_in">MPMoviePlayerViewController</span> alloc] initWithContentURL:url];</span><br><span class="line">    </span><br><span class="line">    <span class="number">3.</span> 跳转到控制器播放视频</span><br><span class="line">    [<span class="keyword">self</span> presentMoviePlayerViewControllerAnimated:mv];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSNumber</span> 替代 <span class="keyword">int</span>,防止 null 错误.</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSArray</span> + Log 分类,打印汉字,方便调试.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/07/数据解析/">展开全文 >></a>
         </p>
       
 
@@ -1599,6 +1448,157 @@ var Mou = exactlyTheAppIwant;
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/07/NSRange使用/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-数据解析" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/07/数据解析/">数据解析</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/07/数据解析/" class="archive-article-date">
+  	<time datetime="2016-07-07T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-07</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、JSON数据"><a href="#一、JSON数据" class="headerlink" title="一、JSON数据"></a>一、JSON数据</h2><h4 id="1、什么是JSON数据"><a href="#1、什么是JSON数据" class="headerlink" title="1、什么是JSON数据"></a>1、什么是JSON数据</h4><h6 id="1、JSON-是一种轻量级的传输数据格式-用于数据交互"><a href="#1、JSON-是一种轻量级的传输数据格式-用于数据交互" class="headerlink" title="1、JSON:是一种轻量级的传输数据格式,用于数据交互"></a>1、JSON:是一种轻量级的传输数据格式,用于数据交互</h6><ul>
+<li>JSON是javascript语言的一个子集.javascript是个脚本语言(不需要编译),用来给HTML增加动态功能.</li>
+<li>javascript和java没有半毛钱的关系!</li>
+<li>服务器返回给客户端的数据,一般都是JSON格式或者XML格式(文件下载除外).</li>
+<li><p>语法规则: </p>
+<ul>
+<li><p><1> 数据以键值的方式保存;</1></p>
+<p>  键(key)必须用双引号(“key”),与键值之间* 以’:’分隔; {“name”:”小明”}</p>
+</li>
+<li><p><2> 数据和数据之间以逗号(,)分隔. {“name”:”小明”,”age”:13}</2></p>
+</li>
+<li><p><3> {}表示对象. “person”:{“name”:”小明”,”age”:13}</3></p>
+</li>
+<li><p><4> []表示数组. “persons”:[</4></p>
+<pre><code>{&quot;name&quot;:&quot;小明&quot;,&quot;age&quot;:13},
+{&quot;name&quot;:&quot;小红&quot;,&quot;age&quot;:14},
+{&quot;name&quot;:&quot;小花&quot;,&quot;age&quot;:15}
+</code></pre><p>  ]</p>
+</li>
+</ul>
+</li>
+</ul>
+<h6 id="2、JSON与OC转换对照"><a href="#2、JSON与OC转换对照" class="headerlink" title="2、JSON与OC转换对照:"></a>2、JSON与OC转换对照:</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">大括号 &#123;&#125; == <span class="built_in">NSDictionary</span>;</span><br><span class="line">中括号 [] == <span class="built_in">NSArray</span>;</span><br><span class="line">双引号<span class="string">" "</span> == <span class="built_in">NSString</span>;</span><br><span class="line">数字<span class="number">13</span>,<span class="number">13.5</span> == <span class="built_in">NSNumber</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="3、数据传输过程"><a href="#3、数据传输过程" class="headerlink" title="3、数据传输过程:"></a>3、数据传输过程:</h6><ul>
+<li>客户端发送请求给服务器,服务器接收到客户端的请求之后,返回给客户端JSON数据.</li>
+<li>客户端需要把服务器返回的JSON数据转换为OC的数据格式(数组/字典等).</li>
+</ul>
+<h4 id="2、JSON数据解析"><a href="#2、JSON数据解析" class="headerlink" title="2、JSON数据解析"></a>2、JSON数据解析</h4><h6 id="1、JSON数据解析方法"><a href="#1、JSON数据解析方法" class="headerlink" title="1、JSON数据解析方法:"></a>1、JSON数据解析方法:</h6><ul>
+<li>在iOS中,常见的JSON数据解析方案有4种:   </li>
+<li>第三方框架:JSONKit, SBJson, TouchJson.性能从左到右,依次变差.(iOS 5(2011年)以前)</li>
+<li>苹果原生(自带):NSJSONSerialization (性能是最好的.iOS5以后推出).</li>
+</ul>
+<h6 id="2、解析JSON数据"><a href="#2、解析JSON数据" class="headerlink" title="2、解析JSON数据"></a>2、解析JSON数据</h6><p><strong>反序列化(解析):</strong></p>
+<ul>
+<li><p>将从服务器接收到的JSON数据(二进制数据)转换成OC数据类型(NSArray,NSDictionary等.)的过程.</p>
+</li>
+<li><p>目的: JSON数据 –&gt; OC对象; 得到数据字典或者数据数组</p>
+</li>
+<li><p>好处: 简化程序的开发,方便后续的字典转模型.</p>
+</li>
+<li><p>方法:</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">id</span>)JSONObjectWithData:(<span class="built_in">NSData</span> *)data options:(<span class="built_in">NSJSONReadingOptions</span>)opt error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>序列化:</strong></p>
+<ul>
+<li>将数组或者字典发送给服务器之前,转换成二进制数据.</li>
+<li>目的:OC对象 –&gt; JSON数据;得到二进制JSON数据 NSData.</li>
+<li>好处:方便网络传输,提高传输速度.</li>
+<li>方法:  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="built_in">NSData</span> *)dataWithJSONObject:(<span class="keyword">id</span>)obj options:(<span class="built_in">NSJSONWritingOptions</span>)opt error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><strong>需要注意的是,在做序列化之前,一定要检测一下对象是否能够被序列化.（使用 isValidJSONObject 检测一下要序列化的对象，是否能够正确被序列化）</strong></p>
+<h2 id="二、XML数据"><a href="#二、XML数据" class="headerlink" title="二、XML数据"></a>二、XML数据</h2><h4 id="1、什么是XML"><a href="#1、什么是XML" class="headerlink" title="1、什么是XML"></a>1、什么是XML</h4><h6 id="1、XML-eXtensible-Markup-Language-’可扩展标记语言’"><a href="#1、XML-eXtensible-Markup-Language-’可扩展标记语言’" class="headerlink" title="1、XML(eXtensible Markup Language)’可扩展标记语言’"></a>1、XML(eXtensible Markup Language)’可扩展标记语言’</h6><ul>
+<li>XML跟JSON一样,也是用来数据交互.</li>
+<li>HTML是超文本标记语言.用来表示网页页面.<h6 id="2、XML语法简介"><a href="#2、XML语法简介" class="headerlink" title="2、XML语法简介"></a>2、XML语法简介</h6></li>
+<li><p>一个完整的XML文件叫XML文档(XML Document).一个XML文档一般由以下几部分组成:</p>
+<ul>
+<li><p><1> 文档声明:</1></p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=<span class="string">"1.0"</span> encoding=<span class="string">"UTF-8"</span> standalone=<span class="string">"yes"</span>?&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><2> 元素(Element)</2></p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt; 一个元素包括开始标签和结束标签.</span><br><span class="line">	&lt;name&gt;小红&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">	一个元素可以没有元素内容,没有元素内容可以简写.</span><br><span class="line">	&lt;/person&gt;</span><br><span class="line"></span><br><span class="line">	XML中所有的空格和换行,都会当做具体的内容处理.</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; 一个元素可以嵌套若干个子元素(不能出现交叉嵌套).</span><br><span class="line">	&lt;person&gt;</span><br><span class="line">	&lt;name&gt;小花&lt;/name&gt;</span><br><span class="line">	&lt;age&gt;16&lt;/age&gt;</span><br><span class="line">	&lt;/person&gt;</span><br><span class="line"></span><br><span class="line"><span class="number">3</span>&gt; 规范的XML文档最多只能有一个根元素,其他元素都是根元素的子元素.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><3> 属性(Attribute)</3></p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt; 一个元素可以拥有多个属性.</span><br><span class="line">&lt;person name = <span class="string">"小明"</span> age = <span class="string">"18"</span>/&gt;</span><br><span class="line">2&gt; 属性值必须用双引号""或者单引号''括住.</span><br><span class="line"><span class="number">3</span>&gt; 属性信息可以用元素内容来表示.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="2、XML两种解析方式"><a href="#2、XML两种解析方式" class="headerlink" title="2、XML两种解析方式"></a>2、XML两种解析方式</h4><ul>
+<li>XML 解析有两种不同的思路:  SAX 解析  DOM 解析.</li>
+<li>SAX 解析: 从 XML 文档的根元素开始,一行一行的逐行解析XML元素中的内容!  在移动端使用比较多!可以较小内存开销!</li>
+<li>DOM 解析: 将整个 XML 文档加载到内存中,然后在解析! 占用内存比较多,在 PC(电脑) 中使用比较多<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    XML解析:</span><br><span class="line">    </span><br><span class="line">        所谓XML解析,指的就是将XML中元素的内容取出来或者将元素中的属性值提取出来.</span><br><span class="line">    </span><br><span class="line">    XML解析方式: <span class="number">1.</span>SAX <span class="number">2.</span>DOM</span><br><span class="line">    </span><br><span class="line">    <span class="number">1.</span>SAX解析:</span><br><span class="line">    </span><br><span class="line">        从根元素开始,一个元素一个元素的按顺序往下解析.</span><br><span class="line">    </span><br><span class="line">        比较适合大文件的解析.</span><br><span class="line">    </span><br><span class="line">    * 解析方法:</span><br><span class="line">    </span><br><span class="line">        苹果原生: <span class="built_in">NSXMLParser</span> ,使用简单.设置代理就可以了.</span><br><span class="line">    </span><br><span class="line">        <span class="built_in">NSXMLParser</span> 采用SAX方式逐行往下解析,当扫描到下面的情况都会通知代理.</span><br><span class="line">    </span><br><span class="line">            &lt;<span class="number">1</span>&gt; 扫描到文档(Doucument)的开始与结束的时候,会通知代理.</span><br><span class="line">    </span><br><span class="line">            &lt;<span class="number">2</span>&gt; 扫描到元素(Element)的开始与结束的时候,会通知代理.</span><br><span class="line">    </span><br><span class="line">            &lt;<span class="number">3</span>&gt; 扫描到元素中的内容的时候,会通知代理.</span><br><span class="line">    </span><br><span class="line">    * 使用步骤:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 1.传入XML,创建解析器</span></span><br><span class="line">        <span class="built_in">NSXMLParser</span> *parser = [[<span class="built_in">NSXMLParser</span> alloc] initWithData:data];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2.设置代理,监听解析过程</span></span><br><span class="line">        parser.delegate = <span class="keyword">self</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 3.开始解析</span></span><br><span class="line">        [parser parse];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 4.解析完毕之后刷新表格数据</span></span><br><span class="line">        [<span class="keyword">self</span>.tableView reloadData];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 4.实现代理方法</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 1.当扫描到文档的开始时调用（开始解析）</span></span><br><span class="line">            - (<span class="keyword">void</span>)parserDidStartDocument:(<span class="built_in">NSXMLParser</span> *)parser;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 2.当扫描到元素的开始时调用（attributeDict存放着元素的属性）</span></span><br><span class="line">            - (<span class="keyword">void</span>)parser:(<span class="built_in">NSXMLParser</span> *)parser didStartElement:(<span class="built_in">NSString</span> *)elementName namespaceURI:(<span class="built_in">NSString</span> *)namespaceURI qualifiedName:(<span class="built_in">NSString</span> *)qName attributes:(<span class="built_in">NSDictionary</span> *)attributeDict;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 3.发现元素中的内容的时候开始调用</span></span><br><span class="line">            - (<span class="keyword">void</span>)parser:(<span class="built_in">NSXMLParser</span> *)parser foundCharacters:(<span class="built_in">NSString</span> *)string;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 4.当扫描到元素结束时调用</span></span><br><span class="line">            - (<span class="keyword">void</span>)parser:(<span class="built_in">NSXMLParser</span> *)parser didEndElement:(<span class="built_in">NSString</span> *)elementName namespaceURI:(<span class="built_in">NSString</span> *)namespaceURI qualifiedName:(<span class="built_in">NSString</span> *)qName;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 5.当扫描到文档的结束时调用（解析完毕）</span></span><br><span class="line">            - (<span class="keyword">void</span>)parserDidEndDocument:(<span class="built_in">NSXMLParser</span> *)parser;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="number">2.</span>DOM解析:</span><br><span class="line">    </span><br><span class="line">        一次性将整个XML文档加载进内存,内存消耗比较大.</span><br><span class="line">    </span><br><span class="line">        比较适合小文件.更加适用于Mac.</span><br><span class="line">    </span><br><span class="line">    * 解析方法:</span><br><span class="line">    </span><br><span class="line">        第三方框架:</span><br><span class="line">    </span><br><span class="line">        * libxml2: 纯C语言,默认包含在iOS SDK中,同时支持SAX和DOM方式解析.</span><br><span class="line">        </span><br><span class="line">        * GDateXML: DOM方式解析,由Google开发,基于libxml2.</span><br><span class="line">    </span><br><span class="line">    * GDataXML使用步骤:</span><br><span class="line">    &#123;</span><br><span class="line">        &lt;<span class="number">1</span>&gt; 导入第三方框架 GDateXML;</span><br><span class="line">        </span><br><span class="line">        &lt;<span class="number">2</span>&gt; 注意修改三个地方:</span><br><span class="line">        </span><br><span class="line">            <span class="number">1</span>&gt; Header Search Paths : /usr/include/libxml2</span><br><span class="line">        </span><br><span class="line">            <span class="number">2</span>&gt; Other Linker Flags : -lxml2</span><br><span class="line">        </span><br><span class="line">            <span class="number">3</span>&gt; 添加非ARC :-fno-objc-arc</span><br><span class="line">        </span><br><span class="line">        &lt;<span class="number">3</span>&gt; 使用方法:</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="comment">// 1.加载整个XML文档</span></span><br><span class="line">            GDataXMLDocument *dom = [[GDataXMLDocument alloc] initWithData:data options:<span class="number">0</span> error:<span class="literal">NULL</span>];</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 2.获得文档的根元素</span></span><br><span class="line">            GDataXMLElement *element = dom.rootElement;</span><br><span class="line">            </span><br><span class="line">            <span class="comment">// 3.得到根元素中包含的元素(vedio元素)</span></span><br><span class="line">            [element.children enumerateObjectsUsingBlock:^(<span class="keyword">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">                </span><br><span class="line">                GDataXMLElement *vedio = obj;</span><br><span class="line">                </span><br><span class="line">                ITVedio *ITvedio = [[ITVedio alloc] init];</span><br><span class="line">                <span class="comment">// 4.得到vedio元素中包含的元素内容</span></span><br><span class="line">                [vedio.children enumerateObjectsUsingBlock:^(<span class="keyword">id</span> obj, <span class="built_in">NSUInteger</span> idx, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">                    </span><br><span class="line">                    GDataXMLElement *ele = obj;</span><br><span class="line">                    </span><br><span class="line">                    <span class="comment">// 5.将元素内容取出赋值.</span></span><br><span class="line">                    [ITvedio setValue:ele.stringValue forKeyPath:ele.name];</span><br><span class="line">                    </span><br><span class="line">                &#125;];</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 将数据模型放在数据源中.</span></span><br><span class="line">                [<span class="keyword">self</span>.vedios addObject:ITvedio];</span><br><span class="line">                </span><br><span class="line">            &#125;];</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="补充知识点"><a href="#补充知识点" class="headerlink" title="补充知识点"></a>补充知识点</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    注意:播放视频</span><br><span class="line">    </span><br><span class="line">    <span class="number">1.</span> 导入: MediaPlayer/MediaPlayer.h</span><br><span class="line">    <span class="meta">#import <span class="meta-string">&lt;MediaPlayer/MediaPlayer.h&gt;</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="number">2.</span> 创建视频播放控制器</span><br><span class="line">    <span class="built_in">MPMoviePlayerViewController</span> *mv = [[<span class="built_in">MPMoviePlayerViewController</span> alloc] initWithContentURL:url];</span><br><span class="line">    </span><br><span class="line">    <span class="number">3.</span> 跳转到控制器播放视频</span><br><span class="line">    [<span class="keyword">self</span> presentMoviePlayerViewControllerAnimated:mv];</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSNumber</span> 替代 <span class="keyword">int</span>,防止 null 错误.</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSArray</span> + Log 分类,打印汉字,方便调试.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/07/数据解析/">展开全文 >></a>
         </p>
       
 
