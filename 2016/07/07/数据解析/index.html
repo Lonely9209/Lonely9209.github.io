@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="一、JSON数据1、什么是JSON数据1、JSON:是一种轻量级的传输数据格式,用于数据交互 JSON是javascript语言的一个子集.javascript是个脚本语言(不需要编译),用来给HTML增加动态功能. javascript和java没有半毛钱的关系! 服务器返回给客户端的数据,一般都是JSON格式或者XML格式(文件下载除外). 语法规则:    数据以键值的方式保存;   键(k">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.839Z">
+<meta property="og:updated_time" content="2018-11-28T11:45:00.067Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据解析">
 <meta name="twitter:description" content="一、JSON数据1、什么是JSON数据1、JSON:是一种轻量级的传输数据格式,用于数据交互 JSON是javascript语言的一个子集.javascript是个脚本语言(不需要编译),用来给HTML增加动态功能. javascript和java没有半毛钱的关系! 服务器返回给客户端的数据,一般都是JSON格式或者XML格式(文件下载除外). 语法规则:    数据以键值的方式保存;   键(k">
@@ -177,6 +177,30 @@
 </a>
         
       </header>
+      
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、JSON数据"><span class="toc-number">1.</span> <span class="toc-text">一、JSON数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是JSON数据"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、什么是JSON数据</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、JSON-是一种轻量级的传输数据格式-用于数据交互"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">1、JSON:是一种轻量级的传输数据格式,用于数据交互</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、JSON与OC转换对照"><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">2、JSON与OC转换对照:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、数据传输过程"><span class="toc-number">1.0.1.0.3.</span> <span class="toc-text">3、数据传输过程:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、JSON数据解析"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、JSON数据解析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、JSON数据解析方法"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1、JSON数据解析方法:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、解析JSON数据"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2、解析JSON数据</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、XML数据"><span class="toc-number">2.</span> <span class="toc-text">二、XML数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是XML"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、什么是XML</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、XML-eXtensible-Markup-Language-’可扩展标记语言’"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">1、XML(eXtensible Markup Language)’可扩展标记语言’</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、XML语法简介"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">2、XML语法简介</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、XML两种解析方式"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、XML两种解析方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充知识点"><span class="toc-number">3.</span> <span class="toc-text">补充知识点</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
       
     
     <div class="article-entry" itemprop="articleBody">
@@ -392,6 +416,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、JSON数据"><span class="toc-number">1.</span> <span class="toc-text">一、JSON数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是JSON数据"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、什么是JSON数据</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、JSON-是一种轻量级的传输数据格式-用于数据交互"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">1、JSON:是一种轻量级的传输数据格式,用于数据交互</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、JSON与OC转换对照"><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">2、JSON与OC转换对照:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、数据传输过程"><span class="toc-number">1.0.1.0.3.</span> <span class="toc-text">3、数据传输过程:</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、JSON数据解析"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、JSON数据解析</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、JSON数据解析方法"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1、JSON数据解析方法:</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、解析JSON数据"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2、解析JSON数据</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、XML数据"><span class="toc-number">2.</span> <span class="toc-text">二、XML数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是XML"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、什么是XML</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、XML-eXtensible-Markup-Language-’可扩展标记语言’"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">1、XML(eXtensible Markup Language)’可扩展标记语言’</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、XML语法简介"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">2、XML语法简介</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、XML两种解析方式"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、XML两种解析方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充知识点"><span class="toc-number">3.</span> <span class="toc-text">补充知识点</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>

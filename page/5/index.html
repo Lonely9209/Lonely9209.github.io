@@ -363,6 +363,232 @@
 
 
   
+    <article id="post-服务器配置笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/01/服务器配置笔记/">服务器配置笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/01/服务器配置笔记/" class="archive-article-date">
+  	<time datetime="2016-07-01T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="服务器配置步骤"><a href="#服务器配置步骤" class="headerlink" title="服务器配置步骤:"></a>服务器配置步骤:</h2><h4 id="1、打开服务器配置目录"><a href="#1、打开服务器配置目录" class="headerlink" title="1、打开服务器配置目录"></a>1、打开服务器配置目录</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/</span><br></pre></td></tr></table></figure>
+<h4 id="2、查看当前目录下内容"><a href="#2、查看当前目录下内容" class="headerlink" title="2、查看当前目录下内容"></a>2、查看当前目录下内容</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+<h4 id="3、修改服务器根路径"><a href="#3、修改服务器根路径" class="headerlink" title="3、修改服务器根路径"></a>3、修改服务器根路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    sudo vim httpd.conf  <span class="comment">//进入服务器配置文件</span></span><br><span class="line">    </span><br><span class="line">    /DocumentRoot 回车 <span class="comment">//查找服务器默认根路径</span></span><br><span class="line">    </span><br><span class="line">    将默认根路径 DocumentRoot <span class="string">"/Library/WebServer/Documents"</span> 注释掉;</span><br><span class="line">    </span><br><span class="line">    在注释掉的根路径下面一行增加新的根路径</span><br><span class="line">    DocumentRoot <span class="string">"/Users/likaining/Sites"</span></span><br><span class="line">    </span><br><span class="line">    将 &lt;Directory <span class="string">"/Library/WebServer/Documents"</span>&gt; 注释掉;</span><br><span class="line">    增加新的 &lt;Directory <span class="string">"/Users/likaining/Sites"</span>&gt;</span><br><span class="line">    </span><br><span class="line">    注意: Mac <span class="number">10.10</span> 的 Apache 增加如下操作！</span><br><span class="line">    </span><br><span class="line">    (看<span class="string">"服务器配置视频\02-Mac10.10 Apache配置.mp4"</span>)</span><br><span class="line">    </span><br><span class="line">    在 httpd.conf 中找到</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options FollowSymLinks Multiviews"</span></span><br><span class="line">    </span><br><span class="line">    加一个单词 Indexes，修改后的结果如下：</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options Indexes FollowSymLinks Multiviews"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="4、保存退出"><a href="#4、保存退出" class="headerlink" title="4、保存退出"></a>4、保存退出</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">:wq 回车</span><br><span class="line"></span><br><span class="line"><span class="string">"注意"</span>:如果感觉修改错误了,想重新进入修改,就做不保存退出的操作</span><br><span class="line">不保存退出</span><br><span class="line">:q! 回车</span><br><span class="line"></span><br><span class="line">启动服务器</span><br><span class="line">sudo apachectl -k start 或者 sudo apachectl start</span><br><span class="line"></span><br><span class="line">关闭服务器:</span><br><span class="line">sudo apachectl -k stop 或者 sudo apachectl stop</span><br><span class="line"></span><br><span class="line">重新启动服务器</span><br><span class="line">sudo apachectl -k restart 或者 $sudo apachectl restart</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/01/服务器配置笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-项目文件介绍" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/01/项目文件介绍/">项目文件介绍</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/01/项目文件介绍/" class="archive-article-date">
+  	<time datetime="2016-07-01T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="1、项目文件介绍"><a href="#1、项目文件介绍" class="headerlink" title="1、项目文件介绍"></a>1、项目文件介绍</h2><ul>
+<li>新建一个项目，最左侧中包含3个文件夹<ul>
+<li>第1个文件夹包含项目相关的所有的代码文件及数据文件</li>
+<li>supportingFiles里面包含配置文件及其他的数据文件</li>
+<li>最后的UI-TESTS文件夹主要是做单元测试使用的，我们目前不会用到，所以先不考虑。</li>
+</ul>
+</li>
+<li>info.plist文件，项目的配置信息文件</li>
+<li>pch文件，项目中所有公用的类或者宏的头文件<h2 id="2、info-plist文件"><a href="#2、info-plist文件" class="headerlink" title="2、info.plist文件"></a>2、info.plist文件</h2></li>
+<li>在Xcode6以前创建项目的时候为有一个“项目名称-info.plist”名称的文件，在Xcode6之后就直接就是info.plist文件了。</li>
+<li>这个文件主要用来保存当前项目的基本配置信息<ul>
+<li>info.plist文件内容实际上是xml格式的，通过 <strong>右键</strong> –&gt; <strong>open as sourceCode</strong> 可以看到。</li>
+<li>保存的信息如应用版本号，应用要求的可运行的最低系统版本号。</li>
+<li>应用程序启动要加载storyboard文件名称</li>
+</ul>
+</li>
+<li>常用的key：<ul>
+<li>bundle display name 应用名称的key，名称如果太长就不能完全显示了。</li>
+<li>bundle identifier 应用的唯一标示，如果相同就会被覆盖。</li>
+<li>bundle versions String short 最终应用发布时的版本号</li>
+<li>bundle version 针对内部的一个版本号。</li>
+<li>Supported interface ortations 标识设备所支持的方向，对应的选中”项目”-&gt;”General”-&gt;”Deployment Info”-&gt;”Device Orientation”。iPhone只支持3种方向，不支持上下颠倒的旋转，Portrait（竖屏），Landscape Left（横屏向左），Landscape Right（横屏向右）</li>
+</ul>
+</li>
+</ul>
+<h6 id="注意：自己创建的plist文件中不要包含Info关键字。"><a href="#注意：自己创建的plist文件中不要包含Info关键字。" class="headerlink" title="注意：自己创建的plist文件中不要包含Info关键字。"></a>注意：自己创建的plist文件中不要包含Info关键字。</h6><h2 id="3、pch文件"><a href="#3、pch文件" class="headerlink" title="3、pch文件"></a>3、pch文件</h2><ul>
+<li>全称“Prefix Header File（前缀头文件）”，预编译头文件。</li>
+<li><p>在Xcode 6以后苹果就不推荐使用了。</p>
+<ul>
+<li>遇到的问题：<ul>
+<li>整个项目中很多地方都在使用某个类的头文件</li>
+<li>整个项目中很多地方都在使用同一个”宏”</li>
+<li>在项目中很多地方都用到了NSLog（）方法，想一下子全部清除掉</li>
+</ul>
+</li>
+<li><p>解决以上问题，可以通过使用PCH文件，它也是个头文件类似于*.h文件</p>
+<p><strong> 注意：PCH文件的特点，项目中所有其他代码文件无序显示导入该PCH文件，默认就可以访问（其他文件无序手动#import该PCH文件就能使用）</strong></p>
+</li>
+</ul>
+</li>
+<li><p>主要作用：</p>
+<ul>
+<li>可以做一些公用的宏定义</li>
+<li>把公共的Model类的#import导入写到pch文件.</li>
+<li>自定义NSLog()。例如:#define CZLog(…) NSLog(<strong>VA_ARGS</strong>)</li>
+<li>创建pch文件<ul>
+<li>“newFile”-&gt;””-&gt;””</li>
+<li>将通用的头文件和相应的宏放进去。</li>
+</ul>
+</li>
+<li><p>配置头文件，以使用头文件</p>
+<ul>
+<li>选择”项目”-&gt;”Build Setting” -&gt;”All”-&gt;搜索 “Prefix Header”,配置相应的pch文件。</li>
+<li>“$(SRCROOT)/$(PRODUCT_NAME)/PrefixHeader.pch”（如果有问题，更换为下面的方式，可能会与中文有关）</li>
+<li>“$(SRCROOT)/对应的文件夹名/PrefixHeader.pch”</li>
+</ul>
+</li>
+<li><p>在应用程序测试的时候，需要log很多信息，但是如果我们发布程序的时候就要禁止打印信息。</p>
+<ul>
+<li>自定义自己的log方式。</li>
+<li>自定义log的完整形式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#ifdef DEBUG</span><br><span class="line"></span><br><span class="line">#define CZLog(...) NSLog(__VA_ARGS__)</span><br><span class="line"></span><br><span class="line">#else</span><br><span class="line"></span><br><span class="line">#define CZLog(...)</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>在使用pch文件时的注意点：</p>
+<ul>
+<li>创建c语言文件进去，直接编译就报错，因为默认情况下所有文件都会包含pch文件中的OC内容，C语言文件内不能识别OC代码，所以就会报错。</li>
+<li><p>解决：在pch文件中判断一下，如果是OC文件菜引入响应的宏，如果是普通C语言文件则不引入，否则项目中添加C语言文件时会报错。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifdef __OBJC__</span><br><span class="line"></span><br><span class="line">// OC相关的内容</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/01/项目文件介绍/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-UIApplication" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -567,232 +793,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/01/UIApplication/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-服务器配置笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/服务器配置笔记/">服务器配置笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/01/服务器配置笔记/" class="archive-article-date">
-  	<time datetime="2016-07-01T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="服务器配置步骤"><a href="#服务器配置步骤" class="headerlink" title="服务器配置步骤:"></a>服务器配置步骤:</h2><h4 id="1、打开服务器配置目录"><a href="#1、打开服务器配置目录" class="headerlink" title="1、打开服务器配置目录"></a>1、打开服务器配置目录</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/</span><br></pre></td></tr></table></figure>
-<h4 id="2、查看当前目录下内容"><a href="#2、查看当前目录下内容" class="headerlink" title="2、查看当前目录下内容"></a>2、查看当前目录下内容</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
-<h4 id="3、修改服务器根路径"><a href="#3、修改服务器根路径" class="headerlink" title="3、修改服务器根路径"></a>3、修改服务器根路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    sudo vim httpd.conf  <span class="comment">//进入服务器配置文件</span></span><br><span class="line">    </span><br><span class="line">    /DocumentRoot 回车 <span class="comment">//查找服务器默认根路径</span></span><br><span class="line">    </span><br><span class="line">    将默认根路径 DocumentRoot <span class="string">"/Library/WebServer/Documents"</span> 注释掉;</span><br><span class="line">    </span><br><span class="line">    在注释掉的根路径下面一行增加新的根路径</span><br><span class="line">    DocumentRoot <span class="string">"/Users/likaining/Sites"</span></span><br><span class="line">    </span><br><span class="line">    将 &lt;Directory <span class="string">"/Library/WebServer/Documents"</span>&gt; 注释掉;</span><br><span class="line">    增加新的 &lt;Directory <span class="string">"/Users/likaining/Sites"</span>&gt;</span><br><span class="line">    </span><br><span class="line">    注意: Mac <span class="number">10.10</span> 的 Apache 增加如下操作！</span><br><span class="line">    </span><br><span class="line">    (看<span class="string">"服务器配置视频\02-Mac10.10 Apache配置.mp4"</span>)</span><br><span class="line">    </span><br><span class="line">    在 httpd.conf 中找到</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options FollowSymLinks Multiviews"</span></span><br><span class="line">    </span><br><span class="line">    加一个单词 Indexes，修改后的结果如下：</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options Indexes FollowSymLinks Multiviews"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4、保存退出"><a href="#4、保存退出" class="headerlink" title="4、保存退出"></a>4、保存退出</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">:wq 回车</span><br><span class="line"></span><br><span class="line"><span class="string">"注意"</span>:如果感觉修改错误了,想重新进入修改,就做不保存退出的操作</span><br><span class="line">不保存退出</span><br><span class="line">:q! 回车</span><br><span class="line"></span><br><span class="line">启动服务器</span><br><span class="line">sudo apachectl -k start 或者 sudo apachectl start</span><br><span class="line"></span><br><span class="line">关闭服务器:</span><br><span class="line">sudo apachectl -k stop 或者 sudo apachectl stop</span><br><span class="line"></span><br><span class="line">重新启动服务器</span><br><span class="line">sudo apachectl -k restart 或者 $sudo apachectl restart</span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/01/服务器配置笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-项目文件介绍" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/项目文件介绍/">项目文件介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/01/项目文件介绍/" class="archive-article-date">
-  	<time datetime="2016-07-01T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="1、项目文件介绍"><a href="#1、项目文件介绍" class="headerlink" title="1、项目文件介绍"></a>1、项目文件介绍</h2><ul>
-<li>新建一个项目，最左侧中包含3个文件夹<ul>
-<li>第1个文件夹包含项目相关的所有的代码文件及数据文件</li>
-<li>supportingFiles里面包含配置文件及其他的数据文件</li>
-<li>最后的UI-TESTS文件夹主要是做单元测试使用的，我们目前不会用到，所以先不考虑。</li>
-</ul>
-</li>
-<li>info.plist文件，项目的配置信息文件</li>
-<li>pch文件，项目中所有公用的类或者宏的头文件<h2 id="2、info-plist文件"><a href="#2、info-plist文件" class="headerlink" title="2、info.plist文件"></a>2、info.plist文件</h2></li>
-<li>在Xcode6以前创建项目的时候为有一个“项目名称-info.plist”名称的文件，在Xcode6之后就直接就是info.plist文件了。</li>
-<li>这个文件主要用来保存当前项目的基本配置信息<ul>
-<li>info.plist文件内容实际上是xml格式的，通过 <strong>右键</strong> –&gt; <strong>open as sourceCode</strong> 可以看到。</li>
-<li>保存的信息如应用版本号，应用要求的可运行的最低系统版本号。</li>
-<li>应用程序启动要加载storyboard文件名称</li>
-</ul>
-</li>
-<li>常用的key：<ul>
-<li>bundle display name 应用名称的key，名称如果太长就不能完全显示了。</li>
-<li>bundle identifier 应用的唯一标示，如果相同就会被覆盖。</li>
-<li>bundle versions String short 最终应用发布时的版本号</li>
-<li>bundle version 针对内部的一个版本号。</li>
-<li>Supported interface ortations 标识设备所支持的方向，对应的选中”项目”-&gt;”General”-&gt;”Deployment Info”-&gt;”Device Orientation”。iPhone只支持3种方向，不支持上下颠倒的旋转，Portrait（竖屏），Landscape Left（横屏向左），Landscape Right（横屏向右）</li>
-</ul>
-</li>
-</ul>
-<h6 id="注意：自己创建的plist文件中不要包含Info关键字。"><a href="#注意：自己创建的plist文件中不要包含Info关键字。" class="headerlink" title="注意：自己创建的plist文件中不要包含Info关键字。"></a>注意：自己创建的plist文件中不要包含Info关键字。</h6><h2 id="3、pch文件"><a href="#3、pch文件" class="headerlink" title="3、pch文件"></a>3、pch文件</h2><ul>
-<li>全称“Prefix Header File（前缀头文件）”，预编译头文件。</li>
-<li><p>在Xcode 6以后苹果就不推荐使用了。</p>
-<ul>
-<li>遇到的问题：<ul>
-<li>整个项目中很多地方都在使用某个类的头文件</li>
-<li>整个项目中很多地方都在使用同一个”宏”</li>
-<li>在项目中很多地方都用到了NSLog（）方法，想一下子全部清除掉</li>
-</ul>
-</li>
-<li><p>解决以上问题，可以通过使用PCH文件，它也是个头文件类似于*.h文件</p>
-<p><strong> 注意：PCH文件的特点，项目中所有其他代码文件无序显示导入该PCH文件，默认就可以访问（其他文件无序手动#import该PCH文件就能使用）</strong></p>
-</li>
-</ul>
-</li>
-<li><p>主要作用：</p>
-<ul>
-<li>可以做一些公用的宏定义</li>
-<li>把公共的Model类的#import导入写到pch文件.</li>
-<li>自定义NSLog()。例如:#define CZLog(…) NSLog(<strong>VA_ARGS</strong>)</li>
-<li>创建pch文件<ul>
-<li>“newFile”-&gt;””-&gt;””</li>
-<li>将通用的头文件和相应的宏放进去。</li>
-</ul>
-</li>
-<li><p>配置头文件，以使用头文件</p>
-<ul>
-<li>选择”项目”-&gt;”Build Setting” -&gt;”All”-&gt;搜索 “Prefix Header”,配置相应的pch文件。</li>
-<li>“$(SRCROOT)/$(PRODUCT_NAME)/PrefixHeader.pch”（如果有问题，更换为下面的方式，可能会与中文有关）</li>
-<li>“$(SRCROOT)/对应的文件夹名/PrefixHeader.pch”</li>
-</ul>
-</li>
-<li><p>在应用程序测试的时候，需要log很多信息，但是如果我们发布程序的时候就要禁止打印信息。</p>
-<ul>
-<li>自定义自己的log方式。</li>
-<li>自定义log的完整形式</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#ifdef DEBUG</span><br><span class="line"></span><br><span class="line">#define CZLog(...) NSLog(__VA_ARGS__)</span><br><span class="line"></span><br><span class="line">#else</span><br><span class="line"></span><br><span class="line">#define CZLog(...)</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>在使用pch文件时的注意点：</p>
-<ul>
-<li>创建c语言文件进去，直接编译就报错，因为默认情况下所有文件都会包含pch文件中的OC内容，C语言文件内不能识别OC代码，所以就会报错。</li>
-<li><p>解决：在pch文件中判断一下，如果是OC文件菜引入响应的宏，如果是普通C语言文件则不引入，否则项目中添加C语言文件时会报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifdef __OBJC__</span><br><span class="line"></span><br><span class="line">// OC相关的内容</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/01/项目文件介绍/">展开全文 >></a>
         </p>
       
 
