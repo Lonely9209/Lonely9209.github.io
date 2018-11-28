@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>GCD/RunLoop | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、GCD1、GCD简介什么是GCD 全称是Grand Central Dispatch 纯C语言，提供了非常多强大的函数  GCD的优势 GCD是苹果公司为多核的并行运算提出的解决方案 GCD会自动利用更多的CPU内核（比如双核、四核） GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程） 程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码  2、任务和队列GCD中有2">
+  <meta name="description" content="一、GCD1、GCD简介什么是GCD 全称是Grand Central Dispatch 纯C语言，提供了非常多强大的函数">
+<meta name="keywords" content="网络与多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="GCD&#x2F;RunLoop">
 <meta property="og:url" content="lonely9209.github.io/2016/07/05/GCD:RunLoop/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、GCD1、GCD简介什么是GCD 全称是Grand Central Dispatch 纯C语言，提供了非常多强大的函数  GCD的优势 GCD是苹果公司为多核的并行运算提出的解决方案 GCD会自动利用更多的CPU内核（比如双核、四核） GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程） 程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码  2、任务和队列GCD中有2">
+<meta property="og:description" content="一、GCD1、GCD简介什么是GCD 全称是Grand Central Dispatch 纯C语言，提供了非常多强大的函数">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.828Z">
+<meta property="og:updated_time" content="2018-11-28T13:02:34.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="GCD&#x2F;RunLoop">
-<meta name="twitter:description" content="一、GCD1、GCD简介什么是GCD 全称是Grand Central Dispatch 纯C语言，提供了非常多强大的函数  GCD的优势 GCD是苹果公司为多核的并行运算提出的解决方案 GCD会自动利用更多的CPU内核（比如双核、四核） GCD会自动管理线程的生命周期（创建线程、调度任务、销毁线程） 程序员只需要告诉GCD想要执行什么任务，不需要编写任何线程管理代码  2、任务和队列GCD中有2">
+<meta name="twitter:description" content="一、GCD1、GCD简介什么是GCD 全称是Grand Central Dispatch 纯C语言，提供了非常多强大的函数">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、GCD"><span class="toc-number">1.</span> <span class="toc-text">一、GCD</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、GCD简介"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、GCD简介</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#什么是GCD"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">什么是GCD</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#GCD的优势"><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">GCD的优势</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、任务和队列"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、任务和队列</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#GCD中有2个核心概念"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">GCD中有2个核心概念</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#GCD的使用就2个步骤"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">GCD的使用就2个步骤</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#队列的类型"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">队列的类型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#执行任务"><span class="toc-number">1.0.2.0.4.</span> <span class="toc-text">执行任务</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#3、容易混淆的术语"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、容易混淆的术语</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#同步和异步决定了要不要开启新的线程"><span class="toc-number">1.0.3.0.1.</span> <span class="toc-text">同步和异步决定了要不要开启新的线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#并发和串行决定了任务的执行方式"><span class="toc-number">1.0.3.0.2.</span> <span class="toc-text">并发和串行决定了任务的执行方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、串行队列"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、串行队列</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#串行队列的执行"><span class="toc-number">1.0.4.0.1.</span> <span class="toc-text">串行队列的执行</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、并发-并行-队列"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、并发(并行)队列</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#并行队列的执行"><span class="toc-number">1.0.5.0.1.</span> <span class="toc-text">并行队列的执行</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、主队列"><span class="toc-number">1.0.6.</span> <span class="toc-text">6、主队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、线程间通信示例"><span class="toc-number">1.0.7.</span> <span class="toc-text">7、线程间通信示例</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#从子线程回到主线程"><span class="toc-number">1.0.7.0.1.</span> <span class="toc-text">从子线程回到主线程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、延时执行"><span class="toc-number">1.0.8.</span> <span class="toc-text">8、延时执行</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#调用NSObject的方法"><span class="toc-number">1.0.8.0.1.</span> <span class="toc-text">调用NSObject的方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#使用GCD函数"><span class="toc-number">1.0.8.0.2.</span> <span class="toc-text">使用GCD函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、队列组"><span class="toc-number">1.0.9.</span> <span class="toc-text">9、队列组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、单例模式"><span class="toc-number">1.0.10.</span> <span class="toc-text">10、单例模式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#单例模式的作用"><span class="toc-number">1.0.10.0.1.</span> <span class="toc-text">单例模式的作用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#单例模式的使用场合"><span class="toc-number">1.0.10.0.2.</span> <span class="toc-text">单例模式的使用场合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、RunLoop"><span class="toc-number">2.</span> <span class="toc-text">二、RunLoop</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是RunLoop"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、什么是RunLoop?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、RunLoop的目的"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、RunLoop的目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、如何使用"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#添加消息到循环中"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">添加消息到循环中</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#使用总结"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">使用总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、循环常用模式"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、循环常用模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、子线程中的消息循环"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、子线程中的消息循环</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -185,6 +216,7 @@
 <li>全称是Grand Central Dispatch</li>
 <li>纯C语言，提供了非常多强大的函数</li>
 </ul>
+<a id="more"></a>
 <h6 id="GCD的优势"><a href="#GCD的优势" class="headerlink" title="GCD的优势"></a>GCD的优势</h6><ul>
 <li>GCD是苹果公司为多核的并行运算提出的解决方案</li>
 <li>GCD会自动利用更多的CPU内核（比如双核、四核）</li>
@@ -312,18 +344,18 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络与多线程</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -387,18 +419,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/05/UINavigationcontroller/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/05/copy/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          UINavigationController
+          Copy
         
       </div>
     </a>
   
   
-    <a href="/2016/07/04/NSDictionary:NSMutableDictionary的介绍/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">NSDictionary/NSMutableDictionary的介绍及使用</div>
+    <a href="/2016/07/05/UINavigationcontroller/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UINavigationController</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -417,6 +449,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、GCD"><span class="toc-number">1.</span> <span class="toc-text">一、GCD</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、GCD简介"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、GCD简介</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#什么是GCD"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">什么是GCD</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#GCD的优势"><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">GCD的优势</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、任务和队列"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、任务和队列</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#GCD中有2个核心概念"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">GCD中有2个核心概念</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#GCD的使用就2个步骤"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">GCD的使用就2个步骤</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#队列的类型"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">队列的类型</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#执行任务"><span class="toc-number">1.0.2.0.4.</span> <span class="toc-text">执行任务</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#3、容易混淆的术语"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、容易混淆的术语</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#同步和异步决定了要不要开启新的线程"><span class="toc-number">1.0.3.0.1.</span> <span class="toc-text">同步和异步决定了要不要开启新的线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#并发和串行决定了任务的执行方式"><span class="toc-number">1.0.3.0.2.</span> <span class="toc-text">并发和串行决定了任务的执行方式</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、串行队列"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、串行队列</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#串行队列的执行"><span class="toc-number">1.0.4.0.1.</span> <span class="toc-text">串行队列的执行</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、并发-并行-队列"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、并发(并行)队列</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#并行队列的执行"><span class="toc-number">1.0.5.0.1.</span> <span class="toc-text">并行队列的执行</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、主队列"><span class="toc-number">1.0.6.</span> <span class="toc-text">6、主队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、线程间通信示例"><span class="toc-number">1.0.7.</span> <span class="toc-text">7、线程间通信示例</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#从子线程回到主线程"><span class="toc-number">1.0.7.0.1.</span> <span class="toc-text">从子线程回到主线程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、延时执行"><span class="toc-number">1.0.8.</span> <span class="toc-text">8、延时执行</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#调用NSObject的方法"><span class="toc-number">1.0.8.0.1.</span> <span class="toc-text">调用NSObject的方法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#使用GCD函数"><span class="toc-number">1.0.8.0.2.</span> <span class="toc-text">使用GCD函数</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、队列组"><span class="toc-number">1.0.9.</span> <span class="toc-text">9、队列组</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、单例模式"><span class="toc-number">1.0.10.</span> <span class="toc-text">10、单例模式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#单例模式的作用"><span class="toc-number">1.0.10.0.1.</span> <span class="toc-text">单例模式的作用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#单例模式的使用场合"><span class="toc-number">1.0.10.0.2.</span> <span class="toc-text">单例模式的使用场合</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、RunLoop"><span class="toc-number">2.</span> <span class="toc-text">二、RunLoop</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是RunLoop"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、什么是RunLoop?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、RunLoop的目的"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、RunLoop的目的</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、如何使用"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、如何使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#添加消息到循环中"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">添加消息到循环中</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#使用总结"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">使用总结</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、循环常用模式"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、循环常用模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、子线程中的消息循环"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、子线程中的消息循环</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -525,6 +570,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

@@ -9,13 +9,14 @@
   <title>NSNumber/NSValue的介绍 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、NSNumber的介绍1、NSNumber的介绍和使用 NSArray\NSDictionary中只能存放OC对象,不能存放int\float\double等基本数据类型。  如果真想把基本数据(比如int)放进数组或字典中,需要先将基本数据类型包装成OC对象。  基本数据类型（如int）–包装–&amp;gt;OC对象–放进–&amp;gt;数组/字典  NSNumber可以将基本数据类型包装成对象,这样就">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSNumber&#x2F;NSValue的介绍">
 <meta property="og:url" content="lonely9209.github.io/2016/07/06/NSNumber:NSValue的介绍/index.html">
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="一、NSNumber的介绍1、NSNumber的介绍和使用 NSArray\NSDictionary中只能存放OC对象,不能存放int\float\double等基本数据类型。  如果真想把基本数据(比如int)放进数组或字典中,需要先将基本数据类型包装成OC对象。  基本数据类型（如int）–包装–&amp;gt;OC对象–放进–&amp;gt;数组/字典  NSNumber可以将基本数据类型包装成对象,这样就">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.830Z">
+<meta property="og:updated_time" content="2018-11-28T13:13:14.798Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSNumber&#x2F;NSValue的介绍">
 <meta name="twitter:description" content="一、NSNumber的介绍1、NSNumber的介绍和使用 NSArray\NSDictionary中只能存放OC对象,不能存放int\float\double等基本数据类型。  如果真想把基本数据(比如int)放进数组或字典中,需要先将基本数据类型包装成OC对象。  基本数据类型（如int）–包装–&amp;gt;OC对象–放进–&amp;gt;数组/字典  NSNumber可以将基本数据类型包装成对象,这样就">
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、NSNumber的介绍"><span class="toc-number">1.</span> <span class="toc-text">一、NSNumber的介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、NSNumber的介绍和使用"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSNumber的介绍和使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、NSNumber的创建"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、NSNumber的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、从NSNumber对象中得到基本类型数据"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、从NSNumber对象中得到基本类型数据</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、NSValue的介绍和使用"><span class="toc-number">2.</span> <span class="toc-text">二、NSValue的介绍和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、常见结构体包装"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、常见结构体包装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、任意数据的包装"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、任意数据的包装</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -192,12 +223,11 @@
 </li>
 <li>基本数据类型（如int）–<code>包装</code>–&gt;NSNumber对象–<code>放进</code>–&gt;数组/字典</li>
 </ul>
+<a id="more"></a>
 <h4 id="2、NSNumber的创建"><a href="#2、NSNumber的创建" class="headerlink" title="2、NSNumber的创建"></a>2、NSNumber的创建</h4><ul>
 <li><p>以前</p>
  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="built_in">NSNumber</span> *)numberWithInt:(<span class="keyword">int</span>)value;</span><br><span class="line">+ (<span class="built_in">NSNumber</span> *)numberWithDouble:(<span class="keyword">double</span>)value;</span><br><span class="line">+ (<span class="built_in">NSNumber</span> *)numberWithBool:(<span class="built_in">BOOL</span>)value;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>现在</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@<span class="number">10</span>; 	@<span class="number">10.5</span>; 	 @YES; 	 @(num);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">* 现在</span><br><span class="line"></span><br><span class="line">```objc</span><br><span class="line">@10; 	@10.5; 	 @YES; 	 @(num);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="3、从NSNumber对象中得到基本类型数据"><a href="#3、从NSNumber对象中得到基本类型数据" class="headerlink" title="3、从NSNumber对象中得到基本类型数据"></a>3、从NSNumber对象中得到基本类型数据</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">char</span>)charValue;</span><br><span class="line">- (<span class="keyword">int</span>)intValue;</span><br><span class="line">- (<span class="keyword">long</span>)longValue;</span><br><span class="line">- (<span class="keyword">double</span>)doubleValue;</span><br><span class="line">- (<span class="built_in">BOOL</span>)boolValue;</span><br><span class="line">- (<span class="built_in">NSString</span> *)stringValue;</span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSNumber</span> *)otherNumber;</span><br><span class="line">- (<span class="built_in">BOOL</span>)isEqualToNumber:(<span class="built_in">NSNumber</span> *)number;</span><br></pre></td></tr></table></figure>
@@ -254,18 +284,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -359,6 +393,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、NSNumber的介绍"><span class="toc-number">1.</span> <span class="toc-text">一、NSNumber的介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、NSNumber的介绍和使用"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSNumber的介绍和使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、NSNumber的创建"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、NSNumber的创建</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、从NSNumber对象中得到基本类型数据"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、从NSNumber对象中得到基本类型数据</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、NSValue的介绍和使用"><span class="toc-number">2.</span> <span class="toc-text">二、NSValue的介绍和使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、常见结构体包装"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、常见结构体包装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、任意数据的包装"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、任意数据的包装</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -467,6 +514,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

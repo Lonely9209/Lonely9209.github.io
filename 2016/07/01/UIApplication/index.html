@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>UIApplication | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、UIApplication 一个UIApplication代表是一个应用程序，而且是单例的。 用来封装整个应用程序的一个对象,比如当应用程序执行到某个时期要做什么, 生命周期等。 获取UIApplication对象： [UIApplication sharedApplication];（单例的）   设置消息数量及联网状态指示器 通过应用程序打开一些资源 如打电话、发短信、发邮件、打开别的应用">
+  <meta name="description" content="一、UIApplication 一个UIApplication代表是一个应用程序，而且是单例的。 用来封装整个应用程序的一个对象,比如当应用程序执行到某个时期要做什么, 生命周期等。 获取UIApplication对象： [UIApplication sharedApplication];（单例的）">
+<meta name="keywords" content="OC基础,UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIApplication">
 <meta property="og:url" content="lonely9209.github.io/2016/07/01/UIApplication/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、UIApplication 一个UIApplication代表是一个应用程序，而且是单例的。 用来封装整个应用程序的一个对象,比如当应用程序执行到某个时期要做什么, 生命周期等。 获取UIApplication对象： [UIApplication sharedApplication];（单例的）   设置消息数量及联网状态指示器 通过应用程序打开一些资源 如打电话、发短信、发邮件、打开别的应用">
+<meta property="og:description" content="一、UIApplication 一个UIApplication代表是一个应用程序，而且是单例的。 用来封装整个应用程序的一个对象,比如当应用程序执行到某个时期要做什么, 生命周期等。 获取UIApplication对象： [UIApplication sharedApplication];（单例的）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.833Z">
+<meta property="og:updated_time" content="2018-11-28T13:14:47.584Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIApplication">
-<meta name="twitter:description" content="一、UIApplication 一个UIApplication代表是一个应用程序，而且是单例的。 用来封装整个应用程序的一个对象,比如当应用程序执行到某个时期要做什么, 生命周期等。 获取UIApplication对象： [UIApplication sharedApplication];（单例的）   设置消息数量及联网状态指示器 通过应用程序打开一些资源 如打电话、发短信、发邮件、打开别的应用">
+<meta name="twitter:description" content="一、UIApplication 一个UIApplication代表是一个应用程序，而且是单例的。 用来封装整个应用程序的一个对象,比如当应用程序执行到某个时期要做什么, 生命周期等。 获取UIApplication对象： [UIApplication sharedApplication];（单例的）">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UIApplication"><span class="toc-number">1.</span> <span class="toc-text">一、UIApplication</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取当前系统版本号"><span class="toc-number">1.0.1.</span> <span class="toc-text">获取当前系统版本号</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、应用程序代理对象"><span class="toc-number">2.</span> <span class="toc-text">二、应用程序代理对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用代理方法解释"><span class="toc-number">2.0.1.</span> <span class="toc-text">常用代理方法解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、应用启动方法执行过程"><span class="toc-number">3.</span> <span class="toc-text">三、应用启动方法执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、设置消息数量及联网状态指示器"><span class="toc-number">4.</span> <span class="toc-text">四、设置消息数量及联网状态指示器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、打开一些资源"><span class="toc-number">5.</span> <span class="toc-text">五、打开一些资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、状态栏的管理"><span class="toc-number">6.</span> <span class="toc-text">六、状态栏的管理</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -187,6 +218,9 @@
 <li>获取UIApplication对象： [UIApplication sharedApplication];（单例的）</li>
 </ul>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li>设置消息数量及联网状态指示器</li>
 <li>通过应用程序打开一些资源<ul>
 <li>如打电话、发短信、发邮件、打开别的应用等</li>
@@ -369,18 +403,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -444,15 +482,20 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/01/项目文件介绍/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/01/服务器配置笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          项目文件介绍
+          服务器配置笔记
         
       </div>
     </a>
   
+  
+    <a href="/2016/07/01/项目文件介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">项目文件介绍</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -469,6 +512,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UIApplication"><span class="toc-number">1.</span> <span class="toc-text">一、UIApplication</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#获取当前系统版本号"><span class="toc-number">1.0.1.</span> <span class="toc-text">获取当前系统版本号</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、应用程序代理对象"><span class="toc-number">2.</span> <span class="toc-text">二、应用程序代理对象</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#常用代理方法解释"><span class="toc-number">2.0.1.</span> <span class="toc-text">常用代理方法解释</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、应用启动方法执行过程"><span class="toc-number">3.</span> <span class="toc-text">三、应用启动方法执行过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、设置消息数量及联网状态指示器"><span class="toc-number">4.</span> <span class="toc-text">四、设置消息数量及联网状态指示器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、打开一些资源"><span class="toc-number">5.</span> <span class="toc-text">五、打开一些资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、状态栏的管理"><span class="toc-number">6.</span> <span class="toc-text">六、状态栏的管理</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -577,6 +633,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>NSFileManager介绍和用法 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、NSFileManager介绍和用法1、NSFileManager介绍 什么是NSFileManager？ 顾名思义，NSFileManager是用来管理文件系统的。 它可以用来进行常见的文件、文件夹操作。 NSFileManager使用了单例模式 使用defaultManager方法可以获得那个单例对象[NSFileManager defaultManager]     2、NSFileMa">
+  <meta name="description" content="一、NSFileManager介绍和用法1、NSFileManager介绍 什么是NSFileManager？ 顾名思义，NSFileManager是用来管理文件系统的。 它可以用来进行常见的文件、文件夹操作。 NSFileManager使用了单例模式 使用defaultManager方法可以获得那个单例对象[NSFileManager defaultManager]">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSFileManager介绍和用法">
 <meta property="og:url" content="lonely9209.github.io/2016/07/10/NSFileManager介绍/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、NSFileManager介绍和用法1、NSFileManager介绍 什么是NSFileManager？ 顾名思义，NSFileManager是用来管理文件系统的。 它可以用来进行常见的文件、文件夹操作。 NSFileManager使用了单例模式 使用defaultManager方法可以获得那个单例对象[NSFileManager defaultManager]     2、NSFileMa">
+<meta property="og:description" content="一、NSFileManager介绍和用法1、NSFileManager介绍 什么是NSFileManager？ 顾名思义，NSFileManager是用来管理文件系统的。 它可以用来进行常见的文件、文件夹操作。 NSFileManager使用了单例模式 使用defaultManager方法可以获得那个单例对象[NSFileManager defaultManager]">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.830Z">
+<meta property="og:updated_time" content="2018-11-28T13:12:55.115Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSFileManager介绍和用法">
-<meta name="twitter:description" content="一、NSFileManager介绍和用法1、NSFileManager介绍 什么是NSFileManager？ 顾名思义，NSFileManager是用来管理文件系统的。 它可以用来进行常见的文件、文件夹操作。 NSFileManager使用了单例模式 使用defaultManager方法可以获得那个单例对象[NSFileManager defaultManager]     2、NSFileMa">
+<meta name="twitter:description" content="一、NSFileManager介绍和用法1、NSFileManager介绍 什么是NSFileManager？ 顾名思义，NSFileManager是用来管理文件系统的。 它可以用来进行常见的文件、文件夹操作。 NSFileManager使用了单例模式 使用defaultManager方法可以获得那个单例对象[NSFileManager defaultManager]">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、NSFileManager介绍和用法"><span class="toc-number">1.</span> <span class="toc-text">一、NSFileManager介绍和用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、NSFileManager介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSFileManager介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、NSFileManager用法（常见的判断）"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、NSFileManager用法（常见的判断）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、判断文件或者文件夹是否存在"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1、判断文件或者文件夹是否存在</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、判断文件、文件夹是否存在，是否为文件夹"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2、判断文件、文件夹是否存在，是否为文件夹</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、path这个文件、文件夹是否可读"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">3、path这个文件、文件夹是否可读</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、path这个文件、文件夹是否可写"><span class="toc-number">1.0.2.0.4.</span> <span class="toc-text">4、path这个文件、文件夹是否可写</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5、path这个文件、文件夹是否可删除"><span class="toc-number">1.0.2.0.5.</span> <span class="toc-text">5、path这个文件、文件夹是否可删除</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6、path这个文件是否可执行（不常用）"><span class="toc-number">1.0.2.0.6.</span> <span class="toc-text">6、path这个文件是否可执行（不常用）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7、案例："><span class="toc-number">1.0.2.0.7.</span> <span class="toc-text">7、案例：</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、NSFileManager的文件访问"><span class="toc-number">2.</span> <span class="toc-text">二、NSFileManager的文件访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、获得文件、文件夹的属性"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、获得文件、文件夹的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、获得某个文件夹下得所有子路径"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、获得某个文件夹下得所有子路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、获得某个文件夹的当前子路径"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、获得某个文件夹的当前子路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、获得文件内容"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、获得文件内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、NSFileManager的文件或文件夹操作"><span class="toc-number">3.</span> <span class="toc-text">三、NSFileManager的文件或文件夹操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2、创建文件"><span class="toc-number">3.0.1.</span> <span class="toc-text">2、创建文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、删除文件"><span class="toc-number">3.0.2.</span> <span class="toc-text">3、删除文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、拷贝-移动-删除"><span class="toc-number">3.0.3.</span> <span class="toc-text">4、拷贝/移动/删除</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -191,13 +222,15 @@
 </ul>
 </li>
 </ul>
+<a id="more"></a>
 <h4 id="2、NSFileManager用法（常见的判断）"><a href="#2、NSFileManager用法（常见的判断）" class="headerlink" title="2、NSFileManager用法（常见的判断）"></a>2、NSFileManager用法（常见的判断）</h4><h6 id="1、判断文件或者文件夹是否存在"><a href="#1、判断文件或者文件夹是否存在" class="headerlink" title="1、判断文件或者文件夹是否存在"></a>1、判断文件或者文件夹是否存在</h6><pre><code>-(BOOL)fileExistsAtPath:(NSString *)path;
 </code></pre><h6 id="2、判断文件、文件夹是否存在，是否为文件夹"><a href="#2、判断文件、文件夹是否存在，是否为文件夹" class="headerlink" title="2、判断文件、文件夹是否存在，是否为文件夹"></a>2、判断文件、文件夹是否存在，是否为文件夹</h6><pre><code>-(BOOL)fileExistsAtPath:(NSString *)path isDirectory:(nullable BOOL *)isDirectory;
 </code></pre><h6 id="3、path这个文件、文件夹是否可读"><a href="#3、path这个文件、文件夹是否可读" class="headerlink" title="3、path这个文件、文件夹是否可读"></a>3、path这个文件、文件夹是否可读</h6><pre><code>- (BOOL)isReadableFileAtPath:(NSString *)path;
 </code></pre><h6 id="4、path这个文件、文件夹是否可写"><a href="#4、path这个文件、文件夹是否可写" class="headerlink" title="4、path这个文件、文件夹是否可写"></a>4、path这个文件、文件夹是否可写</h6><pre><code>- (BOOL)isWritableFileAtPath:(NSString *)path;
 </code></pre><h6 id="5、path这个文件、文件夹是否可删除"><a href="#5、path这个文件、文件夹是否可删除" class="headerlink" title="5、path这个文件、文件夹是否可删除"></a>5、path这个文件、文件夹是否可删除</h6><pre><code>- (BOOL)isDeletableFileAtPath:(NSString *)path;
 </code></pre><h6 id="6、path这个文件是否可执行（不常用）"><a href="#6、path这个文件是否可执行（不常用）" class="headerlink" title="6、path这个文件是否可执行（不常用）"></a>6、path这个文件是否可执行（不常用）</h6><pre><code>- (BOOL)isExecutableFileAtPath:(NSString *)path;
-</code></pre><h6 id="7、案例："><a href="#7、案例：" class="headerlink" title="7、案例："></a>7、案例：</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、判断文件或者文件夹是否存在</span></span><br><span class="line">  <span class="built_in">NSFileManager</span> *manage = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">  <span class="built_in">BOOL</span> exist = [manage fileExistsAtPath:<span class="string">@"/Users/sleepingsun/Desktop/工作"</span>];</span><br><span class="line">  </span><br><span class="line"><span class="comment">// 2、path这个文件、文件夹是否存在，isDirectory代表是否为文件夹</span></span><br><span class="line">   <span class="built_in">NSFileManager</span> *manage = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">   <span class="built_in">BOOL</span> dir = <span class="literal">NO</span>;</span><br><span class="line">   <span class="comment">// 后边判断时，可以通过dir的地址，去更改dir的值</span></span><br><span class="line">   <span class="built_in">BOOL</span> exist = [manage fileExistsAtPath:<span class="string">@"/Users/sleepingsun/Desktop/2.0.png"</span> isDirectory:&amp;dir];</span><br><span class="line">   </span><br><span class="line"><span class="comment">// 3、path这个文件、文件夹是否可读</span></span><br><span class="line">    <span class="comment">// 1、文件地址</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line">    <span class="comment">// 2、获得文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="comment">// 3、判断文件夹是否可读</span></span><br><span class="line">    <span class="built_in">BOOL</span> temp = [fileManager isReadableFileAtPath:testPath];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件是否可读：%d"</span>,temp);</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 4、path这个文件、文件夹是否可写</span></span><br><span class="line">    <span class="comment">// 1、文件地址</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line">    <span class="comment">// 2、获得文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="comment">// 3、判断文件夹是否可写</span></span><br><span class="line">    <span class="built_in">BOOL</span> temp = [fileManager isWritableFileAtPath:testPath];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件是否可写：%d"</span>,temp);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5、path这个文件、文件夹是否可删除</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isDeletableFileAtPath:(<span class="built_in">NSString</span> *)path;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 6、path这个文件是否可执行（不常用）</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isExecutableFileAtPath:(<span class="built_in">NSString</span> *)path;</span><br><span class="line"></span><br><span class="line">```      </span><br><span class="line">       </span><br><span class="line"><span class="meta">## 二、NSFileManager的文件访问</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#### 1、获得文件、文件夹的属性</span></span><br><span class="line">```objc</span><br><span class="line">    <span class="comment">// 获取文件或者文件夹属性用法</span></span><br><span class="line">    - (<span class="built_in">NSDictionary</span> *)attributesOfItemAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br><span class="line">    <span class="comment">// 1、文件地址</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line">    <span class="comment">// 2、获得文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="comment">// 3、获取文件属性</span></span><br><span class="line">    <span class="built_in">NSDictionary</span> *dic = [fileManager attributesOfItemAtPath:testPath error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,dic);</span><br></pre></td></tr></table></figure>
+</code></pre><h6 id="7、案例："><a href="#7、案例：" class="headerlink" title="7、案例："></a>7、案例：</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、判断文件或者文件夹是否存在</span></span><br><span class="line">  <span class="built_in">NSFileManager</span> *manage = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">  <span class="built_in">BOOL</span> exist = [manage fileExistsAtPath:<span class="string">@"/Users/sleepingsun/Desktop/工作"</span>];</span><br><span class="line">  </span><br><span class="line"><span class="comment">// 2、path这个文件、文件夹是否存在，isDirectory代表是否为文件夹</span></span><br><span class="line">   <span class="built_in">NSFileManager</span> *manage = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">   <span class="built_in">BOOL</span> dir = <span class="literal">NO</span>;</span><br><span class="line">   <span class="comment">// 后边判断时，可以通过dir的地址，去更改dir的值</span></span><br><span class="line">   <span class="built_in">BOOL</span> exist = [manage fileExistsAtPath:<span class="string">@"/Users/sleepingsun/Desktop/2.0.png"</span> isDirectory:&amp;dir];</span><br><span class="line">   </span><br><span class="line"><span class="comment">// 3、path这个文件、文件夹是否可读</span></span><br><span class="line">    <span class="comment">// 1、文件地址</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line">    <span class="comment">// 2、获得文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="comment">// 3、判断文件夹是否可读</span></span><br><span class="line">    <span class="built_in">BOOL</span> temp = [fileManager isReadableFileAtPath:testPath];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件是否可读：%d"</span>,temp);</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 4、path这个文件、文件夹是否可写</span></span><br><span class="line">    <span class="comment">// 1、文件地址</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line">    <span class="comment">// 2、获得文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="comment">// 3、判断文件夹是否可写</span></span><br><span class="line">    <span class="built_in">BOOL</span> temp = [fileManager isWritableFileAtPath:testPath];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件是否可写：%d"</span>,temp);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5、path这个文件、文件夹是否可删除</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isDeletableFileAtPath:(<span class="built_in">NSString</span> *)path;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 6、path这个文件是否可执行（不常用）</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isExecutableFileAtPath:(<span class="built_in">NSString</span> *)path;</span><br></pre></td></tr></table></figure>
+<h2 id="二、NSFileManager的文件访问"><a href="#二、NSFileManager的文件访问" class="headerlink" title="二、NSFileManager的文件访问"></a>二、NSFileManager的文件访问</h2><h4 id="1、获得文件、文件夹的属性"><a href="#1、获得文件、文件夹的属性" class="headerlink" title="1、获得文件、文件夹的属性"></a>1、获得文件、文件夹的属性</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取文件或者文件夹属性用法</span></span><br><span class="line">- (<span class="built_in">NSDictionary</span> *)attributesOfItemAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br><span class="line"><span class="comment">// 1、文件地址</span></span><br><span class="line"><span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line"><span class="comment">// 2、获得文件管理者</span></span><br><span class="line"><span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line"><span class="comment">// 3、获取文件属性</span></span><br><span class="line"><span class="built_in">NSDictionary</span> *dic = [fileManager attributesOfItemAtPath:testPath error:<span class="literal">nil</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,dic);</span><br></pre></td></tr></table></figure>
 <h4 id="2、获得某个文件夹下得所有子路径"><a href="#2、获得某个文件夹下得所有子路径" class="headerlink" title="2、获得某个文件夹下得所有子路径"></a>2、获得某个文件夹下得所有子路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span> *)subpathsAtPath:(<span class="built_in">NSString</span> *)path;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)subpathsOfDirectoryAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
 <h4 id="3、获得某个文件夹的当前子路径"><a href="#3、获得某个文件夹的当前子路径" class="headerlink" title="3、获得某个文件夹的当前子路径"></a>3、获得某个文件夹的当前子路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span> *)contentsOfDirectoryAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
 <h4 id="4、获得文件内容"><a href="#4、获得文件内容" class="headerlink" title="4、获得文件内容"></a>4、获得文件内容</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSData</span> *)contentsAtPath:(<span class="built_in">NSString</span> *)path;</span><br></pre></td></tr></table></figure>
@@ -216,6 +249,7 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)moveItemAtPath:(<span class="built_in">NSString</span> *)srcPath toPath:(<span class="built_in">NSString</span> *)dstPath error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
 <p>删除</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)removeItemAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
+<p>​       </p>
 
       
 
@@ -245,18 +279,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -350,6 +388,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、NSFileManager介绍和用法"><span class="toc-number">1.</span> <span class="toc-text">一、NSFileManager介绍和用法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、NSFileManager介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSFileManager介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、NSFileManager用法（常见的判断）"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、NSFileManager用法（常见的判断）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、判断文件或者文件夹是否存在"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1、判断文件或者文件夹是否存在</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、判断文件、文件夹是否存在，是否为文件夹"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2、判断文件、文件夹是否存在，是否为文件夹</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、path这个文件、文件夹是否可读"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">3、path这个文件、文件夹是否可读</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、path这个文件、文件夹是否可写"><span class="toc-number">1.0.2.0.4.</span> <span class="toc-text">4、path这个文件、文件夹是否可写</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5、path这个文件、文件夹是否可删除"><span class="toc-number">1.0.2.0.5.</span> <span class="toc-text">5、path这个文件、文件夹是否可删除</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6、path这个文件是否可执行（不常用）"><span class="toc-number">1.0.2.0.6.</span> <span class="toc-text">6、path这个文件是否可执行（不常用）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7、案例："><span class="toc-number">1.0.2.0.7.</span> <span class="toc-text">7、案例：</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、NSFileManager的文件访问"><span class="toc-number">2.</span> <span class="toc-text">二、NSFileManager的文件访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、获得文件、文件夹的属性"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、获得文件、文件夹的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、获得某个文件夹下得所有子路径"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、获得某个文件夹下得所有子路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、获得某个文件夹的当前子路径"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、获得某个文件夹的当前子路径</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、获得文件内容"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、获得文件内容</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、NSFileManager的文件或文件夹操作"><span class="toc-number">3.</span> <span class="toc-text">三、NSFileManager的文件或文件夹操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2、创建文件"><span class="toc-number">3.0.1.</span> <span class="toc-text">2、创建文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、删除文件"><span class="toc-number">3.0.2.</span> <span class="toc-text">3、删除文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、拷贝-移动-删除"><span class="toc-number">3.0.3.</span> <span class="toc-text">4、拷贝/移动/删除</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -458,6 +509,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

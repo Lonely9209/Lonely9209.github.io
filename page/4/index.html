@@ -55,9 +55,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -117,6 +119,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -137,11 +141,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -157,6 +163,87 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-文字:图片处理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/04/文字:图片处理/">文字/图片处理</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/04/文字:图片处理/" class="archive-article-date">
+  	<time datetime="2016-07-04T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-04</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、文字处理"><a href="#一、文字处理" class="headerlink" title="一、文字处理"></a>一、文字处理</h2><h4 id="1、计算文本size的方法"><a href="#1、计算文本size的方法" class="headerlink" title="1、计算文本size的方法"></a>1、计算文本size的方法</h4><h6 id="1、普通文本"><a href="#1、普通文本" class="headerlink" title="1、普通文本"></a>1、普通文本</h6><p>返回text指定font时的size（默认内容只有一行）</p>
+        
+          <a class="article-more-a" href="/2016/07/04/文字:图片处理/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/04/文字:图片处理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-UITabBarController" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
@@ -190,23 +277,9 @@
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">NSUInteger</span> selectedIndex;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="二、UITabBar属性-方法"><a href="#二、UITabBar属性-方法" class="headerlink" title="二、UITabBar属性/方法"></a>二、UITabBar属性/方法</h2><ul>
-<li><p>item数组</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>,<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span>&lt;<span class="built_in">UITabBarItem</span> *&gt; *items;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当前选中的item</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>,<span class="keyword">nonatomic</span>,<span class="keyword">assign</span>) <span class="built_in">UITabBarItem</span> *selectedItem;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>UITabBar颜色</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>, <span class="keyword">nonatomic</span>,<span class="keyword">strong</span>) <span class="built_in">UIColor</span> *barTintColor</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>UITabBar渲染颜色</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">null_resettable</span>, <span class="keyword">nonatomic</span>,<span class="keyword">strong</span>) <span class="built_in">UIColor</span> *tintColor   <span class="built_in">UI_APPEARANCE_SELECTOR</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="使用KVC自定义Tabbar"><a href="#使用KVC自定义Tabbar" class="headerlink" title="使用KVC自定义Tabbar"></a>使用KVC自定义Tabbar</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> setValue:[[BSTabBar alloc] init] forKey:<span class="string">@"tabBar"</span>];</span><br></pre></td></tr></table></figure>
-<h2 id="三、统一设置tabbar样式"><a href="#三、统一设置tabbar样式" class="headerlink" title="三、统一设置tabbar样式"></a>三、统一设置tabbar样式</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)initialize &#123;	</span><br><span class="line">    [<span class="built_in">UITabBar</span> appearance].backgroundColor = [<span class="built_in">UIColor</span> whiteColor];</span><br><span class="line">    [<span class="keyword">self</span> setTitleAttributes];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//统一设置文字样式</span></span><br><span class="line">+ (<span class="keyword">void</span>)setTitleAttributes &#123;</span><br><span class="line">    <span class="built_in">UITabBarItem</span> *item = [<span class="built_in">UITabBarItem</span> appearance];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *norDict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    norDict[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> lightGrayColor];</span><br><span class="line">    norDict[<span class="built_in">NSFontAttributeName</span>] = [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">12</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSMutableDictionary</span> *selDict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">    selDict[<span class="built_in">NSForegroundColorAttributeName</span>] = [<span class="built_in">UIColor</span> grayColor];</span><br><span class="line">    selDict[<span class="built_in">NSFontAttributeName</span>] = norDict[<span class="built_in">NSFontAttributeName</span>];</span><br><span class="line">    </span><br><span class="line">    [item setTitleTextAttributes:norDict forState:<span class="built_in">UIControlStateNormal</span>];</span><br><span class="line">    [item setTitleTextAttributes:selDict forState:<span class="built_in">UIControlStateSelected</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="四、TabBar添加控制器一般方法"><a href="#四、TabBar添加控制器一般方法" class="headerlink" title="四、TabBar添加控制器一般方法"></a>四、TabBar添加控制器一般方法</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> addChildVc:[[BSEssenceViewController alloc] init] title:<span class="string">@"精华"</span> image:<span class="string">@"tabBar_essence_icon"</span> selectedImage:<span class="string">@"tabBar_essence_click_icon"</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> addChildVc:[[BSNewViewController alloc] init] title:<span class="string">@"新帖"</span> image:<span class="string">@"tabBar_new_icon"</span> selectedImage:<span class="string">@"tabBar_new_click_icon"</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> addChildVc:[[BSFriendTrendsViewController alloc] init] title:<span class="string">@"关注"</span> image:<span class="string">@"tabBar_friendTrends_icon"</span> selectedImage:<span class="string">@"tabBar_friendTrends_click_icon"</span>];</span><br><span class="line">    </span><br><span class="line">    [<span class="keyword">self</span> addChildVc:[[BSMeViewController alloc] initWithStyle:<span class="built_in">UITableViewStyleGrouped</span>] title:<span class="string">@"我的"</span> image:<span class="string">@"tabBar_me_icon"</span> selectedImage:<span class="string">@"tabBar_me_click_icon"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//替换tabBar(KVC)</span></span><br><span class="line">    [<span class="keyword">self</span> setValue:[[BSTabBar alloc] init] forKey:<span class="string">@"tabBar"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//添加子控制器</span></span><br><span class="line">- (<span class="keyword">void</span>)addChildVc:(<span class="built_in">UIViewController</span> *)vc title:(<span class="built_in">NSString</span> *)title image:(<span class="built_in">NSString</span> *)image selectedImage:(<span class="built_in">NSString</span> *)selectedImage &#123;</span><br><span class="line">    BSNavViewController *nav = [[BSNavViewController alloc] initWithRootViewController:vc];</span><br><span class="line">    nav.tabBarItem.title = title;</span><br><span class="line">    nav.tabBarItem.image = [<span class="built_in">UIImage</span> imageNamed:image];</span><br><span class="line">    nav.tabBarItem.selectedImage = [<span class="built_in">UIImage</span> imageNamed:selectedImage];</span><br><span class="line">    [<span class="keyword">self</span> addChildViewController:nav];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/07/04/UITabBarController/#more">more >></a>
+        
       
 
       
@@ -214,102 +287,26 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/04/UITabBarController/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-文字:图片处理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/04/文字:图片处理/">文字/图片处理</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/04/文字:图片处理/" class="archive-article-date">
-  	<time datetime="2016-07-04T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-04</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、文字处理"><a href="#一、文字处理" class="headerlink" title="一、文字处理"></a>一、文字处理</h2><h4 id="1、计算文本size的方法"><a href="#1、计算文本size的方法" class="headerlink" title="1、计算文本size的方法"></a>1、计算文本size的方法</h4><h6 id="1、普通文本"><a href="#1、普通文本" class="headerlink" title="1、普通文本"></a>1、普通文本</h6><p>返回text指定font时的size（默认内容只有一行）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)sizeWithAttributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attrs <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">7</span>_0);</span><br></pre></td></tr></table></figure></p>
-<p>返回text在指定size内的rect<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGRect</span>)boundingRectWithSize:(<span class="built_in">CGSize</span>)size options:(<span class="built_in">NSStringDrawingOptions</span>)options attributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attributes context:(<span class="keyword">nullable</span> <span class="built_in">NSStringDrawingContext</span> *)context <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_11, <span class="number">7</span>_0);</span><br><span class="line"></span><br><span class="line">实例：</span><br><span class="line">   <span class="comment">//内容宽度</span></span><br><span class="line"><span class="built_in">CGFloat</span> wordW = ZC_SCREEN_WIDTH - <span class="number">40</span>;</span><br><span class="line">_wordHeight = [_course_subject boundingRectWithSize:<span class="built_in">CGSizeMake</span>(wordW, MAXFLOAT) options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> attributes:@&#123;<span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">13</span>]&#125; context:<span class="literal">nil</span>].size.height + <span class="number">5</span>;</span><br></pre></td></tr></table></figure></p>
-<h6 id="2、富文本"><a href="#2、富文本" class="headerlink" title="2、富文本"></a>2、富文本</h6><p>返回text的size（默认内容只有一行）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)size <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">6</span>_0);</span><br></pre></td></tr></table></figure></p>
-<p>返回text在指定size内的rect<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGRect</span>)boundingRectWithSize:(<span class="built_in">CGSize</span>)size options:(<span class="built_in">NSStringDrawingOptions</span>)options context:(<span class="keyword">nullable</span> <span class="built_in">NSStringDrawingContext</span> *)context <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_11, <span class="number">6</span>_0);</span><br></pre></td></tr></table></figure></p>
-<h2 id="二、图片处理"><a href="#二、图片处理" class="headerlink" title="二、图片处理"></a>二、图片处理</h2><h4 id="1、拉伸图片："><a href="#1、拉伸图片：" class="headerlink" title="1、拉伸图片："></a>1、拉伸图片：</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *resizeImage = [image resizableImageWithCapInsets:<span class="built_in">UIEdgeInsetsMake</span>(halfHeight, halfWidth, halfHeight, halfWidth) resizingMode:<span class="built_in">UIImageResizingModeStretch</span>];</span><br><span class="line"></span><br><span class="line">Assets： slicing</span><br></pre></td></tr></table></figure>
-<h4 id="2、图片圆角"><a href="#2、图片圆角" class="headerlink" title="2、图片圆角"></a>2、图片圆角</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIImage</span> *)zc_circleImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//NO -&gt; 透明</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> contex = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//添加圆</span></span><br><span class="line">    <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.size.width, <span class="keyword">self</span>.size.height);</span><br><span class="line">    <span class="built_in">CGContextAddEllipseInRect</span>(contex, rect);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//裁剪</span></span><br><span class="line">    <span class="built_in">CGContextClip</span>(contex);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将图片画上去</span></span><br><span class="line">    [<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//关闭</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/04/文字:图片处理/">展开全文 >></a>
         </p>
       
 
@@ -361,130 +358,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一、NSArray的介绍和基本使用"><a href="#一、NSArray的介绍和基本使用" class="headerlink" title="一、NSArray的介绍和基本使用"></a>一、NSArray的介绍和基本使用</h1><h3 id="1、NSArray的基本介绍"><a href="#1、NSArray的基本介绍" class="headerlink" title="1、NSArray的基本介绍"></a>1、NSArray的基本介绍</h3><ul>
-<li><strong>1、C数组弊端</strong></li>
-<li>C语言中数组的弊端<pre><code>int array[4] = {10, 89, 27, 76};
-</code></pre></li>
-<li>只能存放一种类型的数据</li>
-<li>不能很方便地动态添加数组元素</li>
-<li><p>不能很方便地动态删除数组元素</p>
+<li><p><strong>1、C数组弊端</strong></p>
 </li>
-<li><p><strong>2、NSArray常见的创建方式：</strong></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)array;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithObject:(<span class="keyword">id</span>)anObject;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithObjects:(<span class="keyword">id</span>)firstObj, ...;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithArray:(<span class="built_in">NSArray</span> *)array;</span><br><span class="line">	</span><br><span class="line">+ (<span class="keyword">id</span>)arrayWithContentsOfFile:(<span class="built_in">NSString</span> *)path;</span><br><span class="line">+ (<span class="keyword">id</span>)arrayWithContentsOfURL:(<span class="built_in">NSURL</span> *)url;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 可以将一个NSArray保存到文件中</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)writeToFile:(<span class="built_in">NSString</span> *)path  atomically:(<span class="built_in">BOOL</span>)useAuxiliaryFile;</span><br><span class="line">- (<span class="built_in">BOOL</span>)writeToURL:(<span class="built_in">NSURL</span> *)url atomically:(<span class="built_in">BOOL</span>)atomically;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>3、NSArray的使用注意事项</strong></p>
-</li>
-<li>1、只能存放任意OC对象, 并且是有顺序的。</li>
-<li>2、不能存储非OC对象,比如int\float\double\char\enum\struct等。</li>
-<li>3、它是不可变的,一旦初始化完毕后,它里面的内容就永远是固定的, 不能删除里面的元素, 也不能再往里面添加元素.</li>
-</ul>
-<h3 id="2、NSArray的常见用法"><a href="#2、NSArray的常见用法" class="headerlink" title="2、NSArray的常见用法"></a>2、NSArray的常见用法</h3><ul>
-<li><p><strong>1、NSArray的检索</strong></p>
-</li>
-<li><p>获取集合元素个数</p>
-<pre><code>- (NSUInteger)count;
-</code></pre></li>
-<li><p>获得index位置的元素</p>
-<pre><code>- (id)objectAtIndex:(NSUInteger)index;
-</code></pre></li>
-<li><p>是否包含某一个元素</p>
-<pre><code>- (BOOL)containsObject:(id)anObject;
-</code></pre></li>
-<li><p>返回最后一个元素</p>
-<pre><code>- (id)lastObject;
-</code></pre></li>
-<li><p>返回最后一个元素</p>
-<pre><code>- (id)firstObject;
-</code></pre></li>
-<li><p>查找anObject元素在数组中的位置(如果找不到，返回-1)</p>
-<pre><code>- (NSUInteger)indexOfObject:(id)anObject;
-</code></pre></li>
-<li><p>在range范围内查找anObject元素在数组中的位置</p>
-<pre><code>- (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range;
-</code></pre></li>
-<li><p><strong>3、NSArray给所有元素发消息</strong></p>
-</li>
-<li><p>让集合里面的所有元素都执行aSelector这个方法</p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)makeObjectsPerformSelector:(SEL)aSelector;</span><br><span class="line">- (<span class="keyword">void</span>)makeObjectsPerformSelector:(SEL)aSelector withObject:(<span class="keyword">id</span>)argument;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3、NSArray的遍历方法"><a href="#3、NSArray的遍历方法" class="headerlink" title="3、NSArray的遍历方法"></a>3、NSArray的遍历方法</h3><p><code>遍历, 就是将NSArray里面的所有元素一个一个取出来查看</code></p>
-<ul>
-<li><p><strong>1、NSArray的普通遍历</strong></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i&lt;array.count; i++) &#123;  &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>2、NSArray的快速遍历</strong></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (<span class="keyword">id</span> obj <span class="keyword">in</span> array) &#123;  &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>3、NSArray使用block进行遍历</strong></p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[array enumerateObjectsUsingBlock:^(<span class="keyword">id</span> obj, <span class="built_in">NSUInteger</span>  idx, <span class="built_in">BOOL</span> *stop) &#123;</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><a href="block.md">block</a></p>
-<h3 id="4、NSArray读写文件"><a href="#4、NSArray读写文件" class="headerlink" title="4、NSArray读写文件"></a>4、NSArray读写文件</h3><ul>
-<li><p><strong>1、NSArray数据写入到文件中</strong></p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *array = @[<span class="string">@"a"</span>,<span class="string">@"b"</span>];</span><br><span class="line"><span class="built_in">BOOL</span> res = [array writeToFile:<span class="string">@"/Users/sleepingsun/Desktop/test.txt"</span> atomically:<span class="literal">YES</span>];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,array);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>2、从文件中读取数据到NSArray中</strong></p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *array1 = [<span class="built_in">NSArray</span> arrayWithContentsOfFile:<span class="string">@"/Users/sleepingsun/Desktop/test.txt"</span>];</span><br><span class="line">	</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,array1);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="5、NSArray与NSString"><a href="#5、NSArray与NSString" class="headerlink" title="5、NSArray与NSString"></a>5、NSArray与NSString</h3><ul>
-<li><p><strong>1、把数组元素链接成字符串</strong></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是数组方法</span></span><br><span class="line"><span class="comment">// 用separator作拼接符将数组元素拼接成一个字符串</span></span><br><span class="line">  - (<span class="built_in">NSString</span> *)componentsJoinedByString:(<span class="built_in">NSString</span> *)separator;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>2、字符串分割成一个数组方法</strong></p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 这是NSString的方法</span></span><br><span class="line"><span class="comment">// 将字符串用separator作为分隔符切割成数组元素</span></span><br><span class="line">- (<span class="built_in">NSArray</span> *)componentsSeparatedByString:(<span class="built_in">NSString</span> *)separator;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="二、NSMutableArray的介绍和基本使用"><a href="#二、NSMutableArray的介绍和基本使用" class="headerlink" title="二、NSMutableArray的介绍和基本使用"></a>二、NSMutableArray的介绍和基本使用</h1><h3 id="1、NSMutableArray的基本介绍"><a href="#1、NSMutableArray的基本介绍" class="headerlink" title="1、NSMutableArray的基本介绍"></a>1、NSMutableArray的基本介绍</h3><ul>
-<li><strong>1、NSMutableArray是NSArray的子类</strong>。NSArray是不可变的,一旦初始化完毕后, 它里面的内容就永远是固定的,不能删除里面的元素,也不能再往里面添加元素。</li>
-<li><strong>2、NSMutableArray是可变的</strong>, 随时可以往里面添加\更改\删除元素</li>
-</ul>
-<ul>
-<li><p><strong>3、NSMutableArray添加元素</strong></p>
-<ul>
-<li><p>添加一个元素</p>
-<pre><code>- (void)addObject:(id)object;
-</code></pre></li>
-<li><p>添加otherArray的全部元素到当前数组中</p>
-<pre><code>- (void)addObjectsFromArray:(NSArray *)array;
-</code></pre></li>
-<li><p>在index位置插入一个元素</p>
-<pre><code>- (void)insertObject:(id)anObject atIndex:(NSUInteger)index;
+<li><p>C语言中数组的弊端</p>
+<pre><code>int array[4] = {10, 89, 27, 76};
 </code></pre></li>
 </ul>
-</li>
-<li><p><strong>4、NSMutableArray删除元素</strong></p>
-<ul>
-<li><p>删除最后一个元素</p>
-<pre><code>- (void)removeLastObject;
-</code></pre></li>
-<li><p>删除所有的元素</p>
-<pre><code>- (void)removeAllObjects;
-</code></pre></li>
-<li><p>删除index位置的元素</p>
-<pre><code>- (void)removeObjectAtIndex:(NSUInteger)index;
-</code></pre></li>
-<li><p>删除特定的元素</p>
-<pre><code>- (void)removeObject:(id)object;
-</code></pre></li>
-<li><p>删除range范围内的所有元素</p>
-<pre><code>- (void)removeObjectsInRange:(NSRange)range;
-</code></pre></li>
-</ul>
-</li>
-<li><p><strong>5、NSMutableArray替换元素</strong></p>
-<ul>
-<li><p>用anObject替换index位置对应的元素</p>
-<pre><code>- (void)replaceObjectAtIndex:(NSUInteger)index withObject:(id)anObject;
-</code></pre></li>
-<li><p>交换idx1和idx2位置的元素</p>
-<pre><code>- (void)exchangeObjectAtIndex:(NSUInteger)idx1 withObjectAtIndex:(NSUInteger)idx2;
-</code></pre></li>
-</ul>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/03/NSArray:NSMutableArray的介绍/#more">more >></a>
+        
       
 
       
@@ -492,205 +374,26 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/03/NSArray:NSMutableArray的介绍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HTTP请求和数据安全" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/03/HTTP请求和数据安全/">HTTP请求和数据安全</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/03/HTTP请求和数据安全/" class="archive-article-date">
-  	<time datetime="2016-07-03T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-03</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、HTTP请求"><a href="#一、HTTP请求" class="headerlink" title="一、HTTP请求"></a>一、HTTP请求</h2><h4 id="1、http协议-超文本传输协议-Hypertext-Transfer-Protocol"><a href="#1、http协议-超文本传输协议-Hypertext-Transfer-Protocol" class="headerlink" title="1、http协议: 超文本传输协议(Hypertext Transfer Protocol)"></a>1、http协议: 超文本传输协议(Hypertext Transfer Protocol)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http协议规定了客户端和服务器之间的数据传输格式.</span><br><span class="line">http协议是在网络开发中最常用的协议.不管是移动客户端还是PC端,访问网络资源经常使用http协议.</span><br><span class="line">http优点:</span><br><span class="line">&lt;<span class="number">1</span>&gt; 简单快速:</span><br><span class="line">http协议简单,通信速度很快.</span><br><span class="line">&lt;<span class="number">2</span>&gt; 灵活:</span><br><span class="line">http协议允许传输任意类型的数据.</span><br><span class="line">&lt;<span class="number">3</span>&gt; http协议是短连接(非持续性连接)</span><br><span class="line">http协议限制每次连接只处理一个请求,服务器对客户端的请求作出响应后,马上断开连接.这种方式可以节省传输时间.</span><br></pre></td></tr></table></figure>
-<h4 id="2、http协议的使用"><a href="#2、http协议的使用" class="headerlink" title="2、http协议的使用"></a>2、http协议的使用</h4><p><strong>完整的http通信分为两步:</strong></p>
-<h6 id="1、请求-客户端向服务器索要数据"><a href="#1、请求-客户端向服务器索要数据" class="headerlink" title="1、请求:客户端向服务器索要数据."></a>1、请求:客户端向服务器索要数据.</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http协议规定:一个完整的http请求包含'请求行','请求头','请求体'三个部分;</span><br><span class="line"></span><br><span class="line">'请求行':包含了请求方法,请求资源路径,http协议版本.</span><br><span class="line"></span><br><span class="line"><span class="string">"GET /resources/images/ HTTP/1.1"</span></span><br><span class="line"></span><br><span class="line">'请求头':包含了对客户端的环境描述,客户端请求的主机地址等信息.</span><br><span class="line"></span><br><span class="line">Accept: text/html <span class="comment">// 客户端所能接收的数据类型</span></span><br><span class="line">Accept-Language: zh-cn <span class="comment">// 客户端的语言环境</span></span><br><span class="line">Accept-Encoding: gzip <span class="comment">// 客户端支持的数据压缩格式</span></span><br><span class="line">Host: m.baidu.com <span class="comment">// 客户端想访问的服务器主机地址</span></span><br><span class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; Intel Mac OS X <span class="number">10.10</span>; rv:<span class="number">37.0</span>) Gecko/<span class="number">20100101</span> Firefox/<span class="number">37.0</span> <span class="comment">// 客户端的类型,客户端的软件环境</span></span><br><span class="line"></span><br><span class="line">'请求体':客户端发给服务器的具体数据,比如文件/图片等.</span><br></pre></td></tr></table></figure>
-<h6 id="2、响应-服务器返回客户端想要的数据"><a href="#2、响应-服务器返回客户端想要的数据" class="headerlink" title="2、响应:服务器返回客户端想要的数据"></a>2、响应:服务器返回客户端想要的数据</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http协议规定:一个完整的http响应包含'状态行','响应头','实体内容'三个部分;</span><br><span class="line"></span><br><span class="line">'状态行':包含了http协议版本,状态吗,状态英文名称.</span><br><span class="line"></span><br><span class="line"><span class="string">"HTTP/1.1 200 OK"</span></span><br><span class="line"></span><br><span class="line">'响应头':包含了对服务器的描述,对返回数据的描述.</span><br><span class="line"></span><br><span class="line">Content-Encoding: gzip <span class="comment">// 服务器支持的数据压缩格式</span></span><br><span class="line">Content-Length:  <span class="number">1528</span> <span class="comment">// 返回数据的长度</span></span><br><span class="line">Content-Type:  application/xhtml+xml;charset=utf<span class="number">-8</span> <span class="comment">// 返回数据的类型</span></span><br><span class="line">Date: Mon, <span class="number">15</span> Jun <span class="number">2015</span> <span class="number">09</span>:<span class="number">06</span>:<span class="number">46</span> GMT <span class="comment">// 响应的时间</span></span><br><span class="line">Server: apache  <span class="comment">// 服务器类型</span></span><br><span class="line"></span><br><span class="line">'实体内容':服务器返回给客户端的具体数据(图片/html/文件...).</span><br></pre></td></tr></table></figure>
-<h4 id="3、发送http请求"><a href="#3、发送http请求" class="headerlink" title="3、发送http请求:"></a>3、发送http请求:</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">在iOS开发中,发送http请求的方案有很多,常见的有如下几种:</span><br><span class="line">&lt;<span class="number">1</span>&gt; 苹果原生:</span><br><span class="line">&#123;</span><br><span class="line">    * <span class="built_in">NSURLConnection</span>:用法简单,古老经典的一种方案.</span><br><span class="line"></span><br><span class="line">    * <span class="built_in">NSURLSession</span>:iOS7以后推出的技术,功能比<span class="built_in">NSURLConnection</span>更加强大.</span><br><span class="line"></span><br><span class="line">    * <span class="built_in">CFNetWork</span>:<span class="built_in">NSURL</span> 的底层,纯C语言,一般不用.</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">2</span>&gt; 第三方框架:</span><br><span class="line">&#123;</span><br><span class="line">    * ASIHttpRequest:http终结者,功能很强大,可惜作者已停止更新.</span><br><span class="line">    </span><br><span class="line">    * AFNetWorking:简单易用,提供了基本够用的常用功能,维护和使用者多.</span><br><span class="line">    </span><br><span class="line">    * <span class="built_in">MKNetWorkKit</span>:简单易用,产自印度,维护和使用者少.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二、GET-和-POST"><a href="#二、GET-和-POST" class="headerlink" title="二、GET 和 POST"></a>二、GET 和 POST</h2><h4 id="1、http方法"><a href="#1、http方法" class="headerlink" title="1、http方法:"></a>1、http方法:</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http协议定义了很多方法对应不同的资源操作,其中最常用的是GET 和 POST 方法.</span><br><span class="line">&#123;</span><br><span class="line">   &#123; GET、POST、OPTIONS、HEAD、PUT、DELETE、TRACE、CONNECT、PATCH &#125;</span><br><span class="line">   </span><br><span class="line">   增:PUT</span><br><span class="line">   删:DELETE</span><br><span class="line">   改:POST</span><br><span class="line">   查:GET</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2、参数"><a href="#2、参数" class="headerlink" title="2、参数"></a>2、参数</h4><pre><code>因为 GET 和 POST 可以实现上述所有操作,所以,在现实开发中,我们只要会用GET 和 POST 方法就可以了.
-在与服务器交互时,有时候需要给服务器发送一些数据,比如登录时需要发送用户名和密码.
-参数:就是指传递给服务器的具体数据.
-</code></pre><h4 id="3、GET-和-POST-的主要区别表现在参数的传递上"><a href="#3、GET-和-POST-的主要区别表现在参数的传递上" class="headerlink" title="3、GET 和 POST 的主要区别表现在参数的传递上"></a>3、GET 和 POST 的主要区别表现在参数的传递上</h4><h6 id="1、GET"><a href="#1、GET" class="headerlink" title="1、GET"></a>1、GET</h6><pre><code>GET的本质是从服务器得到数据,效率更高.并且GET请求可以被缓存.
-
-&apos;注意&apos;: 网络缓存数据,保存在SQLite的数据库中(路径:NSHomeDirectory()).
-查看缓存数据命令行:
-&apos;cd 文件目录&apos;   (打开文件目录)
-&apos;ls&apos;   查看当前文件下目录
-&apos;sqlite3 Cache.db&apos;   打开数据库
-&apos;.tables&apos;    查看数据库中的表单
-&apos;select * from cfurl_cache_response;&apos;   查看服务器响应缓存
-&apos;select * from cfurl_cache_receiver_data;&apos;   查看服务器返回的数据缓存
-
-在请求 URL 后面以 ? 的形式跟上发给服务器的参数,参数以 &quot;参数名&quot;=&quot;参数值&quot;的形式拼接,多个参数之间用 &amp; 分隔.
-
-注意:GET的长度是有限制的,不同的浏览器有不同的长度限制,一般在2~8K之间
-</code></pre><h6 id="2、POST"><a href="#2、POST" class="headerlink" title="2、POST"></a>2、POST</h6><pre><code>POST的本质是向服务器发送数据,也可以获得服务器处理之后的结果,效率不如GET.POST请求不可以被缓存,每次刷新之后都需要重新提交表单.
-
-发送给服务器的参数全部放在&apos;请求体&apos;中;
-
-理论上,POST传递的数据量没有限制.
-
-注意:所有涉及到用户隐私的数据(密码/银行卡号等...)都要用POST的方式传递.
-</code></pre><h4 id="4、注意-URL中不能出现空格以及中文等特殊符号"><a href="#4、注意-URL中不能出现空格以及中文等特殊符号" class="headerlink" title="4、注意:URL中不能出现空格以及中文等特殊符号"></a>4、注意:URL中不能出现空格以及中文等特殊符号</h4><pre><code>1&gt;URL中,所有的字符都必须是 ASCII 码;
-
-2&gt;URL中不能出现中文和特殊符号(如空格);
-
-所以,如果 URL 中出现了中文,需要添加百分号转译.
-urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-</code></pre><h4 id="5、POST-发送登陆请求"><a href="#5、POST-发送登陆请求" class="headerlink" title="5、POST 发送登陆请求"></a>5、POST 发送登陆请求</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt; 用可变请求: <span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:url];</span><br><span class="line"><span class="number">2</span>&gt; 指定请求方法: request.HTTPMethod = <span class="string">@"POST"</span>;</span><br><span class="line"><span class="number">3</span>&gt; 设置请求体数据: request.HTTPBody = data;</span><br><span class="line"><span class="comment">// 实例化请求体字符串</span></span><br><span class="line"><span class="built_in">NSString</span> *body = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"username=%@&amp;password=%@"</span>,<span class="keyword">self</span>.userName.text,<span class="keyword">self</span>.password.text];</span><br><span class="line"><span class="comment">// 将字符串转换成二进制数据</span></span><br><span class="line"><span class="built_in">NSData</span> *data = [body dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="number">4</span>&gt; 发送异步网络请求.</span><br><span class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:request queue:[<span class="built_in">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSData</span> *data, <span class="built_in">NSError</span> *connectionError) &#123;</span><br><span class="line">    <span class="comment">// NSURLResponse *response: 服务器响应</span></span><br><span class="line">    <span class="comment">// NSData *data: 服务器返回的数据</span></span><br><span class="line">    <span class="comment">// NSError *connectionError: 连接错误处理</span></span><br><span class="line">    <span class="comment">// 网络请求的回调.</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-<h2 id="三、保存用户信息"><a href="#三、保存用户信息" class="headerlink" title="三、保存用户信息"></a>三、保存用户信息</h2><h4 id="1、偏好设置保存用户信息"><a href="#1、偏好设置保存用户信息" class="headerlink" title="1、偏好设置保存用户信息"></a>1、偏好设置保存用户信息</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="number">1</span>&gt;如果用户登陆成功,就保存用户信息.下次直接从偏好设置中读取用户信息,以此做到用户只需要输入一次账号和密码,以后登陆就可以不用再次输入.</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt;.登陆成功,保存用户信息(偏好设置)</span><br><span class="line"><span class="number">2</span>&gt;.再次进入,直接显示用户之前保存的信息.避免用户重复输入.</span><br><span class="line"></span><br><span class="line"><span class="comment">// 偏好设置存储用户信息</span></span><br><span class="line">-(<span class="keyword">void</span>)savaUserInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 实例化偏好设置对象(单例)</span></span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *User = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    <span class="comment">// 保存用户名</span></span><br><span class="line">    [User setObject:<span class="keyword">self</span>.userName.text forKey:kITUSERNAMEKEY];</span><br><span class="line">    <span class="comment">// 保存用户密码</span></span><br><span class="line">    [User setObject:pass forKey:kITUSERPASSKEY];</span><br><span class="line">    <span class="comment">// 同步保存用户信息</span></span><br><span class="line">    [User synchronize];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载偏好设置中的用户信息</span></span><br><span class="line">- (<span class="keyword">void</span>)loadUserInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *User = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([User objectForKey:ITUSERNAMEKEY]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.userName.text = [User objectForKey:ITUSERNAMEKEY];</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">if</span> ([User objectForKey:ITUSERPASSKEY]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.password.text = [User objectForKey:ITUSERPASSKEY];</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">2</span>&gt; 用户登陆业务逻辑</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// &lt;1&gt; 用户登陆需要一个单独的控制器,因为只需要登陆一次(Login.storyboard). 应用程序需要有一个入口:main.storyboard: app 主页面</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;2&gt; 判断用户是否登陆成功过(通过偏好设置中存储的用户信息判断)</span></span><br><span class="line">    <span class="comment">// 1&gt; 如果偏好设置中存有用户信息(说明之前登陆成功过),直接进入 app 主页面 :main.storyboard</span></span><br><span class="line">    <span class="comment">// 2&gt; 如果偏好设置中不存在用户信息(第一次登陆或者之前注销了用户信息),进入登陆界面 :Login.storyboard</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;3&gt; 如果用户登陆成功,跳转到 app 主页面:main.storyboard.并且在偏好设置中保存用户信息.</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;4&gt; 如果用户点击注销按钮,注销用户信息,返回到登陆页面.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;<span class="number">3</span>&gt; 问题: 用户密码不能以明文的形式保存,需要对用户密码加密之后再保存!</span><br><span class="line"></span><br><span class="line">密码的安全原则:</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt; 本地和服务器都不允许保存用户的密码明文.</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; 在网络上,不允许传输用户的密码明文.</span><br><span class="line"></span><br><span class="line">现代密码学趣闻! 中途岛海战(AF)</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">4</span>&gt; 数据加密算法:</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt; 对称加密算法:加密和解密使用同一密钥.加密解密速度快,要保证密钥安全.适合给大数据加密.</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; 非对称加密算法:使用公钥加密,私钥解密.或者使用私钥加密,公钥解密.更加安全,但是加密解密速度慢,适合给小数据加密.</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">5</span>&gt; 小技巧:</span><br><span class="line"></span><br><span class="line">openssl :是一个强大的安全套接字层密码库,囊括主要的密码算法,常用的密钥和证书封装管理功能以及 SSL 协议.提供丰富的应用程序测试功能.</span><br><span class="line"></span><br><span class="line">终端命令:</span><br><span class="line"></span><br><span class="line">    echo hello |openssl md5</span><br><span class="line">    echo hello |openssl sha1</span><br><span class="line">    echo hello |openssl sha -sha256</span><br><span class="line">    echo hello |openssl sha -sha512</span><br></pre></td></tr></table></figure>
-<h2 id="四、信息安全加密"><a href="#四、信息安全加密" class="headerlink" title="四、信息安全加密"></a>四、信息安全加密</h2><p><strong>了解:常用加密方法: 1&gt; base64  2&gt; MD5  3&gt; MD5加盐  4&gt; HMAC  5&gt; 时间戳密码(用户密码动态变化)</strong></p>
-<h4 id="1、base64"><a href="#1、base64" class="headerlink" title="1、base64"></a>1、base64</h4><pre><code>base64 编码是现代密码学的基础.
-
-原本是 8个bit 一组表示数据,改为 6个bit一组表示数据,不足的部分补零,每 两个0 用 一个 = 表示.
-用base64 编码之后,数据长度会变大,增加了大约 1/3 左右.
-
-base64 基本能够达到安全要求,但是,base64能够逆运算,非常不安全!
-base64 编码有个非常显著的特点,末尾有个 &apos;=&apos; 号.
-
-利用终端命令进行base64运算:
-
-    // 将文件 meinv.jpg 进行 base64运算之后存储为 meinv.txt
-    base64 meinv.jpg -o meinv.txt
-
-    // 讲meinv.txt 解码生成 meinv.png
-    base64 -D meinv.txt -o meinv.png
-
-    // 将字符串 &quot;hello&quot; 进行 base 64 编码 结果:aGVsbG8=
-    echo &quot;hello&quot; | base64
-
-    // 将 base64编码之后的结果 aGVsbG8= 反编码为字符串
-    echo aGVsbG8= | base64 -D
-</code></pre><h4 id="2、MD5-–-信息-摘要算法-哈希算法之一"><a href="#2、MD5-–-信息-摘要算法-哈希算法之一" class="headerlink" title="2、MD5 – (信息-摘要算法) 哈希算法之一"></a>2、MD5 – (信息-摘要算法) 哈希算法之一</h4><pre><code>把一个任意长度的字节串变换成一定长度的十六进制的大整数. 注意,字符串的转换过程是不可逆的.
-
-用于确保&apos;信息传输&apos;完整一致.
-
-MD5特点:
-
-*1.压缩性:   任意长度的数据,算出的 MD5 值长度都是固定的.
-*2.容易计算: 从原数据计算出 MD5 值很容易.
-*3.抗修改性: 对原数据进行任何改动,哪怕只修改一个字节,所得到的 MD5 值都有很大区别.
-*4.弱抗碰撞: 已知原数据和其 MD5 值,想找到一个具有相同 MD5 值的数据(即伪造数据)是非常困难的.
-*5.强抗碰撞: 想找到两个不同数据,使他们具有相同的 MD5 值,是非常困难的.
-
-MD5 应用:
-
-*1. 一致性验证: MD5 将整个文件当做一个大文本信息,通过不可逆的字符串变换算法,产生一个唯一的 MD5 信息摘要.就像每个人都有自己独一无二的指纹,MD5 对任何文件产生一个独一无二的&quot;数字指纹&quot;.
-
-    利用 MD5 来进行文件校验, 被大量应用在软件下载站,论坛数据库,系统文件安全等方面.
-
-*2. 数字签名;
-
-*3. 安全访问认证;
-</code></pre><h4 id="3、MD5加盐"><a href="#3、MD5加盐" class="headerlink" title="3、MD5加盐"></a>3、MD5加盐</h4><pre><code>MD5 本身是不可逆运算,但是,目前网络上有很多数据库支持反查询.
-MD5加盐 就是在密码哈希过程中添加的额外的随机值.
-注意:加盐要足够长,足够复杂.
-</code></pre><h4 id="4、HMAC"><a href="#4、HMAC" class="headerlink" title="4、HMAC"></a>4、HMAC</h4><pre><code>HMAC 利用哈希算法,以一个密钥和一个消息为输入,生成一个消息摘要作为输出.
-
-HMAC 主要使用在身份认证中;
-
-认证流程:
-
-*1. 客户端向服务器发送一个请求.
-*2. 服务器接收到请求后,生成一个&apos;随机数&apos;并通过网络传输给客户端.
-*3. 客户端将接收到的&apos;随机数&apos;和&apos;密钥&apos;进行 HMAC-MD5 运算,将得到的结构作为认证数据传递给服务器.
-(实际是将随机数提供给 ePass,密钥也是存储在 ePass中的)
-*4. 与此同时,服务器也使用该&apos;随机数&apos;与存储在服务器数据库中的该客户&apos;密钥&apos;进行 HMAC-MD5 运算,如果
-服务器的运算结果与客户端传回的认证数据相同,则认为客户端是一个合法用法.
-</code></pre><h4 id="5、时间戳密码-用户密码动态变化"><a href="#5、时间戳密码-用户密码动态变化" class="headerlink" title="5、时间戳密码(用户密码动态变化)"></a>5、时间戳密码(用户密码动态变化)</h4><pre><code>相同的密码明文 + 相同的加密算法 ===》 每次计算都得出不同的结果.可以充分保证密码的安全性.
-
-原理:将当前时间加入到密码中;
-
-因为每次登陆时间都不同,所以每次计算出的结果也都不相同.
-
-服务器也需要采用相同的算法.这就需要服务器和客户端时间一致.
-
-注意:服务器端时间和客户端时间,可以有一分钟的误差(比如:第59S发送的网络请求,一秒钟后服务器收到并作出响应,这时服务器当前时间比客户端发送时间晚一分钟).
-
-这就意味着,服务器需要计算两次（当前时间和一分钟之前两个时间点各计算一次）.只要有一个结果是正确的,就可以验证成功!
-</code></pre><h2 id="五、钥匙串访问"><a href="#五、钥匙串访问" class="headerlink" title="五、钥匙串访问"></a>五、钥匙串访问</h2><h4 id="1、钥匙串访问"><a href="#1、钥匙串访问" class="headerlink" title="1、钥匙串访问"></a>1、钥匙串访问</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">苹果在 iOS <span class="number">7.0</span><span class="number">.3</span> 版本以后公布钥匙串访问的SDK. 钥匙串访问接口是纯C语言的.</span><br><span class="line"></span><br><span class="line">钥匙串使用 AES <span class="number">256</span>加密算法,能够保证用户密码的安全.</span><br><span class="line"></span><br><span class="line">钥匙串访问的第三方框架(SSKeychain),是对 C语言框架 的封装.注意:不需要看源码.</span><br><span class="line"></span><br><span class="line">钥匙串访问的密码保存在哪里?只有苹果才知道.这样进一步保障了用户的密码安全.</span><br><span class="line"></span><br><span class="line">使用步骤:</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取应用程序唯一标识.</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *bundleId = [<span class="built_in">NSBundle</span> mainBundle].bundleIdentifier;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.利用第三方框架,将用户密码保存在钥匙串</span></span><br><span class="line">    </span><br><span class="line">    [SSKeychain setPassword:<span class="keyword">self</span>.pwdText.text forService:bundleId account:<span class="keyword">self</span>.usernameText.text];</span><br><span class="line">    </span><br><span class="line">    <span class="string">"注意"</span>三个参数:</span><br><span class="line">    </span><br><span class="line">    <span class="number">1.</span>密码:可以直接使用明文.钥匙串访问本身是使用 AES <span class="number">256</span>加密,就是安全的.所以使用的时候,直接传递密码明文就可以了.</span><br><span class="line">    </span><br><span class="line">    <span class="number">2.</span>服务名:可以随便乱写,建议唯一! 建议使用 bundleId.</span><br><span class="line">    </span><br><span class="line">    bundleId是应用程序的唯一标识,每一个上架的应用程序都有一个唯一的 bundleId</span><br><span class="line">    </span><br><span class="line">    <span class="number">3.</span>账户名:直接用用户名称就可以.</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.从钥匙串加载密码</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.pwdText.text = [SSKeychain passwordForService:bundleId account:<span class="keyword">self</span>.usernameText.text];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="六、指纹识别"><a href="#六、指纹识别" class="headerlink" title="六、指纹识别"></a>六、指纹识别</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">指纹识别功能是 iphone <span class="number">5</span>S之后推出的.SDK是 iOS <span class="number">8.0</span> 推出!</span><br><span class="line"></span><br><span class="line">推出指纹识别功能的目的,是为了简化移动支付环节,占领移动支付市场.</span><br><span class="line"></span><br><span class="line">使用步骤:</span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">1</span>&gt; 导入框架;</span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;LocalAuthentication/LocalAuthentication.h&gt;</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="number">2</span>&gt; 指纹识别的实现:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="number">1.</span> 需要判断手机系统版本是否是 iOS <span class="number">8.0</span> 以上的版本.只有 iOS <span class="number">8.0</span> 以上才支持.</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获得当前系统版本号</span></span><br><span class="line">        <span class="keyword">float</span> version = [<span class="built_in">UIDevice</span> currentDevice].systemVersion.floatValue;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (version &lt; <span class="number">8.0</span> ) <span class="comment">// 判断当前系统版本</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"系统版本太低,请升级至最新系统"</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="number">2.</span> 实例化指纹识别对象,判断当前设备是否支持指纹识别功能(是否带有TouchID).</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 1&gt; 实例化指纹识别对象</span></span><br><span class="line">        LAContext *laCtx = [[LAContext alloc] init];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2&gt; 判断当前设备是否支持指纹识别功能.</span></span><br><span class="line">        <span class="keyword">if</span> (![laCtx canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:<span class="literal">NULL</span>])</span><br><span class="line">        &#123; <span class="comment">// 如果设备不支持指纹识别功能</span></span><br><span class="line">            </span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"该设备不支持指纹识别功能"</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="number">3.</span>指纹登陆(默认是异步方法)</span><br><span class="line">        <span class="comment">// 指纹登陆</span></span><br><span class="line">        [laCtx evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:<span class="string">@"指纹登陆"</span> reply:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> *error)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="comment">// 如果成功,表示指纹输入正确.</span></span><br><span class="line">             <span class="keyword">if</span> (success) &#123;</span><br><span class="line">                 <span class="built_in">NSLog</span>(<span class="string">@"指纹识别成功!"</span>);</span><br><span class="line">                 </span><br><span class="line">             &#125;<span class="keyword">else</span></span><br><span class="line">             &#123;</span><br><span class="line">                 <span class="built_in">NSLog</span>(<span class="string">@"指纹识别错误,请再次尝试"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/03/HTTP请求和数据安全/">展开全文 >></a>
         </p>
       
 
@@ -745,101 +448,9 @@ HMAC 主要使用在身份认证中;
 <li>在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象”</li>
 <li>UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件</li>
 </ul>
-<h4 id="UIResponder的成员"><a href="#UIResponder的成员" class="headerlink" title="UIResponder的成员"></a>UIResponder的成员</h4><h6 id="UIResponder内部提供了以下方法来处理事件"><a href="#UIResponder内部提供了以下方法来处理事件" class="headerlink" title="UIResponder内部提供了以下方法来处理事件"></a>UIResponder内部提供了以下方法来处理事件</h6><ul>
-<li>1、触摸事件</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>2、加速计事件</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)motionBegan:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)motionEnded:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br><span class="line">- (<span class="keyword">void</span>)motionCancelled:(<span class="built_in">UIEventSubtype</span>)motion withEvent:(<span class="built_in">UIEvent</span> *)event;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>3、远程控制事件</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)remoteControlReceivedWithEvent:(<span class="built_in">UIEvent</span> *)event;</span><br></pre></td></tr></table></figure>
-<h2 id="二、触摸事件"><a href="#二、触摸事件" class="headerlink" title="二、触摸事件"></a>二、触摸事件</h2><h4 id="1、UIView的触摸事件处理"><a href="#1、UIView的触摸事件处理" class="headerlink" title="1、UIView的触摸事件处理"></a>1、UIView的触摸事件处理</h4><p><strong>UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触摸事件</strong></p>
-<ul>
-<li>一根或者多根手指开始触摸view<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>一根或者多根手指在view上移动，系统会自动调用view的下面方法（随着手指的移动，会持续调用该方法）</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>一根或者多根手指离开view，系统会自动调用view的下面方法</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesEnded:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>触摸结束前，某个系统事件(例如电话呼入)会打断触摸过程，系统会自动调用view的下面方法</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesCancelled:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>touches中存放的都是UITouch对象</strong></p>
-<h4 id="2、UITouch"><a href="#2、UITouch" class="headerlink" title="2、UITouch"></a>2、UITouch</h4><ul>
-<li>当用户用一根手指触摸屏幕时，会创建一个与手指相关联的UITouch对象</li>
-<li>一根手指对应一个UITouch对象</li>
-<li>UITouch的作用<ul>
-<li>保存着跟本次手指触摸相关的信息，比如触摸的位置、时间、阶段</li>
-<li>当手指移动时，系统会更新同一个UITouch对象，使之能够一直保存该手指在的触摸位置</li>
-<li>当手指离开屏幕时，系统会销毁相应的UITouch对象<br><strong>提示：iPhone开发中，要避免使用双击事件！</strong>    </li>
-</ul>
-</li>
-</ul>
-<h4 id="3、UITouch的属性"><a href="#3、UITouch的属性" class="headerlink" title="3、UITouch的属性"></a>3、UITouch的属性</h4><ul>
-<li><p>触摸产生时所处的窗口</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">UIWindow</span>    *window;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>触摸产生时所处的视图</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>,<span class="keyword">retain</span>) <span class="built_in">UIView</span>      *view;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>短时间内点按屏幕的次数，可以根据tapCount判断单击、双击或更多的点击</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSUInteger</span>          tapCount;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>记录了触摸事件产生或变化时的时间，单位是秒</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>      timestamp;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>当前触摸事件所处的状态</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UITouchPhase</span>        phase;</span><br><span class="line">	```	</span><br><span class="line"><span class="meta">#### 4、UITouch的方法</span></span><br><span class="line">* <span class="number">1</span>、- (<span class="built_in">CGPoint</span>)locationInView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line">* 返回值表示触摸在view上的位置</span><br><span class="line">* 这里返回的位置是针对view的坐标系的（以view的左上角为原点(<span class="number">0</span>, <span class="number">0</span>)）</span><br><span class="line">* 调用时传入的view参数为<span class="literal">nil</span>的话，返回的是触摸点在<span class="built_in">UIWindow</span>的位置</span><br><span class="line">* <span class="number">2</span>、- (<span class="built_in">CGPoint</span>)previousLocationInView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line">* 该方法记录了前一个触摸点的位置</span><br><span class="line"></span><br><span class="line"><span class="meta">#### 5、UIEvent</span></span><br><span class="line">* 每产生一个事件，就会产生一个<span class="built_in">UIEvent</span>对象</span><br><span class="line">* <span class="built_in">UIEvent</span>：称为事件对象，记录事件产生的时刻和类型</span><br><span class="line">* 常见属性</span><br><span class="line">* 事件类型</span><br><span class="line">	```objc</span><br><span class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventType</span>     type;</span><br><span class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventSubtype</span>  subtype;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>事件产生的时间</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>  timestamp;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>UIEvent还提供了相应的方法可以获得在某个view上面的触摸对象（UITouch）</strong></p>
-<h4 id="6、事件传递"><a href="#6、事件传递" class="headerlink" title="6、事件传递"></a>6、事件传递</h4><ul>
-<li>hitTest:方法介绍<ul>
-<li>pointInside:withEvent:方法介绍:</li>
-<li>在 hitTest 方法内部调用 pointInside:withEvent:方法来查找给定的点在不在当前的控件范围之内。</li>
-</ul>
-</li>
-<li>触摸事件：touchesXxxxx</li>
-</ul>
-<h2 id="三、介绍控件不能接受用户交互的情况"><a href="#三、介绍控件不能接受用户交互的情况" class="headerlink" title="三、介绍控件不能接受用户交互的情况"></a>三、介绍控件不能接受用户交互的情况</h2><ul>
-<li>演示要求:在控制器 view 中创建多个 UIView, 并且为每个 UIView 指定一个自定义 View, 实现 touchesBegan 方法.</li>
-<li>1、查看默认情况下 touchesBegan: 事件的触发顺序</li>
-<li>2、控件的userInteractionEnabled = NO 的情况下不能与用户交互 <strong>注意: 如果父容器不能与用户交互, 那么在该容器中的所有子控件也不能与用户交互（例如: 添加在 UIImageView 中的按钮）</strong></li>
-<li>3、透明度小于等于0.01, alpha = 0.01</li>
-<li>4、控件被隐藏的时候, hidden = YES</li>
-<li>5、如果子视图的位置超出了父视图的有效范围, 那么子视图也是无法与用户交互的, 即使设置了父视图的 clipsToBounds = NO, 可以看到, 但是也是无法与用户交互的</li>
-<li>6、默认情况下, 从控件库中拖拽的 UIImageView 是无法接受用户的触摸事件的</li>
-<li><strong> 演示向 UIImageView 中添加一个按钮, 监听按钮的点击事件。</strong></li>
-<li><strong>UIImageView 默认是不支持多点触摸, 也不响应用户事件的。</strong></li>
-<li>补充: 直接从媒体库中把图片拖拽进来（通过这种方式拖进来的UIImageView, 默认即支持多点触摸也支持用户交互, 并且图片框大小就是图片的实际大小）</li>
-</ul>
-<h2 id="四、响应者链事件处理过程"><a href="#四、响应者链事件处理过程" class="headerlink" title="四、响应者链事件处理过程"></a>四、响应者链事件处理过程</h2><h4 id="如果hit-test视图无法处理事件，则通过响应者链向上传递"><a href="#如果hit-test视图无法处理事件，则通过响应者链向上传递" class="headerlink" title="如果hit-test视图无法处理事件，则通过响应者链向上传递"></a>如果hit-test视图无法处理事件，则通过响应者链向上传递</h4><ul>
-<li>1、如果hit-test视图的控制器存在，就传递给控制器；如果控制器不存在，则将其传递给它的父视图</li>
-<li>2、如果视图或它的控制器无法处理收到的事件或消息，则将其传递给该视图的父视图</li>
-<li>3、每一个在视图继承树中的上层视图如果不能处理收到的事件或消息，则重复上面的步骤1，2</li>
-<li>4、在视图层次结构的最顶级视图，如果也不能处理收到的事件或消息，则其将事件或消息传递给window对象进行处理</li>
-<li>5、如果window对象也不处理，则其将事件或消息传递给UIApplication对象</li>
-<li>6、如果UIApplication也不能处理该事件或消息，则将其丢弃</li>
-</ul>
-<h2 id="五、响应者链的事件传递过程"><a href="#五、响应者链的事件传递过程" class="headerlink" title="五、响应者链的事件传递过程"></a>五、响应者链的事件传递过程</h2><ul>
-<li>如果view的控制器存在，就传递给控制器；如果控制器不存在，则将其传递给它的父视图</li>
-<li>在视图层次结构的最顶级视图，如果也不能处理收到的事件或消息，则其将事件或消息传递给window对象进行处理</li>
-<li>如果window对象也不处理，则其将事件或消息传递给UIApplication对象</li>
-<li>如果UIApplication也不能处理该事件或消息，则将其丢弃</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/03/UIResponder:触摸事件/#more">more >></a>
+        
       
 
       
@@ -847,18 +458,22 @@ HMAC 主要使用在身份认证中;
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -920,115 +535,9 @@ HMAC 主要使用在身份认证中;
 <li>SQLite3<br>  <code>当非常大量的数据存储时使用</code></li>
 <li>Core Data<br>  <code>就是对SQLite的封装</code></li>
 </ul>
-<h2 id="二、应用沙盒"><a href="#二、应用沙盒" class="headerlink" title="二、应用沙盒"></a>二、应用沙盒</h2><h4 id="1、应用沙盒结构分析"><a href="#1、应用沙盒结构分析" class="headerlink" title="1、应用沙盒结构分析"></a>1、应用沙盒结构分析</h4><ul>
-<li>应用程序包：(上图中的Layer)包含了所有的资源文件和可执行文件</li>
-<li><p>Documents：保存应用运行时生成的需要持久化的数据，iTunes同步设备时会备份该目录。例如，游戏应用可将游戏存档保存在该目录。保存相对重要的数据。</p>
-</li>
-<li><p>tmp：保存应用运行时所需的临时数据，使用完毕后再将相应的文件从该目录删除。应用没有运行时，系统也可能会清除该目录下的文件。iTunes同步设备时不会备份该目录。保存不重要的并且大的数据。</p>
-</li>
-<li><p>Library/Caches：保存应用运行时生成的需要持久化的数据，iTunes同步设备时不会备份该目录。一般存储体积大、不需要备份的非重要数据</p>
-</li>
-<li><p>Library/Preference：保存应用的所有偏好设置，iOS的Settings(设置)应用会在该目录中查找应用的设置信息。iTunes同步设备时会备份该目录。该目录由系统管理, 无需我们来管理。通常用来存储一些基本的软件配置信息, 比如记住密码、自动登录等。</p>
-</li>
-</ul>
-<p><strong>总结: 我们平时操作数据主要使用Documents目录。</strong></p>
-<h4 id="2、应用沙盒目录的常见获取方式"><a href="#2、应用沙盒目录的常见获取方式" class="headerlink" title="2、应用沙盒目录的常见获取方式"></a>2、应用沙盒目录的常见获取方式</h4><h6 id="1、沙盒根目录：NSString-home-NSHomeDirectory"><a href="#1、沙盒根目录：NSString-home-NSHomeDirectory" class="headerlink" title="1、沙盒根目录：NSString *home = NSHomeDirectory();"></a>1、沙盒根目录：NSString *home = NSHomeDirectory();</h6><ul>
-<li>Documents：(2种方式)</li>
-<li><p>利用沙盒根目录拼接”Documents”字符串</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *home = <span class="built_in">NSHomeDirectory</span>();</span><br><span class="line"><span class="built_in">NSString</span> *documents = [home stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</span><br></pre></td></tr></table></figure>
-<p>  <strong>不建议采用，因为新版本的操作系统可能会修改目录名</strong></p>
-</li>
-</ul>
-<h6 id="2、利用NSSearchPathForDirectoriesInDomains函数"><a href="#2、利用NSSearchPathForDirectoriesInDomains函数" class="headerlink" title="2、利用NSSearchPathForDirectoriesInDomains函数"></a>2、利用NSSearchPathForDirectoriesInDomains函数</h6><ul>
-<li>NSUserDomainMask 代表从用户文件夹下找</li>
-<li><p>YES 代表展开路径中的波浪字符“~”</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSArray</span> *array =  <span class="built_in">NSSearchPathForDirectoriesInDomains</span>(<span class="built_in">NSDocumentDirectory</span>, <span class="built_in">NSUserDomainMask</span>, <span class="literal">YES</span>);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在iOS中，只有一个目录跟传入的参数匹配，所以这个集合里面只有一个元素</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span> *documents = [array objectAtIndex:<span class="number">0</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h6 id="3、Tmp、Library-Caches、Library-Preference"><a href="#3、Tmp、Library-Caches、Library-Preference" class="headerlink" title="3、Tmp、Library/Caches、Library/Preference"></a>3、Tmp、Library/Caches、Library/Preference</h6><ul>
-<li>tmp：NSString *tmp = NSTemporaryDirectory();</li>
-<li>Library/Caches：(跟Documents类似的2种方法)<ul>
-<li>利用沙盒根目录拼接”Caches”字符串</li>
-<li>利用NSSearchPathForDirectoriesInDomains函数(将函数的第2个参数改为：NSCachesDirectory即可)</li>
-</ul>
-</li>
-<li>Library/Preference：通过NSUserDefaults类存取该目录下的设置信息</li>
-</ul>
-<h2 id="三、属性列表（plist）"><a href="#三、属性列表（plist）" class="headerlink" title="三、属性列表（plist）"></a>三、属性列表（plist）</h2><ul>
-<li>属性列表是一种XML格式的文件，拓展名为plist</li>
-<li>如果对象是NSString、NSDictionary、NSArray、NSData、NSNumber等类型，就可以使用writeToFile:atomically:方法直接将对象写到属性列表文件中</li>
-</ul>
-<h4 id="1、属性列表-归档NSDictionary"><a href="#1、属性列表-归档NSDictionary" class="headerlink" title="1、属性列表-归档NSDictionary"></a>1、属性列表-归档NSDictionary</h4><h6 id="将一个NSDictionary对象归档到一个plist属性列表中"><a href="#将一个NSDictionary对象归档到一个plist属性列表中" class="headerlink" title="将一个NSDictionary对象归档到一个plist属性列表中"></a>将一个NSDictionary对象归档到一个plist属性列表中</h6><ul>
-<li><p>将数据封装成字典</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSMutableDictionary</span> *dict = [<span class="built_in">NSMutableDictionary</span> dictionary];</span><br><span class="line">[dict setObject:<span class="string">@"母鸡"</span> forKey:<span class="string">@"name"</span>];</span><br><span class="line">[dict setObject:<span class="string">@"15013141314"</span> forKey:<span class="string">@"phone"</span>];</span><br><span class="line">[dict setObject:<span class="string">@"27"</span> forKey:<span class="string">@"age"</span>];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>将字典持久化到Documents/stu.plist文件中</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[dict writeToFile:path atomically:<span class="literal">YES</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="2、属性列表-恢复NSDictionary"><a href="#2、属性列表-恢复NSDictionary" class="headerlink" title="2、属性列表-恢复NSDictionary"></a>2、属性列表-恢复NSDictionary</h4><ul>
-<li>读取属性列表，恢复NSDictionary对象</li>
-<li><p>读取Documents/stu.plist的内容，实例化NSDictionary</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSDictionary</span> *dict = [<span class="built_in">NSDictionary</span> dictionaryWithContentsOfFile:path];</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"name:%@"</span>, [dict objectForKey:<span class="string">@"name"</span>]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"phone:%@"</span>, [dict objectForKey:<span class="string">@"phone"</span>]);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"age:%@"</span>, [dict objectForKey:<span class="string">@"age"</span>]);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="四、偏好设置"><a href="#四、偏好设置" class="headerlink" title="四、偏好设置"></a>四、偏好设置</h2><ul>
-<li>读取上次保存的设置  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSUserDefaults</span> *defaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line"><span class="built_in">NSString</span> *username = [defaults stringForKey:<span class="string">@"username"</span>];</span><br><span class="line"><span class="keyword">float</span> textSize = [defaults floatForKey:<span class="string">@"text_size"</span>];</span><br><span class="line"><span class="built_in">BOOL</span> autoLogin = [defaults boolForKey:<span class="string">@"auto_login"</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>注意：UserDefaults设置数据时，不是立即写入，而是根据时间戳定时地把缓存中的数据写入本地磁盘。所以调用了set方法之后数据有可能还没有写入磁盘应用程序就终止了。出现以上问题，可以通过调用synchornize方法强制写入</strong><br>[defaults synchornize];</p>
-<h2 id="五、归档"><a href="#五、归档" class="headerlink" title="五、归档"></a>五、归档</h2><h4 id="对象必须遵守NSCoding协议"><a href="#对象必须遵守NSCoding协议" class="headerlink" title="对象必须遵守NSCoding协议"></a>对象必须遵守NSCoding协议</h4><ul>
-<li>通过”plist”文件来保存数据, 无法直接将一个对象保存到文件中。比如Person对象就没有writeToFile方法。</li>
-<li>“归档”是一种可以把任何对象, 直接保存为文件的方式。(其中包括”归档”与”反归档（读档）”)</li>
-<li><p>归档: 对象 -&gt; 文件</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:person toFile:filePath];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>反归档(读档): 文件 -&gt; 对象</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:filePath];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过”归档”的方式能将任何遵守了NSCoding协议的”对象”存储到文件中</p>
-</li>
-<li><p>NSCoding协议的两个重要的方法:</p>
-<ul>
-<li><p>1、- (void)encodeWithCoder:(NSCoder *)aCoder;</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">示例代码:</span><br><span class="line"><span class="comment">// 归档时调用该方法</span></span><br><span class="line">- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder</span><br><span class="line">&#123;</span><br><span class="line">   [aCoder encodeObject:<span class="keyword">self</span>.name forKey:<span class="string">@"name"</span>];</span><br><span class="line">   [aCoder encodeInteger:<span class="keyword">self</span>.age forKey:<span class="string">@"age"</span>];</span><br><span class="line">   [aCoder encodeDouble:<span class="keyword">self</span>.height forKey:<span class="string">@"height"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过调用NSKeyedArchiver的archiveRootObject方法来实现归档</span></span><br><span class="line">CZPerson *person = [[SteveZPerson alloc] init];</span><br><span class="line">person.name = <span class="string">@"JackMeng"</span>;</span><br><span class="line">person.age = <span class="number">27</span>;</span><br><span class="line">person.height = <span class="number">1.75</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取沙盒路径</span></span><br><span class="line"><span class="built_in">NSString</span> *sandBoxPath = <span class="built_in">NSHomeDirectory</span>();</span><br><span class="line"><span class="comment">// 获取Documents的路径</span></span><br><span class="line"><span class="built_in">NSString</span> *docPath = [sandBoxPath stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</span><br><span class="line"><span class="comment">// 获取文件路径</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [docPath stringByAppendingPathComponent:<span class="string">@"person.plist"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将对象person归档</span></span><br><span class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:person toFile:filePath];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、 - (id)initWithCoder:(NSCoder *)aDecoder;</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读档时调用该方法</span></span><br><span class="line">       - (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">           <span class="keyword">self</span>.name = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];</span><br><span class="line">           <span class="keyword">self</span>.age = [aDecoder decodeIntegerForKey:<span class="string">@"age"</span>];</span><br><span class="line">           <span class="keyword">self</span>.height = [aDecoder decodeDoubleForKey:<span class="string">@"height"</span>];</span><br><span class="line">       &#125;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 获取沙盒路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *sandBoxPath = <span class="built_in">NSHomeDirectory</span>();</span><br><span class="line">       <span class="comment">// 获取Documents的路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *docPath = [sandBoxPath stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</span><br><span class="line">       <span class="comment">// 获取文件路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *filePath = [docPath stringByAppendingPathComponent:<span class="string">@"person.bin"</span>];</span><br><span class="line">       </span><br><span class="line">       CZPerson *person = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:filePath];</span><br><span class="line">       </span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"name: %@, age: %ld, height: %f"</span>, person.name, person.age, person.height);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>如果父类中也有属性需要归档、读档, 在子类中必须调用super的相关方法</strong></p>
-<p>如果父类也遵守了NSCoding协议，请注意：<br>应该在encodeWithCoder:方法中加上一句<br>[super encodeWithCode:encode];<br>确保继承的实例变量也能被编码，即也能被归档<br>应该在initWithCoder:方法中加上一句<br>self = [super initWithCoder:decoder];<br>确保继承的实例变量也能被解码，即也能被恢复</p>
-<h4 id="归档小节"><a href="#归档小节" class="headerlink" title="归档小节"></a>归档小节</h4><ul>
-<li>自定义对象归档(归档：数据存储)<ul>
-<li>1、自定义对象如何归档：用NSKeyedArchiver,调用archiveRootObject:toFile:方法，需要传一个对象，自定义一个对象，传进去。<ul>
-<li>会报错,说对象没有encodeWithCoder方法，说明归档的时候默认会调用这个方法，去实现这个方法。</li>
-<li>默认打不出encodeWithCoder，必须遵守NSCoding协议才能实现这个方法。</li>
-<li>encodeWithCoder什么时候调用：对象归档时候调用</li>
-<li>encodeWithCoder作用：告诉系统对象里的哪些属性需要归档，怎么去归档，根据一个key去归档，目的就是以后取的时候，也根据这个key去取数据。</li>
-</ul>
-</li>
-<li>2、自定义对象如何解档:用NSKeyedUnarchiver,调用unarchiveObjectWithFile方法，需要传一个文件名。<ul>
-<li>会报错,说对象没有initWithCoder方法，说明解档的时候默认会调用这个方法，去实现这个方法。</li>
-<li>initWithCoder什么时候调用：对象解档时候调用</li>
-<li>initWithCoder作用：告诉系统对象里的哪些属性需要解档，怎么去解档，根据之前存储的key去解档</li>
-<li>initWithCoder是一个初始化方法，需要先初始化父类的，但是不能调用[super initWithCoder:],因为父类NSObject没有遵守NSCoding协议。</li>
-</ul>
-</li>
-<li>3、initWithCoder什么时候需要调用[super initWithCoder:]<ul>
-<li>initWithCoder原理:只要解析文件就会调用，xib,storyboard都是文件，因此只要解析这两个文件，就会调用initWithCoder。</li>
-<li><strong>因此如果在storyboard使用自定义view,重写initWithCoder方法，一定要调用[super initWithCoder:]，因为只有系统才知道怎么解析storyboard，如果没有调用，就解析不了这个文件</strong>。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/03/数据存储(数据持久化)/#more">more >></a>
+        
       
 
       
@@ -1036,22 +545,103 @@ HMAC 主要使用在身份认证中;
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/03/数据存储(数据持久化)/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-HTTP请求和数据安全" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/03/HTTP请求和数据安全/">HTTP请求和数据安全</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/03/HTTP请求和数据安全/" class="archive-article-date">
+  	<time datetime="2016-07-03T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-03</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、HTTP请求"><a href="#一、HTTP请求" class="headerlink" title="一、HTTP请求"></a>一、HTTP请求</h2><h4 id="1、http协议-超文本传输协议-Hypertext-Transfer-Protocol"><a href="#1、http协议-超文本传输协议-Hypertext-Transfer-Protocol" class="headerlink" title="1、http协议: 超文本传输协议(Hypertext Transfer Protocol)"></a>1、http协议: 超文本传输协议(Hypertext Transfer Protocol)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http协议规定了客户端和服务器之间的数据传输格式.</span><br><span class="line">http协议是在网络开发中最常用的协议.不管是移动客户端还是PC端,访问网络资源经常使用http协议.</span><br><span class="line">http优点:</span><br><span class="line">&lt;<span class="number">1</span>&gt; 简单快速:</span><br><span class="line">http协议简单,通信速度很快.</span><br><span class="line">&lt;<span class="number">2</span>&gt; 灵活:</span><br><span class="line">http协议允许传输任意类型的数据.</span><br><span class="line">&lt;<span class="number">3</span>&gt; http协议是短连接(非持续性连接)</span><br><span class="line">http协议限制每次连接只处理一个请求,服务器对客户端的请求作出响应后,马上断开连接.这种方式可以节省传输时间.</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/07/03/HTTP请求和数据安全/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/03/HTTP请求和数据安全/">展开全文 >></a>
         </p>
       
 
@@ -1106,127 +696,9 @@ HMAC 主要使用在身份认证中;
 <li>本地推送通知（Local Notification）</li>
 <li>远程推送通知（Remote Notification）</li>
 </ul>
-<h3 id="2、推送通知的作用"><a href="#2、推送通知的作用" class="headerlink" title="2、推送通知的作用"></a>2、推送通知的作用</h3><ul>
-<li>可以让不在前台运行的app，告知用户app内部发生了什么事情</li>
-</ul>
-<h3 id="3、推送通知的呈现效果总结"><a href="#3、推送通知的呈现效果总结" class="headerlink" title="3、推送通知的呈现效果总结"></a>3、推送通知的呈现效果总结</h3><ul>
-<li>在屏幕顶部显示一块横幅（显示具体内容）</li>
-<li>在屏幕中间弹出一个UIAlertView（显示具体内容）</li>
-<li>在锁屏界面显示一块横幅（锁屏状态下，显示具体内容）</li>
-<li>更新app图标的数字（说明新内容的数量）</li>
-<li>播放音效（提醒作用）</li>
-</ul>
-<h3 id="4、推送通知的呈现效果设置"><a href="#4、推送通知的呈现效果设置" class="headerlink" title="4、推送通知的呈现效果设置"></a>4、推送通知的呈现效果设置</h3><h5 id="用户也可以决定是否要开启以下4个功能："><a href="#用户也可以决定是否要开启以下4个功能：" class="headerlink" title="用户也可以决定是否要开启以下4个功能："></a>用户也可以决定是否要开启以下4个功能：</h5><ul>
-<li>显示App图标数字</li>
-<li>播放音效</li>
-<li>锁屏显示</li>
-<li>显示在“通知中心”</li>
-</ul>
-<h3 id="5、推送通知的使用细节"><a href="#5、推送通知的使用细节" class="headerlink" title="5、推送通知的使用细节"></a>5、推送通知的使用细节</h3><ul>
-<li>发出推送通知时，如果当前程序正运行在前台，那么推送通知就不会被呈现出来</li>
-<li>点击推送通知后，默认会自动打开发出推送通知的app</li>
-<li>不管app打开还是关闭，推送通知都能如期发出</li>
-</ul>
-<h1 id="二、本地推送通知"><a href="#二、本地推送通知" class="headerlink" title="二、本地推送通知"></a>二、本地推送通知</h1><h3 id="1、什么是本地推送通知"><a href="#1、什么是本地推送通知" class="headerlink" title="1、什么是本地推送通知"></a>1、什么是本地推送通知</h3><ul>
-<li>顾名思义，就是不需要联网就能发出的推送通知（不需要服务器的支持）</li>
-</ul>
-<h3 id="2、如何发出本地推送通知"><a href="#2、如何发出本地推送通知" class="headerlink" title="2、如何发出本地推送通知"></a>2、如何发出本地推送通知</h3><h5 id="1、创建本地推送通知对象"><a href="#1、创建本地推送通知对象" class="headerlink" title="1、创建本地推送通知对象"></a>1、创建本地推送通知对象</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UILocalNotification</span> *ln = [[<span class="built_in">UILocalNotification</span> alloc] init];</span><br></pre></td></tr></table></figure>
-<h5 id="2、设置本地推送通知属性"><a href="#2、设置本地推送通知属性" class="headerlink" title="2、设置本地推送通知属性"></a>2、设置本地推送通知属性</h5><ul>
-<li><p>推送通知的触发时间（何时发出推送通知）</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSDate</span> *fireDate;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>推送通知的具体内容</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *alertBody;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在锁屏时显示的动作标题（完整标题：“滑动来” + alertAction）</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *alertAction;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>音效文件名</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *soundName;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>app图标数字</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">NSInteger</span> applicationIconBadgeNumber;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>每隔多久重复发一次推送通知</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">NSCalendarUnit</span> repeatInterval;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>点击推送通知打开app时显示的启动图片</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *alertLaunchImage;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>附加的额外信息</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSDictionary</span> *userInfo;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>时区</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSTimeZone</span> *timeZone;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>（一般设置为[NSTimeZone defaultTimeZone] ，跟随手机的时区）</strong></p>
-<h5 id="3、如何发出本地推送通知"><a href="#3、如何发出本地推送通知" class="headerlink" title="3、如何发出本地推送通知"></a>3、如何发出本地推送通知</h5><ul>
-<li><p>调度本地推送通知（调度完毕后，推送通知会在特地时间fireDate发出）</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[[<span class="built_in">UIApplication</span> sharedApplication] scheduleLocalNotification:ln];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>获得被调度(定制)的所有本地推送通知</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span> *scheduledLocalNotifications;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>（已经发出且过期的推送通知就算调度结束，会自动从这个数组中移除）</strong></p>
-<ul>
-<li><p>取消调度本地推送通知</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)cancelLocalNotification:(<span class="built_in">UILocalNotification</span> *)notification;</span><br><span class="line">- (<span class="keyword">void</span>)cancelAllLocalNotifications;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>立即发出本地推送通知</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)presentLocalNotificationNow:(<span class="built_in">UILocalNotification</span> *)notification;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3、点击本地推送通知"><a href="#3、点击本地推送通知" class="headerlink" title="3、点击本地推送通知"></a>3、点击本地推送通知</h3><h5 id="当用户点击本地推送通知，会自动打开app，这里有2种情况"><a href="#当用户点击本地推送通知，会自动打开app，这里有2种情况" class="headerlink" title="当用户点击本地推送通知，会自动打开app，这里有2种情况"></a>当用户点击本地推送通知，会自动打开app，这里有2种情况</h5><ul>
-<li><p>app并没有关闭，一直隐藏在后台</p>
-<pre><code>让app进入前台，并会调用AppDelegate的下面方法（并非重新启动app）
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification;
-</code></pre></li>
-<li><p>app已经被关闭（进程已死）</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">启动app，启动完毕会调用AppDelegate的下面方法</span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions;</span><br><span class="line">launchOptions参数通过<span class="built_in">UIApplicationLaunchOptionsLocalNotificationKey</span>取出本地推送通知对象</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="三、远程推送通知"><a href="#三、远程推送通知" class="headerlink" title="三、远程推送通知"></a>三、远程推送通知</h1><h3 id="1、定义"><a href="#1、定义" class="headerlink" title="1、定义"></a>1、定义</h3><h5 id="1、什么是远程推送通知"><a href="#1、什么是远程推送通知" class="headerlink" title="1、什么是远程推送通知"></a>1、什么是远程推送通知</h5><ul>
-<li>顾名思义，就是从远程服务器推送给客户端的通知（需要联网）</li>
-<li>远程推送服务，又称为APNs（Apple Push Notification Services）</li>
-</ul>
-<h5 id="2、为什么需要远程推送通知？"><a href="#2、为什么需要远程推送通知？" class="headerlink" title="2、为什么需要远程推送通知？"></a>2、为什么需要远程推送通知？</h5><ul>
-<li>传统获取数据的局限性</li>
-<li>只要用户关闭了app，就无法跟app的服务器沟通，无法从服务器上获得最新的数据内容</li>
-</ul>
-<h5 id="3、远程推送通知可以解决以上问题"><a href="#3、远程推送通知可以解决以上问题" class="headerlink" title="3、远程推送通知可以解决以上问题"></a>3、远程推送通知可以解决以上问题</h5><p>不管用户打开还是关闭app，只要联网了，都能接收到服务器推送的远程通知</p>
-<h3 id="2、远程推送通知使用须知"><a href="#2、远程推送通知使用须知" class="headerlink" title="2、远程推送通知使用须知"></a>2、远程推送通知使用须知</h3><pre><code>所有的苹果设备，在联网状态下，都会与苹果的服务器建立长连接
-什么是长连接
-只要联网了，就一直建立连接
-
-长连接的作用
-时间校准
-系统升级
-查找我的iPhone
-.. ...
-
-长连接的好处
-数据传输速度快
-数据保持最新状态
-</code></pre><h3 id="3、注册远程推送通知"><a href="#3、注册远程推送通知" class="headerlink" title="3、注册远程推送通知"></a>3、注册远程推送通知</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">客户端如果想接收APNs的远程推送通知，必须先注册（得到用户的授权）</span><br><span class="line">一般在App启动完毕后就马上注册</span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 注册远程通知</span></span><br><span class="line">       <span class="built_in">UIRemoteNotificationType</span> type = <span class="built_in">UIRemoteNotificationTypeAlert</span> | <span class="built_in">UIRemoteNotificationTypeBadge</span> | <span class="built_in">UIRemoteNotificationTypeSound</span>;</span><br><span class="line">    [application registerForRemoteNotificationTypes:type];</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">注册成功后会调用AppDelegate的下面方法，得到设备的deviceToken</span><br><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didRegisterForRemoteNotificationsWithDeviceToken:(<span class="built_in">NSData</span> *)deviceToken</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, deviceToken);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、点击远程推送通知"><a href="#4、点击远程推送通知" class="headerlink" title="4、点击远程推送通知"></a>4、点击远程推送通知</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">当用户点击远程推送通知，会自动打开app，这里有<span class="number">2</span>种情况</span><br><span class="line">app并没有关闭，一直隐藏在后台</span><br><span class="line">让app进入前台，并会调用AppDelegate的下面方法（并非重新启动app）</span><br><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="built_in">NSDictionary</span> *)userInfo;</span><br><span class="line"></span><br><span class="line">app已经被关闭（进程已死）</span><br><span class="line">启动app，启动完毕会调用AppDelegate的下面方法</span><br><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions;</span><br><span class="line">launchOptions参数通过<span class="built_in">UIApplicationLaunchOptionsRemoteNotificationKey</span>取出服务器返回的字典内容</span><br></pre></td></tr></table></figure>
-<h1 id="四、远程推送应用配置过程"><a href="#四、远程推送应用配置过程" class="headerlink" title="四、远程推送应用配置过程"></a>四、远程推送应用配置过程</h1><ol>
-<li>创建支持远程推送功能的App ID</li>
-<li>申请开发者证书，并选中刚刚创建的App ID</li>
-<li>下载CER文件，并导入钥匙串管理</li>
-<li>申请发布证书，并选中刚刚创建的App ID</li>
-<li>下载CER文件，并导入钥匙串管理</li>
-<li>检查App ID，确认证书已经指定</li>
-</ol>
-<h3 id="远程推送应用程序开发过程"><a href="#远程推送应用程序开发过程" class="headerlink" title="远程推送应用程序开发过程"></a>远程推送应用程序开发过程</h3><ol>
-<li>新建应用程序</li>
-<li>指定AppID，在developer.apple.com上设置的AppID</li>
-</ol>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#ifdef __IPHONE_8_0</span></span><br><span class="line"><span class="comment">// 注册接收通知的类型</span></span><br><span class="line"><span class="built_in">UIUserNotificationSettings</span> *settings = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeAlert</span> | <span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span> categories:<span class="literal">nil</span>];</span><br><span class="line">[application registerUserNotificationSettings:settings];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 注册允许接收远程推送通知</span></span><br><span class="line">[application registerForRemoteNotifications];</span><br><span class="line"><span class="meta">#else</span></span><br><span class="line"><span class="comment">// 如果是iOS7.0，使用以下方法注册</span></span><br><span class="line">[application registerForRemoteNotificationTypes:<span class="built_in">UIUserNotificationTypeAlert</span> | <span class="built_in">UIUserNotificationTypeBadge</span> | <span class="built_in">UIUserNotificationTypeSound</span>];</span><br><span class="line"><span class="meta">#endif</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 当得到苹果的APNs服务器返回的DeviceToken就会被调用</span></span><br><span class="line"><span class="comment">// 7040f7d5 5a974598 c5cf31b5 3e340b39 68affd25 122f0ce1 3f315226 396c2e5b</span></span><br><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didRegisterForRemoteNotificationsWithDeviceToken:(<span class="built_in">NSData</span> *)deviceToken &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"deviceToken是：%@"</span>, deviceToken);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 接收到远程通知，触发方法和本地通知一致</span></span><br><span class="line">- (<span class="keyword">void</span>)application:(<span class="built_in">UIApplication</span> *)application didReceiveRemoteNotification:(<span class="built_in">NSDictionary</span> *)userInfo &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>, userInfo);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="使用后台的远程消息推送"><a href="#使用后台的远程消息推送" class="headerlink" title="使用后台的远程消息推送"></a>使用后台的远程消息推送</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"aps"</span> : &#123;<span class="string">"content-available"</span> : <span class="number">1</span>&#125;,<span class="string">"content-id"</span> : <span class="number">42</span>&#125;</span><br><span class="line"></span><br><span class="line">执行completionHandler有两个目的</span><br><span class="line"><span class="number">1</span>&gt; 系统会估量App消耗的电量，并根据传递的<span class="built_in">UIBackgroundFetchResult</span> 参数记录新数据是否可用</span><br><span class="line"><span class="number">2</span>&gt; 调用完成的处理代码时，应用的界面缩略图会自动更新</span><br></pre></td></tr></table></figure>
-<p><strong>注意：接收到远程通知到执行完网络请求之间的时间不能超过30秒</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (userInfo) &#123;</span><br><span class="line">   <span class="keyword">int</span> contentId = [userInfo[<span class="string">@"content-id"</span>] intValue];</span><br><span class="line">   </span><br><span class="line">   ViewController *vc = (ViewController *)application.keyWindow.rootViewController;</span><br><span class="line">   [vc loadDataWithContentID:contentId completion:^(<span class="built_in">NSArray</span> *dataList) &#123;</span><br><span class="line">       vc.dataList = dataList;</span><br><span class="line">   </span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"刷新数据结束"</span>);</span><br><span class="line">       </span><br><span class="line">       completionHandler(<span class="built_in">UIBackgroundFetchResultNewData</span>);</span><br><span class="line">   &#125;];</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">   completionHandler(<span class="built_in">UIBackgroundFetchResultNoData</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-
+        
+          <a class="article-more-a" href="/2016/07/02/远程推送/#more">more >></a>
+        
       
 
       
@@ -1234,18 +706,22 @@ HMAC 主要使用在身份认证中;
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -1305,51 +781,18 @@ HMAC 主要使用在身份认证中;
 </li>
 <li><p><strong>什么是URL?</strong></p>
 <ul>
-<li>URL的全称是Uniform Resource Locator(统一资源定位符)。</li>
-<li>URL是互联网上标准资源的地址。</li>
-<li>互联网上的每个资源都有一个唯一的URL,它包含的信息指出资源的位置，根据一个URL就能找到唯一的一个资源。</li>
-</ul>
+<li><p>URL的全称是Uniform Resource Locator(统一资源定位符)。</p>
 </li>
-<li><p><strong>URL的格式?</strong></p>
-<ul>
-<li>基本URL包含协议、主机域名(服务器名称\IP地址)、路径</li>
-<li>可以简单认为: URL == 协议头://主机域名/路径</li>
-</ul>
+<li><p>URL是互联网上标准资源的地址。</p>
 </li>
-<li><p><strong>常见的URL协议头(URL类型)</strong></p>
-</li>
-<li><p>http\https:超文本传输协议资源, 网络资源</p>
-<ul>
-<li><p>在URL前加https://前缀表明是用SSL加密的。你的电脑与服务器之间收发的信息传输将更加安全。</p>
-</li>
-<li><p>Web服务器启用SSL需要获得一个服务器证书并将该证书与要使用SSL的服务器绑定。</p>
-</li>
-<li><p>http和https使用的是完全不同的连接方式,用的端口也不一样,前者是80,后者是443。http的连接很简单,是无状态的。</p>
-</li>
-<li><p>https协议是由SSL+HTTP协议构建的可进行加密传输、身份认证的网络协议要比http协议安全。</p>
+<li><p>互联网上的每个资源都有一个唯一的URL,它包含的信息指出资源的位置，根据一个URL就能找到唯一的一个资源。</p>
 </li>
 </ul>
 </li>
-<li><p><strong>ftp</strong> :文件传输协议。</p>
-</li>
-<li><p><strong>file</strong>:本地电脑的文件。</p>
-</li>
-<li><p><strong>2、URL创建</strong></p>
-</li>
-<li><p>通过URL读取字符串</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 获取URL</span></span><br><span class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> URLWithString:<span class="string">@"file:///Users/sleepingsun/Desktop/writeFile.txt"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//    NSURL *url = [NSURL URLWithString:@"http://www.baidu.com"];</span></span><br><span class="line"></span><br><span class="line">   <span class="comment">// 保存错误信息</span></span><br><span class="line">    <span class="built_in">NSError</span> *error = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 读取URL中的内容</span></span><br><span class="line">    <span class="built_in">NSString</span> *str = [<span class="built_in">NSString</span> stringWithContentsOfURL:url encoding:<span class="built_in">NSUTF8StringEncoding</span> error:&amp;error];</span><br><span class="line">    <span class="keyword">if</span> (error != <span class="literal">nil</span>) &#123;</span><br><span class="line">        <span class="comment">// 如果读取失败，打印失败信息</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"错误信息：%@"</span>,error.localizedDescription);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="comment">// 否则，输出URL内容</span></span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,str);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>通过文件路径创建URL(默认就是file协议的)</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">    <span class="built_in">NSURL</span> *url = [<span class="built_in">NSURL</span> fileURLWithPath:<span class="string">@"/Users/sleepingsun/Desktop/writeFile.txt"</span>];</span><br><span class="line">    <span class="comment">// 读取URL中的内容</span></span><br><span class="line">    <span class="built_in">NSString</span> *str = [<span class="built_in">NSString</span> stringWithContentsOfURL:url encoding:<span class="built_in">NSUTF8StringEncoding</span> error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"成功：%@"</span>,str);</span><br><span class="line"><span class="comment">// 注意：默认是file协议，不能手动写。否则解析不出来。</span></span><br></pre></td></tr></table></figure>
-</li>
 </ul>
-<p>#####3、NSString的存储</p>
-<ul>
-<li><p>可以将NSString存储到一个文件中</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSString</span>  *str = <span class="string">@"sayHi~"</span>;</span><br><span class="line"><span class="comment">// 存储到文件中</span></span><br><span class="line">[str writeToFile:<span class="string">@"/Users/sleeping/Desktop/str.txt"</span> atomically:<span class="literal">YES</span> encoding:<span class="built_in">NSUTF8StringEncoding</span> error:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 存储到URL中</span></span><br><span class="line">[str writeToURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"file:///Users/sleeping/Desktop/str.txt"</span>] atomically:<span class="literal">YES</span> encoding:<span class="built_in">NSUTF8StringEncoding</span> error:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/02/使用NSURL读写字符串/#more">more >></a>
+        
       
 
       
@@ -1357,22 +800,106 @@ HMAC 主要使用在身份认证中;
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/02/使用NSURL读写字符串/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-web服务器安装笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/02/web服务器安装笔记/">Web服务器安装笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/02/web服务器安装笔记/" class="archive-article-date">
+  	<time datetime="2016-07-02T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-02</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>安装Apache</strong></p>
+<h2 id="一、目的："><a href="#一、目的：" class="headerlink" title="一、目的："></a>一、目的：</h2><ol>
+<li>能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！</li>
+</ol>
+        
+          <a class="article-more-a" href="/2016/07/02/web服务器安装笔记/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/02/web服务器安装笔记/">展开全文 >></a>
         </p>
       
 
@@ -1430,95 +957,9 @@ HMAC 主要使用在身份认证中;
 <li>可以自己手动创建UIWindow</li>
 </ul>
 <p><strong>注：创建的window只要直接置为nil就会消失</strong></p>
-<h2 id="一、window选择控制器方法-category"><a href="#一、window选择控制器方法-category" class="headerlink" title="一、window选择控制器方法(category)"></a>一、window选择控制器方法(category)</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"UIWindow+Extension.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"ZCTabBarController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"ZCNewfeatureController.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIWindow</span> (<span class="title">Extension</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)chooseRootViewController</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIWindow</span> *window = [<span class="built_in">UIApplication</span> sharedApplication].keyWindow;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *currentVersion = [<span class="built_in">NSBundle</span> mainBundle].infoDictionary[<span class="string">@"CFBundleShortVersionString"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取本地存储的版本号</span></span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *defaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *sandboxVersion = [defaults objectForKey:<span class="string">@"sandboxVersion"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//比较两个版本号</span></span><br><span class="line">    <span class="comment">// NSOrderedAscending == 升序, NSOrderedSame == 相同, NSOrderedDescending == 降序</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//如果是降序</span></span><br><span class="line">    <span class="keyword">if</span> ([currentVersion compare:sandboxVersion] == <span class="built_in">NSOrderedDescending</span>) &#123;</span><br><span class="line">        <span class="comment">//0.监听通知</span></span><br><span class="line">        [ZC_NotificationCenter addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(changeRootViewController) name:<span class="string">@"chooseRootViewController"</span> object:<span class="literal">nil</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//1.显示新特性</span></span><br><span class="line">        ZCNewfeatureController *newfeatureVC = [[ZCNewfeatureController alloc] init];</span><br><span class="line">        window.rootViewController = newfeatureVC;</span><br><span class="line">        <span class="comment">//2.保存新的版本号</span></span><br><span class="line">        [defaults setValue:currentVersion forKey:<span class="string">@"sandboxVersion"</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//2.创建跟控制器</span></span><br><span class="line">        ZCTabBarController *tabBar = [[ZCTabBarController alloc] init];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//5.设置跟控制器</span></span><br><span class="line">        window.rootViewController = tabBar;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)changeRootViewController</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//1.移除观察者身份</span></span><br><span class="line">    [ZC_NotificationCenter removeObserver:<span class="keyword">self</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.设置跟控制器</span></span><br><span class="line">    [<span class="built_in">UIApplication</span> sharedApplication].keyWindow.rootViewController = [[ZCTabBarController alloc] init];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<h2 id="二、手动创建控制器"><a href="#二、手动创建控制器" class="headerlink" title="二、手动创建控制器"></a>二、手动创建控制器</h2><ul>
-<li>不适用Xcode自动生成的ViewController及storyboard文件</li>
-<li>自己手动实现加载控制器</li>
-<li>实现步骤<ul>
-<li>在应用程序加载完毕后，手动创建UIWindow及应用程序代理里面的UIWindow</li>
-<li>创建要加载的控制器</li>
-<li>设置为窗口的根控制器</li>
-<li>设置窗口为主窗口并可见，或者设置为主窗口，然后设置窗口的hidden属性为NO</li>
-</ul>
-</li>
-</ul>
-<h6 id="注意：创建的窗口默认是不可见，隐藏的。"><a href="#注意：创建的窗口默认是不可见，隐藏的。" class="headerlink" title="注意：创建的窗口默认是不可见，隐藏的。"></a>注意：创建的窗口默认是不可见，隐藏的。</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.创建窗口</span></span><br><span class="line"><span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br><span class="line"><span class="keyword">self</span>.window.windowLevel = <span class="built_in">UIWindowLevelStatusBar</span>;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%p"</span>, <span class="keyword">self</span>.window);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2.创建自定义的控制器</span></span><br><span class="line">CZViewController *vc = [[CZViewController alloc] init];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3.设置窗口的根控制器为自定义的控制器</span></span><br><span class="line"><span class="keyword">self</span>.window.rootViewController = vc;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4.设置窗口为主窗口并可见</span></span><br><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-<h2 id="三、创建控制器的方法介绍"><a href="#三、创建控制器的方法介绍" class="headerlink" title="三、创建控制器的方法介绍"></a>三、创建控制器的方法介绍</h2><ul>
-<li><p>纯代码创建控制器</p>
-</li>
-<li><p>通过storyboard文件创建控制器</p>
-</li>
-<li><p>通过xib的方式创建控制器</p>
-</li>
-</ul>
-<h4 id="1、纯代码创建控制器"><a href="#1、纯代码创建控制器" class="headerlink" title="1、纯代码创建控制器"></a>1、纯代码创建控制器</h4><ul>
-<li><p>1.创建窗口</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.创建控制器作为窗口的根控制器</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CZViewController *vc = [[CZViewController alloc] init];</span><br><span class="line"><span class="keyword">self</span>.window.rootViewController = vc;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.设置窗口为主窗口并可见</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="2、通过storyboard文件创建控制器"><a href="#2、通过storyboard文件创建控制器" class="headerlink" title="2、通过storyboard文件创建控制器"></a>2、通过storyboard文件创建控制器</h4><ul>
-<li><p>1.创建窗口</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.创建控制器作为窗口的根控制器</p>
-<ul>
-<li><p>2.1加载storyboard文件</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIStoryboard</span> *sb = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"CZStoryboard"</span> bundle:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.2作为初始化控制器  【文件中只有一个storyboard】</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewController</span> *vc = [sb instantiateInitialViewController];</span><br></pre></td></tr></table></figure>
-<p>   <strong>注：有多个storyboard，就需要根据标记去加载 【文件中又多个storyboard】</strong></p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewController</span> *vc = [sb instantiateViewControllerWithIdentifier:<span class="string">@"green"</span>];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.3设置为窗口的根控制器</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.window.rootViewController = vc;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>3.设置窗口为主窗口并可见</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="3、通过xib的方式创建控制器"><a href="#3、通过xib的方式创建控制器" class="headerlink" title="3、通过xib的方式创建控制器"></a>3、通过xib的方式创建控制器</h4><ul>
-<li><p>1.创建窗口</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.window = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.创建控制器作为窗口的根控制器</p>
-<ul>
-<li><p>2.1直接根据xib文件去加载</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xib文件名称与控制器名称完全不同</span><br><span class="line">   1.修改xib文件的File's Owner类型为自定义控制器类型</span><br><span class="line">   2.选中File's Owner，右键将view连线到xib文件中的view上</span><br><span class="line">   <span class="number">3.</span>在alloc+init的时候指定要加载的xib文件名称</span><br><span class="line">   </span><br><span class="line">CZViewController *vc = [[CZViewController alloc] initWithNibName:<span class="string">@"Empty"</span> bundle:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.2xib文件名称与控制器名称类似但是少了Controller</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>同上</span><br><span class="line"><span class="number">2.</span>同上</span><br><span class="line"><span class="number">3.</span>直接alloc + init，不需要指定要加载的文件名称，系统会自动寻找名称与控制器名称类似【少了类型的后缀（如controller）】的xib文件	    </span><br><span class="line">CZViewController *vc = [[CZViewController alloc] init];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.3.xib文件名称与控制器名称完全相同</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    <span class="number">1.</span>同上</span><br><span class="line">    <span class="number">2.</span>同上</span><br><span class="line">    <span class="number">3.</span>系统会优先去寻找与控制器名称完全相同的xib文件</span><br><span class="line">CZViewController *vc = [[CZViewController alloc] init];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.3设置为窗口的根控制器</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.window.rootViewController = vc;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.设置窗口为主窗口并可见</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="四、控制器的view是懒加载的方式创建的"><a href="#四、控制器的view是懒加载的方式创建的" class="headerlink" title="四、控制器的view是懒加载的方式创建的"></a>四、控制器的view是懒加载的方式创建的</h2><ul>
-<li>控制器的view是延迟加载(懒加载)的：用到时再加载</li>
-<li>控制器的view加载完毕就会调用viewDidLoad方法</li>
-<li>用isViewLoaded方法判断UIViewController的view是否已经被加载</li>
-<li>重写loadView方法，如果在窗口显示之前如果没有用到控制器的view就不会调用loadView方法，在窗口显示的时候就会调用loadView方法。</li>
-<li>如果在窗口显示之前用到了控制器的view，就会直接调用loadView方法。</li>
-<li>loadView方法仅在用代码创建视图控制器的界面时使用</li>
-<li>在loadView方法中实现加载自定义的view的时候，不需要调用super。</li>
-</ul>
-<h2 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a><a href="http://www.cnblogs.com/snake-hand/p/3190021.html" target="_blank" rel="noopener">UIView</a></h2>
+        
+          <a class="article-more-a" href="/2016/07/02/UIWindow和控制器/#more">more >></a>
+        
       
 
       
@@ -1526,142 +967,26 @@ HMAC 主要使用在身份认证中;
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/02/UIWindow和控制器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-web服务器安装笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/02/web服务器安装笔记/">Web服务器安装笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/02/web服务器安装笔记/" class="archive-article-date">
-  	<time datetime="2016-07-02T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-02</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>安装Apache</strong></p>
-<h2 id="一、目的："><a href="#一、目的：" class="headerlink" title="一、目的："></a>一、目的：</h2><ol>
-<li>能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！</li>
-</ol>
-<h2 id="二、为什么是-“Apache”"><a href="#二、为什么是-“Apache”" class="headerlink" title="二、为什么是 “Apache”"></a>二、为什么是 “Apache”</h2><ol>
-<li>使用最广的 Web 服务器</li>
-<li>Mac自带，只需要修改几个配置就可以，简单，快捷</li>
-<li>有些特殊的服务器功能，Apache都能很好的支持</li>
-</ol>
-<p><strong>例如：HTTP PUT/DELETE 操作，知识补充涉及的 HTTPS 服务</strong></p>
-<h2 id="三、-准备工作"><a href="#三、-准备工作" class="headerlink" title="三、    准备工作"></a>三、    准备工作</h2><ul>
-<li>设置用户密码</li>
-</ul>
-<h2 id="四、-配置服务器"><a href="#四、-配置服务器" class="headerlink" title="四、 配置服务器"></a>四、 配置服务器</h2><h4 id="1、配置服务器的工作"><a href="#1、配置服务器的工作" class="headerlink" title="1、配置服务器的工作"></a>1、配置服务器的工作</h4><ul>
-<li>1、在Finder中创建一个”Sites”的文件夹，直接创建在/Users/apple(当前用户名)目录下</li>
-<li>2、修改配置文件中的”两个路径”，指向刚刚创建的文件夹</li>
-<li>3、拷贝一个文件</li>
-</ul>
-<h4 id="2、配置服务器注意事项"><a href="#2、配置服务器注意事项" class="headerlink" title="2、配置服务器注意事项"></a>2、配置服务器注意事项</h4><ul>
-<li>1、关闭中文输入法</li>
-<li>2、命令和参数之间需要有”空格”</li>
-<li>3、修改系统文件一定记住”sudo”，否则会没有权限</li>
-<li>4、目录要在/Users/apple(当前用户名)</li>
-</ul>
-<h4 id="3、配置服务器"><a href="#3、配置服务器" class="headerlink" title="3、配置服务器"></a>3、配置服务器</h4><p><strong>提示：$开头的，可以拷贝，但是不要拷贝$</strong></p>
-<ul>
-<li>切换工作目录<ul>
-<li>$cd /etc/apache2</li>
-</ul>
-</li>
-<li>常用命令<ol>
-<li>cd 切换目录</li>
-<li>pwd 确认当前目录</li>
-<li>ls 列表显示当前目录的内容</li>
-</ol>
-</li>
-</ul>
-<h6 id="vim命令"><a href="#vim命令" class="headerlink" title="vim命令"></a>vim命令</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// *** 备份文件，以防不测，只需要执行一次就可以了</span></span><br><span class="line">$sudo cp httpd.conf httpd.conf.bak</span><br><span class="line"></span><br><span class="line">格式 cp (<span class="keyword">copy</span> 的缩写) httpd.conf (源文件) httpd.conf.bak (目标文件)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提示：如果后续操作出现错误！可以使用以下命令，恢复备份过的 httpd.conf 文件</span></span><br><span class="line">$ sudo cp httpd.conf.bak httpd.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">// vim里面只能用键盘，不能用鼠标</span></span><br><span class="line"><span class="comment">// 用vim编辑httpd.conf</span></span><br><span class="line">$sudo vim httpd.conf</span><br><span class="line"><span class="comment">// 查找DocumentRoot</span></span><br><span class="line">* /DocumentRoot</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 进入编辑模式</span></span><br><span class="line">* i</span><br><span class="line"><span class="string">"修改引号中的路径"</span></span><br><span class="line"><span class="comment">// 进入命令模式</span></span><br><span class="line">* ESC</span><br><span class="line"><span class="comment">// 查找DocumentRoot</span></span><br><span class="line">* n</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 进入编辑模式</span></span><br><span class="line">* i</span><br><span class="line"><span class="string">"修改括号中的路径"</span></span><br><span class="line"><span class="comment">// 进入命令模式</span></span><br><span class="line">* ESC</span><br><span class="line"><span class="comment">// 查找php</span></span><br><span class="line">* /php</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 删除行首注释#</span></span><br><span class="line">* x</span><br><span class="line"><span class="comment">// 保存并退出</span></span><br><span class="line">* :wq</span><br><span class="line"><span class="comment">// 不保存退出!!!!!!!!!</span></span><br><span class="line">* :q!</span><br><span class="line"><span class="comment">// 切换工作目录</span></span><br><span class="line">$cd /etc</span><br></pre></td></tr></table></figure>
-<h4 id="4、etc-目录有点类似于-windows-system32，存放配置文件的目录"><a href="#4、etc-目录有点类似于-windows-system32，存放配置文件的目录" class="headerlink" title="4、etc 目录有点类似于 windows/system32，存放配置文件的目录"></a>4、etc 目录有点类似于 windows/system32，存放配置文件的目录</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拷贝php.ini文件</span></span><br><span class="line">$sudo cp php.ini.default php.ini</span><br><span class="line"><span class="comment">// 重新启动apache服务器</span></span><br><span class="line">$sudo apachectl -k restart</span><br></pre></td></tr></table></figure>
-<p>如果提示以下错误是正常的：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">httpd: Could not reliably determine the server's fully qualified domain name, using teacher.local for ServerName</span><br><span class="line">httpd not running, trying to start</span><br></pre></td></tr></table></figure></p>
-<p>================================================================================</p>
-<h6 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h6><h6 id="1-如果点击info-php文件，出现下载，或者只是显示一小段文字"><a href="#1-如果点击info-php文件，出现下载，或者只是显示一小段文字" class="headerlink" title="1. 如果点击info.php文件，出现下载，或者只是显示一小段文字"></a>1. 如果点击info.php文件，出现下载，或者只是显示一小段文字</h6><p><strong>解决办法：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在终端中输入以下两个命令：</span><br><span class="line"><span class="comment">// 关闭 apache 服务器</span></span><br><span class="line">$sudo apachectl -k stop</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重新再次启动 apache</span></span><br><span class="line">$sudo apachectl -k start</span><br></pre></td></tr></table></figure></p>
-<h6 id="2-每次启动计算机，Apache服务器默认是不会自动启动的！"><a href="#2-每次启动计算机，Apache服务器默认是不会自动启动的！" class="headerlink" title="2. 每次启动计算机，Apache服务器默认是不会自动启动的！"></a>2. 每次启动计算机，Apache服务器默认是不会自动启动的！</h6><p>可以启动计算机之后，打开终端，输入以下命令：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 启动 apache</span></span><br><span class="line">$sudo apachectl -k start</span><br></pre></td></tr></table></figure></p>
-<h6 id="3-最常见的问题"><a href="#3-最常见的问题" class="headerlink" title="3. 最常见的问题"></a>3. 最常见的问题</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">交换文件已经存在，直接按字母 <span class="string">"d"</span>，可以删除交换文件！</span><br></pre></td></tr></table></figure>
-<h6 id="4-Mac-10-10-的-Apache-配置略微有一些不一样！"><a href="#4-Mac-10-10-的-Apache-配置略微有一些不一样！" class="headerlink" title="4. Mac 10.10 的 Apache 配置略微有一些不一样！"></a>4. Mac 10.10 的 Apache 配置略微有一些不一样！</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">看<span class="string">"服务器配置视频\02-Mac10.10 Apache配置.mp4"</span></span><br><span class="line"></span><br><span class="line">在 httpd.conf 中找到</span><br><span class="line"></span><br><span class="line"><span class="string">"Options FollowSymLinks Multiviews"</span></span><br><span class="line"></span><br><span class="line">加一个单词 Indexes，修改后的结果如下：</span><br><span class="line"></span><br><span class="line"><span class="string">"Options Indexes FollowSymLinks Multiviews"</span></span><br><span class="line"></span><br><span class="line">提示：目前不要花一分钟去学习vim。</span><br></pre></td></tr></table></figure>
-<h6 id="5-执行脚本的时候，显示没有拒绝访问！大家用-NTFS-格式的-U-盘拷贝网络素材！会把文件本身的权限过滤掉！"><a href="#5-执行脚本的时候，显示没有拒绝访问！大家用-NTFS-格式的-U-盘拷贝网络素材！会把文件本身的权限过滤掉！" class="headerlink" title="5. 执行脚本的时候，显示没有拒绝访问！大家用 NTFS 格式的 U 盘拷贝网络素材！会把文件本身的权限过滤掉！"></a>5. 执行脚本的时候，显示没有拒绝访问！大家用 NTFS 格式的 U 盘拷贝网络素材！会把文件本身的权限过滤掉！</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">以下是在终端中修改文件权限的指令！</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  查看当前文件夹中的文件访问权限</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$ ls -la</span><br><span class="line">$ chmod <span class="number">644</span> info.php（没有权限的文件名）</span><br><span class="line">$ chmod <span class="number">644</span> *.*</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/02/web服务器安装笔记/">展开全文 >></a>
         </p>
       
 
@@ -1789,6 +1114,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

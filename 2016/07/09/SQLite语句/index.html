@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>SQLite语句 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、介绍1、SQL语句的特点 不区分大小写（比如数据库认为user和UsEr是一样的） 每条语句都必须以分号 ; 结尾  SQL中的常用关键字有select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等 数据库中不可以使用关键字来命名表、字段 2、SQL语句的种类数据定义语句（">
+  <meta name="description" content="一、介绍1、SQL语句的特点 不区分大小写（比如数据库认为user和UsEr是一样的） 每条语句都必须以分号 ; 结尾  SQL中的常用关键字有select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等 数据库中不可以使用关键字来命名表、字段">
+<meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQLite语句">
 <meta property="og:url" content="lonely9209.github.io/2016/07/09/SQLite语句/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、介绍1、SQL语句的特点 不区分大小写（比如数据库认为user和UsEr是一样的） 每条语句都必须以分号 ; 结尾  SQL中的常用关键字有select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等 数据库中不可以使用关键字来命名表、字段 2、SQL语句的种类数据定义语句（">
+<meta property="og:description" content="一、介绍1、SQL语句的特点 不区分大小写（比如数据库认为user和UsEr是一样的） 每条语句都必须以分号 ; 结尾  SQL中的常用关键字有select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等 数据库中不可以使用关键字来命名表、字段">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.832Z">
+<meta property="og:updated_time" content="2018-11-28T13:16:21.766Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SQLite语句">
-<meta name="twitter:description" content="一、介绍1、SQL语句的特点 不区分大小写（比如数据库认为user和UsEr是一样的） 每条语句都必须以分号 ; 结尾  SQL中的常用关键字有select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等 数据库中不可以使用关键字来命名表、字段 2、SQL语句的种类数据定义语句（">
+<meta name="twitter:description" content="一、介绍1、SQL语句的特点 不区分大小写（比如数据库认为user和UsEr是一样的） 每条语句都必须以分号 ; 结尾  SQL中的常用关键字有select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等 数据库中不可以使用关键字来命名表、字段">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、介绍"><span class="toc-number">1.</span> <span class="toc-text">一、介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、SQL语句的特点"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、SQL语句的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SQL中的常用关键字有"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">SQL中的常用关键字有</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、SQL语句的种类"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、SQL语句的种类</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#数据定义语句（DDL：Data-Definition-Language）"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">数据定义语句（DDL：Data Definition Language）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#数据操作语句（DML：Data-Manipulation-Language）"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">数据操作语句（DML：Data Manipulation Language）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#数据查询语句（DQL：Data-Query-Language）"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">数据查询语句（DQL：Data Query Language）</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、使用"><span class="toc-number">2.</span> <span class="toc-text">二、使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、创表"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、创表</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、字段类型"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、字段类型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SQLite将数据划分为以下几种存储类型："><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">SQLite将数据划分为以下几种存储类型：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#实际上SQLite是无类型的"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">实际上SQLite是无类型的</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、删表"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、删表</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-1"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-1"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、插入数据（insert）"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、插入数据（insert）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-2"><span class="toc-number">2.0.4.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-2"><span class="toc-number">2.0.4.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、更新数据（update）"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、更新数据（update）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-3"><span class="toc-number">2.0.5.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-3"><span class="toc-number">2.0.5.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、删除数据（delete）"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、删除数据（delete）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-4"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-4"><span class="toc-number">2.0.6.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、条件语句"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#条件语句的常见格式"><span class="toc-number">2.0.7.0.1.</span> <span class="toc-text">条件语句的常见格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#案例"><span class="toc-number">2.0.7.0.2.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、查询"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、查询</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-5"><span class="toc-number">2.0.8.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-5"><span class="toc-number">2.0.8.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、起别名"><span class="toc-number">2.0.9.</span> <span class="toc-text">9、起别名</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-字段和表都可以起别名"><span class="toc-number">2.0.9.0.1.</span> <span class="toc-text">格式(字段和表都可以起别名)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-6"><span class="toc-number">2.0.9.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、计算记录的数量"><span class="toc-number">2.0.10.</span> <span class="toc-text">10、计算记录的数量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-6"><span class="toc-number">2.0.10.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-7"><span class="toc-number">2.0.10.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、排序"><span class="toc-number">2.0.11.</span> <span class="toc-text">11、排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、limit"><span class="toc-number">2.0.12.</span> <span class="toc-text">12、limit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13、简单约束"><span class="toc-number">2.0.13.</span> <span class="toc-text">13、简单约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14、主键约束"><span class="toc-number">2.0.14.</span> <span class="toc-text">14、主键约束</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#主键的设计原则"><span class="toc-number">2.0.14.0.1.</span> <span class="toc-text">主键的设计原则</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#主键的声明"><span class="toc-number">2.0.14.0.2.</span> <span class="toc-text">主键的声明</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15、外键约束"><span class="toc-number">2.0.15.</span> <span class="toc-text">15、外键约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16、表连接查询"><span class="toc-number">2.0.16.</span> <span class="toc-text">16、表连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、SQLite编码"><span class="toc-number">3.</span> <span class="toc-text">三、SQLite编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、创建、打开、关闭数据库"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、创建、打开、关闭数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、执行不返回数据的SQL语句"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、执行不返回数据的SQL语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、带占位符插入数据"><span class="toc-number">3.0.3.</span> <span class="toc-text">3、带占位符插入数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、查询数据"><span class="toc-number">3.0.4.</span> <span class="toc-text">4、查询数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、附件"><span class="toc-number">4.</span> <span class="toc-text">四、附件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-打开数据库"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.打开数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、执行任何SQL语句"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、执行任何SQL语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、检查SQL语句的合法性"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、检查SQL语句的合法性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、查询一行数据"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、查询一行数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、利用stmt获得某一字段的值"><span class="toc-number">4.0.5.</span> <span class="toc-text">5、利用stmt获得某一字段的值</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -187,6 +218,7 @@
 </ul>
 <h6 id="SQL中的常用关键字有"><a href="#SQL中的常用关键字有" class="headerlink" title="SQL中的常用关键字有"></a>SQL中的常用关键字有</h6><p>select、insert、update、delete、from、create、where、desc、order、by、group、table、alter、view、index等等</p>
 <p><strong>数据库中不可以使用关键字来命名表、字段</strong></p>
+<a id="more"></a>
 <h4 id="2、SQL语句的种类"><a href="#2、SQL语句的种类" class="headerlink" title="2、SQL语句的种类"></a>2、SQL语句的种类</h4><h6 id="数据定义语句（DDL：Data-Definition-Language）"><a href="#数据定义语句（DDL：Data-Definition-Language）" class="headerlink" title="数据定义语句（DDL：Data Definition Language）"></a>数据定义语句（DDL：Data Definition Language）</h6><ul>
 <li>包括create和drop等操作</li>
 <li>在数据库中创建新表或删除表（create table或 drop table）<h6 id="数据操作语句（DML：Data-Manipulation-Language）"><a href="#数据操作语句（DML：Data-Manipulation-Language）" class="headerlink" title="数据操作语句（DML：Data Manipulation Language）"></a>数据操作语句（DML：Data Manipulation Language）</h6></li>
@@ -320,18 +352,18 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -425,6 +457,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、介绍"><span class="toc-number">1.</span> <span class="toc-text">一、介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、SQL语句的特点"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、SQL语句的特点</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SQL中的常用关键字有"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">SQL中的常用关键字有</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、SQL语句的种类"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、SQL语句的种类</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#数据定义语句（DDL：Data-Definition-Language）"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">数据定义语句（DDL：Data Definition Language）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#数据操作语句（DML：Data-Manipulation-Language）"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">数据操作语句（DML：Data Manipulation Language）</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#数据查询语句（DQL：Data-Query-Language）"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">数据查询语句（DQL：Data Query Language）</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、使用"><span class="toc-number">2.</span> <span class="toc-text">二、使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、创表"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、创表</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、字段类型"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、字段类型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#SQLite将数据划分为以下几种存储类型："><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">SQLite将数据划分为以下几种存储类型：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#实际上SQLite是无类型的"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">实际上SQLite是无类型的</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、删表"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、删表</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-1"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-1"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、插入数据（insert）"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、插入数据（insert）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-2"><span class="toc-number">2.0.4.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-2"><span class="toc-number">2.0.4.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、更新数据（update）"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、更新数据（update）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-3"><span class="toc-number">2.0.5.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-3"><span class="toc-number">2.0.5.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、删除数据（delete）"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、删除数据（delete）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-4"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-4"><span class="toc-number">2.0.6.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、条件语句"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、条件语句</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#条件语句的常见格式"><span class="toc-number">2.0.7.0.1.</span> <span class="toc-text">条件语句的常见格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#案例"><span class="toc-number">2.0.7.0.2.</span> <span class="toc-text">案例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、查询"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、查询</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-5"><span class="toc-number">2.0.8.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-5"><span class="toc-number">2.0.8.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、起别名"><span class="toc-number">2.0.9.</span> <span class="toc-text">9、起别名</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-字段和表都可以起别名"><span class="toc-number">2.0.9.0.1.</span> <span class="toc-text">格式(字段和表都可以起别名)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-6"><span class="toc-number">2.0.9.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10、计算记录的数量"><span class="toc-number">2.0.10.</span> <span class="toc-text">10、计算记录的数量</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#格式-6"><span class="toc-number">2.0.10.0.1.</span> <span class="toc-text">格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#示例-7"><span class="toc-number">2.0.10.0.2.</span> <span class="toc-text">示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11、排序"><span class="toc-number">2.0.11.</span> <span class="toc-text">11、排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12、limit"><span class="toc-number">2.0.12.</span> <span class="toc-text">12、limit</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13、简单约束"><span class="toc-number">2.0.13.</span> <span class="toc-text">13、简单约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#14、主键约束"><span class="toc-number">2.0.14.</span> <span class="toc-text">14、主键约束</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#主键的设计原则"><span class="toc-number">2.0.14.0.1.</span> <span class="toc-text">主键的设计原则</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#主键的声明"><span class="toc-number">2.0.14.0.2.</span> <span class="toc-text">主键的声明</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#15、外键约束"><span class="toc-number">2.0.15.</span> <span class="toc-text">15、外键约束</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#16、表连接查询"><span class="toc-number">2.0.16.</span> <span class="toc-text">16、表连接查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、SQLite编码"><span class="toc-number">3.</span> <span class="toc-text">三、SQLite编码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、创建、打开、关闭数据库"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、创建、打开、关闭数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、执行不返回数据的SQL语句"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、执行不返回数据的SQL语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、带占位符插入数据"><span class="toc-number">3.0.3.</span> <span class="toc-text">3、带占位符插入数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、查询数据"><span class="toc-number">3.0.4.</span> <span class="toc-text">4、查询数据</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、附件"><span class="toc-number">4.</span> <span class="toc-text">四、附件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-打开数据库"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.打开数据库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、执行任何SQL语句"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、执行任何SQL语句</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、检查SQL语句的合法性"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、检查SQL语句的合法性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、查询一行数据"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、查询一行数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、利用stmt获得某一字段的值"><span class="toc-number">4.0.5.</span> <span class="toc-text">5、利用stmt获得某一字段的值</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -533,6 +578,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

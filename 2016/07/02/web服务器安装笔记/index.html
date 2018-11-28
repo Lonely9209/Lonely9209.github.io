@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>Web服务器安装笔记 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！  二、为什么是 “Apache” 使用最广的 Web 服务器 Mac自带，只需要修改几个配置就可以，简单，快捷 有些特殊的服务器功能，Apache都能很好的支持  例如：HTTP PUT/DELETE 操作，知识补充涉及的 HTTPS 服务 三、    准备工作 设置用户密码  四、 配置服务器1、配置服">
+  <meta name="description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！">
+<meta name="keywords" content="网络与多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Web服务器安装笔记">
 <meta property="og:url" content="lonely9209.github.io/2016/07/02/web服务器安装笔记/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！  二、为什么是 “Apache” 使用最广的 Web 服务器 Mac自带，只需要修改几个配置就可以，简单，快捷 有些特殊的服务器功能，Apache都能很好的支持  例如：HTTP PUT/DELETE 操作，知识补充涉及的 HTTPS 服务 三、    准备工作 设置用户密码  四、 配置服务器1、配置服">
+<meta property="og:description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.837Z">
+<meta property="og:updated_time" content="2018-11-28T13:06:32.004Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Web服务器安装笔记">
-<meta name="twitter:description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！  二、为什么是 “Apache” 使用最广的 Web 服务器 Mac自带，只需要修改几个配置就可以，简单，快捷 有些特殊的服务器功能，Apache都能很好的支持  例如：HTTP PUT/DELETE 操作，知识补充涉及的 HTTPS 服务 三、    准备工作 设置用户密码  四、 配置服务器1、配置服">
+<meta name="twitter:description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、目的："><span class="toc-number">1.</span> <span class="toc-text">一、目的：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、为什么是-“Apache”"><span class="toc-number">2.</span> <span class="toc-text">二、为什么是 “Apache”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-准备工作"><span class="toc-number">3.</span> <span class="toc-text">三、    准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、-配置服务器"><span class="toc-number">4.</span> <span class="toc-text">四、 配置服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、配置服务器的工作"><span class="toc-number">4.0.1.</span> <span class="toc-text">1、配置服务器的工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、配置服务器注意事项"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、配置服务器注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、配置服务器"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、配置服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#vim命令"><span class="toc-number">4.0.3.0.1.</span> <span class="toc-text">vim命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、etc-目录有点类似于-windows-system32，存放配置文件的目录"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、etc 目录有点类似于 windows/system32，存放配置文件的目录</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#常见问题："><span class="toc-number">4.0.4.0.1.</span> <span class="toc-text">常见问题：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-如果点击info-php文件，出现下载，或者只是显示一小段文字"><span class="toc-number">4.0.4.0.2.</span> <span class="toc-text">1. 如果点击info.php文件，出现下载，或者只是显示一小段文字</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-每次启动计算机，Apache服务器默认是不会自动启动的！"><span class="toc-number">4.0.4.0.3.</span> <span class="toc-text">2. 每次启动计算机，Apache服务器默认是不会自动启动的！</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-最常见的问题"><span class="toc-number">4.0.4.0.4.</span> <span class="toc-text">3. 最常见的问题</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-Mac-10-10-的-Apache-配置略微有一些不一样！"><span class="toc-number">4.0.4.0.5.</span> <span class="toc-text">4. Mac 10.10 的 Apache 配置略微有一些不一样！</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-执行脚本的时候，显示没有拒绝访问！大家用-NTFS-格式的-U-盘拷贝网络素材！会把文件本身的权限过滤掉！"><span class="toc-number">4.0.4.0.6.</span> <span class="toc-text">5. 执行脚本的时候，显示没有拒绝访问！大家用 NTFS 格式的 U 盘拷贝网络素材！会把文件本身的权限过滤掉！</span></a></li></ol></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -185,6 +216,7 @@
 <h2 id="一、目的："><a href="#一、目的：" class="headerlink" title="一、目的："></a>一、目的：</h2><ol>
 <li>能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！</li>
 </ol>
+<a id="more"></a>
 <h2 id="二、为什么是-“Apache”"><a href="#二、为什么是-“Apache”" class="headerlink" title="二、为什么是 “Apache”"></a>二、为什么是 “Apache”</h2><ol>
 <li>使用最广的 Web 服务器</li>
 <li>Mac自带，只需要修改几个配置就可以，简单，快捷</li>
@@ -256,18 +288,18 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络与多线程</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -331,18 +363,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/02/UIWindow和控制器/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/02/使用NSURL读写字符串/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          UIWindow和控制器
+          使用NSURL读写字符串
         
       </div>
     </a>
   
   
-    <a href="/2016/07/01/NSString:NSMutableString介绍及基本使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">NSString/NSMutableString介绍及基本使用</div>
+    <a href="/2016/07/02/UIWindow和控制器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UIWindow和控制器</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -361,6 +393,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、目的："><span class="toc-number">1.</span> <span class="toc-text">一、目的：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、为什么是-“Apache”"><span class="toc-number">2.</span> <span class="toc-text">二、为什么是 “Apache”</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-准备工作"><span class="toc-number">3.</span> <span class="toc-text">三、    准备工作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、-配置服务器"><span class="toc-number">4.</span> <span class="toc-text">四、 配置服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、配置服务器的工作"><span class="toc-number">4.0.1.</span> <span class="toc-text">1、配置服务器的工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、配置服务器注意事项"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、配置服务器注意事项</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、配置服务器"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、配置服务器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#vim命令"><span class="toc-number">4.0.3.0.1.</span> <span class="toc-text">vim命令</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、etc-目录有点类似于-windows-system32，存放配置文件的目录"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、etc 目录有点类似于 windows/system32，存放配置文件的目录</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#常见问题："><span class="toc-number">4.0.4.0.1.</span> <span class="toc-text">常见问题：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#1-如果点击info-php文件，出现下载，或者只是显示一小段文字"><span class="toc-number">4.0.4.0.2.</span> <span class="toc-text">1. 如果点击info.php文件，出现下载，或者只是显示一小段文字</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2-每次启动计算机，Apache服务器默认是不会自动启动的！"><span class="toc-number">4.0.4.0.3.</span> <span class="toc-text">2. 每次启动计算机，Apache服务器默认是不会自动启动的！</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3-最常见的问题"><span class="toc-number">4.0.4.0.4.</span> <span class="toc-text">3. 最常见的问题</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4-Mac-10-10-的-Apache-配置略微有一些不一样！"><span class="toc-number">4.0.4.0.5.</span> <span class="toc-text">4. Mac 10.10 的 Apache 配置略微有一些不一样！</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5-执行脚本的时候，显示没有拒绝访问！大家用-NTFS-格式的-U-盘拷贝网络素材！会把文件本身的权限过滤掉！"><span class="toc-number">4.0.4.0.6.</span> <span class="toc-text">5. 执行脚本的时候，显示没有拒绝访问！大家用 NTFS 格式的 U 盘拷贝网络素材！会把文件本身的权限过滤掉！</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -469,6 +514,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

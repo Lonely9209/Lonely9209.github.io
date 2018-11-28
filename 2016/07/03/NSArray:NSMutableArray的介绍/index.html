@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>NSArray/NSMutableArray的介绍和基本使用 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、NSArray的介绍和基本使用1、NSArray的基本介绍 1、C数组弊端 C语言中数组的弊端int array[4] = {10, 89, 27, 76};  只能存放一种类型的数据 不能很方便地动态添加数组元素 不能很方便地动态删除数组元素  2、NSArray常见的创建方式：   1234567891011+ (instancetype)array;+ (instancetype)arr">
+  <meta name="description" content="一、NSArray的介绍和基本使用1、NSArray的基本介绍 1、C数组弊端  C语言中数组的弊端 int array[4] = {10, 89, 27, 76};">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSArray&#x2F;NSMutableArray的介绍和基本使用">
 <meta property="og:url" content="lonely9209.github.io/2016/07/03/NSArray:NSMutableArray的介绍/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、NSArray的介绍和基本使用1、NSArray的基本介绍 1、C数组弊端 C语言中数组的弊端int array[4] = {10, 89, 27, 76};  只能存放一种类型的数据 不能很方便地动态添加数组元素 不能很方便地动态删除数组元素  2、NSArray常见的创建方式：   1234567891011+ (instancetype)array;+ (instancetype)arr">
+<meta property="og:description" content="一、NSArray的介绍和基本使用1、NSArray的基本介绍 1、C数组弊端  C语言中数组的弊端 int array[4] = {10, 89, 27, 76};">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.829Z">
+<meta property="og:updated_time" content="2018-11-28T13:12:42.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSArray&#x2F;NSMutableArray的介绍和基本使用">
-<meta name="twitter:description" content="一、NSArray的介绍和基本使用1、NSArray的基本介绍 1、C数组弊端 C语言中数组的弊端int array[4] = {10, 89, 27, 76};  只能存放一种类型的数据 不能很方便地动态添加数组元素 不能很方便地动态删除数组元素  2、NSArray常见的创建方式：   1234567891011+ (instancetype)array;+ (instancetype)arr">
+<meta name="twitter:description" content="一、NSArray的介绍和基本使用1、NSArray的基本介绍 1、C数组弊端  C语言中数组的弊端 int array[4] = {10, 89, 27, 76};">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,25 +185,59 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、NSArray的介绍和基本使用"><span class="toc-number">1.</span> <span class="toc-text">一、NSArray的介绍和基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、NSArray的基本介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSArray的基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、NSArray的常见用法"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、NSArray的常见用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、NSArray的遍历方法"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、NSArray的遍历方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、NSArray读写文件"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、NSArray读写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、NSArray与NSString"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、NSArray与NSString</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#二、NSMutableArray的介绍和基本使用"><span class="toc-number">2.</span> <span class="toc-text">二、NSMutableArray的介绍和基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、NSMutableArray的基本介绍"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、NSMutableArray的基本介绍</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一、NSArray的介绍和基本使用"><a href="#一、NSArray的介绍和基本使用" class="headerlink" title="一、NSArray的介绍和基本使用"></a>一、NSArray的介绍和基本使用</h1><h3 id="1、NSArray的基本介绍"><a href="#1、NSArray的基本介绍" class="headerlink" title="1、NSArray的基本介绍"></a>1、NSArray的基本介绍</h3><ul>
-<li><strong>1、C数组弊端</strong></li>
-<li>C语言中数组的弊端<pre><code>int array[4] = {10, 89, 27, 76};
+<li><p><strong>1、C数组弊端</strong></p>
+</li>
+<li><p>C语言中数组的弊端</p>
+<pre><code>int array[4] = {10, 89, 27, 76};
 </code></pre></li>
-<li>只能存放一种类型的数据</li>
-<li>不能很方便地动态添加数组元素</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p>只能存放一种类型的数据</p>
+</li>
+<li><p>不能很方便地动态添加数组元素</p>
+</li>
 <li><p>不能很方便地动态删除数组元素</p>
 </li>
 <li><p><strong>2、NSArray常见的创建方式：</strong></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)array;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithObject:(<span class="keyword">id</span>)anObject;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithObjects:(<span class="keyword">id</span>)firstObj, ...;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithArray:(<span class="built_in">NSArray</span> *)array;</span><br><span class="line">	</span><br><span class="line">+ (<span class="keyword">id</span>)arrayWithContentsOfFile:(<span class="built_in">NSString</span> *)path;</span><br><span class="line">+ (<span class="keyword">id</span>)arrayWithContentsOfURL:(<span class="built_in">NSURL</span> *)url;</span><br><span class="line">	</span><br><span class="line"><span class="comment">// 可以将一个NSArray保存到文件中</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)writeToFile:(<span class="built_in">NSString</span> *)path  atomically:(<span class="built_in">BOOL</span>)useAuxiliaryFile;</span><br><span class="line">- (<span class="built_in">BOOL</span>)writeToURL:(<span class="built_in">NSURL</span> *)url atomically:(<span class="built_in">BOOL</span>)atomically;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)array;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithObject:(<span class="keyword">id</span>)anObject;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithObjects:(<span class="keyword">id</span>)firstObj, ...;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)arrayWithArray:(<span class="built_in">NSArray</span> *)array;</span><br><span class="line">    </span><br><span class="line">+ (<span class="keyword">id</span>)arrayWithContentsOfFile:(<span class="built_in">NSString</span> *)path;</span><br><span class="line">+ (<span class="keyword">id</span>)arrayWithContentsOfURL:(<span class="built_in">NSURL</span> *)url;</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 可以将一个NSArray保存到文件中</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)writeToFile:(<span class="built_in">NSString</span> *)path  atomically:(<span class="built_in">BOOL</span>)useAuxiliaryFile;</span><br><span class="line">- (<span class="built_in">BOOL</span>)writeToURL:(<span class="built_in">NSURL</span> *)url atomically:(<span class="built_in">BOOL</span>)atomically;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>3、NSArray的使用注意事项</strong></p>
 </li>
-<li>1、只能存放任意OC对象, 并且是有顺序的。</li>
-<li>2、不能存储非OC对象,比如int\float\double\char\enum\struct等。</li>
-<li>3、它是不可变的,一旦初始化完毕后,它里面的内容就永远是固定的, 不能删除里面的元素, 也不能再往里面添加元素.</li>
+<li><p>1、只能存放任意OC对象, 并且是有顺序的。</p>
+</li>
+<li><p>2、不能存储非OC对象,比如int\float\double\char\enum\struct等。</p>
+</li>
+<li><p>3、它是不可变的,一旦初始化完毕后,它里面的内容就永远是固定的, 不能删除里面的元素, 也不能再往里面添加元素.</p>
+</li>
 </ul>
 <h3 id="2、NSArray的常见用法"><a href="#2、NSArray的常见用法" class="headerlink" title="2、NSArray的常见用法"></a>2、NSArray的常见用法</h3><ul>
 <li><p><strong>1、NSArray的检索</strong></p>
@@ -334,18 +375,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -409,18 +454,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/04/文字:图片处理/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/04/UITabBarController/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          文字/图片处理
+          UITabBarController
         
       </div>
     </a>
   
   
-    <a href="/2016/07/03/HTTP请求和数据安全/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">HTTP请求和数据安全</div>
+    <a href="/2016/07/03/UIResponder:触摸事件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UIResponder/触摸事件</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -439,6 +484,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、NSArray的介绍和基本使用"><span class="toc-number">1.</span> <span class="toc-text">一、NSArray的介绍和基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、NSArray的基本介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSArray的基本介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、NSArray的常见用法"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、NSArray的常见用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3、NSArray的遍历方法"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、NSArray的遍历方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4、NSArray读写文件"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、NSArray读写文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5、NSArray与NSString"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、NSArray与NSString</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#二、NSMutableArray的介绍和基本使用"><span class="toc-number">2.</span> <span class="toc-text">二、NSMutableArray的介绍和基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、NSMutableArray的基本介绍"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、NSMutableArray的基本介绍</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -547,6 +605,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

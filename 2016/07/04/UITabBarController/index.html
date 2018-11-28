@@ -9,13 +9,14 @@
   <title>UITabBarController | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、UITabBarController属性/方法 子控制器数组   1@property(nullable, nonatomic,copy) NSArray&amp;lt;__kindof UIViewController *&amp;gt; *viewControllers  当前选中的子控制器   1@property(nullable, nonatomic, assign) __kindof UIView">
+<meta name="keywords" content="OC基础,UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UITabBarController">
 <meta property="og:url" content="lonely9209.github.io/2016/07/04/UITabBarController/index.html">
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="一、UITabBarController属性/方法 子控制器数组   1@property(nullable, nonatomic,copy) NSArray&amp;lt;__kindof UIViewController *&amp;gt; *viewControllers  当前选中的子控制器   1@property(nullable, nonatomic, assign) __kindof UIView">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.834Z">
+<meta property="og:updated_time" content="2018-11-28T13:14:27.024Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UITabBarController">
 <meta name="twitter:description" content="一、UITabBarController属性/方法 子控制器数组   1@property(nullable, nonatomic,copy) NSArray&amp;lt;__kindof UIViewController *&amp;gt; *viewControllers  当前选中的子控制器   1@property(nullable, nonatomic, assign) __kindof UIView">
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UITabBarController属性-方法"><span class="toc-number">1.</span> <span class="toc-text">一、UITabBarController属性/方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、UITabBar属性-方法"><span class="toc-number">2.</span> <span class="toc-text">二、UITabBar属性/方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用KVC自定义Tabbar"><span class="toc-number">2.0.1.</span> <span class="toc-text">使用KVC自定义Tabbar</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三、统一设置tabbar样式"><span class="toc-number">3.</span> <span class="toc-text">三、统一设置tabbar样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、TabBar添加控制器一般方法"><span class="toc-number">4.</span> <span class="toc-text">四、TabBar添加控制器一般方法</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -192,6 +223,7 @@
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">NSUInteger</span> selectedIndex;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h2 id="二、UITabBar属性-方法"><a href="#二、UITabBar属性-方法" class="headerlink" title="二、UITabBar属性/方法"></a>二、UITabBar属性/方法</h2><ul>
 <li><p>item数组</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nullable</span>,<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span>&lt;<span class="built_in">UITabBarItem</span> *&gt; *items;</span><br></pre></td></tr></table></figure>
@@ -237,18 +269,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -312,18 +348,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/04/多线程概念和NSThread/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/04/文字:图片处理/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          多线程概念和NSThread
+          文字/图片处理
         
       </div>
     </a>
   
   
-    <a href="/2016/07/04/文字:图片处理/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">文字/图片处理</div>
+    <a href="/2016/07/03/NSArray:NSMutableArray的介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NSArray/NSMutableArray的介绍和基本使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -342,6 +378,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UITabBarController属性-方法"><span class="toc-number">1.</span> <span class="toc-text">一、UITabBarController属性/方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、UITabBar属性-方法"><span class="toc-number">2.</span> <span class="toc-text">二、UITabBar属性/方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#使用KVC自定义Tabbar"><span class="toc-number">2.0.1.</span> <span class="toc-text">使用KVC自定义Tabbar</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三、统一设置tabbar样式"><span class="toc-number">3.</span> <span class="toc-text">三、统一设置tabbar样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、TabBar添加控制器一般方法"><span class="toc-number">4.</span> <span class="toc-text">四、TabBar添加控制器一般方法</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -450,6 +499,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

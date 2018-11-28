@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>Quartz2D(绘图) | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、基本图形绘制 线段（线宽、线段样式） 矩形（空心、实心、颜色） 三角形、四边形等形状 1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等 当 view 第一次被显示的时候调用(调用一次) 或者是重绘事件被触发的时候 不要手动去调用这个方法     手动调用重绘方法 setNeedsDisplay 或者 setNeedsDisplayInRect:12">
+  <meta name="description" content="一、基本图形绘制 线段（线宽、线段样式）  矩形（空心、实心、颜色）  三角形、四边形等形状">
+<meta name="keywords" content="OC,提高篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Quartz2D(绘图)">
 <meta property="og:url" content="lonely9209.github.io/2016/07/07/Quartz2d(绘图)/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、基本图形绘制 线段（线宽、线段样式） 矩形（空心、实心、颜色） 三角形、四边形等形状 1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等 当 view 第一次被显示的时候调用(调用一次) 或者是重绘事件被触发的时候 不要手动去调用这个方法     手动调用重绘方法 setNeedsDisplay 或者 setNeedsDisplayInRect:12">
+<meta property="og:description" content="一、基本图形绘制 线段（线宽、线段样式）  矩形（空心、实心、颜色）  三角形、四边形等形状">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.831Z">
+<meta property="og:updated_time" content="2018-11-28T13:14:55.532Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Quartz2D(绘图)">
-<meta name="twitter:description" content="一、基本图形绘制 线段（线宽、线段样式） 矩形（空心、实心、颜色） 三角形、四边形等形状 1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等 当 view 第一次被显示的时候调用(调用一次) 或者是重绘事件被触发的时候 不要手动去调用这个方法     手动调用重绘方法 setNeedsDisplay 或者 setNeedsDisplayInRect:12">
+<meta name="twitter:description" content="一、基本图形绘制 线段（线宽、线段样式）  矩形（空心、实心、颜色）  三角形、四边形等形状">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,17 +185,48 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基本图形绘制"><span class="toc-number">1.</span> <span class="toc-text">一、基本图形绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#说明"><span class="toc-number">1.0.1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考代码"><span class="toc-number">1.0.2.</span> <span class="toc-text">参考代码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、绘制一个”三角形”"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1、绘制一个”三角形”</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、绘制一个实心”矩形”"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2、绘制一个实心”矩形”</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、设置图形的颜色"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">3、设置图形的颜色</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、设置不同线段-不同颜色"><span class="toc-number">1.0.2.0.4.</span> <span class="toc-text">4、设置不同线段, 不同颜色</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5、设置线段”头尾部”的样式"><span class="toc-number">1.0.2.0.5.</span> <span class="toc-text">5、设置线段”头尾部”的样式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6、设置转折点样式"><span class="toc-number">1.0.2.0.6.</span> <span class="toc-text">6、设置转折点样式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7、文字绘制-通过OC-来绘制图形"><span class="toc-number">1.0.2.0.7.</span> <span class="toc-text">7、文字绘制(通过OC 来绘制图形)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8、图片绘制-通过OC-来绘制图形"><span class="toc-number">1.0.2.0.8.</span> <span class="toc-text">8、图片绘制(通过OC 来绘制图形)</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、图形上下文栈"><span class="toc-number">2.</span> <span class="toc-text">二、图形上下文栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考代码-1"><span class="toc-number">2.0.1.</span> <span class="toc-text">参考代码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、矩阵操作"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">1、矩阵操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、图片裁剪"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">2、图片裁剪</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、图片裁剪（返回圆形边框View）"><span class="toc-number">2.0.1.0.3.</span> <span class="toc-text">3、图片裁剪（返回圆形边框View）</span></a></li></ol></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、基本图形绘制"><a href="#一、基本图形绘制" class="headerlink" title="一、基本图形绘制"></a>一、基本图形绘制</h2><ul>
-<li>线段（线宽、线段样式）</li>
-<li>矩形（空心、实心、颜色）</li>
-<li>三角形、四边形等形状</li>
-<li>1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等<ul>
-<li>当 view 第一次被显示的时候调用(调用一次)</li>
+<li><p>线段（线宽、线段样式）</p>
+</li>
+<li><p>矩形（空心、实心、颜色）</p>
+</li>
+<li><p>三角形、四边形等形状</p>
+ <a id="more"></a>
+</li>
+<li><p>1、说明 - (void)drawRect:(CGRect)rect 什么时候调用、调用次数等</p>
+<ul>
+<li>当 view 第一次被显示的时候调用(调用一次)<ul>
 <li>或者是重绘事件被触发的时候</li>
 <li>不要手动去调用这个方法</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -276,18 +314,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -351,18 +393,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/07/UICollectionview/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/07/Markdown语法/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          UICollectionView
+          Markdown语法
         
       </div>
     </a>
   
   
-    <a href="/2016/07/07/NSRange使用/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">NSRange使用</div>
+    <a href="/2016/07/07/UICollectionview/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UICollectionView</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -381,6 +423,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、基本图形绘制"><span class="toc-number">1.</span> <span class="toc-text">一、基本图形绘制</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#说明"><span class="toc-number">1.0.1.</span> <span class="toc-text">说明</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#参考代码"><span class="toc-number">1.0.2.</span> <span class="toc-text">参考代码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、绘制一个”三角形”"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1、绘制一个”三角形”</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、绘制一个实心”矩形”"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2、绘制一个实心”矩形”</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、设置图形的颜色"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">3、设置图形的颜色</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#4、设置不同线段-不同颜色"><span class="toc-number">1.0.2.0.4.</span> <span class="toc-text">4、设置不同线段, 不同颜色</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#5、设置线段”头尾部”的样式"><span class="toc-number">1.0.2.0.5.</span> <span class="toc-text">5、设置线段”头尾部”的样式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#6、设置转折点样式"><span class="toc-number">1.0.2.0.6.</span> <span class="toc-text">6、设置转折点样式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#7、文字绘制-通过OC-来绘制图形"><span class="toc-number">1.0.2.0.7.</span> <span class="toc-text">7、文字绘制(通过OC 来绘制图形)</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#8、图片绘制-通过OC-来绘制图形"><span class="toc-number">1.0.2.0.8.</span> <span class="toc-text">8、图片绘制(通过OC 来绘制图形)</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、图形上下文栈"><span class="toc-number">2.</span> <span class="toc-text">二、图形上下文栈</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#参考代码-1"><span class="toc-number">2.0.1.</span> <span class="toc-text">参考代码</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、矩阵操作"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">1、矩阵操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、图片裁剪"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">2、图片裁剪</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、图片裁剪（返回圆形边框View）"><span class="toc-number">2.0.1.0.3.</span> <span class="toc-text">3、图片裁剪（返回圆形边框View）</span></a></li></ol></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -489,6 +544,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

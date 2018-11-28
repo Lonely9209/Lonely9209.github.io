@@ -9,13 +9,14 @@
   <title>HTTP请求和数据安全 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="一、HTTP请求1、http协议: 超文本传输协议(Hypertext Transfer Protocol)123456789http协议规定了客户端和服务器之间的数据传输格式.http协议是在网络开发中最常用的协议.不管是移动客户端还是PC端,访问网络资源经常使用http协议.http优点:&amp;lt;1&amp;gt; 简单快速:http协议简单,通信速度很快.&amp;lt;2&amp;gt; 灵活:http协议允许传">
+<meta name="keywords" content="网络与多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTTP请求和数据安全">
 <meta property="og:url" content="lonely9209.github.io/2016/07/03/HTTP请求和数据安全/index.html">
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="一、HTTP请求1、http协议: 超文本传输协议(Hypertext Transfer Protocol)123456789http协议规定了客户端和服务器之间的数据传输格式.http协议是在网络开发中最常用的协议.不管是移动客户端还是PC端,访问网络资源经常使用http协议.http优点:&amp;lt;1&amp;gt; 简单快速:http协议简单,通信速度很快.&amp;lt;2&amp;gt; 灵活:http协议允许传">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.829Z">
+<meta property="og:updated_time" content="2018-11-28T13:02:43.738Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTTP请求和数据安全">
 <meta name="twitter:description" content="一、HTTP请求1、http协议: 超文本传输协议(Hypertext Transfer Protocol)123456789http协议规定了客户端和服务器之间的数据传输格式.http协议是在网络开发中最常用的协议.不管是移动客户端还是PC端,访问网络资源经常使用http协议.http优点:&amp;lt;1&amp;gt; 简单快速:http协议简单,通信速度很快.&amp;lt;2&amp;gt; 灵活:http协议允许传">
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,10 +185,35 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、HTTP请求"><span class="toc-number">1.</span> <span class="toc-text">一、HTTP请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、http协议-超文本传输协议-Hypertext-Transfer-Protocol"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、http协议: 超文本传输协议(Hypertext Transfer Protocol)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、http协议的使用"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、http协议的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、请求-客户端向服务器索要数据"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1、请求:客户端向服务器索要数据.</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、响应-服务器返回客户端想要的数据"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2、响应:服务器返回客户端想要的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、发送http请求"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、发送http请求:</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、GET-和-POST"><span class="toc-number">2.</span> <span class="toc-text">二、GET 和 POST</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、http方法"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、http方法:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、参数"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、GET-和-POST-的主要区别表现在参数的传递上"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、GET 和 POST 的主要区别表现在参数的传递上</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、GET"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">1、GET</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、POST"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">2、POST</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、注意-URL中不能出现空格以及中文等特殊符号"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、注意:URL中不能出现空格以及中文等特殊符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、POST-发送登陆请求"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、POST 发送登陆请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、保存用户信息"><span class="toc-number">3.</span> <span class="toc-text">三、保存用户信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、偏好设置保存用户信息"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、偏好设置保存用户信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、信息安全加密"><span class="toc-number">4.</span> <span class="toc-text">四、信息安全加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、base64"><span class="toc-number">4.0.1.</span> <span class="toc-text">1、base64</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、MD5-–-信息-摘要算法-哈希算法之一"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、MD5 – (信息-摘要算法) 哈希算法之一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、MD5加盐"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、MD5加盐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、HMAC"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、HMAC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、时间戳密码-用户密码动态变化"><span class="toc-number">4.0.5.</span> <span class="toc-text">5、时间戳密码(用户密码动态变化)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、钥匙串访问"><span class="toc-number">5.</span> <span class="toc-text">五、钥匙串访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、钥匙串访问"><span class="toc-number">5.0.1.</span> <span class="toc-text">1、钥匙串访问</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、指纹识别"><span class="toc-number">6.</span> <span class="toc-text">六、指纹识别</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、HTTP请求"><a href="#一、HTTP请求" class="headerlink" title="一、HTTP请求"></a>一、HTTP请求</h2><h4 id="1、http协议-超文本传输协议-Hypertext-Transfer-Protocol"><a href="#1、http协议-超文本传输协议-Hypertext-Transfer-Protocol" class="headerlink" title="1、http协议: 超文本传输协议(Hypertext Transfer Protocol)"></a>1、http协议: 超文本传输协议(Hypertext Transfer Protocol)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http协议规定了客户端和服务器之间的数据传输格式.</span><br><span class="line">http协议是在网络开发中最常用的协议.不管是移动客户端还是PC端,访问网络资源经常使用http协议.</span><br><span class="line">http优点:</span><br><span class="line">&lt;<span class="number">1</span>&gt; 简单快速:</span><br><span class="line">http协议简单,通信速度很快.</span><br><span class="line">&lt;<span class="number">2</span>&gt; 灵活:</span><br><span class="line">http协议允许传输任意类型的数据.</span><br><span class="line">&lt;<span class="number">3</span>&gt; http协议是短连接(非持续性连接)</span><br><span class="line">http协议限制每次连接只处理一个请求,服务器对客户端的请求作出响应后,马上断开连接.这种方式可以节省传输时间.</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 <h4 id="2、http协议的使用"><a href="#2、http协议的使用" class="headerlink" title="2、http协议的使用"></a>2、http协议的使用</h4><p><strong>完整的http通信分为两步:</strong></p>
 <h6 id="1、请求-客户端向服务器索要数据"><a href="#1、请求-客户端向服务器索要数据" class="headerlink" title="1、请求:客户端向服务器索要数据."></a>1、请求:客户端向服务器索要数据.</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http协议规定:一个完整的http请求包含'请求行','请求头','请求体'三个部分;</span><br><span class="line"></span><br><span class="line">'请求行':包含了请求方法,请求资源路径,http协议版本.</span><br><span class="line"></span><br><span class="line"><span class="string">"GET /resources/images/ HTTP/1.1"</span></span><br><span class="line"></span><br><span class="line">'请求头':包含了对客户端的环境描述,客户端请求的主机地址等信息.</span><br><span class="line"></span><br><span class="line">Accept: text/html <span class="comment">// 客户端所能接收的数据类型</span></span><br><span class="line">Accept-Language: zh-cn <span class="comment">// 客户端的语言环境</span></span><br><span class="line">Accept-Encoding: gzip <span class="comment">// 客户端支持的数据压缩格式</span></span><br><span class="line">Host: m.baidu.com <span class="comment">// 客户端想访问的服务器主机地址</span></span><br><span class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; Intel Mac OS X <span class="number">10.10</span>; rv:<span class="number">37.0</span>) Gecko/<span class="number">20100101</span> Firefox/<span class="number">37.0</span> <span class="comment">// 客户端的类型,客户端的软件环境</span></span><br><span class="line"></span><br><span class="line">'请求体':客户端发给服务器的具体数据,比如文件/图片等.</span><br></pre></td></tr></table></figure>
 <h6 id="2、响应-服务器返回客户端想要的数据"><a href="#2、响应-服务器返回客户端想要的数据" class="headerlink" title="2、响应:服务器返回客户端想要的数据"></a>2、响应:服务器返回客户端想要的数据</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http协议规定:一个完整的http响应包含'状态行','响应头','实体内容'三个部分;</span><br><span class="line"></span><br><span class="line">'状态行':包含了http协议版本,状态吗,状态英文名称.</span><br><span class="line"></span><br><span class="line"><span class="string">"HTTP/1.1 200 OK"</span></span><br><span class="line"></span><br><span class="line">'响应头':包含了对服务器的描述,对返回数据的描述.</span><br><span class="line"></span><br><span class="line">Content-Encoding: gzip <span class="comment">// 服务器支持的数据压缩格式</span></span><br><span class="line">Content-Length:  <span class="number">1528</span> <span class="comment">// 返回数据的长度</span></span><br><span class="line">Content-Type:  application/xhtml+xml;charset=utf<span class="number">-8</span> <span class="comment">// 返回数据的类型</span></span><br><span class="line">Date: Mon, <span class="number">15</span> Jun <span class="number">2015</span> <span class="number">09</span>:<span class="number">06</span>:<span class="number">46</span> GMT <span class="comment">// 响应的时间</span></span><br><span class="line">Server: apache  <span class="comment">// 服务器类型</span></span><br><span class="line"></span><br><span class="line">'实体内容':服务器返回给客户端的具体数据(图片/html/文件...).</span><br></pre></td></tr></table></figure>
@@ -319,18 +351,18 @@ HMAC 主要使用在身份认证中;
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络与多线程</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -394,18 +426,18 @@ HMAC 主要使用在身份认证中;
   
 <nav id="article-nav">
   
-    <a href="/2016/07/03/NSArray:NSMutableArray的介绍/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/03/数据存储(数据持久化)/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          NSArray/NSMutableArray的介绍和基本使用
+          数据存储(数据持久化)
         
       </div>
     </a>
   
   
-    <a href="/2016/07/03/UIResponder:触摸事件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UIResponder/触摸事件</div>
+    <a href="/2016/07/02/远程推送/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">推送</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -424,6 +456,19 @@ HMAC 主要使用在身份认证中;
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、HTTP请求"><span class="toc-number">1.</span> <span class="toc-text">一、HTTP请求</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、http协议-超文本传输协议-Hypertext-Transfer-Protocol"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、http协议: 超文本传输协议(Hypertext Transfer Protocol)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、http协议的使用"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、http协议的使用</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、请求-客户端向服务器索要数据"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">1、请求:客户端向服务器索要数据.</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、响应-服务器返回客户端想要的数据"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">2、响应:服务器返回客户端想要的数据</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、发送http请求"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、发送http请求:</span></a></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、GET-和-POST"><span class="toc-number">2.</span> <span class="toc-text">二、GET 和 POST</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、http方法"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、http方法:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、参数"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、GET-和-POST-的主要区别表现在参数的传递上"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、GET 和 POST 的主要区别表现在参数的传递上</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、GET"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">1、GET</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、POST"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">2、POST</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、注意-URL中不能出现空格以及中文等特殊符号"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、注意:URL中不能出现空格以及中文等特殊符号</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、POST-发送登陆请求"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、POST 发送登陆请求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、保存用户信息"><span class="toc-number">3.</span> <span class="toc-text">三、保存用户信息</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、偏好设置保存用户信息"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、偏好设置保存用户信息</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、信息安全加密"><span class="toc-number">4.</span> <span class="toc-text">四、信息安全加密</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、base64"><span class="toc-number">4.0.1.</span> <span class="toc-text">1、base64</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、MD5-–-信息-摘要算法-哈希算法之一"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、MD5 – (信息-摘要算法) 哈希算法之一</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、MD5加盐"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、MD5加盐</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、HMAC"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、HMAC</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、时间戳密码-用户密码动态变化"><span class="toc-number">4.0.5.</span> <span class="toc-text">5、时间戳密码(用户密码动态变化)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、钥匙串访问"><span class="toc-number">5.</span> <span class="toc-text">五、钥匙串访问</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、钥匙串访问"><span class="toc-number">5.0.1.</span> <span class="toc-text">1、钥匙串访问</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、指纹识别"><span class="toc-number">6.</span> <span class="toc-text">六、指纹识别</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -532,6 +577,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>项目文件介绍 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、项目文件介绍 新建一个项目，最左侧中包含3个文件夹 第1个文件夹包含项目相关的所有的代码文件及数据文件 supportingFiles里面包含配置文件及其他的数据文件 最后的UI-TESTS文件夹主要是做单元测试使用的，我们目前不会用到，所以先不考虑。   info.plist文件，项目的配置信息文件 pch文件，项目中所有公用的类或者宏的头文件2、info.plist文件 在Xcode6以前">
+  <meta name="description" content="1、项目文件介绍 新建一个项目，最左侧中包含3个文件夹 第1个文件夹包含项目相关的所有的代码文件及数据文件 supportingFiles里面包含配置文件及其他的数据文件 最后的UI-TESTS文件夹主要是做单元测试使用的，我们目前不会用到，所以先不考虑。   info.plist文件，项目的配置信息文件 pch文件，项目中所有公用的类或者宏的头文件">
+<meta name="keywords" content="OC,提高篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="项目文件介绍">
 <meta property="og:url" content="lonely9209.github.io/2016/07/01/项目文件介绍/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="1、项目文件介绍 新建一个项目，最左侧中包含3个文件夹 第1个文件夹包含项目相关的所有的代码文件及数据文件 supportingFiles里面包含配置文件及其他的数据文件 最后的UI-TESTS文件夹主要是做单元测试使用的，我们目前不会用到，所以先不考虑。   info.plist文件，项目的配置信息文件 pch文件，项目中所有公用的类或者宏的头文件2、info.plist文件 在Xcode6以前">
+<meta property="og:description" content="1、项目文件介绍 新建一个项目，最左侧中包含3个文件夹 第1个文件夹包含项目相关的所有的代码文件及数据文件 supportingFiles里面包含配置文件及其他的数据文件 最后的UI-TESTS文件夹主要是做单元测试使用的，我们目前不会用到，所以先不考虑。   info.plist文件，项目的配置信息文件 pch文件，项目中所有公用的类或者宏的头文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.841Z">
+<meta property="og:updated_time" content="2018-11-28T13:15:37.715Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="项目文件介绍">
-<meta name="twitter:description" content="1、项目文件介绍 新建一个项目，最左侧中包含3个文件夹 第1个文件夹包含项目相关的所有的代码文件及数据文件 supportingFiles里面包含配置文件及其他的数据文件 最后的UI-TESTS文件夹主要是做单元测试使用的，我们目前不会用到，所以先不考虑。   info.plist文件，项目的配置信息文件 pch文件，项目中所有公用的类或者宏的头文件2、info.plist文件 在Xcode6以前">
+<meta name="twitter:description" content="1、项目文件介绍 新建一个项目，最左侧中包含3个文件夹 第1个文件夹包含项目相关的所有的代码文件及数据文件 supportingFiles里面包含配置文件及其他的数据文件 最后的UI-TESTS文件夹主要是做单元测试使用的，我们目前不会用到，所以先不考虑。   info.plist文件，项目的配置信息文件 pch文件，项目中所有公用的类或者宏的头文件">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、项目文件介绍"><span class="toc-number">1.</span> <span class="toc-text">1、项目文件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、info-plist文件"><span class="toc-number">2.</span> <span class="toc-text">2、info.plist文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：自己创建的plist文件中不要包含Info关键字。"><span class="toc-number">2.0.0.0.1.</span> <span class="toc-text">注意：自己创建的plist文件中不要包含Info关键字。</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#3、pch文件"><span class="toc-number">3.</span> <span class="toc-text">3、pch文件</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -189,7 +220,10 @@
 </ul>
 </li>
 <li>info.plist文件，项目的配置信息文件</li>
-<li>pch文件，项目中所有公用的类或者宏的头文件<h2 id="2、info-plist文件"><a href="#2、info-plist文件" class="headerlink" title="2、info.plist文件"></a>2、info.plist文件</h2></li>
+<li>pch文件，项目中所有公用的类或者宏的头文件</li>
+</ul>
+<a id="more"></a>
+<h2 id="2、info-plist文件"><a href="#2、info-plist文件" class="headerlink" title="2、info.plist文件"></a>2、info.plist文件</h2><ul>
 <li>在Xcode6以前创建项目的时候为有一个“项目名称-info.plist”名称的文件，在Xcode6之后就直接就是info.plist文件了。</li>
 <li>这个文件主要用来保存当前项目的基本配置信息<ul>
 <li>info.plist文件内容实际上是xml格式的，通过 <strong>右键</strong> –&gt; <strong>open as sourceCode</strong> 可以看到。</li>
@@ -285,18 +319,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -360,20 +398,15 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/01/服务器配置笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/01/UIApplication/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          服务器配置笔记
+          UIApplication
         
       </div>
     </a>
   
-  
-    <a href="/2016/07/01/UIApplication/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UIApplication</div>
-      <i class="icon-circle-right"></i>
-    </a>
   
 </nav>
 
@@ -390,6 +423,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、项目文件介绍"><span class="toc-number">1.</span> <span class="toc-text">1、项目文件介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、info-plist文件"><span class="toc-number">2.</span> <span class="toc-text">2、info.plist文件</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：自己创建的plist文件中不要包含Info关键字。"><span class="toc-number">2.0.0.0.1.</span> <span class="toc-text">注意：自己创建的plist文件中不要包含Info关键字。</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#3、pch文件"><span class="toc-number">3.</span> <span class="toc-text">3、pch文件</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -498,6 +544,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>Copy | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、copy概念及入门1、【理解】copy的概念 Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。 常见的复制有：文件复制 作用：利用一个源文件产生一个副本文件 特点： 修改源文件的内容，不会影响副本文件 修改副本文件的内容，不会影响源文件  OC中的copy     作用：利用一个源对象产生一个副本对象 特点： 修改源对象的属性和行为，不会影响副本对象 修改副本对象的属性和行为，不">
+  <meta name="description" content="一、copy概念及入门1、【理解】copy的概念 Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Copy">
 <meta property="og:url" content="lonely9209.github.io/2016/07/05/copy/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、copy概念及入门1、【理解】copy的概念 Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。 常见的复制有：文件复制 作用：利用一个源文件产生一个副本文件 特点： 修改源文件的内容，不会影响副本文件 修改副本文件的内容，不会影响源文件  OC中的copy     作用：利用一个源对象产生一个副本对象 特点： 修改源对象的属性和行为，不会影响副本对象 修改副本对象的属性和行为，不">
+<meta property="og:description" content="一、copy概念及入门1、【理解】copy的概念 Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.836Z">
+<meta property="og:updated_time" content="2018-11-28T13:12:22.776Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Copy">
-<meta name="twitter:description" content="一、copy概念及入门1、【理解】copy的概念 Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。 常见的复制有：文件复制 作用：利用一个源文件产生一个副本文件 特点： 修改源文件的内容，不会影响副本文件 修改副本文件的内容，不会影响源文件  OC中的copy     作用：利用一个源对象产生一个副本对象 特点： 修改源对象的属性和行为，不会影响副本对象 修改副本对象的属性和行为，不">
+<meta name="twitter:description" content="一、copy概念及入门1、【理解】copy的概念 Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,25 +185,63 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、copy概念及入门"><span class="toc-number">1.</span> <span class="toc-text">一、copy概念及入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、【理解】copy的概念"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、【理解】copy的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、copy快速入门"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、copy快速入门</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、copy与内存管理"><span class="toc-number">2.</span> <span class="toc-text">二、copy与内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、copy与内存管理"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、copy与内存管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、深浅拷贝总结"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、深浅拷贝总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-property中的copy的关键字"><span class="toc-number">3.</span> <span class="toc-text">三、@property中的copy的关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、-property中的copy作用"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、@property中的copy作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、-property内存管理策略选择"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、@property内存管理策略选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、为自定义的类实现copy操作"><span class="toc-number">4.</span> <span class="toc-text">四、为自定义的类实现copy操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-为自定义类实现copy操作"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.为自定义类实现copy操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#自定义对象copy步骤"><span class="toc-number">4.0.1.1.</span> <span class="toc-text">自定义对象copy步骤</span></a></li></ol></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、copy概念及入门"><a href="#一、copy概念及入门" class="headerlink" title="一、copy概念及入门"></a>一、copy概念及入门</h2><h4 id="1、【理解】copy的概念"><a href="#1、【理解】copy的概念" class="headerlink" title="1、【理解】copy的概念"></a>1、【理解】copy的概念</h4><ul>
 <li>Copy的字面意思是“复制”、“拷贝”，是一个产生副本的过程。</li>
-<li><strong>常见的复制有：文件复制</strong></li>
-<li>作用：利用一个源文件产生一个副本文件</li>
-<li>特点：<ul>
-<li>修改源文件的内容，不会影响副本文件<ul>
+</ul>
+<a id="more"></a>
+<ul>
+<li><p><strong>常见的复制有：文件复制</strong></p>
+</li>
+<li><p>作用：利用一个源文件产生一个副本文件</p>
+</li>
+<li><p>特点：</p>
+<ul>
+<li><p>修改源文件的内容，不会影响副本文件</p>
+<ul>
 <li>修改副本文件的内容，不会影响源文件</li>
-<li><strong> OC中的copy</strong></li>
 </ul>
 </li>
 </ul>
 </li>
-<li>作用：利用一个源对象产生一个副本对象</li>
-<li>特点：<ul>
+</ul>
+<ul>
+<li><p><strong> OC中的copy</strong></p>
+<ul>
+<li><p>作用：利用一个源对象产生一个副本对象</p>
+</li>
+<li><p>特点：</p>
+<ul>
 <li>修改源对象的属性和行为，不会影响副本对象</li>
 <li>修改副本对象的属性和行为，不会影响源对象</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -207,8 +252,8 @@
 <li>mutableCopy :创建的是可变副本(如NSMutableString、NSMutableArray、NSMutableDictionary)</li>
 <li><p>使用copy功能的前提<br>copy : 需要遵守NSCopying协议，实现copyWithZone:方法</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="class"><span class="keyword">@protocol</span> <span class="title">NSCopying</span></span></span><br><span class="line"> - (<span class="keyword">id</span>)copyWithZone:(<span class="built_in">NSZone</span> *)zone;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<p>mutableCopy :需要遵守NSMutableCopying协议，实现mutableCopyWithZone:方法</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">NSMutableCopying</span></span></span><br><span class="line">- (<span class="keyword">id</span>)mutableCopyWithZone:(<span class="built_in">NSZone</span> *)zone;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
+<pre><code>mutableCopy :需要遵守NSMutableCopying协议，实现mutableCopyWithZone:方法
+</code></pre><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">NSMutableCopying</span></span></span><br><span class="line">- (<span class="keyword">id</span>)mutableCopyWithZone:(<span class="built_in">NSZone</span> *)zone;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -312,18 +357,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -397,8 +446,8 @@
     </a>
   
   
-    <a href="/2016/07/05/UIDynamic（物理引擎）/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UIDynamic（物理引擎）</div>
+    <a href="/2016/07/05/GCD:RunLoop/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">GCD/RunLoop</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -417,6 +466,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、copy概念及入门"><span class="toc-number">1.</span> <span class="toc-text">一、copy概念及入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、【理解】copy的概念"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、【理解】copy的概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、copy快速入门"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、copy快速入门</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、copy与内存管理"><span class="toc-number">2.</span> <span class="toc-text">二、copy与内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、copy与内存管理"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、copy与内存管理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、深浅拷贝总结"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、深浅拷贝总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、-property中的copy的关键字"><span class="toc-number">3.</span> <span class="toc-text">三、@property中的copy的关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、-property中的copy作用"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、@property中的copy作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、-property内存管理策略选择"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、@property内存管理策略选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、为自定义的类实现copy操作"><span class="toc-number">4.</span> <span class="toc-text">四、为自定义的类实现copy操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-为自定义类实现copy操作"><span class="toc-number">4.0.1.</span> <span class="toc-text">1.为自定义类实现copy操作</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#自定义对象copy步骤"><span class="toc-number">4.0.1.1.</span> <span class="toc-text">自定义对象copy步骤</span></a></li></ol></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -525,6 +587,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

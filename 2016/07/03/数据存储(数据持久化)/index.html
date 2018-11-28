@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>数据存储(数据持久化) | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、iOS应用数据存储的常用方式 XML属性列表（plist）归档 Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称) NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。 SQLite3  当非常大量的数据存储时使用 Core Data  就是对SQLite的封装  二、应用沙盒1">
+  <meta name="description" content="一、iOS应用数据存储的常用方式 XML属性列表（plist）归档 Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称) NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。 SQLite3  当非常大量的数据存储时使用 Core Data  就是对SQLite的封装">
+<meta name="keywords" content="OC,提高篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据存储(数据持久化)">
 <meta property="og:url" content="lonely9209.github.io/2016/07/03/数据存储(数据持久化)/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、iOS应用数据存储的常用方式 XML属性列表（plist）归档 Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称) NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。 SQLite3  当非常大量的数据存储时使用 Core Data  就是对SQLite的封装  二、应用沙盒1">
+<meta property="og:description" content="一、iOS应用数据存储的常用方式 XML属性列表（plist）归档 Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称) NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。 SQLite3  当非常大量的数据存储时使用 Core Data  就是对SQLite的封装">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.838Z">
+<meta property="og:updated_time" content="2018-11-28T13:15:49.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据存储(数据持久化)">
-<meta name="twitter:description" content="一、iOS应用数据存储的常用方式 XML属性列表（plist）归档 Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称) NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。 SQLite3  当非常大量的数据存储时使用 Core Data  就是对SQLite的封装  二、应用沙盒1">
+<meta name="twitter:description" content="一、iOS应用数据存储的常用方式 XML属性列表（plist）归档 Preference(偏好设置)  本质还是通过“plist”来存储数据, 但是使用更简单(无需关注文件、文件夹路径和名称) NSKeyedArchiver归档(NSCoding)  把任何对象, 直接保存为文件的方式。 SQLite3  当非常大量的数据存储时使用 Core Data  就是对SQLite的封装">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、iOS应用数据存储的常用方式"><span class="toc-number">1.</span> <span class="toc-text">一、iOS应用数据存储的常用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、应用沙盒"><span class="toc-number">2.</span> <span class="toc-text">二、应用沙盒</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、应用沙盒结构分析"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、应用沙盒结构分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、应用沙盒目录的常见获取方式"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、应用沙盒目录的常见获取方式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、沙盒根目录：NSString-home-NSHomeDirectory"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">1、沙盒根目录：NSString *home = NSHomeDirectory();</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、利用NSSearchPathForDirectoriesInDomains函数"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">2、利用NSSearchPathForDirectoriesInDomains函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、Tmp、Library-Caches、Library-Preference"><span class="toc-number">2.0.2.0.3.</span> <span class="toc-text">3、Tmp、Library/Caches、Library/Preference</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三、属性列表（plist）"><span class="toc-number">3.</span> <span class="toc-text">三、属性列表（plist）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、属性列表-归档NSDictionary"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、属性列表-归档NSDictionary</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#将一个NSDictionary对象归档到一个plist属性列表中"><span class="toc-number">3.0.1.0.1.</span> <span class="toc-text">将一个NSDictionary对象归档到一个plist属性列表中</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、属性列表-恢复NSDictionary"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、属性列表-恢复NSDictionary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、偏好设置"><span class="toc-number">4.</span> <span class="toc-text">四、偏好设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、归档"><span class="toc-number">5.</span> <span class="toc-text">五、归档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对象必须遵守NSCoding协议"><span class="toc-number">5.0.1.</span> <span class="toc-text">对象必须遵守NSCoding协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#归档小节"><span class="toc-number">5.0.2.</span> <span class="toc-text">归档小节</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -188,6 +219,7 @@
 <li>SQLite3<br>  <code>当非常大量的数据存储时使用</code></li>
 <li>Core Data<br>  <code>就是对SQLite的封装</code></li>
 </ul>
+<a id="more"></a>
 <h2 id="二、应用沙盒"><a href="#二、应用沙盒" class="headerlink" title="二、应用沙盒"></a>二、应用沙盒</h2><h4 id="1、应用沙盒结构分析"><a href="#1、应用沙盒结构分析" class="headerlink" title="1、应用沙盒结构分析"></a>1、应用沙盒结构分析</h4><ul>
 <li>应用程序包：(上图中的Layer)包含了所有的资源文件和可执行文件</li>
 <li><p>Documents：保存应用运行时生成的需要持久化的数据，iTunes同步设备时会备份该目录。例如，游戏应用可将游戏存档保存在该目录。保存相对重要的数据。</p>
@@ -263,9 +295,10 @@
 <ul>
 <li><p>1、- (void)encodeWithCoder:(NSCoder *)aCoder;</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">示例代码:</span><br><span class="line"><span class="comment">// 归档时调用该方法</span></span><br><span class="line">- (<span class="keyword">void</span>)encodeWithCoder:(<span class="built_in">NSCoder</span> *)aCoder</span><br><span class="line">&#123;</span><br><span class="line">   [aCoder encodeObject:<span class="keyword">self</span>.name forKey:<span class="string">@"name"</span>];</span><br><span class="line">   [aCoder encodeInteger:<span class="keyword">self</span>.age forKey:<span class="string">@"age"</span>];</span><br><span class="line">   [aCoder encodeDouble:<span class="keyword">self</span>.height forKey:<span class="string">@"height"</span>];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过调用NSKeyedArchiver的archiveRootObject方法来实现归档</span></span><br><span class="line">CZPerson *person = [[SteveZPerson alloc] init];</span><br><span class="line">person.name = <span class="string">@"JackMeng"</span>;</span><br><span class="line">person.age = <span class="number">27</span>;</span><br><span class="line">person.height = <span class="number">1.75</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取沙盒路径</span></span><br><span class="line"><span class="built_in">NSString</span> *sandBoxPath = <span class="built_in">NSHomeDirectory</span>();</span><br><span class="line"><span class="comment">// 获取Documents的路径</span></span><br><span class="line"><span class="built_in">NSString</span> *docPath = [sandBoxPath stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</span><br><span class="line"><span class="comment">// 获取文件路径</span></span><br><span class="line"><span class="built_in">NSString</span> *filePath = [docPath stringByAppendingPathComponent:<span class="string">@"person.plist"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将对象person归档</span></span><br><span class="line">[<span class="built_in">NSKeyedArchiver</span> archiveRootObject:person toFile:filePath];</span><br></pre></td></tr></table></figure>
+<ul>
+<li>2、 - (id)initWithCoder:(NSCoder *)aDecoder;<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读档时调用该方法</span></span><br><span class="line">       - (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">           <span class="keyword">self</span>.name = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];</span><br><span class="line">           <span class="keyword">self</span>.age = [aDecoder decodeIntegerForKey:<span class="string">@"age"</span>];</span><br><span class="line">           <span class="keyword">self</span>.height = [aDecoder decodeDoubleForKey:<span class="string">@"height"</span>];</span><br><span class="line">       &#125;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 获取沙盒路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *sandBoxPath = <span class="built_in">NSHomeDirectory</span>();</span><br><span class="line">       <span class="comment">// 获取Documents的路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *docPath = [sandBoxPath stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</span><br><span class="line">       <span class="comment">// 获取文件路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *filePath = [docPath stringByAppendingPathComponent:<span class="string">@"person.bin"</span>];</span><br><span class="line">       </span><br><span class="line">       CZPerson *person = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:filePath];</span><br><span class="line">       </span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"name: %@, age: %ld, height: %f"</span>, person.name, person.age, person.height);</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>2、 - (id)initWithCoder:(NSCoder *)aDecoder;</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 读档时调用该方法</span></span><br><span class="line">       - (<span class="keyword">id</span>)initWithCoder:(<span class="built_in">NSCoder</span> *)aDecoder</span><br><span class="line">       &#123;</span><br><span class="line">           <span class="keyword">if</span> (<span class="keyword">self</span> = [<span class="keyword">super</span> init]) &#123;</span><br><span class="line">           <span class="keyword">self</span>.name = [aDecoder decodeObjectForKey:<span class="string">@"name"</span>];</span><br><span class="line">           <span class="keyword">self</span>.age = [aDecoder decodeIntegerForKey:<span class="string">@"age"</span>];</span><br><span class="line">           <span class="keyword">self</span>.height = [aDecoder decodeDoubleForKey:<span class="string">@"height"</span>];</span><br><span class="line">       &#125;</span><br><span class="line">          <span class="keyword">return</span> <span class="keyword">self</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       </span><br><span class="line">       <span class="comment">// 获取沙盒路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *sandBoxPath = <span class="built_in">NSHomeDirectory</span>();</span><br><span class="line">       <span class="comment">// 获取Documents的路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *docPath = [sandBoxPath stringByAppendingPathComponent:<span class="string">@"Documents"</span>];</span><br><span class="line">       <span class="comment">// 获取文件路径</span></span><br><span class="line">       <span class="built_in">NSString</span> *filePath = [docPath stringByAppendingPathComponent:<span class="string">@"person.bin"</span>];</span><br><span class="line">       </span><br><span class="line">       CZPerson *person = [<span class="built_in">NSKeyedUnarchiver</span> unarchiveObjectWithFile:filePath];</span><br><span class="line">       </span><br><span class="line">       <span class="built_in">NSLog</span>(<span class="string">@"name: %@, age: %ld, height: %f"</span>, person.name, person.age, person.height);</span><br></pre></td></tr></table></figure>
+</ul>
 </li>
 </ul>
 </li>
@@ -325,18 +358,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -410,8 +447,8 @@
     </a>
   
   
-    <a href="/2016/07/02/远程推送/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">推送</div>
+    <a href="/2016/07/03/HTTP请求和数据安全/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTTP请求和数据安全</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -430,6 +467,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、iOS应用数据存储的常用方式"><span class="toc-number">1.</span> <span class="toc-text">一、iOS应用数据存储的常用方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、应用沙盒"><span class="toc-number">2.</span> <span class="toc-text">二、应用沙盒</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、应用沙盒结构分析"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、应用沙盒结构分析</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、应用沙盒目录的常见获取方式"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、应用沙盒目录的常见获取方式</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、沙盒根目录：NSString-home-NSHomeDirectory"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">1、沙盒根目录：NSString *home = NSHomeDirectory();</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、利用NSSearchPathForDirectoriesInDomains函数"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">2、利用NSSearchPathForDirectoriesInDomains函数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、Tmp、Library-Caches、Library-Preference"><span class="toc-number">2.0.2.0.3.</span> <span class="toc-text">3、Tmp、Library/Caches、Library/Preference</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三、属性列表（plist）"><span class="toc-number">3.</span> <span class="toc-text">三、属性列表（plist）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、属性列表-归档NSDictionary"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、属性列表-归档NSDictionary</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#将一个NSDictionary对象归档到一个plist属性列表中"><span class="toc-number">3.0.1.0.1.</span> <span class="toc-text">将一个NSDictionary对象归档到一个plist属性列表中</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、属性列表-恢复NSDictionary"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、属性列表-恢复NSDictionary</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、偏好设置"><span class="toc-number">4.</span> <span class="toc-text">四、偏好设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、归档"><span class="toc-number">5.</span> <span class="toc-text">五、归档</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#对象必须遵守NSCoding协议"><span class="toc-number">5.0.1.</span> <span class="toc-text">对象必须遵守NSCoding协议</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#归档小节"><span class="toc-number">5.0.2.</span> <span class="toc-text">归档小节</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -538,6 +588,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>UIDynamic（物理引擎） | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做) * 物理仿真元素(Dynamic Item) * 是任何遵守了UIDynamicItem协议的对象 b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画) * 物理仿真行为(Dynamic Behavior)  * 仿真行为,是动力学行为的父类,基本的动力学行为类 UIGravityBehavior、UICollisionBehavio">
+  <meta name="description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做)​     物理仿真元素(Dynamic Item)​     是任何遵守了UIDynamicItem协议的对象">
+<meta name="keywords" content="OC,提高篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIDynamic（物理引擎）">
 <meta property="og:url" content="lonely9209.github.io/2016/07/05/UIDynamic（物理引擎）/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做) * 物理仿真元素(Dynamic Item) * 是任何遵守了UIDynamicItem协议的对象 b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画) * 物理仿真行为(Dynamic Behavior)  * 仿真行为,是动力学行为的父类,基本的动力学行为类 UIGravityBehavior、UICollisionBehavio">
+<meta property="og:description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做)​     物理仿真元素(Dynamic Item)​     是任何遵守了UIDynamicItem协议的对象">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.833Z">
+<meta property="og:updated_time" content="2018-11-28T13:13:57.375Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIDynamic（物理引擎）">
-<meta name="twitter:description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做) * 物理仿真元素(Dynamic Item) * 是任何遵守了UIDynamicItem协议的对象 b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画) * 物理仿真行为(Dynamic Behavior)  * 仿真行为,是动力学行为的父类,基本的动力学行为类 UIGravityBehavior、UICollisionBehavio">
+<meta name="twitter:description" content="一、介绍1、相关概念a. 谁要进行物理仿真?(要谁做)​     物理仿真元素(Dynamic Item)​     是任何遵守了UIDynamicItem协议的对象">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,62 +185,64 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、介绍"><span class="toc-number">1.</span> <span class="toc-text">一、介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、相关概念"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、相关概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、使用步骤"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、使用步骤</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、物理仿真行为"><span class="toc-number">2.</span> <span class="toc-text">二、物理仿真行为</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、重力行为-Gravity"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、重力行为(Gravity)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、重力行为用于给动力学元素指定一个重力向量"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">1、重力行为用于给动力学元素指定一个重力向量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、代码示例"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">2、代码示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、碰撞行为-Collision"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、碰撞行为(Collision)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、相关属性"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">1、相关属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、代码示例-1"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">2、代码示例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、碰撞行为-其它"><span class="toc-number">2.0.2.0.3.</span> <span class="toc-text">3、碰撞行为-其它</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、捕捉行为-Snap"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、捕捉行为(Snap)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#代码示例"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">代码示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、附着行为-Attachment"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、附着行为(Attachment)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、属性"><span class="toc-number">2.0.4.0.1.</span> <span class="toc-text">1、属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、示例代码"><span class="toc-number">2.0.4.0.2.</span> <span class="toc-text">2、示例代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、推动行为-Push"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、推动行为(Push)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、属性-1"><span class="toc-number">2.0.5.0.1.</span> <span class="toc-text">1、属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、示例代码-1"><span class="toc-number">2.0.5.0.2.</span> <span class="toc-text">2、示例代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、UIDynamicItemBehavior"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、UIDynamicItemBehavior</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、属性-2"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">1、属性</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><h4 id="1、相关概念"><a href="#1、相关概念" class="headerlink" title="1、相关概念"></a>1、相关概念</h4><p>a. 谁要进行物理仿真?(要谁做)</p>
-<pre><code>* 物理仿真元素(Dynamic Item)
-* 是任何遵守了UIDynamicItem协议的对象
-</code></pre><p>b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画)</p>
-<pre><code>* 物理仿真行为(Dynamic Behavior) 
-* 仿真行为,是动力学行为的父类,基本的动力学行为类
-UIGravityBehavior、UICollisionBehavior、UIAttachmentBehavior、UISnapBehavi or、UIPushBehavior以及UIDynamicItemBehavior均继承自该父类,可以组合使用
-</code></pre><p>c. 让物理仿真元素执行具体的物理仿真行为(开始做) </p>
-<pre><code>* 物理仿真器(Dynamic Animator)
-* 为动力学元素提供物理学相关的能力及动画,同时为这些元素提供相关的上 
-* 下文,是动力学元素与底层iOS物理引擎之间的中介,将Behavior对象添加到 Animator即可实现动力仿真
-</code></pre><p>d. 注意不是任何对象都可以做物理仿真效果 </p>
-<pre><code>* 物理仿真元素要素:
-* 任何遵守了UIDynamicItem协议的对象 UIView默认已经遵守了    * UIDynamicItem协议,因此任何UI控件都能做物理仿真     * UICollectionViewLayoutAttributes类默认也遵守UIDynamicItem协议
-</code></pre><p><strong>仿真器使用时必须设置一个strong属性使其不会立即销毁</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIDynamicAnimator</span> *animator;</span><br><span class="line">```	</span><br><span class="line"><span class="meta">#### 2、使用步骤</span></span><br><span class="line">a. 创建一个<span class="built_in">UIDynamicAnimator</span>对象b. 创建行为对象(<span class="built_in">UIDynamicBehavior</span>)c. 将要执行动画的对象添加到<span class="built_in">UIDynamicBehavior</span>中一般会将 <span class="built_in">UIView</span> 添加到行为对象中 <span class="built_in">UIView</span> 遵守了<span class="built_in">UIDynamicItem</span>协议</span><br><span class="line"></span><br><span class="line"><span class="meta">## 二、物理仿真行为</span></span><br><span class="line"><span class="meta">#### 1、重力行为(Gravity)</span></span><br><span class="line"><span class="meta">###### 1、重力行为用于给动力学元素指定一个重力向量</span></span><br><span class="line"><span class="meta">###### 2、代码示例</span></span><br><span class="line">```objc</span><br><span class="line"><span class="comment">//1 创建物理仿真器</span><span class="built_in">UIDynamicAnimator</span> *animator = [[<span class="built_in">UIDynamicAnimator</span> alloc]initWithReferenceView:<span class="keyword">self</span>.redView];<span class="keyword">self</span>.animator = animator;<span class="comment">//2 创建重力行为(物理行为)</span><span class="built_in">UIGravityBehavior</span> *behavior = [[<span class="built_in">UIGravityBehavior</span> alloc]initWithItems:@[<span class="keyword">self</span>.redView]]; <span class="comment">//量级(用来控制加速度,1.0代表加速度是1000 points</span>/second2) behavior.magnitude = <span class="number">0.2</span>; <span class="comment">//方向</span><span class="comment">//</span>behavior.gravityDirection = <span class="built_in">CGVectorMake</span>(<span class="number">1</span>, <span class="number">1</span>);behavior.angle = <span class="number">0</span>;<span class="comment">//3 把物理行为添加到物理仿真器中 开始动画</span>[animator addBehavior:behavior];</span><br></pre></td></tr></table></figure></p>
-<h4 id="2、碰撞行为-Collision"><a href="#2、碰撞行为-Collision" class="headerlink" title="2、碰撞行为(Collision)"></a>2、碰撞行为(Collision)</h4><h6 id="1、相关属性"><a href="#1、相关属性" class="headerlink" title="1、相关属性"></a>1、相关属性</h6><p>translatesReferenceBoundsIntoBoundary</p>
-<pre><code class="objc">translatesReferenceBoundsIntoBoundary设置为<span class="literal">YES</span>而不是明确的添加边界的坐标。这样会使这
-个边界使用 <span class="built_in">UIDynamicAnimator</span> 提供的参考系的边界。
-</code></pre>
-<p>collisionMode</p>
-<pre><code class="objc"><span class="built_in">UICollisionBehaviorModeItems</span> 碰到元素碰撞,边界不碰撞 <span class="built_in">UICollisionBehaviorModeBoundaries</span> 碰到边界碰撞,元素不碰撞 <span class="built_in">UICollisionBehaviorModeEverything</span> 默认,碰到边界或元素会发生碰撞
-&lt;!--￼<span class="number">1</span>--&gt;
-
-<span class="meta">###### 3、碰撞行为-其它</span>
-<span class="number">1.</span> 两种自定义边界的方式,设置直线 
-    a. 添加边界,设置两个点
-    ```objc
-    [collision addBoundaryWithIdentifier:<span class="string">@"b1"</span> fromPoint:<span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">200</span>) toPoint:<span class="built_in">CGPointMake</span>(<span class="number">180</span>, <span class="number">250</span>)];
-</code></pre>
-<pre><code>b. 使用路径的方式
-```objc
-UIBezierPath *path = [UIBezierPath bezierPath];
-[path moveToPoint:CGPointMake(0, 200)];
-[path addLineToPoint:CGPointMake(180, 250)];
-[collision addBoundaryWithIdentifier:@&quot;b1&quot; forPath:path];
-```
-</code></pre><ol start="2">
+        <h2 id="一、介绍"><a href="#一、介绍" class="headerlink" title="一、介绍"></a>一、介绍</h2><h4 id="1、相关概念"><a href="#1、相关概念" class="headerlink" title="1、相关概念"></a>1、相关概念</h4><p>a. 谁要进行物理仿真?(要谁做)<br>​    <em> 物理仿真元素(Dynamic Item)<br>​    </em> 是任何遵守了UIDynamicItem协议的对象</p>
+<a id="more"></a>
+<p>b. 执行怎样的物理仿真效果?怎样的动画效果?(做什么动画)<br>​    <em> 物理仿真行为(Dynamic Behavior)<br>​    </em> 仿真行为,是动力学行为的父类,基本的动力学行为类<br>​    UIGravityBehavior、UICollisionBehavior、UIAttachmentBehavior、UISnapBehavi or、UIPushBehavior以及UIDynamicItemBehavior均继承自该父类,可以组合使用<br>c. 让物理仿真元素执行具体的物理仿真行为(开始做)<br>​    <em> 物理仿真器(Dynamic Animator)<br>​    </em> 为动力学元素提供物理学相关的能力及动画,同时为这些元素提供相关的上<br>​    <em> 下文,是动力学元素与底层iOS物理引擎之间的中介,将Behavior对象添加到 Animator即可实现动力仿真<br>d. 注意不是任何对象都可以做物理仿真效果<br>​    </em> 物理仿真元素要素:<br>​    <em> 任何遵守了UIDynamicItem协议的对象 UIView默认已经遵守了    </em> UIDynamicItem协议,因此任何UI控件都能做物理仿真     * UICollectionViewLayoutAttributes类默认也遵守UIDynamicItem协议</p>
+<p><strong>仿真器使用时必须设置一个strong属性使其不会立即销毁</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">strong</span>) <span class="built_in">UIDynamicAnimator</span> *animator;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2、使用步骤"><a href="#2、使用步骤" class="headerlink" title="2、使用步骤"></a>2、使用步骤</h4><p>a. 创建一个UIDynamicAnimator对象<br>b. 创建行为对象(UIDynamicBehavior)<br>c. 将要执行动画的对象添加到UIDynamicBehavior中<br>一般会将 UIView 添加到行为对象中 UIView 遵守了UIDynamicItem协议</p>
+<h2 id="二、物理仿真行为"><a href="#二、物理仿真行为" class="headerlink" title="二、物理仿真行为"></a>二、物理仿真行为</h2><h4 id="1、重力行为-Gravity"><a href="#1、重力行为-Gravity" class="headerlink" title="1、重力行为(Gravity)"></a>1、重力行为(Gravity)</h4><h6 id="1、重力行为用于给动力学元素指定一个重力向量"><a href="#1、重力行为用于给动力学元素指定一个重力向量" class="headerlink" title="1、重力行为用于给动力学元素指定一个重力向量"></a>1、重力行为用于给动力学元素指定一个重力向量</h6><h6 id="2、代码示例"><a href="#2、代码示例" class="headerlink" title="2、代码示例"></a>2、代码示例</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1 创建物理仿真器</span></span><br><span class="line"><span class="built_in">UIDynamicAnimator</span> *animator = [[<span class="built_in">UIDynamicAnimator</span> alloc]</span><br><span class="line">initWithReferenceView:<span class="keyword">self</span>.redView];</span><br><span class="line"><span class="keyword">self</span>.animator = animator;</span><br><span class="line"><span class="comment">//2 创建重力行为(物理行为)</span></span><br><span class="line"><span class="built_in">UIGravityBehavior</span> *behavior = [[<span class="built_in">UIGravityBehavior</span> alloc]</span><br><span class="line">initWithItems:@[<span class="keyword">self</span>.redView]]; <span class="comment">//量级(用来控制加速度,1.0代表加速度是1000 points</span></span><br><span class="line">/second2) behavior.magnitude = <span class="number">0.2</span>; <span class="comment">//方向</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line">behavior.gravityDirection = <span class="built_in">CGVectorMake</span>(<span class="number">1</span>, <span class="number">1</span>);</span><br><span class="line">behavior.angle = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//3 把物理行为添加到物理仿真器中 开始动画</span></span><br><span class="line">[animator addBehavior:behavior];</span><br></pre></td></tr></table></figure>
+<h4 id="2、碰撞行为-Collision"><a href="#2、碰撞行为-Collision" class="headerlink" title="2、碰撞行为(Collision)"></a>2、碰撞行为(Collision)</h4><h6 id="1、相关属性"><a href="#1、相关属性" class="headerlink" title="1、相关属性"></a>1、相关属性</h6><p>translatesReferenceBoundsIntoBoundary<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">translatesReferenceBoundsIntoBoundary设置为<span class="literal">YES</span>而不是明确的添加边界的坐标。这样会使这</span><br><span class="line">个边界使用 <span class="built_in">UIDynamicAnimator</span> 提供的参考系的边界。</span><br></pre></td></tr></table></figure></p>
+<p>collisionMode<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UICollisionBehaviorModeItems</span> 碰到元素碰撞,边界不碰撞 <span class="built_in">UICollisionBehaviorModeBoundaries</span> 碰到边界碰撞,元素不碰撞 <span class="built_in">UICollisionBehaviorModeEverything</span> 默认,碰到边界或元素会发生碰撞</span><br></pre></td></tr></table></figure></p>
+<h6 id="2、代码示例-1"><a href="#2、代码示例-1" class="headerlink" title="2、代码示例"></a>2、代码示例</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1 创建物理仿真器,动画的范围</span></span><br><span class="line"><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span>.view];</span><br><span class="line"><span class="comment">//2 创建物理仿真行为</span></span><br><span class="line"><span class="comment">//2.1 重力行为</span></span><br><span class="line"><span class="built_in">UIGravityBehavior</span> *gravity = [[<span class="built_in">UIGravityBehavior</span> alloc] initWithItems:@[<span class="keyword">self</span>.redView]];</span><br><span class="line"><span class="comment">//2.2 碰撞行为</span></span><br><span class="line"><span class="built_in">UICollisionBehavior</span> *collision = [[<span class="built_in">UICollisionBehavior</span> alloc] initWithItems:@[<span class="keyword">self</span>.redView]];</span><br><span class="line"><span class="comment">//2.3 碰撞的边界,translatesReferenceBoundsIntoBoundary设置为YES而不是明确的添加边界的坐</span></span><br><span class="line">标。这样会使这个边界使用 <span class="built_in">UIDynamicAnimator</span> 提供的参考系的边界。 collision.translatesReferenceBoundsIntoBoundary = <span class="literal">YES</span>;</span><br><span class="line"><span class="comment">//3 把物理仿真行为添加到物理仿真器中 [self.animator addBehavior:gravity]; [self.animator addBehavior:collision];</span></span><br></pre></td></tr></table></figure>
+<h6 id="3、碰撞行为-其它"><a href="#3、碰撞行为-其它" class="headerlink" title="3、碰撞行为-其它"></a>3、碰撞行为-其它</h6><ol>
+<li><p>两种自定义边界的方式,设置直线<br> a. 添加边界,设置两个点</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[collision addBoundaryWithIdentifier:<span class="string">@"b1"</span> fromPoint:<span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">200</span>) toPoint:<span class="built_in">CGPointMake</span>(<span class="number">180</span>, <span class="number">250</span>)];</span><br></pre></td></tr></table></figure>
+<p> b. 使用路径的方式</p>
+ <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPath];</span><br><span class="line">[path moveToPoint:<span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">200</span>)];</span><br><span class="line">[path addLineToPoint:<span class="built_in">CGPointMake</span>(<span class="number">180</span>, <span class="number">250</span>)];</span><br><span class="line">[collision addBoundaryWithIdentifier:<span class="string">@"b1"</span> forPath:path];</span><br></pre></td></tr></table></figure>
+</li>
 <li><p>自定义边界,设置矩形的边界</p>
-<pre><code class="objc"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">200</span>, <span class="number">180</span>, <span class="number">20</span>)]; [collision addBoundaryWithIdentifier:<span class="string">@"b2"</span> forPath:path];
-</code></pre>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIBezierPath</span> *path = [<span class="built_in">UIBezierPath</span> bezierPathWithRect:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">200</span>, <span class="number">180</span>, <span class="number">20</span>)]; [collision addBoundaryWithIdentifier:<span class="string">@"b2"</span> forPath:path];</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>碰撞过程中监听frame的变化 </p>
-<pre><code class="objc">[collision setAction:^{
-<span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromCGRect</span>(<span class="keyword">self</span>.redView.frame)); }];
-</code></pre>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[collision setAction:^&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,<span class="built_in">NSStringFromCGRect</span>(<span class="keyword">self</span>.redView.frame)); &#125;];</span><br></pre></td></tr></table></figure>
 </li>
-<li>碰撞行为的弹力系数(0-1之间)<pre><code class="objc"><span class="built_in">UIDynamicItemBehavior</span> *item = [[<span class="built_in">UIDynamicItemBehavior</span> alloc] initWithItems: @[<span class="keyword">self</span>.redView]];
-item.elasticity = <span class="number">1</span>;
-</code></pre>
-添加到物理仿真器中<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.animator addBehavior:item];</span><br><span class="line">```<span class="number">5.</span> 设置碰撞行为的代理,碰撞到边界以后改变物体的状态</span><br><span class="line">```objc- (<span class="keyword">void</span>)collisionBehavior:(<span class="built_in">UICollisionBehavior</span> *)behavior beganContactForItem:(<span class="keyword">id</span>&lt;<span class="built_in">UIDynamicItem</span>&gt;)item withBoundaryIdentifier:(<span class="keyword">id</span>&lt;<span class="built_in">NSCopying</span>&gt;)identifier atPoint:(<span class="built_in">CGPoint</span>)p &#123;<span class="comment">//开始的碰撞物体</span><span class="built_in">UIView</span> *view = (<span class="built_in">UIView</span> *)item;<span class="comment">//边界的id</span><span class="built_in">NSString</span> *strId = (<span class="built_in">NSString</span> *)identifier; <span class="comment">//当碰撞到黄色边界以后改变当前物体的颜色 if ([strId isEqualToString:@"b2"]) &#123;</span>[<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123; view.backgroundColor = [<span class="built_in">UIColor</span> blackColor];&#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;view.backgroundColor = [<span class="built_in">UIColor</span> redColor]; &#125;];&#125; &#125;</span><br></pre></td></tr></table></figure>
+<li><p>碰撞行为的弹力系数(0-1之间)</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIDynamicItemBehavior</span> *item = [[<span class="built_in">UIDynamicItemBehavior</span> alloc] initWithItems: @[<span class="keyword">self</span>.redView]];</span><br><span class="line">item.elasticity = <span class="number">1</span>;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h4 id="3、捕捉行为-Snap"><a href="#3、捕捉行为-Snap" class="headerlink" title="3、捕捉行为(Snap)"></a>3、捕捉行为(Snap)</h4><h6 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1 物理仿真器</span><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span>.view];<span class="comment">//2 创建捕捉行为</span><span class="built_in">UISnapBehavior</span> *snap = [[<span class="built_in">UISnapBehavior</span> alloc] initWithItem:<span class="keyword">self</span>.redView snapToPoint:location]; <span class="comment">//阻尼,减幅,衰减 取值(0-1)</span>snap.damping = <span class="number">0</span>;<span class="comment">//3 把行为添加到物理仿真器</span>[<span class="keyword">self</span>.animator addBehavior:snap];</span><br></pre></td></tr></table></figure>
+<p>添加到物理仿真器中<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.animator addBehavior:item];</span><br></pre></td></tr></table></figure></p>
+<ol start="5">
+<li>设置碰撞行为的代理,碰撞到边界以后改变物体的状态<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)collisionBehavior:(<span class="built_in">UICollisionBehavior</span> *)behavior beganContactForItem:(<span class="keyword">id</span>&lt;<span class="built_in">UIDynamicItem</span>&gt;)item withBoundaryIdentifier:(<span class="keyword">id</span>&lt;<span class="built_in">NSCopying</span>&gt;)identifier atPoint:(<span class="built_in">CGPoint</span>)p &#123;</span><br><span class="line"><span class="comment">//开始的碰撞物体</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">UIView</span> *view = (<span class="built_in">UIView</span> *)item;</span><br><span class="line"><span class="comment">//边界的id</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">NSString</span> *strId = (<span class="built_in">NSString</span> *)identifier; <span class="comment">//当碰撞到黄色边界以后改变当前物体的颜色 if ([strId isEqualToString:@"b2"]) &#123;</span></span><br><span class="line">[<span class="built_in">UIView</span> animateWithDuration:<span class="number">0.3</span> animations:^&#123; view.backgroundColor = [<span class="built_in">UIColor</span> blackColor];</span><br><span class="line">&#125; completion:^(<span class="built_in">BOOL</span> finished) &#123;</span><br><span class="line">view.backgroundColor = [<span class="built_in">UIColor</span> redColor]; &#125;];</span><br><span class="line">&#125; &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h4 id="3、捕捉行为-Snap"><a href="#3、捕捉行为-Snap" class="headerlink" title="3、捕捉行为(Snap)"></a>3、捕捉行为(Snap)</h4><h6 id="代码示例"><a href="#代码示例" class="headerlink" title="代码示例"></a>代码示例</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1 物理仿真器</span></span><br><span class="line"><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span>.view];</span><br><span class="line"><span class="comment">//2 创建捕捉行为</span></span><br><span class="line"><span class="built_in">UISnapBehavior</span> *snap = [[<span class="built_in">UISnapBehavior</span> alloc] initWithItem:<span class="keyword">self</span>.redView snapToPoint:location]; <span class="comment">//阻尼,减幅,衰减 取值(0-1)</span></span><br><span class="line">snap.damping = <span class="number">0</span>;</span><br><span class="line"><span class="comment">//3 把行为添加到物理仿真器</span></span><br><span class="line">[<span class="keyword">self</span>.animator addBehavior:snap];</span><br></pre></td></tr></table></figure>
 <h4 id="4、附着行为-Attachment"><a href="#4、附着行为-Attachment" class="headerlink" title="4、附着行为(Attachment)"></a>4、附着行为(Attachment)</h4><p><strong>附着行为描述一个视图与一个锚点或者另一个视图相连接的情况附着 行为描述的是两点之间的连接情况,可以模拟刚性或者弹性连接在多 个物体间设定多个UIAttachmentBehavior,可以模拟多物体连接</strong></p>
 <h6 id="1、属性"><a href="#1、属性" class="headerlink" title="1、属性"></a>1、属性</h6><ul>
 <li>attachedBehaviorType:连接类型(连接到锚点或视图) items:连接视图数组</li>
@@ -241,22 +250,14 @@ item.elasticity = <span class="number">1</span>;
 <li>length:距离连接锚点的距离 只要设置了以下两个属性,即为弹性连接 * damping:振幅大小</li>
 <li>frequency:振动频率</li>
 </ul>
-<h6 id="2、示例代码"><a href="#2、示例代码" class="headerlink" title="2、示例代码"></a>2、示例代码</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1 物理仿真器</span><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc]initWithReferenceView:<span class="keyword">self</span>.view];<span class="comment">//2 重力行为</span><span class="built_in">UIGravityBehavior</span> *gravity = [[<span class="built_in">UIGravityBehavior</span> alloc] initWithItems:@[<span class="keyword">self</span>.redView]]; [gravity setAction:^&#123;view.startPoint = <span class="keyword">self</span>.redView.center;view.endPoint = point; &#125;];<span class="comment">//2.1 添加附着行为</span><span class="built_in">UIAttachmentBehavior</span> *attachment = [[<span class="built_in">UIAttachmentBehavior</span> alloc] initWithItem:<span class="keyword">self</span>.redView attachedToAnchor:point];<span class="comment">//弹性行为</span>attachment.frequency = <span class="number">0.5</span>; attachment.damping = <span class="number">0.5</span>;<span class="comment">//3 把行为添加到仿真器</span>[<span class="keyword">self</span>.animator addBehavior:gravity]; [<span class="keyword">self</span>.animator addBehavior:attachment];</span><br></pre></td></tr></table></figure>
+<h6 id="2、示例代码"><a href="#2、示例代码" class="headerlink" title="2、示例代码"></a>2、示例代码</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1 物理仿真器</span></span><br><span class="line"><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc]</span><br><span class="line">initWithReferenceView:<span class="keyword">self</span>.view];</span><br><span class="line"><span class="comment">//2 重力行为</span></span><br><span class="line"><span class="built_in">UIGravityBehavior</span> *gravity = [[<span class="built_in">UIGravityBehavior</span> alloc] initWithItems:</span><br><span class="line">@[<span class="keyword">self</span>.redView]]; [gravity setAction:^&#123;</span><br><span class="line">view.startPoint = <span class="keyword">self</span>.redView.center;</span><br><span class="line">view.endPoint = point; &#125;];</span><br><span class="line"><span class="comment">//2.1 添加附着行为</span></span><br><span class="line"><span class="built_in">UIAttachmentBehavior</span> *attachment = [[<span class="built_in">UIAttachmentBehavior</span> alloc] initWithItem:<span class="keyword">self</span>.redView attachedToAnchor:point];</span><br><span class="line"><span class="comment">//弹性行为</span></span><br><span class="line">attachment.frequency = <span class="number">0.5</span>; attachment.damping = <span class="number">0.5</span>;</span><br><span class="line"><span class="comment">//3 把行为添加到仿真器</span></span><br><span class="line">[<span class="keyword">self</span>.animator addBehavior:gravity]; [<span class="keyword">self</span>.animator addBehavior:attachment];</span><br></pre></td></tr></table></figure>
 <h4 id="5、推动行为-Push"><a href="#5、推动行为-Push" class="headerlink" title="5、推动行为(Push)"></a>5、推动行为(Push)</h4><p><strong>推行为可以为一个视图施加一个作用力,该力可以是持续的,也可以是一次性的可以设置力的大小,方向和作用点等信息</strong></p>
 <h6 id="1、属性-1"><a href="#1、属性-1" class="headerlink" title="1、属性"></a>1、属性</h6><ul>
 <li>mode:推动类型(一次性或是持续推) </li>
 <li>angle:推动角度</li>
 <li>magnitude:推动力量</li>
 </ul>
-<h6 id="2、示例代码-1"><a href="#2、示例代码-1" class="headerlink" title="2、示例代码"></a>2、示例代码</h6><pre><code class="objc"><span class="comment">//1 物理仿真器</span>
-<span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span>.view]; <span class="comment">//2 一次性推动行为(持续性推动行为)</span>
-<span class="built_in">UIPushBehavior</span> *push = [[<span class="built_in">UIPushBehavior</span> alloc] initWithItems:@[<span class="keyword">self</span>.redView]
-mode:<span class="built_in">UIPushBehaviorModeContinuous</span>];
-<span class="comment">//</span>
-<span class="comment">//设置推动的方向和推力的大小 push.angle = M_PI_2; push.magnitude = 1; //设置向量</span>
-push.pushDirection = <span class="built_in">CGVectorMake</span>(<span class="number">0</span>, <span class="number">100</span>); <span class="comment">//3 把推动行为添加都物理仿真器</span>
-[<span class="keyword">self</span>.animator addBehavior:push];
-</code></pre>
+<h6 id="2、示例代码-1"><a href="#2、示例代码-1" class="headerlink" title="2、示例代码"></a>2、示例代码</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1 物理仿真器</span></span><br><span class="line"><span class="keyword">self</span>.animator = [[<span class="built_in">UIDynamicAnimator</span> alloc] initWithReferenceView:<span class="keyword">self</span>.view]; <span class="comment">//2 一次性推动行为(持续性推动行为)</span></span><br><span class="line"><span class="built_in">UIPushBehavior</span> *push = [[<span class="built_in">UIPushBehavior</span> alloc] initWithItems:@[<span class="keyword">self</span>.redView]</span><br><span class="line">mode:<span class="built_in">UIPushBehaviorModeContinuous</span>];</span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//设置推动的方向和推力的大小 push.angle = M_PI_2; push.magnitude = 1; //设置向量</span></span><br><span class="line">push.pushDirection = <span class="built_in">CGVectorMake</span>(<span class="number">0</span>, <span class="number">100</span>); <span class="comment">//3 把推动行为添加都物理仿真器</span></span><br><span class="line">[<span class="keyword">self</span>.animator addBehavior:push];</span><br></pre></td></tr></table></figure>
 <h4 id="6、UIDynamicItemBehavior"><a href="#6、UIDynamicItemBehavior" class="headerlink" title="6、UIDynamicItemBehavior"></a>6、UIDynamicItemBehavior</h4><p><strong>UIDynamicItemBehavior:元素行为</strong></p>
 <h6 id="1、属性-2"><a href="#1、属性-2" class="headerlink" title="1、属性"></a>1、属性</h6><ul>
 <li>DynamicItem是一个辅助的行为,用来设置运动学元素参与物理仿真过程中的参数,如:弹 性系数、摩擦系数、密度、阻力、角阻力以及是否允许旋转等</li>
@@ -295,18 +296,22 @@ push.pushDirection = <span class="built_in">CGVectorMake</span>(<span class="num
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -370,18 +375,18 @@ push.pushDirection = <span class="built_in">CGVectorMake</span>(<span class="num
   
 <nav id="article-nav">
   
-    <a href="/2016/07/05/copy/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/05/UINavigationcontroller/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Copy
+          UINavigationController
         
       </div>
     </a>
   
   
-    <a href="/2016/07/05/UINavigationcontroller/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UINavigationController</div>
+    <a href="/2016/07/04/NSDictionary:NSMutableDictionary的介绍/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NSDictionary/NSMutableDictionary的介绍及使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -400,6 +405,19 @@ push.pushDirection = <span class="built_in">CGVectorMake</span>(<span class="num
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、介绍"><span class="toc-number">1.</span> <span class="toc-text">一、介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、相关概念"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、相关概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、使用步骤"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、使用步骤</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、物理仿真行为"><span class="toc-number">2.</span> <span class="toc-text">二、物理仿真行为</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、重力行为-Gravity"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、重力行为(Gravity)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、重力行为用于给动力学元素指定一个重力向量"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">1、重力行为用于给动力学元素指定一个重力向量</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、代码示例"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">2、代码示例</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、碰撞行为-Collision"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、碰撞行为(Collision)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、相关属性"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">1、相关属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、代码示例-1"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">2、代码示例</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、碰撞行为-其它"><span class="toc-number">2.0.2.0.3.</span> <span class="toc-text">3、碰撞行为-其它</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、捕捉行为-Snap"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、捕捉行为(Snap)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#代码示例"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">代码示例</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、附着行为-Attachment"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、附着行为(Attachment)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、属性"><span class="toc-number">2.0.4.0.1.</span> <span class="toc-text">1、属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、示例代码"><span class="toc-number">2.0.4.0.2.</span> <span class="toc-text">2、示例代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、推动行为-Push"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、推动行为(Push)</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、属性-1"><span class="toc-number">2.0.5.0.1.</span> <span class="toc-text">1、属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、示例代码-1"><span class="toc-number">2.0.5.0.2.</span> <span class="toc-text">2、示例代码</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、UIDynamicItemBehavior"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、UIDynamicItemBehavior</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、属性-2"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">1、属性</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -508,6 +526,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

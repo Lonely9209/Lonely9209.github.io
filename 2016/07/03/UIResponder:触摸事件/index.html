@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>UIResponder/触摸事件 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、响应者对象UIResponder 在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象” UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件  UIResponder的成员UIResponder内部提供了以下方法来处理事件 1、触摸">
+  <meta name="description" content="一、响应者对象UIResponder 在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象” UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件">
+<meta name="keywords" content="OC基础,UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIResponder&#x2F;触摸事件">
 <meta property="og:url" content="lonely9209.github.io/2016/07/03/UIResponder:触摸事件/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、响应者对象UIResponder 在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象” UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件  UIResponder的成员UIResponder内部提供了以下方法来处理事件 1、触摸">
+<meta property="og:description" content="一、响应者对象UIResponder 在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象” UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.834Z">
+<meta property="og:updated_time" content="2018-11-28T13:14:30.625Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIResponder&#x2F;触摸事件">
-<meta name="twitter:description" content="一、响应者对象UIResponder 在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象” UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件  UIResponder的成员UIResponder内部提供了以下方法来处理事件 1、触摸">
+<meta name="twitter:description" content="一、响应者对象UIResponder 在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象” UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、响应者对象UIResponder"><span class="toc-number">1.</span> <span class="toc-text">一、响应者对象UIResponder</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#UIResponder的成员"><span class="toc-number">1.0.1.</span> <span class="toc-text">UIResponder的成员</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#UIResponder内部提供了以下方法来处理事件"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">UIResponder内部提供了以下方法来处理事件</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、触摸事件"><span class="toc-number">2.</span> <span class="toc-text">二、触摸事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、UIView的触摸事件处理"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、UIView的触摸事件处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、UITouch"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、UITouch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、UITouch的属性"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、UITouch的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、UITouch的方法"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、UITouch的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、UIEvent"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、UIEvent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、事件传递"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、事件传递</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、介绍控件不能接受用户交互的情况"><span class="toc-number">3.</span> <span class="toc-text">三、介绍控件不能接受用户交互的情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、响应者链事件处理过程"><span class="toc-number">4.</span> <span class="toc-text">四、响应者链事件处理过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如果hit-test视图无法处理事件，则通过响应者链向上传递"><span class="toc-number">4.0.1.</span> <span class="toc-text">如果hit-test视图无法处理事件，则通过响应者链向上传递</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、响应者链的事件传递过程"><span class="toc-number">5.</span> <span class="toc-text">五、响应者链的事件传递过程</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -185,6 +216,7 @@
 <li>在iOS中不是任何对象都能处理事件，只有继承了UIResponder的对象才能接收并处理事件。我们称之为“响应者对象”</li>
 <li>UIApplication、UIViewController、UIView都继承自UIResponder，因此它们都是响应者对象，都能够接收并处理事件</li>
 </ul>
+<a id="more"></a>
 <h4 id="UIResponder的成员"><a href="#UIResponder的成员" class="headerlink" title="UIResponder的成员"></a>UIResponder的成员</h4><h6 id="UIResponder内部提供了以下方法来处理事件"><a href="#UIResponder内部提供了以下方法来处理事件" class="headerlink" title="UIResponder内部提供了以下方法来处理事件"></a>UIResponder内部提供了以下方法来处理事件</h6><ul>
 <li>1、触摸事件</li>
 </ul>
@@ -199,10 +231,9 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)remoteControlReceivedWithEvent:(<span class="built_in">UIEvent</span> *)event;</span><br></pre></td></tr></table></figure>
 <h2 id="二、触摸事件"><a href="#二、触摸事件" class="headerlink" title="二、触摸事件"></a>二、触摸事件</h2><h4 id="1、UIView的触摸事件处理"><a href="#1、UIView的触摸事件处理" class="headerlink" title="1、UIView的触摸事件处理"></a>1、UIView的触摸事件处理</h4><p><strong>UIView是UIResponder的子类，可以覆盖下列4个方法处理不同的触摸事件</strong></p>
 <ul>
-<li>一根或者多根手指开始触摸view<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br></pre></td></tr></table></figure>
+<li><p>一根或者多根手指开始触摸view</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesBegan:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br></pre></td></tr></table></figure>
 </li>
-</ul>
-<ul>
 <li><p>一根或者多根手指在view上移动，系统会自动调用view的下面方法（随着手指的移动，会持续调用该方法）</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)touchesMoved:(<span class="built_in">NSSet</span> *)touches withEvent:(<span class="built_in">UIEvent</span> *)event</span><br></pre></td></tr></table></figure>
 </li>
@@ -220,7 +251,7 @@
 <li>UITouch的作用<ul>
 <li>保存着跟本次手指触摸相关的信息，比如触摸的位置、时间、阶段</li>
 <li>当手指移动时，系统会更新同一个UITouch对象，使之能够一直保存该手指在的触摸位置</li>
-<li>当手指离开屏幕时，系统会销毁相应的UITouch对象<br><strong>提示：iPhone开发中，要避免使用双击事件！</strong>    </li>
+<li>当手指离开屏幕时，系统会销毁相应的UITouch对象<br>  <strong>提示：iPhone开发中，要避免使用双击事件！</strong>    </li>
 </ul>
 </li>
 </ul>
@@ -238,7 +269,23 @@
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>      timestamp;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>当前触摸事件所处的状态</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UITouchPhase</span>        phase;</span><br><span class="line">	```	</span><br><span class="line"><span class="meta">#### 4、UITouch的方法</span></span><br><span class="line">* <span class="number">1</span>、- (<span class="built_in">CGPoint</span>)locationInView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line">* 返回值表示触摸在view上的位置</span><br><span class="line">* 这里返回的位置是针对view的坐标系的（以view的左上角为原点(<span class="number">0</span>, <span class="number">0</span>)）</span><br><span class="line">* 调用时传入的view参数为<span class="literal">nil</span>的话，返回的是触摸点在<span class="built_in">UIWindow</span>的位置</span><br><span class="line">* <span class="number">2</span>、- (<span class="built_in">CGPoint</span>)previousLocationInView:(<span class="built_in">UIView</span> *)view;</span><br><span class="line">* 该方法记录了前一个触摸点的位置</span><br><span class="line"></span><br><span class="line"><span class="meta">#### 5、UIEvent</span></span><br><span class="line">* 每产生一个事件，就会产生一个<span class="built_in">UIEvent</span>对象</span><br><span class="line">* <span class="built_in">UIEvent</span>：称为事件对象，记录事件产生的时刻和类型</span><br><span class="line">* 常见属性</span><br><span class="line">* 事件类型</span><br><span class="line">	```objc</span><br><span class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventType</span>     type;</span><br><span class="line">	<span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventSubtype</span>  subtype;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UITouchPhase</span>        phase;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="4、UITouch的方法"><a href="#4、UITouch的方法" class="headerlink" title="4、UITouch的方法"></a>4、UITouch的方法</h4><ul>
+<li>1、- (CGPoint)locationInView:(UIView *)view;</li>
+<li>返回值表示触摸在view上的位置</li>
+<li>这里返回的位置是针对view的坐标系的（以view的左上角为原点(0, 0)）</li>
+<li>调用时传入的view参数为nil的话，返回的是触摸点在UIWindow的位置</li>
+<li>2、- (CGPoint)previousLocationInView:(UIView *)view;</li>
+<li>该方法记录了前一个触摸点的位置</li>
+</ul>
+<h4 id="5、UIEvent"><a href="#5、UIEvent" class="headerlink" title="5、UIEvent"></a>5、UIEvent</h4><ul>
+<li>每产生一个事件，就会产生一个UIEvent对象</li>
+<li>UIEvent：称为事件对象，记录事件产生的时刻和类型</li>
+<li>常见属性</li>
+<li><p>事件类型</p>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventType</span>     type;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">UIEventSubtype</span>  subtype;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>事件产生的时间</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">readonly</span>) <span class="built_in">NSTimeInterval</span>  timestamp;</span><br></pre></td></tr></table></figure>
@@ -308,18 +355,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -383,11 +434,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/03/HTTP请求和数据安全/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/03/NSArray:NSMutableArray的介绍/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          HTTP请求和数据安全
+          NSArray/NSMutableArray的介绍和基本使用
         
       </div>
     </a>
@@ -413,6 +464,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、响应者对象UIResponder"><span class="toc-number">1.</span> <span class="toc-text">一、响应者对象UIResponder</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#UIResponder的成员"><span class="toc-number">1.0.1.</span> <span class="toc-text">UIResponder的成员</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#UIResponder内部提供了以下方法来处理事件"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">UIResponder内部提供了以下方法来处理事件</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、触摸事件"><span class="toc-number">2.</span> <span class="toc-text">二、触摸事件</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、UIView的触摸事件处理"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、UIView的触摸事件处理</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、UITouch"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、UITouch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、UITouch的属性"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、UITouch的属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、UITouch的方法"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、UITouch的方法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、UIEvent"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、UIEvent</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、事件传递"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、事件传递</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、介绍控件不能接受用户交互的情况"><span class="toc-number">3.</span> <span class="toc-text">三、介绍控件不能接受用户交互的情况</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、响应者链事件处理过程"><span class="toc-number">4.</span> <span class="toc-text">四、响应者链事件处理过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如果hit-test视图无法处理事件，则通过响应者链向上传递"><span class="toc-number">4.0.1.</span> <span class="toc-text">如果hit-test视图无法处理事件，则通过响应者链向上传递</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#五、响应者链的事件传递过程"><span class="toc-number">5.</span> <span class="toc-text">五、响应者链的事件传递过程</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -521,6 +585,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

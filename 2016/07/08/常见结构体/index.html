@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>常见结构体 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、【理解】NSPoint和CGPoint的使用 CGPoint和NSPoint是同义的 typedef CGPoint NSPoint;  1234567CGPoint的定义struct CGPoint &amp;#123;  CGFloat x;  CGFloat y;&amp;#125;;typedef struct CGPoint CGPoint;typedef double CGFloat;   CGP">
+  <meta name="description" content="1、【理解】NSPoint和CGPoint的使用 CGPoint和NSPoint是同义的  typedef CGPoint NSPoint; 1234567CGPoint的定义struct CGPoint &amp;#123;  CGFloat x;  CGFloat y;&amp;#125;;typedef struct CGPoint CGPoint;typedef double CGFloat; CGPoi">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="常见结构体">
 <meta property="og:url" content="lonely9209.github.io/2016/07/08/常见结构体/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="1、【理解】NSPoint和CGPoint的使用 CGPoint和NSPoint是同义的 typedef CGPoint NSPoint;  1234567CGPoint的定义struct CGPoint &amp;#123;  CGFloat x;  CGFloat y;&amp;#125;;typedef struct CGPoint CGPoint;typedef double CGFloat;   CGP">
+<meta property="og:description" content="1、【理解】NSPoint和CGPoint的使用 CGPoint和NSPoint是同义的  typedef CGPoint NSPoint; 1234567CGPoint的定义struct CGPoint &amp;#123;  CGFloat x;  CGFloat y;&amp;#125;;typedef struct CGPoint CGPoint;typedef double CGFloat; CGPoi">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.838Z">
+<meta property="og:updated_time" content="2018-11-28T13:10:50.315Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="常见结构体">
-<meta name="twitter:description" content="1、【理解】NSPoint和CGPoint的使用 CGPoint和NSPoint是同义的 typedef CGPoint NSPoint;  1234567CGPoint的定义struct CGPoint &amp;#123;  CGFloat x;  CGFloat y;&amp;#125;;typedef struct CGPoint CGPoint;typedef double CGFloat;   CGP">
+<meta name="twitter:description" content="1、【理解】NSPoint和CGPoint的使用 CGPoint和NSPoint是同义的  typedef CGPoint NSPoint; 1234567CGPoint的定义struct CGPoint &amp;#123;  CGFloat x;  CGFloat y;&amp;#125;;typedef struct CGPoint CGPoint;typedef double CGFloat; CGPoi">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,16 +185,42 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、【理解】NSPoint和CGPoint的使用"><span class="toc-number">1.</span> <span class="toc-text">1、【理解】NSPoint和CGPoint的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、【理解】NSSize和CGSize的使用"><span class="toc-number">2.</span> <span class="toc-text">2、【理解】NSSize和CGSize的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、【理解】NSRect和CGRect的使用"><span class="toc-number">3.</span> <span class="toc-text">3、【理解】NSRect和CGRect的使用</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="1、【理解】NSPoint和CGPoint的使用"><a href="#1、【理解】NSPoint和CGPoint的使用" class="headerlink" title="1、【理解】NSPoint和CGPoint的使用"></a>1、【理解】NSPoint和CGPoint的使用</h2><ul>
-<li>CGPoint和NSPoint是同义的</li>
+<li><p>CGPoint和NSPoint是同义的</p>
+</li>
 <li><p><code>typedef CGPoint NSPoint;</code></p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGPoint</span>的定义</span><br><span class="line"><span class="keyword">struct</span> <span class="built_in">CGPoint</span> &#123;</span><br><span class="line">  <span class="built_in">CGFloat</span> x;</span><br><span class="line">  <span class="built_in">CGFloat</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="built_in">CGPoint</span> <span class="built_in">CGPoint</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> <span class="built_in">CGFloat</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGPoint</span>的定义</span><br><span class="line"><span class="keyword">struct</span> <span class="built_in">CGPoint</span> &#123;</span><br><span class="line">  <span class="built_in">CGFloat</span> x;</span><br><span class="line">  <span class="built_in">CGFloat</span> y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> <span class="built_in">CGPoint</span> <span class="built_in">CGPoint</span>;</span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> <span class="built_in">CGFloat</span>;</span><br></pre></td></tr></table></figure>
+<p><code>CGPoint代表的是二维平面中的一个点,可以使用CGPointMake和NSMakePoint函数创建CGPoint.</code></p>
 </li>
 </ul>
-<p><code>CGPoint代表的是二维平面中的一个点,可以使用CGPointMake和NSMakePoint函数创建CGPoint.</code></p>
+<a id="more"></a>
 <h2 id="2、【理解】NSSize和CGSize的使用"><a href="#2、【理解】NSSize和CGSize的使用" class="headerlink" title="2、【理解】NSSize和CGSize的使用"></a>2、【理解】NSSize和CGSize的使用</h2><ul>
 <li>CGSize和NSSize是同义的</li>
 <li><p>typedef CGSize NSSize;</p>
@@ -233,18 +266,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -338,6 +375,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、【理解】NSPoint和CGPoint的使用"><span class="toc-number">1.</span> <span class="toc-text">1、【理解】NSPoint和CGPoint的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、【理解】NSSize和CGSize的使用"><span class="toc-number">2.</span> <span class="toc-text">2、【理解】NSSize和CGSize的使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、【理解】NSRect和CGRect的使用"><span class="toc-number">3.</span> <span class="toc-text">3、【理解】NSRect和CGRect的使用</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -446,6 +496,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

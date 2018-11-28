@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>多线程概念和NSThread | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、多线程的基本概念1、多线程的基本概念 同步:顺序执行 异步:同时运行 进程:正在运行的程序,一个或多个线程组成 线程:最基本的执行单元  2、特征 (单核CPU)同一时间,cpu只能处理1个线程,只有1个线程在执行  多线程同时执行:是CPU快速的在多个线程之间的切换 cpu调度线程的时间足够快,就造成了多线程的“同时”执行 如果线程数非常多,cpu会在n个线程之间切换,消耗大量的cpu资源">
+  <meta name="description" content="一、多线程的基本概念1、多线程的基本概念 同步:顺序执行 异步:同时运行 进程:正在运行的程序,一个或多个线程组成 线程:最基本的执行单元">
+<meta name="keywords" content="网络与多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="多线程概念和NSThread">
 <meta property="og:url" content="lonely9209.github.io/2016/07/04/多线程概念和NSThread/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、多线程的基本概念1、多线程的基本概念 同步:顺序执行 异步:同时运行 进程:正在运行的程序,一个或多个线程组成 线程:最基本的执行单元  2、特征 (单核CPU)同一时间,cpu只能处理1个线程,只有1个线程在执行  多线程同时执行:是CPU快速的在多个线程之间的切换 cpu调度线程的时间足够快,就造成了多线程的“同时”执行 如果线程数非常多,cpu会在n个线程之间切换,消耗大量的cpu资源">
+<meta property="og:description" content="一、多线程的基本概念1、多线程的基本概念 同步:顺序执行 异步:同时运行 进程:正在运行的程序,一个或多个线程组成 线程:最基本的执行单元">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.838Z">
+<meta property="og:updated_time" content="2018-11-28T13:00:47.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="多线程概念和NSThread">
-<meta name="twitter:description" content="一、多线程的基本概念1、多线程的基本概念 同步:顺序执行 异步:同时运行 进程:正在运行的程序,一个或多个线程组成 线程:最基本的执行单元  2、特征 (单核CPU)同一时间,cpu只能处理1个线程,只有1个线程在执行  多线程同时执行:是CPU快速的在多个线程之间的切换 cpu调度线程的时间足够快,就造成了多线程的“同时”执行 如果线程数非常多,cpu会在n个线程之间切换,消耗大量的cpu资源">
+<meta name="twitter:description" content="一、多线程的基本概念1、多线程的基本概念 同步:顺序执行 异步:同时运行 进程:正在运行的程序,一个或多个线程组成 线程:最基本的执行单元">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、多线程的基本概念"><span class="toc-number">1.</span> <span class="toc-text">一、多线程的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、多线程的基本概念"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、多线程的基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、特征"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、特征</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#多线程的优点"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">多线程的优点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#多线程的缺点"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">多线程的缺点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#主线程"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">主线程</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、NSThread"><span class="toc-number">2.</span> <span class="toc-text">二、NSThread</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、创建和启动线程"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、创建和启动线程</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#创建、启动线程"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">创建、启动线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他创建线程方式"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">其他创建线程方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、控制线程状态"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、控制线程状态</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#启动线程"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">启动线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#阻塞（暂停）线程"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">阻塞（暂停）线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#强制停止线程"><span class="toc-number">2.0.2.0.3.</span> <span class="toc-text">强制停止线程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、常用属性方法"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、常用属性方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#获得当前线程"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">获得当前线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#线程的调度优先级"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">线程的调度优先级</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#线程的名字"><span class="toc-number">2.0.3.0.3.</span> <span class="toc-text">线程的名字</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#主线程相关用法"><span class="toc-number">2.0.3.0.4.</span> <span class="toc-text">主线程相关用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、多线程的安全隐患"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、多线程的安全隐患</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#资源共享"><span class="toc-number">2.0.4.0.1.</span> <span class="toc-text">资源共享</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、安全隐患解决-–-互斥锁"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、安全隐患解决 – 互斥锁</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#互斥锁使用格式"><span class="toc-number">2.0.5.0.1.</span> <span class="toc-text">互斥锁使用格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#互斥锁的优缺点"><span class="toc-number">2.0.5.0.2.</span> <span class="toc-text">互斥锁的优缺点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#相关专业术语：线程同步"><span class="toc-number">2.0.5.0.3.</span> <span class="toc-text">相关专业术语：线程同步</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、原子和非原子属性"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、原子和非原子属性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#OC在定义属性时有nonatomic和atomic两种选择"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">OC在定义属性时有nonatomic和atomic两种选择</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、线程间通信"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、线程间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#什么叫做线程间通信"><span class="toc-number">2.0.7.0.1.</span> <span class="toc-text">什么叫做线程间通信</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#线程间通信的体现"><span class="toc-number">2.0.7.0.2.</span> <span class="toc-text">线程间通信的体现</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#线程间通信常用方法"><span class="toc-number">2.0.7.0.3.</span> <span class="toc-text">线程间通信常用方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、什么时候使用自动释放池"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、什么时候使用自动释放池</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#自动释放池常见面试代码"><span class="toc-number">2.0.8.0.1.</span> <span class="toc-text">自动释放池常见面试代码</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -187,6 +218,7 @@
 <li>进程:正在运行的程序,一个或多个线程组成</li>
 <li>线程:最基本的执行单元</li>
 </ol>
+<a id="more"></a>
 <h4 id="2、特征"><a href="#2、特征" class="headerlink" title="2、特征"></a>2、特征</h4><ul>
 <li>(单核CPU)同一时间,cpu只能处理1个线程,只有1个线程在执行 </li>
 <li>多线程同时执行:是CPU快速的在多个线程之间的切换</li>
@@ -291,18 +323,18 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络与多线程</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -376,8 +408,8 @@
     </a>
   
   
-    <a href="/2016/07/04/UITabBarController/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">UITabBarController</div>
+    <a href="/2016/07/04/文字:图片处理/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">文字/图片处理</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -396,6 +428,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、多线程的基本概念"><span class="toc-number">1.</span> <span class="toc-text">一、多线程的基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、多线程的基本概念"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、多线程的基本概念</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、特征"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、特征</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#多线程的优点"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">多线程的优点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#多线程的缺点"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">多线程的缺点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#主线程"><span class="toc-number">1.0.2.0.3.</span> <span class="toc-text">主线程</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、NSThread"><span class="toc-number">2.</span> <span class="toc-text">二、NSThread</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、创建和启动线程"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、创建和启动线程</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#创建、启动线程"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">创建、启动线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#其他创建线程方式"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">其他创建线程方式</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、控制线程状态"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、控制线程状态</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#启动线程"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">启动线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#阻塞（暂停）线程"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">阻塞（暂停）线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#强制停止线程"><span class="toc-number">2.0.2.0.3.</span> <span class="toc-text">强制停止线程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、常用属性方法"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、常用属性方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#获得当前线程"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">获得当前线程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#线程的调度优先级"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">线程的调度优先级</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#线程的名字"><span class="toc-number">2.0.3.0.3.</span> <span class="toc-text">线程的名字</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#主线程相关用法"><span class="toc-number">2.0.3.0.4.</span> <span class="toc-text">主线程相关用法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、多线程的安全隐患"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、多线程的安全隐患</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#资源共享"><span class="toc-number">2.0.4.0.1.</span> <span class="toc-text">资源共享</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、安全隐患解决-–-互斥锁"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、安全隐患解决 – 互斥锁</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#互斥锁使用格式"><span class="toc-number">2.0.5.0.1.</span> <span class="toc-text">互斥锁使用格式</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#互斥锁的优缺点"><span class="toc-number">2.0.5.0.2.</span> <span class="toc-text">互斥锁的优缺点</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#相关专业术语：线程同步"><span class="toc-number">2.0.5.0.3.</span> <span class="toc-text">相关专业术语：线程同步</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、原子和非原子属性"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、原子和非原子属性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#OC在定义属性时有nonatomic和atomic两种选择"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">OC在定义属性时有nonatomic和atomic两种选择</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、线程间通信"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、线程间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#什么叫做线程间通信"><span class="toc-number">2.0.7.0.1.</span> <span class="toc-text">什么叫做线程间通信</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#线程间通信的体现"><span class="toc-number">2.0.7.0.2.</span> <span class="toc-text">线程间通信的体现</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#线程间通信常用方法"><span class="toc-number">2.0.7.0.3.</span> <span class="toc-text">线程间通信常用方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、什么时候使用自动释放池"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、什么时候使用自动释放池</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#自动释放池常见面试代码"><span class="toc-number">2.0.8.0.1.</span> <span class="toc-text">自动释放池常见面试代码</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -504,6 +549,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

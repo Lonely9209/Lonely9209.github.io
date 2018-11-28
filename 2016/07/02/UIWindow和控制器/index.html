@@ -9,13 +9,14 @@
   <title>UIWindow和控制器 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="UIWindow是一种特殊的UIView,通常在一个app中只有一个UIWindow iOS程序启动完毕后，创建的第一个视图控件就是UIWindow，接着创建控制器的view，最后将控制器的view添加到UIWindow上，于是控制器的view就显示在屏幕上了。 -个iOS程序之所以能显示在屏幕上，完全是因为他有UIWindow的存在,也就是说，没有UIWindow,就看不见任何UI界面。 可以">
+<meta name="keywords" content="OC基础,UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIWindow和控制器">
 <meta property="og:url" content="lonely9209.github.io/2016/07/02/UIWindow和控制器/index.html">
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="UIWindow是一种特殊的UIView,通常在一个app中只有一个UIWindow iOS程序启动完毕后，创建的第一个视图控件就是UIWindow，接着创建控制器的view，最后将控制器的view添加到UIWindow上，于是控制器的view就显示在屏幕上了。 -个iOS程序之所以能显示在屏幕上，完全是因为他有UIWindow的存在,也就是说，没有UIWindow,就看不见任何UI界面。 可以">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.835Z">
+<meta property="og:updated_time" content="2018-11-28T13:14:15.170Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIWindow和控制器">
 <meta name="twitter:description" content="UIWindow是一种特殊的UIView,通常在一个app中只有一个UIWindow iOS程序启动完毕后，创建的第一个视图控件就是UIWindow，接着创建控制器的view，最后将控制器的view添加到UIWindow上，于是控制器的view就显示在屏幕上了。 -个iOS程序之所以能显示在屏幕上，完全是因为他有UIWindow的存在,也就是说，没有UIWindow,就看不见任何UI界面。 可以">
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、window选择控制器方法-category"><span class="toc-number">1.</span> <span class="toc-text">一、window选择控制器方法(category)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、手动创建控制器"><span class="toc-number">2.</span> <span class="toc-text">二、手动创建控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：创建的窗口默认是不可见，隐藏的。"><span class="toc-number">2.0.0.0.1.</span> <span class="toc-text">注意：创建的窗口默认是不可见，隐藏的。</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建控制器的方法介绍"><span class="toc-number">3.</span> <span class="toc-text">三、创建控制器的方法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、纯代码创建控制器"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、纯代码创建控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、通过storyboard文件创建控制器"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、通过storyboard文件创建控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、通过xib的方式创建控制器"><span class="toc-number">3.0.3.</span> <span class="toc-text">3、通过xib的方式创建控制器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、控制器的view是懒加载的方式创建的"><span class="toc-number">4.</span> <span class="toc-text">四、控制器的view是懒加载的方式创建的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIView"><span class="toc-number">5.</span> <span class="toc-text">UIView</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -188,6 +219,7 @@
 <li>可以自己手动创建UIWindow</li>
 </ul>
 <p><strong>注：创建的window只要直接置为nil就会消失</strong></p>
+<a id="more"></a>
 <h2 id="一、window选择控制器方法-category"><a href="#一、window选择控制器方法-category" class="headerlink" title="一、window选择控制器方法(category)"></a>一、window选择控制器方法(category)</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#import <span class="meta-string">"UIWindow+Extension.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"ZCTabBarController.h"</span></span></span><br><span class="line"><span class="meta">#import <span class="meta-string">"ZCNewfeatureController.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">UIWindow</span> (<span class="title">Extension</span>)</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)chooseRootViewController</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIWindow</span> *window = [<span class="built_in">UIApplication</span> sharedApplication].keyWindow;</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *currentVersion = [<span class="built_in">NSBundle</span> mainBundle].infoDictionary[<span class="string">@"CFBundleShortVersionString"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取本地存储的版本号</span></span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *defaults = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *sandboxVersion = [defaults objectForKey:<span class="string">@"sandboxVersion"</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//比较两个版本号</span></span><br><span class="line">    <span class="comment">// NSOrderedAscending == 升序, NSOrderedSame == 相同, NSOrderedDescending == 降序</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//如果是降序</span></span><br><span class="line">    <span class="keyword">if</span> ([currentVersion compare:sandboxVersion] == <span class="built_in">NSOrderedDescending</span>) &#123;</span><br><span class="line">        <span class="comment">//0.监听通知</span></span><br><span class="line">        [ZC_NotificationCenter addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(changeRootViewController) name:<span class="string">@"chooseRootViewController"</span> object:<span class="literal">nil</span>];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//1.显示新特性</span></span><br><span class="line">        ZCNewfeatureController *newfeatureVC = [[ZCNewfeatureController alloc] init];</span><br><span class="line">        window.rootViewController = newfeatureVC;</span><br><span class="line">        <span class="comment">//2.保存新的版本号</span></span><br><span class="line">        [defaults setValue:currentVersion forKey:<span class="string">@"sandboxVersion"</span>];</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//2.创建跟控制器</span></span><br><span class="line">        ZCTabBarController *tabBar = [[ZCTabBarController alloc] init];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//5.设置跟控制器</span></span><br><span class="line">        window.rootViewController = tabBar;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)changeRootViewController</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//1.移除观察者身份</span></span><br><span class="line">    [ZC_NotificationCenter removeObserver:<span class="keyword">self</span>];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//2.设置跟控制器</span></span><br><span class="line">    [<span class="built_in">UIApplication</span> sharedApplication].keyWindow.rootViewController = [[ZCTabBarController alloc] init];</span><br><span class="line">    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
 <h2 id="二、手动创建控制器"><a href="#二、手动创建控制器" class="headerlink" title="二、手动创建控制器"></a>二、手动创建控制器</h2><ul>
 <li>不适用Xcode自动生成的ViewController及storyboard文件</li>
@@ -230,17 +262,16 @@
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIStoryboard</span> *sb = [<span class="built_in">UIStoryboard</span> storyboardWithName:<span class="string">@"CZStoryboard"</span> bundle:<span class="literal">nil</span>];</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>2.2作为初始化控制器  【文件中只有一个storyboard】</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewController</span> *vc = [sb instantiateInitialViewController];</span><br></pre></td></tr></table></figure>
-<p>   <strong>注：有多个storyboard，就需要根据标记去加载 【文件中又多个storyboard】</strong></p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewController</span> *vc = [sb instantiateViewControllerWithIdentifier:<span class="string">@"green"</span>];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2.3设置为窗口的根控制器</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.window.rootViewController = vc;</span><br></pre></td></tr></table></figure>
-</li>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewController</span> *vc = [sb instantiateInitialViewController];</span><br></pre></td></tr></table></figure>
+<pre><code>**注：有多个storyboard，就需要根据标记去加载 【文件中又多个storyboard】**
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIViewController</span> *vc = [sb instantiateViewControllerWithIdentifier:<span class="string">@"green"</span>];</span><br></pre></td></tr></table></figure>
+</code></pre></li>
 </ul>
 </li>
-<li><p>3.设置窗口为主窗口并可见</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+</ul>
+<pre><code><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">* 2.3设置为窗口的根控制器</span><br><span class="line">	```objc</span><br><span class="line">	self.window.rootViewController = vc;</span><br></pre></td></tr></table></figure>
+</code></pre><ul>
+<li>3.设置窗口为主窗口并可见  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <h4 id="3、通过xib的方式创建控制器"><a href="#3、通过xib的方式创建控制器" class="headerlink" title="3、通过xib的方式创建控制器"></a>3、通过xib的方式创建控制器</h4><ul>
@@ -256,13 +287,12 @@
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>同上</span><br><span class="line"><span class="number">2.</span>同上</span><br><span class="line"><span class="number">3.</span>直接alloc + init，不需要指定要加载的文件名称，系统会自动寻找名称与控制器名称类似【少了类型的后缀（如controller）】的xib文件	    </span><br><span class="line">CZViewController *vc = [[CZViewController alloc] init];</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>2.3.xib文件名称与控制器名称完全相同</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">    <span class="number">1.</span>同上</span><br><span class="line">    <span class="number">2.</span>同上</span><br><span class="line">    <span class="number">3.</span>系统会优先去寻找与控制器名称完全相同的xib文件</span><br><span class="line">CZViewController *vc = [[CZViewController alloc] init];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">1.</span>同上</span><br><span class="line">  <span class="number">2.</span>同上</span><br><span class="line">  <span class="number">3.</span>系统会优先去寻找与控制器名称完全相同的xib文件</span><br><span class="line">CZViewController *vc = [[CZViewController alloc] init];</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>2.3设置为窗口的根控制器</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">self</span>.window.rootViewController = vc;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3.设置窗口为主窗口并可见</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 2.3设置为窗口的根控制器</span><br><span class="line">	```objc</span><br><span class="line">	self.window.rootViewController = vc;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>3.设置窗口为主窗口并可见  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span>.window makeKeyAndVisible];</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
@@ -276,7 +306,8 @@
 <li>loadView方法仅在用代码创建视图控制器的界面时使用</li>
 <li>在loadView方法中实现加载自定义的view的时候，不需要调用super。</li>
 </ul>
-<h2 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a><a href="http://www.cnblogs.com/snake-hand/p/3190021.html" target="_blank" rel="noopener">UIView</a></h2>
+<h2 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a><a href="http://www.cnblogs.com/snake-hand/p/3190021.html" target="_blank" rel="noopener">UIView</a></h2><p>​    </p>
+
       
 
       
@@ -305,18 +336,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -380,18 +415,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/02/使用NSURL读写字符串/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/02/web服务器安装笔记/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          使用NSURL读写字符串
+          Web服务器安装笔记
         
       </div>
     </a>
   
   
-    <a href="/2016/07/02/web服务器安装笔记/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Web服务器安装笔记</div>
+    <a href="/2016/07/01/NSString:NSMutableString介绍及基本使用/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">NSString/NSMutableString介绍及基本使用</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -410,6 +445,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、window选择控制器方法-category"><span class="toc-number">1.</span> <span class="toc-text">一、window选择控制器方法(category)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、手动创建控制器"><span class="toc-number">2.</span> <span class="toc-text">二、手动创建控制器</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#注意：创建的窗口默认是不可见，隐藏的。"><span class="toc-number">2.0.0.0.1.</span> <span class="toc-text">注意：创建的窗口默认是不可见，隐藏的。</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#三、创建控制器的方法介绍"><span class="toc-number">3.</span> <span class="toc-text">三、创建控制器的方法介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、纯代码创建控制器"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、纯代码创建控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、通过storyboard文件创建控制器"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、通过storyboard文件创建控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、通过xib的方式创建控制器"><span class="toc-number">3.0.3.</span> <span class="toc-text">3、通过xib的方式创建控制器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、控制器的view是懒加载的方式创建的"><span class="toc-number">4.</span> <span class="toc-text">四、控制器的view是懒加载的方式创建的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#UIView"><span class="toc-number">5.</span> <span class="toc-text">UIView</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -518,6 +566,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

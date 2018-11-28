@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>CoreAnimation（核心动画） | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、核心动画(简介) Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程。 要注意的是，Core Animation是直接作用在CALayer上的，并非UIView。  1、动画使用步骤 创建动画对象 设置动画属性 把动画对象添加到某个 CALayer 对象上 需要停止动画：可以调用 remove 方法移除动画  2、Core Animation的使用步骤 使用它需要先添加">
+  <meta name="description" content="一、核心动画(简介) Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程。 要注意的是，Core Animation是直接作用在CALayer上的，并非UIView。">
+<meta name="keywords" content="OC,提高篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CoreAnimation（核心动画）">
 <meta property="og:url" content="lonely9209.github.io/2016/07/08/CoreAnimation（核心动画）/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、核心动画(简介) Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程。 要注意的是，Core Animation是直接作用在CALayer上的，并非UIView。  1、动画使用步骤 创建动画对象 设置动画属性 把动画对象添加到某个 CALayer 对象上 需要停止动画：可以调用 remove 方法移除动画  2、Core Animation的使用步骤 使用它需要先添加">
+<meta property="og:description" content="一、核心动画(简介) Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程。 要注意的是，Core Animation是直接作用在CALayer上的，并非UIView。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.828Z">
+<meta property="og:updated_time" content="2018-11-28T13:15:22.508Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CoreAnimation（核心动画）">
-<meta name="twitter:description" content="一、核心动画(简介) Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程。 要注意的是，Core Animation是直接作用在CALayer上的，并非UIView。  1、动画使用步骤 创建动画对象 设置动画属性 把动画对象添加到某个 CALayer 对象上 需要停止动画：可以调用 remove 方法移除动画  2、Core Animation的使用步骤 使用它需要先添加">
+<meta name="twitter:description" content="一、核心动画(简介) Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程。 要注意的是，Core Animation是直接作用在CALayer上的，并非UIView。">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、核心动画-简介"><span class="toc-number">1.</span> <span class="toc-text">一、核心动画(简介)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、动画使用步骤"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、动画使用步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、Core-Animation的使用步骤"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、Core Animation的使用步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、注意：（问题）"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、注意：（问题）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、动画太快-默认时间是0-25秒-通过-duration-属性修改"><span class="toc-number">1.0.3.0.1.</span> <span class="toc-text">1、动画太快, 默认时间是0.25秒, 通过 duration 属性修改</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、动画执行完毕以后回到了起始的位置。"><span class="toc-number">1.0.3.0.2.</span> <span class="toc-text">2、动画执行完毕以后回到了起始的位置。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、CAAnimation"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、CAAnimation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、所有动画对象的父类，负责控制动画的持续时间和速度，是个抽象类，不能直接使用，应该使用它具体的子类"><span class="toc-number">1.0.4.0.1.</span> <span class="toc-text">1、所有动画对象的父类，负责控制动画的持续时间和速度，是个抽象类，不能直接使用，应该使用它具体的子类</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、属性解析：-红色代表来自CAMediaTiming协议的属性"><span class="toc-number">1.0.4.0.2.</span> <span class="toc-text">2、属性解析：(红色代表来自CAMediaTiming协议的属性)</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#5、CAPropertyAnimation"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、CAPropertyAnimation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、动画"><span class="toc-number">2.</span> <span class="toc-text">二、动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、CABasicAnimation-基本动画-只有两帧的动画"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、CABasicAnimation(基本动画-只有两帧的动画)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、CAAnimationGroup"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、CAAnimationGroup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、CATransition-转场动画"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、CATransition-转场动画</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、使用UIView动画函数实现转场动画——单视图"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">1、使用UIView动画函数实现转场动画——单视图</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、使用UIView动画函数实现转场动画——双视图"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">2、使用UIView动画函数实现转场动画——双视图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、CADisplayLink"><span class="toc-number">3.</span> <span class="toc-text">三、CADisplayLink</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4、UIView动画"><span class="toc-number">3.0.1.</span> <span class="toc-text">4、UIView动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、UIImageView的帧动画"><span class="toc-number">3.0.2.</span> <span class="toc-text">5、UIImageView的帧动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、UIActivityIndicatorView"><span class="toc-number">3.0.3.</span> <span class="toc-text">6、UIActivityIndicatorView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、参考代码"><span class="toc-number">4.</span> <span class="toc-text">四、参考代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本动画-位移"><span class="toc-number">4.0.1.</span> <span class="toc-text">基本动画: 位移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、基本动画-缩放动画"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、基本动画: 缩放动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、基本动画-旋转动画"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、基本动画: 旋转动画</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#一些问题："><span class="toc-number">4.0.3.0.1.</span> <span class="toc-text">一些问题：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#解决办法"><span class="toc-number">4.0.3.0.2.</span> <span class="toc-text">解决办法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#解决办法-1"><span class="toc-number">4.0.3.0.3.</span> <span class="toc-text">解决办法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#解决办法-2"><span class="toc-number">4.0.3.0.4.</span> <span class="toc-text">解决办法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、基本动画-关键帧动画"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、基本动画: 关键帧动画</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、设置-values-属性"><span class="toc-number">4.0.4.0.1.</span> <span class="toc-text">1、设置 values 属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、设置-path-属性"><span class="toc-number">4.0.4.0.2.</span> <span class="toc-text">2、设置 path 属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、-模拟”app-抖动”"><span class="toc-number">4.0.4.0.3.</span> <span class="toc-text">3、 模拟”app 抖动”</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、组动画"><span class="toc-number">4.0.5.</span> <span class="toc-text">5、组动画</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -185,6 +216,7 @@
 <li>Core Animation的动画执行过程都是在后台操作的，不会阻塞主线程。</li>
 <li><strong>要注意的是，Core Animation是直接作用在CALayer上的，并非UIView。</strong></li>
 </ul>
+<a id="more"></a>
 <h4 id="1、动画使用步骤"><a href="#1、动画使用步骤" class="headerlink" title="1、动画使用步骤"></a>1、动画使用步骤</h4><ol>
 <li>创建动画对象</li>
 <li>设置动画属性</li>
@@ -218,7 +250,7 @@
 <ul>
 <li>动画执行完毕后不要删除动画对象</li>
 <li><p>设置 fillMode</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当动画执行完毕后不要删除动画对象</span></span><br><span class="line">animation.removedOnCompletion = <span class="literal">NO</span>;</span><br><span class="line">animation.fillMode = kCAFillModeForwards;</span><br></pre></td></tr></table></figure>
+  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当动画执行完毕后不要删除动画对象</span></span><br><span class="line">animation.removedOnCompletion = <span class="literal">NO</span>;</span><br><span class="line">animation.fillMode = kCAFillModeForwards;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>缺点： 无法与用户交互, 因为 frame 就没变</p>
 </li>
@@ -269,7 +301,8 @@
 </li>
 </ul>
 <h6 id="1、使用UIView动画函数实现转场动画——单视图"><a href="#1、使用UIView动画函数实现转场动画——单视图" class="headerlink" title="1、使用UIView动画函数实现转场动画——单视图"></a>1、使用UIView动画函数实现转场动画——单视图</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)transitionWithView:(<span class="built_in">UIView</span> *)view duration:(<span class="built_in">NSTimeInterval</span>)duration options:(<span class="built_in">UIViewAnimationOptions</span>)options animations:(<span class="keyword">void</span> (^)(<span class="keyword">void</span>))animations completion:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span> finished))completion;</span><br></pre></td></tr></table></figure>
-<p><strong>参数说明：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">duration：动画的持续时间</span><br><span class="line">view：需要进行转场动画的视图</span><br><span class="line">options：转场动画的类型</span><br><span class="line">animations：将改变视图属性的代码放在这个block中</span><br><span class="line">completion：动画结束后，会自动调用这个block</span><br><span class="line">```		</span><br><span class="line"><span class="meta">###### 2、使用UIView动画函数实现转场动画——双视图</span></span><br><span class="line">```objc</span><br><span class="line">+ (<span class="keyword">void</span>)transitionFromView:(<span class="built_in">UIView</span> *)fromView toView:(<span class="built_in">UIView</span> *)toView duration:(<span class="built_in">NSTimeInterval</span>)duration options:(<span class="built_in">UIViewAnimationOptions</span>)options completion:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span> finished))completion;</span><br></pre></td></tr></table></figure></p>
+<p><strong>参数说明：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">duration：动画的持续时间</span><br><span class="line">view：需要进行转场动画的视图</span><br><span class="line">options：转场动画的类型</span><br><span class="line">animations：将改变视图属性的代码放在这个block中</span><br><span class="line">completion：动画结束后，会自动调用这个block</span><br></pre></td></tr></table></figure></p>
+<h6 id="2、使用UIView动画函数实现转场动画——双视图"><a href="#2、使用UIView动画函数实现转场动画——双视图" class="headerlink" title="2、使用UIView动画函数实现转场动画——双视图"></a>2、使用UIView动画函数实现转场动画——双视图</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)transitionFromView:(<span class="built_in">UIView</span> *)fromView toView:(<span class="built_in">UIView</span> *)toView duration:(<span class="built_in">NSTimeInterval</span>)duration options:(<span class="built_in">UIViewAnimationOptions</span>)options completion:(<span class="keyword">void</span> (^)(<span class="built_in">BOOL</span> finished))completion;</span><br></pre></td></tr></table></figure>
 <p><strong>参数说明：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">duration：动画的持续时间</span><br><span class="line">options：转场动画的类型</span><br><span class="line">animations：将改变视图属性的代码放在这个block中</span><br><span class="line">completion：动画结束后，会自动调用这个block</span><br></pre></td></tr></table></figure></p>
 <h2 id="三、CADisplayLink"><a href="#三、CADisplayLink" class="headerlink" title="三、CADisplayLink"></a>三、CADisplayLink</h2><ul>
 <li>CADisplayLink是一种以屏幕刷新频率触发的时钟机制，每秒钟执行大约60次左右</li>
@@ -344,18 +377,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -449,6 +486,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、核心动画-简介"><span class="toc-number">1.</span> <span class="toc-text">一、核心动画(简介)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、动画使用步骤"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、动画使用步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、Core-Animation的使用步骤"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、Core Animation的使用步骤</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、注意：（问题）"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、注意：（问题）</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、动画太快-默认时间是0-25秒-通过-duration-属性修改"><span class="toc-number">1.0.3.0.1.</span> <span class="toc-text">1、动画太快, 默认时间是0.25秒, 通过 duration 属性修改</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、动画执行完毕以后回到了起始的位置。"><span class="toc-number">1.0.3.0.2.</span> <span class="toc-text">2、动画执行完毕以后回到了起始的位置。</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、CAAnimation"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、CAAnimation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、所有动画对象的父类，负责控制动画的持续时间和速度，是个抽象类，不能直接使用，应该使用它具体的子类"><span class="toc-number">1.0.4.0.1.</span> <span class="toc-text">1、所有动画对象的父类，负责控制动画的持续时间和速度，是个抽象类，不能直接使用，应该使用它具体的子类</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、属性解析：-红色代表来自CAMediaTiming协议的属性"><span class="toc-number">1.0.4.0.2.</span> <span class="toc-text">2、属性解析：(红色代表来自CAMediaTiming协议的属性)</span></a></li></ol></li></ol><li class="toc-item toc-level-4"><a class="toc-link" href="#5、CAPropertyAnimation"><span class="toc-number">1.0.5.</span> <span class="toc-text">5、CAPropertyAnimation</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、动画"><span class="toc-number">2.</span> <span class="toc-text">二、动画</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、CABasicAnimation-基本动画-只有两帧的动画"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、CABasicAnimation(基本动画-只有两帧的动画)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、CAAnimationGroup"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、CAAnimationGroup</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、CATransition-转场动画"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、CATransition-转场动画</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、使用UIView动画函数实现转场动画——单视图"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">1、使用UIView动画函数实现转场动画——单视图</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、使用UIView动画函数实现转场动画——双视图"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">2、使用UIView动画函数实现转场动画——双视图</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、CADisplayLink"><span class="toc-number">3.</span> <span class="toc-text">三、CADisplayLink</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4、UIView动画"><span class="toc-number">3.0.1.</span> <span class="toc-text">4、UIView动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、UIImageView的帧动画"><span class="toc-number">3.0.2.</span> <span class="toc-text">5、UIImageView的帧动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、UIActivityIndicatorView"><span class="toc-number">3.0.3.</span> <span class="toc-text">6、UIActivityIndicatorView</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、参考代码"><span class="toc-number">4.</span> <span class="toc-text">四、参考代码</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#基本动画-位移"><span class="toc-number">4.0.1.</span> <span class="toc-text">基本动画: 位移</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、基本动画-缩放动画"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、基本动画: 缩放动画</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、基本动画-旋转动画"><span class="toc-number">4.0.3.</span> <span class="toc-text">3、基本动画: 旋转动画</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#一些问题："><span class="toc-number">4.0.3.0.1.</span> <span class="toc-text">一些问题：</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#解决办法"><span class="toc-number">4.0.3.0.2.</span> <span class="toc-text">解决办法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#解决办法-1"><span class="toc-number">4.0.3.0.3.</span> <span class="toc-text">解决办法</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#解决办法-2"><span class="toc-number">4.0.3.0.4.</span> <span class="toc-text">解决办法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、基本动画-关键帧动画"><span class="toc-number">4.0.4.</span> <span class="toc-text">4、基本动画: 关键帧动画</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、设置-values-属性"><span class="toc-number">4.0.4.0.1.</span> <span class="toc-text">1、设置 values 属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、设置-path-属性"><span class="toc-number">4.0.4.0.2.</span> <span class="toc-text">2、设置 path 属性</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#3、-模拟”app-抖动”"><span class="toc-number">4.0.4.0.3.</span> <span class="toc-text">3、 模拟”app 抖动”</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、组动画"><span class="toc-number">4.0.5.</span> <span class="toc-text">5、组动画</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -557,6 +607,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

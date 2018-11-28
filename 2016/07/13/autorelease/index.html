@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>autorelease | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、autorelease基本使用1.自动释放池及autorelease介绍 1.自动释放池 (1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。 (2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中   2.自动释放池的创建方式   12345678910(1)iOS 5.0以前的创建方式    NSAutoreleasePool">
+  <meta name="description" content="一、autorelease基本使用1.自动释放池及autorelease介绍 1.自动释放池  (1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。  (2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="autorelease">
 <meta property="og:url" content="lonely9209.github.io/2016/07/13/autorelease/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、autorelease基本使用1.自动释放池及autorelease介绍 1.自动释放池 (1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。 (2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中   2.自动释放池的创建方式   12345678910(1)iOS 5.0以前的创建方式    NSAutoreleasePool">
+<meta property="og:description" content="一、autorelease基本使用1.自动释放池及autorelease介绍 1.自动释放池  (1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。  (2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.835Z">
+<meta property="og:updated_time" content="2018-11-28T13:12:11.286Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="autorelease">
-<meta name="twitter:description" content="一、autorelease基本使用1.自动释放池及autorelease介绍 1.自动释放池 (1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。 (2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中   2.自动释放池的创建方式   12345678910(1)iOS 5.0以前的创建方式    NSAutoreleasePool">
+<meta name="twitter:description" content="一、autorelease基本使用1.自动释放池及autorelease介绍 1.自动释放池  (1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。  (2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,25 +185,56 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、autorelease基本使用"><span class="toc-number">1.</span> <span class="toc-text">一、autorelease基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-自动释放池及autorelease介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.自动释放池及autorelease介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、为什么会有autorelease？"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、为什么会有autorelease？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、autorelease的原理？"><span class="toc-number">1.0.3.</span> <span class="toc-text">4、autorelease的原理？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、autorelease什么时候被释放？"><span class="toc-number">1.0.4.</span> <span class="toc-text">5、autorelease什么时候被释放？</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、autorelease的应用场景"><span class="toc-number">2.</span> <span class="toc-text">二、autorelease的应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、autorelease的应用场景"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、autorelease的应用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、完善快速创建对象的方法"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、完善快速创建对象的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、autorelease注意"><span class="toc-number">3.</span> <span class="toc-text">三、autorelease注意</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、autorelease使用注意"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、autorelease使用注意</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#并不是放到自动释放池中，都会自动加入到自动释放池"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">并不是放到自动释放池中，都会自动加入到自动释放池</span></a></li></ol></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、autorelease基本使用"><a href="#一、autorelease基本使用" class="headerlink" title="一、autorelease基本使用"></a>一、autorelease基本使用</h2><h4 id="1-自动释放池及autorelease介绍"><a href="#1-自动释放池及autorelease介绍" class="headerlink" title="1.自动释放池及autorelease介绍"></a>1.自动释放池及autorelease介绍</h4><ul>
-<li><strong>1.自动释放池</strong><ul>
-<li>(1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。</li>
-<li>(2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中</li>
+<li><p><strong>1.自动释放池</strong></p>
+<ul>
+<li><p>(1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。</p>
+</li>
+<li><p>(2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中</p>
+</li>
 </ul>
 </li>
+</ul>
+<a id="more"></a>
+<ul>
 <li><p><strong>2.自动释放池的创建方式</strong></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)iOS <span class="number">5.0</span>以前的创建方式</span><br><span class="line">    <span class="built_in">NSAutoreleasePool</span> *pool=[[<span class="built_in">NSAutoreleasePool</span> alloc] init];</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">    [pool release];  <span class="comment">//[pool drain];用于mac</span></span><br><span class="line">	</span><br><span class="line">(<span class="number">2</span>)iOS5<span class="number">.0</span>以后</span><br><span class="line"><span class="keyword">@autoreleasepool</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//开始代表创建自动释放池</span></span><br><span class="line">&#125; <span class="comment">//结束代表销毁自动释放池</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)iOS <span class="number">5.0</span>以前的创建方式</span><br><span class="line">    <span class="built_in">NSAutoreleasePool</span> *pool=[[<span class="built_in">NSAutoreleasePool</span> alloc] init];</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">    [pool release];  <span class="comment">//[pool drain];用于mac</span></span><br><span class="line">  </span><br><span class="line">(<span class="number">2</span>)iOS5<span class="number">.0</span>以后</span><br><span class="line"><span class="keyword">@autoreleasepool</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//开始代表创建自动释放池</span></span><br><span class="line">&#125; <span class="comment">//结束代表销毁自动释放池</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>3.autorelease</strong></p>
 <ul>
-<li>是一种支持引用计数的内存管理方式<ul>
-<li>它可以暂时的保存某个对象(object),然后在内存池自己的排干(drain)的时候对其中的每个对象发送release消息。</li>
-</ul>
+<li><p>是一种支持引用计数的内存管理方式</p>
 </li>
-<li>注意,这里只是发送release消息,如果当时的引用计数(reference-counted)依然不为0,则该对象依然不会被释放。可以用该方法来保存某个对象,也要注意保存之后要释放该对象。</li>
+<li><p>它可以暂时的保存某个对象(object),然后在内存池自己的排干(drain)的时候对其中的每个对象发送release消息。</p>
+</li>
+<li><p>注意,这里只是发送release消息,如果当时的引用计数(reference-counted)依然不为0,则该对象依然不会被释放。可以用该方法来保存某个对象,也要注意保存之后要释放该对象。</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -259,26 +297,14 @@
 <ul>
 <li>在类方法中使用id</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   + (<span class="keyword">id</span>)student</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [[[Student alloc] init] autorelease];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">id</span>)student</span><br><span class="line">&#123;</span><br><span class="line"> <span class="keyword">return</span> [[[Student alloc] init] autorelease];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
 </ul>
-<p><code>此时，返回的对象仍旧是Student.所以，应该用self，替代Student.</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">`此时，返回的对象仍旧是Student.所以，应该用self，替代Student.`</span><br><span class="line">* 问题2：用其他对象类型，接受自定义对象类型。</span><br><span class="line">* 如：</span><br><span class="line">        </span><br><span class="line">        NSString *s = [Student student];</span><br><span class="line">        NSLog(@&quot;%lu&quot;,s.length);</span><br><span class="line">`这段代码，编译时，不会报任何警告，但是运行时会直接崩溃。`</span><br><span class="line">* 改进办法：</span><br><span class="line"></span><br><span class="line">  ```objc</span><br><span class="line">  //instancetype：可以动态判断返回的类型和接受的类型是否一致</span><br><span class="line">  + (instancetype)student&#123;</span><br><span class="line"></span><br><span class="line">    return [[self alloc] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>问题2：用其他对象类型，接受自定义对象类型。</li>
-<li><p>如：</p>
-<pre><code>NSString *s = [Student student];
-NSLog(@&quot;%lu&quot;,s.length);
-</code></pre><p><code>这段代码，编译时，不会报任何警告，但是运行时会直接崩溃。</code></p>
-</li>
-<li><p>改进办法：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//instancetype：可以动态判断返回的类型和接受的类型是否一致</span></span><br><span class="line">  + (<span class="keyword">instancetype</span>)student&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>此时，编译器会警告</p>
-<pre><code>NSString *s = [Student student];
-NSLog(@&quot;%lu&quot;,s.length);
-</code></pre></li>
+<li>此时，编译器会警告<br>  ​    NSString *s = [Student student];<br>  ​    NSLog(@”%lu”,s.length);</li>
 </ul>
 <h2 id="三、autorelease注意"><a href="#三、autorelease注意" class="headerlink" title="三、autorelease注意"></a>三、autorelease注意</h2><h4 id="1、autorelease使用注意"><a href="#1、autorelease使用注意" class="headerlink" title="1、autorelease使用注意"></a>1、autorelease使用注意</h4><h5 id="并不是放到自动释放池中，都会自动加入到自动释放池"><a href="#并不是放到自动释放池中，都会自动加入到自动释放池" class="headerlink" title="并不是放到自动释放池中，都会自动加入到自动释放池"></a>并不是放到自动释放池中，都会自动加入到自动释放池</h5><ul>
 <li><p>1、因为没有调用autorelease方法，所以对象没有加入到自动释放池.</p>
@@ -335,18 +361,22 @@ NSLog(@&quot;%lu&quot;,s.length);
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -440,6 +470,19 @@ NSLog(@&quot;%lu&quot;,s.length);
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、autorelease基本使用"><span class="toc-number">1.</span> <span class="toc-text">一、autorelease基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-自动释放池及autorelease介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1.自动释放池及autorelease介绍</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、为什么会有autorelease？"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、为什么会有autorelease？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、autorelease的原理？"><span class="toc-number">1.0.3.</span> <span class="toc-text">4、autorelease的原理？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、autorelease什么时候被释放？"><span class="toc-number">1.0.4.</span> <span class="toc-text">5、autorelease什么时候被释放？</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、autorelease的应用场景"><span class="toc-number">2.</span> <span class="toc-text">二、autorelease的应用场景</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、autorelease的应用场景"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、autorelease的应用场景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、完善快速创建对象的方法"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、完善快速创建对象的方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、autorelease注意"><span class="toc-number">3.</span> <span class="toc-text">三、autorelease注意</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、autorelease使用注意"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、autorelease使用注意</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#并不是放到自动释放池中，都会自动加入到自动释放池"><span class="toc-number">3.0.1.1.</span> <span class="toc-text">并不是放到自动释放池中，都会自动加入到自动释放池</span></a></li></ol></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -548,6 +591,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

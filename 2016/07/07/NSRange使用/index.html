@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>NSRange使用 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="四、NSRange使用 1、NSRange的使用 NSRange是Foundation框架中比较常用的结构体, 它的定义如下:   1234typedef struct _NSRange &amp;#123;    NSUInteger location;    NSUInteger length;&amp;#125; NSRange;  NSUInteger的定义  1typedef unsigned int">
+  <meta name="description" content="四、NSRange使用 1、NSRange的使用  NSRange是Foundation框架中比较常用的结构体, 它的定义如下: 1234typedef struct _NSRange &amp;#123;    NSUInteger location;    NSUInteger length;&amp;#125; NSRange;">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSRange使用">
 <meta property="og:url" content="lonely9209.github.io/2016/07/07/NSRange使用/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="四、NSRange使用 1、NSRange的使用 NSRange是Foundation框架中比较常用的结构体, 它的定义如下:   1234typedef struct _NSRange &amp;#123;    NSUInteger location;    NSUInteger length;&amp;#125; NSRange;  NSUInteger的定义  1typedef unsigned int">
+<meta property="og:description" content="四、NSRange使用 1、NSRange的使用  NSRange是Foundation框架中比较常用的结构体, 它的定义如下: 1234typedef struct _NSRange &amp;#123;    NSUInteger location;    NSUInteger length;&amp;#125; NSRange;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.831Z">
+<meta property="og:updated_time" content="2018-11-28T13:13:24.617Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSRange使用">
-<meta name="twitter:description" content="四、NSRange使用 1、NSRange的使用 NSRange是Foundation框架中比较常用的结构体, 它的定义如下:   1234typedef struct _NSRange &amp;#123;    NSUInteger location;    NSUInteger length;&amp;#125; NSRange;  NSUInteger的定义  1typedef unsigned int">
+<meta name="twitter:description" content="四、NSRange使用 1、NSRange的使用  NSRange是Foundation框架中比较常用的结构体, 它的定义如下: 1234typedef struct _NSRange &amp;#123;    NSUInteger location;    NSUInteger length;&amp;#125; NSRange;">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,16 +185,42 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#四、NSRange使用"><span class="toc-number">1.</span> <span class="toc-text">四、NSRange使用</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="四、NSRange使用"><a href="#四、NSRange使用" class="headerlink" title="四、NSRange使用"></a>四、NSRange使用</h2><ul>
-<li><strong>1、NSRange的使用</strong></li>
+<li><p><strong>1、NSRange的使用</strong></p>
+</li>
 <li><p>NSRange是Foundation框架中比较常用的结构体, 它的定义如下:</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _NSRange &#123;</span><br><span class="line">    <span class="built_in">NSUInteger</span> location;</span><br><span class="line">    <span class="built_in">NSUInteger</span> length;</span><br><span class="line">&#125; <span class="built_in">NSRange</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _NSRange &#123;</span><br><span class="line">    <span class="built_in">NSUInteger</span> location;</span><br><span class="line">    <span class="built_in">NSUInteger</span> length;</span><br><span class="line">&#125; <span class="built_in">NSRange</span>;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
 </li>
 <li><p>NSUInteger的定义</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="built_in">NSUInteger</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="built_in">NSUInteger</span>;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>NSRange用来表示事物的一个范围,通常是字符串里的字符范围或者数组里的元素范围。</p>
 <ul>
@@ -240,18 +273,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -315,11 +352,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/07/Quartz2d(绘图)/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/07/UICollectionview/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Quartz2D(绘图)
+          UICollectionView
         
       </div>
     </a>
@@ -345,6 +382,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#四、NSRange使用"><span class="toc-number">1.</span> <span class="toc-text">四、NSRange使用</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -453,6 +503,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

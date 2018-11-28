@@ -55,9 +55,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -117,6 +119,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -137,11 +141,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -180,8 +186,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><strong><strong>安装Apache</strong></strong></p>
-<p>## 一、目的：</p>
-<ol>
+<h2 id="一、目的："><a href="#一、目的：" class="headerlink" title="一、目的："></a>一、目的：</h2><ol>
 <li>能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！</li>
 </ol>
         
@@ -338,128 +343,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、分类（Category）概念及使用流程"><a href="#一、分类（Category）概念及使用流程" class="headerlink" title="一、分类（Category）概念及使用流程"></a>一、分类（Category）概念及使用流程</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 学习引入：</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> :<span class="title">NSObject</span> </span></span><br><span class="line">-(<span class="keyword">void</span>)run;</span><br><span class="line">-(<span class="keyword">void</span>)eat;</span><br><span class="line">-(<span class="keyword">void</span>)study;</span><br><span class="line"><span class="keyword">@end</span> -(<span class="keyword">void</span>)playlol;</span><br></pre></td></tr></table></figure>
-<h4 id="1、分类的概念及作用"><a href="#1、分类的概念及作用" class="headerlink" title="1、分类的概念及作用"></a>1、分类的概念及作用</h4><h5 id="1、分类的概念："><a href="#1、分类的概念：" class="headerlink" title="1、分类的概念："></a>1、分类的概念：</h5><ul>
-<li>Category：类别、类目、分类。</li>
-</ul>
-<h5 id="2、分类的作用"><a href="#2、分类的作用" class="headerlink" title="2、分类的作用"></a>2、分类的作用</h5><ul>
-<li>1）将1个类中的不同方法分到多个不同的文件中存储，便于对类进行模块化设计和团队开发。</li>
-<li>2）可以在不修改原来类的基础上，为这个类扩充一些方法。</li>
-<li>3）注意：<ul>
-<li>分类中只能增加“方法”，不能增加成员变量。</li>
-<li>分类中可以访问原来类中的成员变量。</li>
-</ul>
-</li>
-</ul>
-<h5 id="3、使用分类的目的"><a href="#3、使用分类的目的" class="headerlink" title="3、使用分类的目的"></a>3、使用分类的目的</h5><ul>
-<li>1）对现有类进行扩展:<ul>
-<li>比如,你可以扩展Cocoa touch框架中的类,你在类别中增加的方法会被子类所继承,而且在运行 时跟其他的方法没有区别。</li>
-</ul>
-</li>
-<li>2）作为子类的替代手段:<ul>
-<li>不需要定义和使用一个子类,你可以通过类别直接向已有的类里增加方法。</li>
-</ul>
-</li>
-<li>3）对类中的方法归类:<ul>
-<li>利用category把一个庞大的类划分为小块来分别进行开发,从而更好的对类中的方法进行更新和维护。</li>
-</ul>
-</li>
-</ul>
-<h5 id="4、分类的使用流程"><a href="#4、分类的使用流程" class="headerlink" title="4、分类的使用流程"></a>4、分类的使用流程</h5><ul>
-<li>声明分类–&gt;实现分类–&gt;使用分类</li>
-<li>注意:分类的命名规则:类名+扩展方法,如“NSString+countNum”。 分类的接口声明与类的定义十分相似,但分类不继承父类,只需要带有一个括号,表明该分类的主要用途。</li>
-</ul>
-<h2 id="二、分类（Category）声明和实现"><a href="#二、分类（Category）声明和实现" class="headerlink" title="二、分类（Category）声明和实现"></a>二、分类（Category）声明和实现</h2><h4 id="1、声明和实现一个分类"><a href="#1、声明和实现一个分类" class="headerlink" title="1、声明和实现一个分类"></a>1、声明和实现一个分类</h4><ul>
-<li><p>在.h文件中,声明分类:</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> 类名 (分类名)</span></span><br><span class="line"><span class="comment">//方法;</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>说明:</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">声明分类格式</span><br><span class="line"><span class="number">1</span>）新添加的方法必须写在 <span class="class"><span class="keyword">@interface</span> 与 @<span class="title">end</span> 之间</span></span><br><span class="line"><span class="number">2</span>）ClassName 现有类的类名(要为哪个类扩展方法)。</span><br><span class="line"><span class="number">3</span>）CategoryName 待声明的分类名称</span><br><span class="line"><span class="number">4</span>）NewMethod 新添加的方法</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="注意"><a href="#注意" class="headerlink" title="注意:"></a>注意:</h5><ul>
-<li><p>不允许在声明分类的时候定义变量</p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span>(<span class="title">sport</span>)</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="keyword">int</span> _age; <span class="comment">// 报错</span></span><br><span class="line"> &#125;</span><br><span class="line">- (<span class="keyword">void</span>)run;</span><br><span class="line">- (<span class="keyword">void</span>)jump;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>在.m文件中(也可以在.h中实现),实现分类:</strong></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">ClassName</span>(<span class="title">CategoryName</span>) <span class="title">NewMethod</span></span></span><br><span class="line">&#123;</span><br><span class="line">......</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>说明:<ul>
-<li>实现类别格式<ul>
-<li>1)新方法的实现必须写在@ implementation与@end之间</li>
-<li>2)ClassName 现有类的类名</li>
-<li>3)CategoryName 待声明的分类名称</li>
-<li>4)NewMethod 新添加的方法的实现</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h6 id="2、调用分类中的方法"><a href="#2、调用分类中的方法" class="headerlink" title="2、调用分类中的方法"></a>2、调用分类中的方法</h6><ul>
-<li>调用分类中的方法与一般方法调用，完全一样（需要导入头文件）</li>
-</ul>
-<h2 id="三、分类（Catefory）使用注意事项"><a href="#三、分类（Catefory）使用注意事项" class="headerlink" title="三、分类（Catefory）使用注意事项"></a>三、分类（Catefory）使用注意事项</h2><h4 id="1、分类的使用注意事项"><a href="#1、分类的使用注意事项" class="headerlink" title="1、分类的使用注意事项"></a>1、分类的使用注意事项</h4><ul>
-<li>1）分类只能增加方法, 不能增加成员变量</li>
-<li>2）可以书写@property,此时只生成get和set方法,不会生成私有变量</li>
-<li>3)如果分类和原来类出现同名的方法, 优先调用分类中的方法, 原来类中的方法会被屏蔽</li>
-</ul>
-<h4 id="2、分类的编译的顺序"><a href="#2、分类的编译的顺序" class="headerlink" title="2、分类的编译的顺序"></a>2、分类的编译的顺序</h4><ul>
-<li>1）当分类与主类中都有同一个方法时，优先调用分类中的方法。</li>
-<li>2）当多个分类中都有同样的一个方法时，优先调用最后一个参与编译的分类中的方法。</li>
-</ul>
-<h2 id="四、分类（Category）非正式协议"><a href="#四、分类（Category）非正式协议" class="headerlink" title="四、分类（Category）非正式协议"></a>四、分类（Category）非正式协议</h2><ul>
-<li><p>显然这个名词是相对于正式协议而言的。在解释非正式协议之前,先引用两段话:</p>
-</li>
-<li><p>1、在《Cocoa设计模式》第六章类别的6.3.2把分类用于非正式协议一节中,这样写到:<code>非正式协议通常定义为NSObject的分类</code>。分类接口中指定的方法可能会或者可能不会被框架类实际地实现,而是被子类重写。</p>
-</li>
-<li><p>2、苹果官方文档Cocoa CoreCompetencies一文中是这样介绍非正式协议的:An informal protocol is a category on NSObject, which implicitly makes almost all objects adopters of the protocol. (A category is a language feature that enables you to add methods to a class without subclassing it.) Implementation of the methods in an informal protocol is optional. Before invoking a method, the calling object checks to see whether the target object implements it. Until optional protocol methods were introduced in Objective-C 2.0, informal protocols were essential to the way Foundation and AppKit classes implemented delegation.</p>
-</li>
-<li><p>大概意思:非正式协议是NSObject类(显而易见,还包括它的子类)的分类,其所有的子类都含蓄地接受了这个协议。(分类是Objective-C的一个语言特点,可以让你在无需子类化的前提下为一个类增加方法。)非正式协议中的方法是否实现都是可选的,因此在调用非正式协议中的方法之前,需要去检查对象类是否实现了它。在Objective-C2.0中引入可选的正式协议方法之前,非正式协议是Foundation和AppKit类实现委托的唯一方式。<br><code>所谓的非正式协议就是分类,即凡是NSObject或其子类Foundation框架中的类,增加的分类,都是非正式协议。</code></p>
-</li>
-<li><p>思考：</p>
-<ul>
-<li>统计一个字符串中数字的个数</li>
-<li>NSString *s = @”dahfkd234234hkj324lk432bkb42”;</li>
-</ul>
-</li>
-<li><p>解决方法：遍历字符串中的每个字符，判断是否在0-9之间。</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">NSString</span> (<span class="title">count</span>)</span></span><br><span class="line">-(<span class="keyword">void</span>)countStrNum;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">NSString</span> (<span class="title">count</span>)</span></span><br><span class="line">-(<span class="keyword">void</span>)countStrNum</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">int</span> count=<span class="number">0</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历字符串</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="keyword">self</span>.length;i++)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//获取字符串的每一个字符</span></span><br><span class="line"><span class="keyword">unichar</span> c = [<span class="keyword">self</span> characterAtIndex:i];</span><br><span class="line"></span><br><span class="line"><span class="comment">//判断是否是阿拉伯数字</span></span><br><span class="line"><span class="keyword">if</span> (c&gt;=<span class="string">'0'</span> &amp;&amp; c&lt;=<span class="string">'9'</span>)</span><br><span class="line">&#123;</span><br><span class="line"><span class="comment">//如果是阿拉伯数字,则+1</span></span><br><span class="line">count++;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"count = %d"</span>,count);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="五、分类（Catefory）延展"><a href="#五、分类（Catefory）延展" class="headerlink" title="五、分类（Catefory）延展"></a>五、分类（Catefory）延展</h2><h4 id="1、类的延展的概念"><a href="#1、类的延展的概念" class="headerlink" title="1、类的延展的概念"></a>1、类的延展的概念</h4><ul>
-<li>延展类别又称为扩展(Extendsion)</li>
-<li>Extension是Category的一个特例</li>
-<li><p>其名字为匿名(为空),并且新添加的方法一定要予以实现。(Category没有这个限制)</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">MyClass</span> ()</span></span><br><span class="line">&#123;</span><br><span class="line">   <span class="comment">//类扩展 float value;</span></span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)setValue:(<span class="keyword">float</span>)newValue;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这种写法的类别叫<code>匿名分类</code>,又叫<code>类扩展</code>,所谓的扩展,其实就是为一个类添加额外的原来没有的变量、方法或者合成属性。</p>
-</li>
-</ul>
-<p>#####2、类扩展的作用：</p>
-<ul>
-<li>为本类扩充一些私有的成员变量和私有方法。</li>
-</ul>
-<h5 id="3、延展的实现"><a href="#3、延展的实现" class="headerlink" title="3、延展的实现"></a>3、延展的实现</h5><ul>
-<li><p>1）通过延展来实现方法的私有,延展的头文件独立。这种方法不能实现真正的方法私有,当在别的文件中引入延展的头文件,那么在这个文件中定义的类的对象就可以直接调用在延展中定义所谓 私有的方法.</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 对类的延展,隐藏方法的一种手段</span></span><br><span class="line">.h文件</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SceneManager</span> ()</span></span><br><span class="line">+ (<span class="keyword">void</span>) wrap;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line">.m类的实现文件中</span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SceneManager</span></span></span><br><span class="line">+ (<span class="keyword">void</span>) wrap &#123;</span><br><span class="line">  <span class="built_in">NSLog</span>(<span class="string">@"method of wrap"</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li><p>调用</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[SceneManager wrap];</span><br><span class="line"><span class="comment">// 这里会报一个警告:Class method of "+ wrap" not found</span></span><br><span class="line"><span class="comment">// 不过虽然是警告,不过运行是正常的,不过这么写在自我规范上不好,即使编译器没有做强制限制,我们自己也要限制自己。</span></span><br><span class="line"><span class="comment">// 不然,延展方法就毫无意义可言。</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2）第二种实现延展的方式是延展没有独立的头文件,在类的实现文件.m中声明和实现延展,这种方法可以很好的实现方法的私有,因为在OC中是不能引入.m的文件的。</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"> .m文件</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">SceneManager</span> ()</span></span><br><span class="line">+ (<span class="keyword">void</span>) wrap;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">SceneManager</span></span></span><br><span class="line">+ (<span class="keyword">void</span>) wrap &#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"method of wrap"</span>); &#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line">调用</span><br><span class="line">[SceneManager wrap];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h5 id="分类和类扩展的区别："><a href="#分类和类扩展的区别：" class="headerlink" title="分类和类扩展的区别："></a>分类和类扩展的区别：</h5><ul>
-<li>1、类别中只能增加方法;</li>
-<li>2、是的,你没看错,类扩展不仅可以增加方法,还可以增加实例变量(或者合成属性),只是该<code>实例变量默认是私有类型的</code>(作用范围只能在自身类,而不是子类或其他地方);</li>
-<li>3、类扩展中声明的方法没被实现,编译器会报警,但是类别中的方法没被实现编译器是不会有任何警告的。这是因为类扩展是在编译阶段被添加到类中,而类别是在运行时添加到类中。</li>
-<li>4、类扩展不能像类别那样拥有独立的实现部分(@implementation部分),也就是说,类扩展所声明的方法必须依托对应类的实现部分来实现。</li>
-<li>5、定义在 .m 文件中的类扩展方法为私有的,定义在 .h 文件(头文件)中的类扩展方法为公有 的。类扩展是在 .m 文件中声明私有方法的非常好的方式。</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/15/分类（Category）/#more">more >></a>
+        
       
 
       
@@ -467,18 +353,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -538,46 +428,9 @@
 <li>2）协议中只能声明一些方法。</li>
 <li>3）遵守了协议，就等于拥有了协议中的所有方法。</li>
 </ul>
-<h4 id="2、协议的基本用法："><a href="#2、协议的基本用法：" class="headerlink" title="2、协议的基本用法："></a>2、协议的基本用法：</h4><ul>
-<li><p>1、协议的定义格式：</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> 协议名称</span></span><br><span class="line"><span class="comment">// 各种方法；</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、协议的使用格式：</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@interface</span> 类名 : <span class="title">NSObject</span> &lt;协议名1，协议名2，...&gt;</span></span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="二、protocol类型限制"><a href="#二、protocol类型限制" class="headerlink" title="二、protocol类型限制"></a>二、protocol类型限制</h2><h4 id="1、protocol类型限制"><a href="#1、protocol类型限制" class="headerlink" title="1、protocol类型限制"></a>1、protocol类型限制</h4><h6 id="类型限制："><a href="#类型限制：" class="headerlink" title="类型限制："></a>类型限制：</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">id</span> d = [[Person alloc] init];</span><br><span class="line"></span><br><span class="line">要求：变量d指向的对象必须遵守PlayProtocol协议</span><br><span class="line"><span class="keyword">id</span>&lt;PlayProtocol&gt; d = [[Person alloc] init];</span><br><span class="line"></span><br><span class="line">要求：要求Person创建出来的对象，必须遵守PlayProtocol协议。</span><br><span class="line">Person &lt; PlayProtocol &gt; *p = [[Person alloc] init];</span><br><span class="line"></span><br><span class="line">真实使用场景:</span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Person</span> :<span class="title">NSObject</span> &lt;<span class="title">PlayProtocol</span>&gt;</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line">这样创建的任何对象，都拥有协议当中的方法。</span><br></pre></td></tr></table></figure>
-<h4 id="2、id和instancetype的区别"><a href="#2、id和instancetype的区别" class="headerlink" title="2、id和instancetype的区别"></a>2、id和instancetype的区别</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">创建对象：</span><br><span class="line">(<span class="keyword">id</span>)person&#123;</span><br><span class="line">    <span class="keyword">return</span> [[Person alloc] init];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">这样，子类无法用这个方法创建对象：</span><br><span class="line">(<span class="keyword">id</span>)person&#123;</span><br><span class="line">    <span class="keyword">return</span> [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">调用自己没有的方法，程序会崩溃</span><br><span class="line">建议使用：</span><br><span class="line">(instanstype)person&#123;</span><br><span class="line">    <span class="keyword">return</span> [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h5 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h5><ul>
-<li>id和instancetype的区别<ul>
-<li>1）instancetype只能作为函数或者方法的返回值</li>
-<li>2）id能作为方法或者参数的数据类型、返回值，也能用来定义变量。</li>
-<li>3）instancetype对比id的好处：<ul>
-<li>能精确的限制返回值的具体类型。</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="三、protocol其他用法"><a href="#三、protocol其他用法" class="headerlink" title="三、protocol其他用法"></a>三、protocol其他用法</h2><h4 id="1、protocol的使用注意"><a href="#1、protocol的使用注意" class="headerlink" title="1、protocol的使用注意"></a>1、protocol的使用注意</h4><ul>
-<li>1）把同一类方法，放到1个协议当中</li>
-<li>2）1个类可以同时遵守多个协议。</li>
-<li>3）父类遵守了某个协议，子类也遵守了该协议。</li>
-<li>4）协议遵守协议：1个协议可以遵守多个协议。</li>
-</ul>
-<h4 id="2、protocol基协议介绍"><a href="#2、protocol基协议介绍" class="headerlink" title="2、protocol基协议介绍"></a>2、protocol基协议介绍</h4> <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@protocol</span> <span class="title">SportProtocol</span> &lt;<span class="title">NSObject</span>&gt;</span></span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"> * 此处的<span class="built_in">NSObject</span>就是基协议，意义等同于继承<span class="built_in">NSObject</span>。</span><br><span class="line"> * 继承基协议的好处：能够拥有基协议当中所声明的所有方法。</span><br></pre></td></tr></table></figure>
-<ul>
-<li>总结：</li>
-<li>1、需要添加成员变量和方法时，建议使用继承</li>
-<li>2、只需要添加方法时，建议使用分类</li>
-<li>3、当很多不同类中，有共同的方法可以抽取时，类之间不存在继承关系，建议使用协议。</li>
-</ul>
-<h2 id="四、protocol中-required和-optional"><a href="#四、protocol中-required和-optional" class="headerlink" title="四、protocol中@required和@optional"></a>四、protocol中@required和@optional</h2><ul>
-<li>@required：用@required修饰的方法，必须实现。</li>
-<li>@optional：用@optional修饰的方法，可实现，可不实现。</li>
-<li>@required 和 @optional的主要意义:一般用于序员交流用。</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/14/Protocol（协议）/#more">more >></a>
+        
       
 
       
@@ -585,18 +438,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -652,131 +509,18 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、autorelease基本使用"><a href="#一、autorelease基本使用" class="headerlink" title="一、autorelease基本使用"></a>一、autorelease基本使用</h2><h4 id="1-自动释放池及autorelease介绍"><a href="#1-自动释放池及autorelease介绍" class="headerlink" title="1.自动释放池及autorelease介绍"></a>1.自动释放池及autorelease介绍</h4><ul>
-<li><strong>1.自动释放池</strong><ul>
-<li>(1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。</li>
-<li>(2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中</li>
-</ul>
-</li>
-<li><p><strong>2.自动释放池的创建方式</strong></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>)iOS <span class="number">5.0</span>以前的创建方式</span><br><span class="line">    <span class="built_in">NSAutoreleasePool</span> *pool=[[<span class="built_in">NSAutoreleasePool</span> alloc] init];</span><br><span class="line">    <span class="comment">// 代码</span></span><br><span class="line">    [pool release];  <span class="comment">//[pool drain];用于mac</span></span><br><span class="line">	</span><br><span class="line">(<span class="number">2</span>)iOS5<span class="number">.0</span>以后</span><br><span class="line"><span class="keyword">@autoreleasepool</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="comment">//开始代表创建自动释放池</span></span><br><span class="line">&#125; <span class="comment">//结束代表销毁自动释放池</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>3.autorelease</strong></p>
+<li><p><strong>1.自动释放池</strong></p>
 <ul>
-<li>是一种支持引用计数的内存管理方式<ul>
-<li>它可以暂时的保存某个对象(object),然后在内存池自己的排干(drain)的时候对其中的每个对象发送release消息。</li>
-</ul>
+<li><p>(1)在iOS程序运行过程中,会创建无数个池子,这些池子都是以栈结构(先进后出)存在的。</p>
 </li>
-<li>注意,这里只是发送release消息,如果当时的引用计数(reference-counted)依然不为0,则该对象依然不会被释放。可以用该方法来保存某个对象,也要注意保存之后要释放该对象。</li>
-</ul>
-</li>
-</ul>
-<h4 id="2、为什么会有autorelease？"><a href="#2、为什么会有autorelease？" class="headerlink" title="2、为什么会有autorelease？"></a>2、为什么会有autorelease？</h4><ul>
-<li>OC的内存管理机制中比较重要的一条规律是:谁申请,谁释放<ul>
-<li>考虑这种情况,如果一个方法需要返回一个新建的对象,该对象何时释放?</li>
-<li>方法内部是不会写release来释放对象的,因为这样做会将对象立即释放而返回一个空对象;</li>
-<li>调用者也不会主动释放该对象的,因为调用者遵循“谁申请,谁释放”的原则。那么这个时候,就发生了内存泄露。</li>
-</ul>
-</li>
-<li>不使用autorelease存在的问题<ul>
-<li>针对这种情况,Objective-C的设计了autorelease,既能确保对象能正确释放,又能返回有效的 对象。</li>
-</ul>
-</li>
-<li>使用autorelease的好处<ul>
-<li>(1)不需要再关心对象释放的时间</li>
-<li>(2)不需要再关心什么时候调用release</li>
-</ul>
-</li>
-</ul>
-<p>####3.autorelease基本用法</p>
-<ul>
-<li><strong>基本用法</strong><ul>
-<li>(1)会将对象放到一个自动释放池中</li>
-<li>(2)当自动释放池被销毁时,会对池子里的所有对象做一次release</li>
-<li>(3)会返回对象本身</li>
-<li>(4)调用完autorelease方法后,对象的计数器不受影响(销毁时影响)</li>
-<li>在autorelease的模式下,下述方法是合理的,即可以正确返回结果,也不会造成内存泄露。<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ClassA *Func1()</span><br><span class="line">&#123;</span><br><span class="line">  ClassA *obj = [[[ClassA alloc]init]autorelease];</span><br><span class="line">  <span class="keyword">return</span> obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li><p>(2)当一个对象调用autorelease时,会将这个对象放到位于栈顶的释放池中</p>
 </li>
 </ul>
 </li>
 </ul>
-<h4 id="4、autorelease的原理？"><a href="#4、autorelease的原理？" class="headerlink" title="4、autorelease的原理？"></a>4、autorelease的原理？</h4><ul>
-<li>autorelease实际上只是把对release的调用延迟了,对于每一个Autorelease,系统只是把该Object放入了当前的Autorelease pool中,当该pool被释放时,该pool中的所有Object会被调用Release。</li>
-</ul>
-<h4 id="5、autorelease什么时候被释放？"><a href="#5、autorelease什么时候被释放？" class="headerlink" title="5、autorelease什么时候被释放？"></a>5、autorelease什么时候被释放？</h4><ul>
-<li>对于autorelease pool本身,会在如下两个条件发生时候被释放<ul>
-<li>1)手动释放Autorelease pool</li>
-<li>2)Runloop结束后自动释放</li>
-<li>对于autorelease pool内部的对象</li>
-<li>在引用计数的retainCount ==0的时候释放。release和autorelease pool的 drain都会触发retain–事件。</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、autorelease的应用场景"><a href="#二、autorelease的应用场景" class="headerlink" title="二、autorelease的应用场景"></a>二、autorelease的应用场景</h2><h4 id="1、autorelease的应用场景"><a href="#1、autorelease的应用场景" class="headerlink" title="1、autorelease的应用场景"></a>1、autorelease的应用场景</h4><ul>
-<li><p>经常用来在类方法中快速创建1个对象。</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明实现一个类方法</span></span><br><span class="line"> + (Student *)student</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 在里面直接进行autorelease</span></span><br><span class="line">    <span class="keyword">return</span> [[[Student alloc] init] autorelease];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用：</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 在自动释放池中使用类方法创建对象</span></span><br><span class="line"><span class="keyword">@autoreleasepool</span>&#123;</span><br><span class="line"> <span class="comment">// 此时创建出来的对象不用关注释放问题。</span></span><br><span class="line">  Student *s = [Student student];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>错误写法：</p>
-   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line"><span class="comment">// 在自动释放池中使用类方法创建对象</span></span><br><span class="line"><span class="keyword">@autoreleasepool</span>&#123;</span><br><span class="line">	</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 写在自动释放池外部将无法释放对象。</span></span><br><span class="line"> Student *s = [Student student];</span><br><span class="line"> reutrn <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h4 id="2、完善快速创建对象的方法"><a href="#2、完善快速创建对象的方法" class="headerlink" title="2、完善快速创建对象的方法"></a>2、完善快速创建对象的方法</h4><ul>
-<li><p>问题1：如果定1个GoodStudent，继承自Student,此时，还能使用类方法快速创建对象吗？</p>
-<ul>
-<li><p>解决方案：</p>
-<ul>
-<li>在类方法中使用id</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">   + (<span class="keyword">id</span>)student</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> [[[Student alloc] init] autorelease];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<p><code>此时，返回的对象仍旧是Student.所以，应该用self，替代Student.</code></p>
-<ul>
-<li>问题2：用其他对象类型，接受自定义对象类型。</li>
-<li><p>如：</p>
-<pre><code>NSString *s = [Student student];
-NSLog(@&quot;%lu&quot;,s.length);
-</code></pre><p><code>这段代码，编译时，不会报任何警告，但是运行时会直接崩溃。</code></p>
-</li>
-<li><p>改进办法：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">//instancetype：可以动态判断返回的类型和接受的类型是否一致</span></span><br><span class="line">  + (<span class="keyword">instancetype</span>)student&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> [[<span class="keyword">self</span> alloc] init];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>此时，编译器会警告</p>
-<pre><code>NSString *s = [Student student];
-NSLog(@&quot;%lu&quot;,s.length);
-</code></pre></li>
-</ul>
-<h2 id="三、autorelease注意"><a href="#三、autorelease注意" class="headerlink" title="三、autorelease注意"></a>三、autorelease注意</h2><h4 id="1、autorelease使用注意"><a href="#1、autorelease使用注意" class="headerlink" title="1、autorelease使用注意"></a>1、autorelease使用注意</h4><h5 id="并不是放到自动释放池中，都会自动加入到自动释放池"><a href="#并不是放到自动释放池中，都会自动加入到自动释放池" class="headerlink" title="并不是放到自动释放池中，都会自动加入到自动释放池"></a>并不是放到自动释放池中，都会自动加入到自动释放池</h5><ul>
-<li><p>1、因为没有调用autorelease方法，所以对象没有加入到自动释放池.</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">   <span class="keyword">@autoreleasepool</span>&#123;</span><br><span class="line">    Student *s = [[Student alloc] init];</span><br><span class="line">    [s release]; <span class="comment">// 正常释放</span></span><br><span class="line">   &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、在自动释放池的外部发送autorelease不会被加入到自动释放池中。</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">   <span class="keyword">@autoreleasepool</span>&#123;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="comment">// 发送autorelease消息的对象，放到制动释放池外部</span></span><br><span class="line">   <span class="comment">// 此时无法被自动释放</span></span><br><span class="line">  Student *s = [[[Student alloc] init] autorelease];</span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3、不管对象是在自动释放池里创建，还是自动释放池外创建，只要在自动释放池内写1个[s autorelease];s就会被放到自动释放池中，注意：autorelease是一个方法，且只有在自动释放池中使用才有效。</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main()&#123;</span><br><span class="line">     <span class="comment">// 不管在自动释放池内部还是外部创建</span></span><br><span class="line">     Student *s = [[Student alloc] init];</span><br><span class="line">     <span class="keyword">@autoreleasepool</span>&#123;</span><br><span class="line">         [s autorelease]; <span class="comment">// 此时s加入到释放池</span></span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2）自动释放池的嵌套使用</p>
-<ul>
-<li>自动释放池是栈结构。</li>
-<li><p>栈：先进后出。后进先出，</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">               <span class="comment">// 第一个池子，里面创建no的1学生</span></span><br><span class="line">                Student *s = [[[Student alloc] init] autorelease];</span><br><span class="line">                s.no = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">                <span class="comment">// 第二个池子，里面创建no2的学生</span></span><br><span class="line">                   Student *s2 = [[[Student alloc] init] autorelease];</span><br><span class="line">                   s2.no = <span class="number">2</span>;</span><br><span class="line">            <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">                <span class="comment">// 第二个池子，里面创建no3的学生</span></span><br><span class="line">                        Student *s3 = [[[Student alloc] init] autorelease];</span><br><span class="line">                        s3.no = <span class="number">3</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>释放顺序：s3,s2,s1</p>
-</li>
-</ul>
-</li>
-<li>3）自动释放池中不适合放占用内存空间较大的对象<ul>
-<li>1&gt; 尽量避免对大内存使用该方法，对于这种延迟释放机制，尽量少用</li>
-<li>2&gt; 不要把大量循环操作放到同1个自动释放池中，这样会造成内存峰值的上升。</li>
-</ul>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/13/autorelease/#more">more >></a>
+        
       
 
       
@@ -784,18 +528,22 @@ NSLog(@&quot;%lu&quot;,s.length);
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -851,151 +599,38 @@ NSLog(@&quot;%lu&quot;,s.length);
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、理解】内存管理的原则"><a href="#一、理解】内存管理的原则" class="headerlink" title="一、理解】内存管理的原则"></a>一、理解】内存管理的原则</h2><h4 id="1、内存管理的原则"><a href="#1、内存管理的原则" class="headerlink" title="1、内存管理的原则"></a>1、内存管理的原则</h4><ul>
-<li>1.原则<ul>
+<li><p>1.原则</p>
+<ul>
 <li>只要还有人在使用某个对象,那么这个对象就不会被回收;</li>
 <li>只要你想使用这个对象,那么就应该让这个对象的引用计数器+1;</li>
 <li>当你不想使用这个对象时,应该让对象的引用计数器-1;</li>
 </ul>
-</li>
-<li>2.谁创建,谁release<ul>
-<li>1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法.</li>
-<li>2)不是你创建的就不用你去负责</li>
-</ul>
-</li>
-<li>3.谁retain,谁release<ul>
-<li>只要你调用了retain,无论这个对象时如何生成的,你都要调用release</li>
-</ul>
-</li>
-<li>4.总结<ul>
-<li>有始有终,有加就应该有减。曾经让某个对象计数器加1,就应该让其在最后-1.</li>
-</ul>
-</li>
-</ul>
-<h4 id="2、内存管理研究内容"><a href="#2、内存管理研究内容" class="headerlink" title="2、内存管理研究内容"></a>2、内存管理研究内容</h4><ol>
-<li>野指针(僵尸对象)<ul>
-<li>僵尸对象: 已经被销毁的对象(不能再使用的对象).</li>
-<li>野指针:指向僵尸对象(不可用内存)的指针.</li>
-<li>空指针: 没有指向存储空间的指针(里面存的是nil, 也就是0)</li>
-</ul>
-</li>
-<li><p>内存泄露</p>
-<ul>
-<li><p>如果在程序结束后，对象没有被释放，此时称为内存泄露。</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Student *s = [[Student alloc] init];</span><br><span class="line">Student *s1 = [s <span class="keyword">retain</span>];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ol>
-<ul>
-<li>那么，问题来了，最后由谁释放？</li>
-<li><p>由s释放</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Student *s = [[Student alloc] init];</span><br><span class="line">Student *s1 = [s <span class="keyword">retain</span>];</span><br><span class="line">[s release];</span><br><span class="line">[s release];</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>由s1释放</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Student *s = [[Student alloc] init];</span><br><span class="line">Student *s1 = [s <span class="keyword">retain</span>];</span><br><span class="line">[s1 release];</span><br><span class="line">[s1 release];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>两种方式都可以释放内存。</p>
-</li>
-<li>但是，如果没有一种统一的释放原则，那么就会造成代码的混乱，舍都可以释放, 好比一个公司所有的领导没有分工一样, 任何事儿, 任何一个领导都可以插一嘴，很显然这样就没法干了， 因此需要有一个规范去约束使用。</li>
-</ul>
-</li>
-</ul>
-<h2 id="二、单个对象内存管理（野指针）"><a href="#二、单个对象内存管理（野指针）" class="headerlink" title="二、单个对象内存管理（野指针）"></a>二、单个对象内存管理（野指针）</h2><h4 id="1、单个对象的野指针问题"><a href="#1、单个对象的野指针问题" class="headerlink" title="1、单个对象的野指针问题"></a>1、单个对象的野指针问题</h4><ul>
-<li><p>思考：对象在堆区的空间已经释放了,还能再使用p吗?</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Person *p = [[Person alloc] init];</span><br><span class="line">[p release];</span><br><span class="line"><span class="comment">// 因为P已经被释放，此时调用p的run方法，此时会报错。</span></span><br><span class="line"><span class="comment">// 我们把p叫做野指针，把p指向的对象叫做僵尸对象。</span></span><br><span class="line">[p run];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>野指针错误:访问了一块坏的内存(已经被回收的,不可用的内存)。</p>
-</li>
-<li>僵尸对象:所占内存已经被回收的对象,僵尸对象不能再被使用。(默认情况下xcode为了提高编码效率,不会时时检查僵尸对象,打开僵尸对象检测方法)</li>
-<li><p>注意:</p>
-<ul>
-<li><p><strong>1–空指针:没有指向任何东西的指针,给空指针发送消息不会报错.</strong></p>
-</li>
-<li><p>关于nil和Nil及NULL的区别:</p>
-<ul>
-<li><p>1.nil: A null pointer to an Objective-C object. ( #define nil ((id)0) )</p>
-<ul>
-<li>nil 是一个对象值。</li>
-<li>Person *p = [Person new];</li>
-<li>p = nil;</li>
-</ul>
-</li>
-<li><p>2.Nil: A null pointer to an Objective-C class.</p>
-<ul>
-<li>如:Class someClass = Nil;给类对象赋值</li>
-</ul>
-</li>
-<li><p>3.NULL: A null pointer to anything else. ( #define NULL ((void *)0) )</p>
-<ul>
-<li>NULL是一个通用指针(泛型指针)。</li>
-</ul>
-</li>
-<li><p>4.NSNull: A class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).</p>
-<ul>
-<li>[NSNull null]: The singleton instance of NSNull。</li>
-<li>[NSNull null]是一个对象,他用在不能使用nil的场合。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>2–不能使用[p retain]让僵尸对象起死复生。</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2、避免使用僵尸对象的方法"><a href="#2、避免使用僵尸对象的方法" class="headerlink" title="2、避免使用僵尸对象的方法"></a>2、避免使用僵尸对象的方法</h4><ul>
-<li>为了防止不小心调用了僵尸对象,可以将对象赋值nil(对象的空值)</li>
-<li><p>给空指针发消息是没有任何反应的。</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  Student *s = [[Student alloc] init];</span><br><span class="line"></span><br><span class="line">  [s release];</span><br><span class="line"></span><br><span class="line">  s = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 打印对象的引用计数器值</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>,[s retainCount]);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="三、多个对象内存管理"><a href="#三、多个对象内存管理" class="headerlink" title="三、多个对象内存管理"></a>三、多个对象内存管理</h2><h5 id="解决方案：在使用房间时，对房间进行一次release。"><a href="#解决方案：在使用房间时，对房间进行一次release。" class="headerlink" title="解决方案：在使用房间时，对房间进行一次release。"></a>解决方案：在使用房间时，对房间进行一次release。</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明类</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Gamer</span> : <span class="title">NSObject</span></span></span><br><span class="line">&#123;</span><br><span class="line">    Room *_room;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)setRoom:(Room *)room;</span><br><span class="line">- (Room *)room;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现类</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Gamer</span></span></span><br><span class="line">- (<span class="keyword">void</span>)setRoom:(Room *)room</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    [room <span class="keyword">retain</span>];</span><br><span class="line">    _room = room;</span><br><span class="line">&#125;</span><br><span class="line">- (Room *)room&#123;</span><br><span class="line">    <span class="keyword">return</span> _room;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"玩家被释放"</span>);</span><br><span class="line">    [<span class="keyword">super</span> dealloc];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// main函数实现</span></span><br><span class="line">  <span class="comment">// 1、创建玩家对象</span></span><br><span class="line">    Gamer *game = [[Gamer alloc] init];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、创建房间对象</span></span><br><span class="line">    Room *room = [[Room alloc] init];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、让玩家进入房间</span></span><br><span class="line">    game.room = room;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4、释放房间对象</span></span><br><span class="line">    [room release];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5、输出玩家的房间</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"玩家的房间是：%@"</span>,game.room);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>问题：房间无法被释放了怎么办？</p>
-</li>
-<li><p>解决方法：</p>
-<ul>
-<li><p>在对象被释放时，要把该对象的所有对象类型的成员变量在dealloc当中进行释放:</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Gamer</span></span></span><br><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    [_room release];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"玩家被释放"</span>);</span><br><span class="line">    [<span class="keyword">super</span> dealloc];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>需求：让玩家反复进入这个房间。</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line">    <span class="keyword">@autoreleasepool</span> &#123;</span><br><span class="line">        Gamer *g = [Gamer new];</span><br><span class="line"></span><br><span class="line">        Room *r = [Room new];</span><br><span class="line"></span><br><span class="line">        g.room = r;</span><br><span class="line">        g.room = r;</span><br><span class="line">        g.room = r;</span><br><span class="line"></span><br><span class="line">        [g release];</span><br><span class="line">        [r release];</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>问题：房间对象无法被释放，怎么办？</p>
-</li>
-<li><p>解决方案：判断新进房间与之前是否是同一个房间。</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)setRoom:(Room *)room</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (_room != room) &#123;</span><br><span class="line">        [room <span class="keyword">retain</span>];</span><br><span class="line">        _room = room;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>总的来说，有以下几点规律：</p>
-<ul>
-<li>1）只要还有人使用某对象，那么这个对象就不会被回收。</li>
-<li>2）只要想要使用1个对象，那么就让对象的引用计数器+1。</li>
-<li>3）当不再使用这个对象时，就让对象的引用计数器-1。</li>
-</ul>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/12/内存管理/#more">more >></a>
+        
       
 
       
-    </div>
+    </li></ul></div>
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -1054,72 +689,9 @@ NSLog(@&quot;%lu&quot;,s.length);
 <li>block是iOS中一种比较特殊的数据类型。</li>
 <li>block是苹果官方特别推荐使用的数据类型，应用场景比较广泛。</li>
 </ul>
-<h5 id="2、使用场合？"><a href="#2、使用场合？" class="headerlink" title="2、使用场合？"></a>2、使用场合？</h5><pre><code>* 1）动画
-* 2）多线程
-* 3）集合遍历
-* 4）网络请求回调
-</code></pre><h5 id="3、block的作用"><a href="#3、block的作用" class="headerlink" title="3、block的作用"></a>3、block的作用</h5><pre><code>* 用来保存一段代码，可以在恰当的时间再取出来调用.
-</code></pre><h4 id="2、block的基本用法"><a href="#2、block的基本用法" class="headerlink" title="2、block的基本用法"></a>2、block的基本用法</h4><h5 id="1）简单的认识下block"><a href="#1）简单的认识下block" class="headerlink" title="1）简单的认识下block"></a>1）简单的认识下block</h5><ul>
-<li><p>函数写法：</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> <span class="keyword">void</span> myBlock ()&#123;</span><br><span class="line">  <span class="built_in">NSLog</span>(@“******”);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>block写法：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> (^myBlock)() =  ^&#123;</span><br><span class="line">  <span class="built_in">NSLog</span>(@“******”);</span><br><span class="line">&#125;；</span><br><span class="line">myBlock();</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>block格式：</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> (^block名称)(参数列表) = ^(参数列表)&#123;</span><br><span class="line"><span class="comment">// 代码实现；</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>block结构的快速提示：</p>
-<pre><code>输入：inlineBlock
-</code></pre></li>
-</ul>
-<h5 id="2）定义block遍历，存储一段代码，这段代码的功能是能打印任意行数"><a href="#2）定义block遍历，存储一段代码，这段代码的功能是能打印任意行数" class="headerlink" title="2）定义block遍历，存储一段代码，这段代码的功能是能打印任意行数"></a>2）定义block遍历，存储一段代码，这段代码的功能是能打印任意行数</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> (^ myBlock)(<span class="keyword">int</span>) = ^(<span class="keyword">int</span> numberOfLines)&#123;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numberOfLines ; i ++)&#123;</span><br><span class="line">     <span class="built_in">NSLog</span>(@“******”);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-<h5 id="3）定义block，计算两个整数的和"><a href="#3）定义block，计算两个整数的和" class="headerlink" title="3）定义block，计算两个整数的和."></a>3）定义block，计算两个整数的和.</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (^ sumBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>) = ^(<span class="keyword">int</span> num1, <span class="keyword">int</span> num2)&#123;</span><br><span class="line">     <span class="keyword">return</span> num1 + num2;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">int</span> c = sumBlock(<span class="number">10</span>,<span class="number">20</span>);</span><br><span class="line"><span class="built_in">NSLog</span>(@“%d”,c);</span><br></pre></td></tr></table></figure>
-<h5 id="4）定义1个block，计算1个整数的平方"><a href="#4）定义1个block，计算1个整数的平方" class="headerlink" title="4）定义1个block，计算1个整数的平方"></a>4）定义1个block，计算1个整数的平方</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> (^squareBlock)(<span class="keyword">int</span>);</span><br><span class="line">squareBlock = ^(<span class="keyword">int</span> sum)&#123;</span><br><span class="line">   <span class="keyword">return</span> sum * sum;</span><br><span class="line">&#125;;</span><br><span class="line">squareBlock(<span class="number">25</span>);</span><br></pre></td></tr></table></figure>
-<h2 id="二、block的typedef"><a href="#二、block的typedef" class="headerlink" title="二、block的typedef"></a>二、block的typedef</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> ( ^minusBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>) = ^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</span><br><span class="line">  <span class="keyword">return</span> num1 - num2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>定义1个叫做:MyBlock的数据类型，它存储的代码必须返回int，，必须接受2个int类型参数</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span>(^MyBlock)(<span class="keyword">int</span>,<span class="keyword">int</span>);</span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>重命名之后，可这样使用：</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MyBlock minusBlock = ^(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2)&#123;</span><br><span class="line">  <span class="keyword">return</span> num1 - num2;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="三、block访问外部变量"><a href="#三、block访问外部变量" class="headerlink" title="三、block访问外部变量"></a>三、block访问外部变量</h2><h4 id="1、block访问外面变量。"><a href="#1、block访问外面变量。" class="headerlink" title="1、block访问外面变量。"></a>1、block访问外面变量。</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">void</span> (^block()) = ^&#123;</span><br><span class="line">  <span class="built_in">NSLog</span>(@“%d”,a);</span><br><span class="line">&#125;;</span><br><span class="line">block();</span><br></pre></td></tr></table></figure>
-<h4 id="2、block修改外部变量值"><a href="#2、block修改外部变量值" class="headerlink" title="2、block修改外部变量值"></a>2、block修改外部变量值</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">__block <span class="keyword">int</span> b = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">void</span> (^block()) = ^&#123;</span><br><span class="line"> b = <span class="number">20</span>;</span><br><span class="line">  <span class="built_in">NSLog</span>(@“%d”,b);</span><br><span class="line">&#125;;</span><br><span class="line">block();</span><br></pre></td></tr></table></figure>
-<h4 id="3、block的快捷操作，名称写完整，直接敲回车"><a href="#3、block的快捷操作，名称写完整，直接敲回车" class="headerlink" title="3、block的快捷操作，名称写完整，直接敲回车."></a>3、block的快捷操作，名称写完整，直接敲回车.</h4><h2 id="四、block作为函数的返回值"><a href="#四、block作为函数的返回值" class="headerlink" title="四、block作为函数的返回值"></a>四、block作为函数的返回值</h2><h4 id="1、使用typedef定义一个新的类型"><a href="#1、使用typedef定义一个新的类型" class="headerlink" title="1、使用typedef定义一个新的类型"></a>1、使用typedef定义一个新的类型</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给block起一个别名</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">int</span>(^newType)(<span class="keyword">int</span> num1,<span class="keyword">int</span> num2);</span><br></pre></td></tr></table></figure>
-<h4 id="2、使用新类型作为函数的返回值"><a href="#2、使用新类型作为函数的返回值" class="headerlink" title="2、使用新类型作为函数的返回值"></a>2、使用新类型作为函数的返回值</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义一个返回值是block类型的函数</span></span><br><span class="line">newType test()&#123;</span><br><span class="line"><span class="comment">//定义一个newType 类型的block变量</span></span><br><span class="line">newType work1=^(<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span><br><span class="line">&#123;</span><br><span class="line"><span class="keyword">return</span> x+y;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">return</span> work1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3、定义变量接收函数返回的值-block类型"><a href="#3、定义变量接收函数返回的值-block类型" class="headerlink" title="3、定义变量接收函数返回的值(block类型)"></a>3、定义变量接收函数返回的值(block类型)</h4><h4 id="4、调用block"><a href="#4、调用block" class="headerlink" title="4、调用block"></a>4、调用block</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在main函数中调用返回值是newType类型的函数</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 定义block类型的变量n</span></span><br><span class="line">newType n = test();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 调用block，输出结果</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"n = %d"</span>,n(<span class="number">10</span>,<span class="number">20</span>));</span><br></pre></td></tr></table></figure>
-<h2 id="五、应用：block的使用场景（一）"><a href="#五、应用：block的使用场景（一）" class="headerlink" title="五、应用：block的使用场景（一）"></a>五、应用：block的使用场景（一）</h2><h4 id="模拟上班场景"><a href="#模拟上班场景" class="headerlink" title="模拟上班场景"></a>模拟上班场景</h4><ul>
-<li>用函数模拟周一~周五上班情景。</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> goToWorkInDay1()&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"起床"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"刷牙"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"穿衣服"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"出门"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"抵达公司"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 真正干的实事</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"熟悉项目业务"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"下班"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"回家"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"睡觉"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> goToWorkInDay2()&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"起床"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"刷牙"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"穿衣服"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"出门"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"抵达公司"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 真正干的实事</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"熟悉代码"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"下班"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"回家"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"睡觉"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> goToWorkInDay3()&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"起床"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"刷牙"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"穿衣服"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"出门"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"抵达公司"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 真正干的实事</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"编写代码"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"下班"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"回家"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"睡觉"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>函数抽取</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 工作前做的事</span></span><br><span class="line"><span class="keyword">void</span> goToWorkPrefix()&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"起床"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"刷牙"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"穿衣服"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"出门"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"抵达公司"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 工作后做的事</span></span><br><span class="line"><span class="keyword">void</span> goToWorkPSubfix()&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"下班"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"回家"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"睡觉"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第一天工作做的事</span></span><br><span class="line"><span class="keyword">void</span> goToWorkInDay1()&#123;</span><br><span class="line">   goToWorkPrefix()</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"了解项目需求"</span>);</span><br><span class="line">    goToWorkPSsubfix();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 第二天工作做的事</span></span><br><span class="line"><span class="keyword">void</span> goToWorkInDay1()&#123;</span><br><span class="line">   goToWorkPrefix()</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"熟悉代码"</span>);</span><br><span class="line">    goToWorkPSsubfix();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>1.2）用函数抽取相同代码，提高复用性。</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">  <span class="keyword">void</span> goToWork(<span class="keyword">void</span> (^workBlock)())&#123;</span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"goToWorkInDay%d"</span>,a);</span><br><span class="line">    a++;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"起床"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"刷牙"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"穿衣服"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"出门"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"抵达公司"</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 真正干的实事</span></span><br><span class="line"><span class="keyword">if</span> (workBlock != <span class="literal">nil</span>)&#123;</span><br><span class="line">    workBlock();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"下班"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"回家"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"睡觉"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> goToWorkInDay1()&#123;</span><br><span class="line">  goToWork(^&#123;</span><br><span class="line">      <span class="built_in">NSLog</span>(<span class="string">@"了解项目需求"</span>);</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> goToWorkInDay2()&#123;</span><br><span class="line">    goToWork(^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"熟悉代码"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> goToWorkInDay3()&#123;</span><br><span class="line">    goToWork(^&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"编写代码"</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>1.3）使用block的注意事项：<ul>
-<li>调用block时，不能传入空</li>
-<li>如：</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>  main()&#123;</span><br><span class="line"> goToWork(<span class="literal">nil</span>);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>1.4、使用循环语句抽取</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> preWork(<span class="keyword">void</span> (^workBlock)())&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> <span class="keyword">int</span> a = <span class="number">1</span>;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"goToWorkInDay%d"</span>,a);</span><br><span class="line">    a++;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"起床"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"刷牙"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"穿衣服"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"出门"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"抵达公司"</span>);</span><br><span class="line"></span><br><span class="line">    workBlock();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"下班"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"回家"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"睡觉"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">void</span> goToWork(<span class="keyword">int</span> day)&#123;</span><br><span class="line">    <span class="keyword">switch</span> (day) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            preWork(^&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"熟悉项目业务"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            preWork(^&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"熟悉代码"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            preWork(^&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"编写代码"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line"></span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> main(<span class="keyword">int</span> argc, <span class="keyword">const</span> <span class="keyword">char</span> * argv[]) &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt; <span class="number">4</span>; i ++ )&#123;</span><br><span class="line">        goToWork(i);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="六、应用：block的使用场景（二）"><a href="#六、应用：block的使用场景（二）" class="headerlink" title="六、应用：block的使用场景（二）"></a>六、应用：block的使用场景（二）</h2><ul>
-<li><strong>思考：用返回值是block的函数，修改我们应用场景的代码</strong></li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">   <span class="comment">// 1、重命名block</span></span><br><span class="line">    <span class="keyword">typedef</span> <span class="keyword">void</span> (^workBlock)();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">   <span class="comment">// 2、block作为返回值使用</span></span><br><span class="line">    workBlock workDay(<span class="keyword">int</span> d)&#123;</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 拿到循环体中的block</span></span><br><span class="line">    workBlock work;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (d) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">            <span class="comment">// 真正干的实事</span></span><br><span class="line">            work = ^&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"熟悉项目代码"</span>);</span><br><span class="line">            &#125;;</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">2</span>:</span><br><span class="line">            <span class="comment">// 真正干的实事</span></span><br><span class="line">            work = (^&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"熟悉项目代码"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">            <span class="comment">// 真正干的实事</span></span><br><span class="line">            work = (^&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"编写代码"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">            <span class="comment">// 真正干的实事</span></span><br><span class="line">            work = (^&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"扯淡"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">            <span class="comment">// 真正干的实事</span></span><br><span class="line">            work = (^&#123;</span><br><span class="line">                <span class="built_in">NSLog</span>(<span class="string">@"聊天"</span>);</span><br><span class="line">            &#125;);</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 返回循环体中的block内容</span></span><br><span class="line">    <span class="keyword">return</span> work;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 3、修改工作日函数</span></span><br><span class="line"><span class="keyword">void</span> dayWork(<span class="keyword">int</span> d)&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"------"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"起床"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"刷牙"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"穿衣服"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"出门"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"抵达公司"</span>);</span><br><span class="line"></span><br><span class="line">   <span class="comment">// 拿到重命名的block的返回值</span></span><br><span class="line">    workBlock work = workDay(d);</span><br><span class="line">    <span class="comment">// 调用block</span></span><br><span class="line">    work();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"下班"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"搭公交"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"回家"</span>);</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"睡觉"</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2016/07/11/block/#more">more >></a>
+        
       
 
       
@@ -1127,18 +699,22 @@ NSLog(@&quot;%lu&quot;,s.length);
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -1203,32 +779,9 @@ NSLog(@&quot;%lu&quot;,s.length);
 </ul>
 </li>
 </ul>
-<h4 id="2、NSFileManager用法（常见的判断）"><a href="#2、NSFileManager用法（常见的判断）" class="headerlink" title="2、NSFileManager用法（常见的判断）"></a>2、NSFileManager用法（常见的判断）</h4><h6 id="1、判断文件或者文件夹是否存在"><a href="#1、判断文件或者文件夹是否存在" class="headerlink" title="1、判断文件或者文件夹是否存在"></a>1、判断文件或者文件夹是否存在</h6><pre><code>-(BOOL)fileExistsAtPath:(NSString *)path;
-</code></pre><h6 id="2、判断文件、文件夹是否存在，是否为文件夹"><a href="#2、判断文件、文件夹是否存在，是否为文件夹" class="headerlink" title="2、判断文件、文件夹是否存在，是否为文件夹"></a>2、判断文件、文件夹是否存在，是否为文件夹</h6><pre><code>-(BOOL)fileExistsAtPath:(NSString *)path isDirectory:(nullable BOOL *)isDirectory;
-</code></pre><h6 id="3、path这个文件、文件夹是否可读"><a href="#3、path这个文件、文件夹是否可读" class="headerlink" title="3、path这个文件、文件夹是否可读"></a>3、path这个文件、文件夹是否可读</h6><pre><code>- (BOOL)isReadableFileAtPath:(NSString *)path;
-</code></pre><h6 id="4、path这个文件、文件夹是否可写"><a href="#4、path这个文件、文件夹是否可写" class="headerlink" title="4、path这个文件、文件夹是否可写"></a>4、path这个文件、文件夹是否可写</h6><pre><code>- (BOOL)isWritableFileAtPath:(NSString *)path;
-</code></pre><h6 id="5、path这个文件、文件夹是否可删除"><a href="#5、path这个文件、文件夹是否可删除" class="headerlink" title="5、path这个文件、文件夹是否可删除"></a>5、path这个文件、文件夹是否可删除</h6><pre><code>- (BOOL)isDeletableFileAtPath:(NSString *)path;
-</code></pre><h6 id="6、path这个文件是否可执行（不常用）"><a href="#6、path这个文件是否可执行（不常用）" class="headerlink" title="6、path这个文件是否可执行（不常用）"></a>6、path这个文件是否可执行（不常用）</h6><pre><code>- (BOOL)isExecutableFileAtPath:(NSString *)path;
-</code></pre><h6 id="7、案例："><a href="#7、案例：" class="headerlink" title="7、案例："></a>7、案例：</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、判断文件或者文件夹是否存在</span></span><br><span class="line">  <span class="built_in">NSFileManager</span> *manage = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">  <span class="built_in">BOOL</span> exist = [manage fileExistsAtPath:<span class="string">@"/Users/sleepingsun/Desktop/工作"</span>];</span><br><span class="line">  </span><br><span class="line"><span class="comment">// 2、path这个文件、文件夹是否存在，isDirectory代表是否为文件夹</span></span><br><span class="line">   <span class="built_in">NSFileManager</span> *manage = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">   <span class="built_in">BOOL</span> dir = <span class="literal">NO</span>;</span><br><span class="line">   <span class="comment">// 后边判断时，可以通过dir的地址，去更改dir的值</span></span><br><span class="line">   <span class="built_in">BOOL</span> exist = [manage fileExistsAtPath:<span class="string">@"/Users/sleepingsun/Desktop/2.0.png"</span> isDirectory:&amp;dir];</span><br><span class="line">   </span><br><span class="line"><span class="comment">// 3、path这个文件、文件夹是否可读</span></span><br><span class="line">    <span class="comment">// 1、文件地址</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line">    <span class="comment">// 2、获得文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="comment">// 3、判断文件夹是否可读</span></span><br><span class="line">    <span class="built_in">BOOL</span> temp = [fileManager isReadableFileAtPath:testPath];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件是否可读：%d"</span>,temp);</span><br><span class="line">    </span><br><span class="line"><span class="comment">// 4、path这个文件、文件夹是否可写</span></span><br><span class="line">    <span class="comment">// 1、文件地址</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line">    <span class="comment">// 2、获得文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="comment">// 3、判断文件夹是否可写</span></span><br><span class="line">    <span class="built_in">BOOL</span> temp = [fileManager isWritableFileAtPath:testPath];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件是否可写：%d"</span>,temp);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5、path这个文件、文件夹是否可删除</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isDeletableFileAtPath:(<span class="built_in">NSString</span> *)path;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 6、path这个文件是否可执行（不常用）</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)isExecutableFileAtPath:(<span class="built_in">NSString</span> *)path;</span><br><span class="line"></span><br><span class="line">```      </span><br><span class="line">       </span><br><span class="line"><span class="meta">## 二、NSFileManager的文件访问</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#### 1、获得文件、文件夹的属性</span></span><br><span class="line">```objc</span><br><span class="line">    <span class="comment">// 获取文件或者文件夹属性用法</span></span><br><span class="line">    - (<span class="built_in">NSDictionary</span> *)attributesOfItemAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br><span class="line">    <span class="comment">// 1、文件地址</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = <span class="string">@"/Users/sleepingsun/Desktop/test"</span>;</span><br><span class="line">    <span class="comment">// 2、获得文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line">    <span class="comment">// 3、获取文件属性</span></span><br><span class="line">    <span class="built_in">NSDictionary</span> *dic = [fileManager attributesOfItemAtPath:testPath error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,dic);</span><br></pre></td></tr></table></figure>
-<h4 id="2、获得某个文件夹下得所有子路径"><a href="#2、获得某个文件夹下得所有子路径" class="headerlink" title="2、获得某个文件夹下得所有子路径"></a>2、获得某个文件夹下得所有子路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span> *)subpathsAtPath:(<span class="built_in">NSString</span> *)path;</span><br><span class="line">- (<span class="built_in">NSArray</span> *)subpathsOfDirectoryAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
-<h4 id="3、获得某个文件夹的当前子路径"><a href="#3、获得某个文件夹的当前子路径" class="headerlink" title="3、获得某个文件夹的当前子路径"></a>3、获得某个文件夹的当前子路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span> *)contentsOfDirectoryAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
-<h4 id="4、获得文件内容"><a href="#4、获得文件内容" class="headerlink" title="4、获得文件内容"></a>4、获得文件内容</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSData</span> *)contentsAtPath:(<span class="built_in">NSString</span> *)path;</span><br></pre></td></tr></table></figure>
-<h2 id="三、NSFileManager的文件或文件夹操作"><a href="#三、NSFileManager的文件或文件夹操作" class="headerlink" title="三、NSFileManager的文件或文件夹操作"></a>三、NSFileManager的文件或文件夹操作</h2><p>####1、创建文件夹：<br>创建文件夹(createIntermediates为YES代表自动创建中间的文件夹)</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)createDirectoryAtPath:(<span class="built_in">NSString</span> *)path withIntermediateDirectories:(<span class="built_in">BOOL</span>)createIntermediates attributes:(<span class="built_in">NSDictionary</span> *)attributes error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
-<p>案例:<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1、创建文件夹的根路径</span></span><br><span class="line"><span class="built_in">NSString</span> *documentsPath = <span class="string">@"/Users/sleepingsun/Desktop/"</span>;</span><br><span class="line"><span class="comment">// 2、在根目录基础上，拼接要创建的文件夹名称</span></span><br><span class="line"><span class="built_in">NSString</span> *testDirectory = [documentsPath stringByAppendingPathComponent:<span class="string">@"test"</span>];</span><br><span class="line"><span class="comment">// 3、获得文件管理者</span></span><br><span class="line"><span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">4、创建文件夹</span></span><br><span class="line"><span class="comment">1）第一个参数：创建文件夹的具体地址</span></span><br><span class="line"><span class="comment">2）第二个参数：是否创建中间临时文件夹</span></span><br><span class="line"><span class="comment">   YES：连续创建文件夹</span></span><br><span class="line"><span class="comment">   NO ：如果有多个路径，中间文件夹不会自动生成，会创建失败。</span></span><br><span class="line"><span class="comment">3）第三个参数：属性，默认选择nil</span></span><br><span class="line"><span class="comment">4）没创建成功，返回的错误，此时选择nil</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">BOOL</span> res = [fileManager createDirectoryAtPath:testDirectory withIntermediateDirectories:<span class="literal">YES</span> attributes:<span class="literal">nil</span> error:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">// 5、判断文件夹是否创建成功</span></span><br><span class="line"><span class="keyword">if</span> (res) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件夹创建成功"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"文件夹创建失败"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<h4 id="2、创建文件"><a href="#2、创建文件" class="headerlink" title="2、创建文件"></a>2、创建文件</h4><p>NSData是用来存储二进制字节数据的</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)createFileAtPath:(<span class="built_in">NSString</span> *)path contents:(<span class="built_in">NSData</span> *)data attributes:(<span class="built_in">NSDictionary</span> *)attr;</span><br></pre></td></tr></table></figure>
-<p>案例：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">    <span class="comment">// 创建文件</span></span><br><span class="line">    <span class="comment">// 1、创建文件夹的根路径</span></span><br><span class="line">    <span class="built_in">NSString</span> *documentsPath = <span class="string">@"/Users/sleepingsun/Desktop/"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、在根目录基础上，拼接要创建的文件夹名称</span></span><br><span class="line">    <span class="built_in">NSString</span> *testDirectory = [documentsPath stringByAppendingPathComponent:<span class="string">@"test"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、在已有文件夹的基础上，拼接文件名</span></span><br><span class="line">    <span class="built_in">NSString</span> *testPath = [testDirectory stringByAppendingPathComponent:<span class="string">@"test.txt"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4、获取文件管理者</span></span><br><span class="line">    <span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5、创建文件</span></span><br><span class="line">    <span class="comment">// 1）内容：此处默认nil</span></span><br><span class="line">    <span class="comment">// 2）属性：默认nil</span></span><br><span class="line">    <span class="built_in">BOOL</span> res = [fileManager createFileAtPath:testPath contents:<span class="literal">nil</span> attributes:<span class="literal">nil</span>];</span><br><span class="line">        <span class="keyword">if</span> (res) &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"文件创建成功: %@"</span> ,testPath);</span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"文件创建失败"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//写文件</span></span><br><span class="line">    <span class="built_in">NSString</span> *documentsPath = <span class="string">@"/Users/sleepingsun/Desktop/"</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *testDirectory = [documentsPath stringByAppendingPathComponent:<span class="string">@"test"</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *testPath = [testDirectory stringByAppendingPathComponent:<span class="string">@"test.txt"</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *content=<span class="string">@"测试写入内容！"</span>;</span><br><span class="line">    <span class="built_in">BOOL</span> res=[content writeToFile:testPath atomically:<span class="literal">YES</span> encoding:<span class="built_in">NSUTF8StringEncoding</span> error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="keyword">if</span> (res) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"文件写入成功"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"文件写入失败"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 读文件</span></span><br><span class="line">    <span class="built_in">NSString</span> *documentsPath = <span class="string">@"/Users/sleepingsun/Desktop/"</span>;</span><br><span class="line">    <span class="built_in">NSString</span> *testDirectory = [documentsPath stringByAppendingPathComponent:<span class="string">@"test"</span>];</span><br><span class="line">    <span class="built_in">NSString</span> *testPath = [testDirectory stringByAppendingPathComponent:<span class="string">@"test.txt"</span>];</span><br><span class="line"><span class="comment">//    NSData *data = [NSData dataWithContentsOfFile:testPath];</span></span><br><span class="line"><span class="comment">//    NSLog(@"文件读取成功: %@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);</span></span><br><span class="line">    <span class="built_in">NSString</span> *content=[<span class="built_in">NSString</span> stringWithContentsOfFile:testPath encoding:<span class="built_in">NSUTF8StringEncoding</span> error:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件读取成功: %@"</span>,content);</span><br></pre></td></tr></table></figure>
-<h4 id="3、删除文件"><a href="#3、删除文件" class="headerlink" title="3、删除文件"></a>3、删除文件</h4><p>案例：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 删除文件</span></span><br><span class="line"><span class="comment">// 1、根目录</span></span><br><span class="line"><span class="built_in">NSString</span> *documentsPath = <span class="string">@"/Users/sleepingsun/Desktop/"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2、在根目录后边拼接文件夹名称</span></span><br><span class="line"><span class="built_in">NSString</span> *testDirectory = [documentsPath stringByAppendingPathComponent:<span class="string">@"test"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3、在文件夹目录后边拼接文件名称</span></span><br><span class="line"><span class="built_in">NSString</span> *testPath = [testDirectory stringByAppendingPathComponent:<span class="string">@"test.txt"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 4、获得文件管理者</span></span><br><span class="line"><span class="built_in">NSFileManager</span> *fileManager = [<span class="built_in">NSFileManager</span> defaultManager];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 5、用文件管理者删除指定路径的文件</span></span><br><span class="line"><span class="built_in">BOOL</span> res=[fileManager removeItemAtPath:testPath error:<span class="literal">nil</span>];</span><br><span class="line"><span class="keyword">if</span> (res) &#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件删除成功"</span>);</span><br><span class="line">&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"文件删除失败"</span>);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"文件是否存在: %@"</span>,[fileManager isExecutableFileAtPath:testPath]?<span class="string">@"YES"</span>:<span class="string">@"NO"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4、拷贝-移动-删除"><a href="#4、拷贝-移动-删除" class="headerlink" title="4、拷贝/移动/删除"></a>4、拷贝/移动/删除</h4><p>拷贝</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)copyItemAtPath:(<span class="built_in">NSString</span> *)srcPath toPath:(<span class="built_in">NSString</span> *)dstPath error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
-<p>移动(剪切)</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)moveItemAtPath:(<span class="built_in">NSString</span> *)srcPath toPath:(<span class="built_in">NSString</span> *)dstPath error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
-<p>删除</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)removeItemAtPath:(<span class="built_in">NSString</span> *)path error:(<span class="built_in">NSError</span> **)error;</span><br></pre></td></tr></table></figure>
-
+        
+          <a class="article-more-a" href="/2016/07/10/NSFileManager介绍/#more">more >></a>
+        
       
 
       
@@ -1236,18 +789,22 @@ NSLog(@&quot;%lu&quot;,s.length);
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -1303,57 +860,9 @@ NSLog(@&quot;%lu&quot;,s.length);
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一、UITextField属性"><a href="#一、UITextField属性" class="headerlink" title="一、UITextField属性"></a>一、UITextField属性</h1><p>设置和获取文字框文字<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *text;</span><br></pre></td></tr></table></figure></p>
-<p>通过AttributedString创建和获取文字<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSAttributedString</span> *attributedText；</span><br></pre></td></tr></table></figure></p>
-<p>设置字体颜色属性<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIColor</span> *textColor;</span><br></pre></td></tr></table></figure></p>
-<p>设置字体属性<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIFont</span> *font;</span><br></pre></td></tr></table></figure></p>
-<p>设置字体对齐格式<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>)<span class="built_in">NSTextAlignment</span> textAlignment;</span><br></pre></td></tr></table></figure></p>
-<p>设置输入框风格<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UITextBorderStyle</span> borderStyle;</span><br><span class="line"></span><br><span class="line"><span class="built_in">UITextBorderStyleNone</span>,			<span class="comment">//没有任何边框</span></span><br><span class="line"><span class="built_in">UITextBorderStyleLine</span>,			<span class="comment">//线性边框</span></span><br><span class="line"><span class="built_in">UITextBorderStyleBezel</span>,			<span class="comment">//阴影效果边框</span></span><br><span class="line"><span class="built_in">UITextBorderStyleRoundedRect</span>	<span class="comment">//原型效果边框</span></span><br></pre></td></tr></table></figure></p>
-<p>设置默认字体属性<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSDictionary</span> *defaultTextAttributes；</span><br></pre></td></tr></table></figure></p>
-<p><strong>注：这个属性的设置会影响到全部字体的属性。</strong><br>设置占位图片<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSString</span> *placeholder;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSAttributedString</span> *attributedPlaceholder；</span><br></pre></td></tr></table></figure></p>
-<p>设置是否在开始编辑时清空输入框内容<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> clearsOnBeginEditing;</span><br></pre></td></tr></table></figure></p>
-<p>设置字体大小是否随宽度自适应（默认为NO）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> adjustsFontSizeToFitWidth;</span><br></pre></td></tr></table></figure></p>
-<p>设置最小字体大小<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">CGFloat</span> minimumFontSize;</span><br></pre></td></tr></table></figure></p>
-<p>设置背景图片（会被拉伸）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIImage</span> *background;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIImage</span> *disabledBackground;</span><br></pre></td></tr></table></figure></p>
-<p>设置清除按钮的显示模式<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UITextFieldViewMode</span> clearButtonMode;</span><br><span class="line"></span><br><span class="line"><span class="built_in">UITextFieldViewModeNever</span>,			<span class="comment">//从不显示</span></span><br><span class="line"><span class="built_in">UITextFieldViewModeWhileEditing</span>,	<span class="comment">//编辑的时候显示</span></span><br><span class="line"><span class="built_in">UITextFieldViewModeUnlessEditing</span>,	<span class="comment">//非编辑的时候显示</span></span><br><span class="line"><span class="built_in">UITextFieldViewModeAlways</span>			<span class="comment">//任何时候都显示</span></span><br></pre></td></tr></table></figure></p>
-<p>设置输入框左/右边的view<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIView</span> *leftView;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">retain</span>) <span class="built_in">UIView</span> *rightView;</span><br></pre></td></tr></table></figure></p>
-<p>设置输入框左/右视图的显示模式<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UITextFieldViewMode</span> leftViewMode;</span><br><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">UITextFieldViewMode</span> rightViewMode;</span><br></pre></td></tr></table></figure></p>
-<p>设置输入框成为第一响应时弹出的视图和辅助视图（类似键盘）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">readwrite</span>, <span class="keyword">retain</span>) <span class="built_in">UIView</span> *inputView;</span><br><span class="line"><span class="keyword">@property</span> (<span class="keyword">readwrite</span>, <span class="keyword">retain</span>) <span class="built_in">UIView</span> *inputAccessoryView;</span><br></pre></td></tr></table></figure></p>
-<p>这个属性设置是否允许再次编辑时在内容中间插入内容<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>) <span class="built_in">BOOL</span> clearsOnInsertion；</span><br></pre></td></tr></table></figure></p>
-<p>密码文本框是暗文(UITextInputTraits)<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">getter</span>=isSecureTextEntry) <span class="built_in">BOOL</span> secureTextEntry;</span><br></pre></td></tr></table></figure></p>
-<h3 id="补充三个不常用方法（UIKeyInput）"><a href="#补充三个不常用方法（UIKeyInput）" class="headerlink" title="补充三个不常用方法（UIKeyInput）"></a>补充三个不常用方法（UIKeyInput）</h3><p>判断UITextField当前是否有内容<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)hasText;</span><br></pre></td></tr></table></figure></p>
-<p>从键盘输入内容就会调用此方法（中文无效）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)insertText:(<span class="built_in">NSString</span> *)text;</span><br></pre></td></tr></table></figure></p>
-<p>当击UITextField右边大删除按钮<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)deleteBackward;</span><br></pre></td></tr></table></figure></p>
-<h1 id="二、UITextField-设置监听的3种方式"><a href="#二、UITextField-设置监听的3种方式" class="headerlink" title="二、UITextField 设置监听的3种方式:"></a>二、UITextField 设置监听的3种方式:</h1><h3 id="1、通过addTarget方式"><a href="#1、通过addTarget方式" class="headerlink" title="1、通过addTarget方式"></a>1、通过addTarget方式</h3><ul>
-<li>UITextField继承UIControll,可以addTarget监听。</li>
-<li>但是这种方式只能监听一些”单击事件”、”滚动条滚动事件”等, 有些事件通过addTarget方式监听无效, 比如”Value Changed”事件。</li>
-</ul>
-<h3 id="2、通过代理"><a href="#2、通过代理" class="headerlink" title="2、通过代理"></a>2、通过代理</h3><ul>
-<li>文本框的代理协议”UITextFieldDelegate”。</li>
-<li>演示:textFieldShouldBeginEditing方法。</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 为某个文本框设置代理</span></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// 设置文本框代理为当前控制器。</span></span><br><span class="line">    <span class="keyword">self</span>.textFidld.delegate = <span class="keyword">self</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 让当前控制器遵守UITextFieldDelegate协议, 并且实现- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField方法, 返回YES</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)textFieldShouldBeginEditing:(<span class="built_in">UITextField</span> *)textField</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="3、通过”通知中心”监听事件。"><a href="#3、通过”通知中心”监听事件。" class="headerlink" title="3、通过”通知中心”监听事件。"></a>3、通过”通知中心”监听事件。</h3><p><strong> 思路: 让用户名、密码文本框同时设置监听到textChanged方法。</strong></p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参考代码:</span></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)viewDidLoad &#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line"><span class="comment">//通过通知中心监听文本框内容变化, 添加观察者</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(textFieldValueChanged) name:<span class="built_in">UITextFieldTextDidChangeNotification</span> object:<span class="keyword">self</span>.userNameTextField];</span><br><span class="line"></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(textFieldValueChanged) name:<span class="built_in">UITextFieldTextDidChangeNotification</span> object:<span class="keyword">self</span>.passWordTextField];</span><br><span class="line"></span><br><span class="line"><span class="comment">//TextField通知名</span></span><br><span class="line"><span class="comment">//    UIKIT_EXTERN NSString *const UITextFieldTextDidBeginEditingNotification;</span></span><br><span class="line"><span class="comment">//    UIKIT_EXTERN NSString *const UITextFieldTextDidEndEditingNotification;</span></span><br><span class="line"><span class="comment">//    UIKIT_EXTERN NSString *const UITextFieldTextDidChangeNotification;</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现监听方法</span></span><br><span class="line">- (<span class="keyword">void</span>) textFieldValueChanged</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//文本框的值发送改变, 就会调用</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**** 注意通过通知的方式注册事件, 需要在dealloc方法中移除 ****/</span></span><br><span class="line"><span class="comment">// 移除通知监听, 观察者被销毁时, 在观察着的dealloc方法中移除</span></span><br><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//移除观察者</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter]removeObserver:<span class="keyword">self</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="4、Segue对象。"><a href="#4、Segue对象。" class="headerlink" title="4、Segue对象。"></a>4、Segue对象。</h3><ul>
-<li><p>在xcode6.1下, 拖线时选择Segue的style为show, 等价于以前的push。</p>
-</li>
-<li><p>重新拖线（手动 Segue）, 从控制器 to 控制器。</p>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//参考代码 :</span></span><br><span class="line">[<span class="keyword">self</span> performSegueWithIdentifier:<span class="string">@"login2contact"</span> sender:<span class="string">@"Jack"</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//实现控制器的- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender方法。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)prepareForSegue:(<span class="built_in">UIStoryboardSegue</span> *)segue sender:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line"><span class="comment">// Get the new view controller using [segue destinationViewController].</span></span><br><span class="line"><span class="comment">// Pass the selected object to the new view controller.</span></span><br><span class="line"><span class="comment">//    NSLog(@"%@",sender);</span></span><br><span class="line"><span class="comment">//获取目标控制器</span></span><br><span class="line">    <span class="built_in">UIViewController</span> * targetVC = segue.destinationViewController;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//performSegueWithIdentifier:sender:的执行过程</span></span><br><span class="line">[<span class="keyword">self</span> performSegueWithIdentifier:<span class="string">@"login2contacts"</span> sender:<span class="literal">nil</span>];</span><br><span class="line"><span class="comment">//1&gt; self是来源控制器，只能通过来源控制器来调该方法。</span></span><br><span class="line"><span class="comment">//2&gt; 根据identifier去storyboard中找到对应的线，新建UIStoryboardSegue对象</span></span><br><span class="line"><span class="comment">//3&gt; 设置Segue对象的sourceViewController（来源控制器）</span></span><br><span class="line"><span class="comment">//4&gt; 新建并且设置Segue对象的destinationViewController（目标控制器）</span></span><br><span class="line"><span class="comment">//5&gt; 调用- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender方法</span></span><br><span class="line"><span class="comment">//6&gt; 执行跳转。</span></span><br><span class="line"><span class="comment">//** 具体跳转步骤:</span></span><br><span class="line"><span class="comment">//1&gt; 通过segue对象的sourceViewController获取源控制器所在的导航控制器。</span></span><br><span class="line"><span class="comment">//2&gt; 将segue的destinationViewControlelr压栈(push)进去。</span></span><br></pre></td></tr></table></figure>
-<h3 id="5、提示框的弹出"><a href="#5、提示框的弹出" class="headerlink" title="5、提示框的弹出"></a>5、提示框的弹出</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//xcode7下</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)logOutBtnClick:(<span class="keyword">id</span>)sender</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">UIAlertController</span> * alert = [<span class="built_in">UIAlertController</span> alertControllerWithTitle:<span class="string">@"确定注销吗?"</span> message:<span class="literal">nil</span> preferredStyle:<span class="built_in">UIAlertControllerStyleActionSheet</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIAlertAction</span> * okAction = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@"确定"</span> style:<span class="built_in">UIAlertActionStyleDestructive</span> handler:^(<span class="built_in">UIAlertAction</span> * _Nonnull action) &#123;</span><br><span class="line">    [<span class="keyword">self</span>.navigationController popViewControllerAnimated:<span class="literal">YES</span>];</span><br><span class="line">    &#125;];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIAlertAction</span> * cancel = [<span class="built_in">UIAlertAction</span> actionWithTitle:<span class="string">@"取消"</span> style:<span class="built_in">UIAlertActionStyleCancel</span> handler:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">    [alert addAction:okAction];</span><br><span class="line"></span><br><span class="line">    [alert addAction:cancel];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> presentViewController:alert animated:<span class="literal">YES</span> completion:<span class="literal">nil</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// xcode6</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 弹出UIActionSheet对话框</span></span><br><span class="line"><span class="built_in">UIActionSheet</span> *sheet = [[<span class="built_in">UIActionSheet</span> alloc] initWithTitle:<span class="string">@"确定要注销"</span> delegate:<span class="keyword">self</span> cancelButtonTitle:<span class="string">@"取消"</span> destructiveButtonTitle:<span class="string">@"注销"</span> otherButtonTitles:<span class="literal">nil</span>, <span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//alertView 上添加一个 textField</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">UIAlertViewStyleDefault = 0,</span></span><br><span class="line"><span class="comment">UIAlertViewStyleSecureTextInput,//安全的文本输入, 密码保护模式</span></span><br><span class="line"><span class="comment">UIAlertViewStylePlainTextInput,//普通的文本输入</span></span><br><span class="line"><span class="comment">UIAlertViewStyleLoginAndPasswordInput//两行输入,Login 和 Password</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">alertView.alertViewStyle = <span class="built_in">UIAlertViewStylePlainTextInput</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//获取 alertView上的 textField</span></span><br><span class="line"><span class="built_in">UITextField</span> *textField = [alertView textFieldAtIndex:<span class="number">0</span>];</span><br><span class="line"></span><br><span class="line">[sheet showInView:<span class="keyword">self</span>.view];</span><br></pre></td></tr></table></figure>
-<ul>
-<li>UIActionSheet中的按钮点击事件</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)actionSheet:(<span class="built_in">UIActionSheet</span> *)actionSheet clickedButtonAtIndex:(<span class="built_in">NSInteger</span>)buttonIndex</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//buttonIndex 对应按钮的下标</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="awakeFromNib"><a href="#awakeFromNib" class="headerlink" title="awakeFromNib"></a>awakeFromNib</h3><ul>
-<li>awakeFromNib什么时候调用？xib加载完成的时候调用</li>
-<li>awakeFromNib的作用:从控件从xib加载完成之后，做一些初始化操作。</li>
-<li>在layoutSubViews设置尺寸。</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/09/UITextField/#more">more >></a>
+        
       
 
       
@@ -1361,18 +870,22 @@ NSLog(@&quot;%lu&quot;,s.length);
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -1431,23 +944,9 @@ NSLog(@&quot;%lu&quot;,s.length);
 <li>NSDate可以用来表示时间,可以进行一些常见的日期\时间处理。</li>
 <li>一个NSDate对象就代表一个时间</li>
 </ul>
-<h4 id="2、格式化日期"><a href="#2、格式化日期" class="headerlink" title="2、格式化日期"></a>2、格式化日期</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NSDateFormatter *formatter = [[NSDateFormatter alloc] init];</span><br><span class="line">formatter.dateFormat = @&quot;yyyy-MM-dd HH:mm:ss&quot;;</span><br><span class="line"></span><br><span class="line">// 将NSString转换为NSDate</span><br><span class="line">NSDate *date = [formatter dateFromString:@&quot;2010-03-24 00:00:00&quot;];</span><br><span class="line"></span><br><span class="line">// 将NSDate转换为NSString</span><br><span class="line">NSLog(@&quot;%@&quot;, [formatter stringFromDate:date]);</span><br></pre></td></tr></table></figure>
-<h4 id="3、计算日期"><a href="#3、计算日期" class="headerlink" title="3、计算日期"></a>3、计算日期</h4><ul>
-<li>[NSDate date]返回的就是当前时间</li>
-</ul>
-<h4 id="4、日期时间对象"><a href="#4、日期时间对象" class="headerlink" title="4、日期时间对象"></a>4、日期时间对象</h4><ul>
-<li>结合NSCalendar和NSDate能做更多的日期\时间处理</li>
-<li><p>获得NSCalendar对象</p>
-<pre><code>NSCalendar *calendar = [NSCalendar currentCalendar];
-</code></pre></li>
-<li><p>获得年月日</p>
-<pre><code>- (NSDateComponents *)components:(NSCalendarUnit)unitFlags fromDate:(NSDate *)date;
-</code></pre></li>
-<li><p>比较两个日期的差距</p>
-<pre><code>- (NSDateComponents *)components:(NSCalendarUnit)unitFlags fromDate:(NSDate *)startingDate toDate:(NSDate *)resultDate options:(NSCalendarOptions)opts;
-</code></pre></li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/09/NSDate的介绍/#more">more >></a>
+        
       
 
       
@@ -1455,18 +954,22 @@ NSLog(@&quot;%lu&quot;,s.length);
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -1598,6 +1101,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

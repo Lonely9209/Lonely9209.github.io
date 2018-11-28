@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>NSDictionary/NSMutableDictionary的介绍及使用 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、NSDictionary的介绍及使用1、NSDictionary的介绍 1、什么是NSDictionary？ NSDictionary翻译过来叫做”字典” 日常生活中, “字典”的作用:通过一个拼音或者汉字,就能找到对应的详细解释。   2、NSDictionary的作用:  类似通过一个key,就能找到对应的value。 NSDictionary是不可变的,一旦初始化完毕,里面的内容就无法修">
+  <meta name="description" content="一、NSDictionary的介绍及使用1、NSDictionary的介绍 1、什么是NSDictionary？  NSDictionary翻译过来叫做”字典”  日常生活中, “字典”的作用:通过一个拼音或者汉字,就能找到对应的详细解释。">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSDictionary&#x2F;NSMutableDictionary的介绍及使用">
 <meta property="og:url" content="lonely9209.github.io/2016/07/04/NSDictionary:NSMutableDictionary的介绍/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、NSDictionary的介绍及使用1、NSDictionary的介绍 1、什么是NSDictionary？ NSDictionary翻译过来叫做”字典” 日常生活中, “字典”的作用:通过一个拼音或者汉字,就能找到对应的详细解释。   2、NSDictionary的作用:  类似通过一个key,就能找到对应的value。 NSDictionary是不可变的,一旦初始化完毕,里面的内容就无法修">
+<meta property="og:description" content="一、NSDictionary的介绍及使用1、NSDictionary的介绍 1、什么是NSDictionary？  NSDictionary翻译过来叫做”字典”  日常生活中, “字典”的作用:通过一个拼音或者汉字,就能找到对应的详细解释。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.830Z">
+<meta property="og:updated_time" content="2018-11-28T13:12:51.105Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSDictionary&#x2F;NSMutableDictionary的介绍及使用">
-<meta name="twitter:description" content="一、NSDictionary的介绍及使用1、NSDictionary的介绍 1、什么是NSDictionary？ NSDictionary翻译过来叫做”字典” 日常生活中, “字典”的作用:通过一个拼音或者汉字,就能找到对应的详细解释。   2、NSDictionary的作用:  类似通过一个key,就能找到对应的value。 NSDictionary是不可变的,一旦初始化完毕,里面的内容就无法修">
+<meta name="twitter:description" content="一、NSDictionary的介绍及使用1、NSDictionary的介绍 1、什么是NSDictionary？  NSDictionary翻译过来叫做”字典”  日常生活中, “字典”的作用:通过一个拼音或者汉字,就能找到对应的详细解释。">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,23 +185,55 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、NSDictionary的介绍及使用"><span class="toc-number">1.</span> <span class="toc-text">一、NSDictionary的介绍及使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、NSDictionary的介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSDictionary的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、NSDictionary的简写及文件操作"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、NSDictionary的简写及文件操作</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#二、NSMutableDictionary介绍和使用"><span class="toc-number">2.</span> <span class="toc-text">二、NSMutableDictionary介绍和使用</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一、NSDictionary的介绍及使用"><a href="#一、NSDictionary的介绍及使用" class="headerlink" title="一、NSDictionary的介绍及使用"></a>一、NSDictionary的介绍及使用</h1><h3 id="1、NSDictionary的介绍"><a href="#1、NSDictionary的介绍" class="headerlink" title="1、NSDictionary的介绍"></a>1、NSDictionary的介绍</h3><ul>
-<li><strong>1、什么是NSDictionary？</strong><ul>
-<li>NSDictionary翻译过来叫做”字典”</li>
-<li>日常生活中, “字典”的作用:通过一个拼音或者汉字,就能找到对应的详细解释。</li>
+<li><p><strong>1、什么是NSDictionary？</strong></p>
+<ul>
+<li><p>NSDictionary翻译过来叫做”字典”</p>
+</li>
+<li><p>日常生活中, “字典”的作用:通过一个拼音或者汉字,就能找到对应的详细解释。</p>
+</li>
 </ul>
 </li>
-<li><p><strong>2、NSDictionary的作用:</strong></p>
+</ul>
+<a id="more"></a>
 <ul>
-<li>类似通过一个key,就能找到对应的value。</li>
-<li>NSDictionary是不可变的,一旦初始化完毕,里面的内容就无法修改。</li>
+<li><p>2、NSDictionary的作用:**</p>
+<ul>
+<li><p>类似通过一个key,就能找到对应的value。</p>
+</li>
+<li><p>NSDictionary是不可变的,一旦初始化完毕,里面的内容就无法修改。</p>
+</li>
 </ul>
 </li>
 <li><p><strong>3、NSDictionary的创建</strong></p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)dictionary;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)dictionaryWithObject:(<span class="keyword">id</span>)object forKey:(<span class="keyword">id</span> &lt;<span class="built_in">NSCopying</span>&gt;)key;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)dictionaryWithObjectsAndKeys:(<span class="keyword">id</span>)firstObject, ...;</span><br><span class="line">+ (<span class="keyword">id</span>)dictionaryWithContentsOfFile:(<span class="built_in">NSString</span> *)path;</span><br><span class="line">+ (<span class="keyword">id</span>)dictionaryWithContentsOfURL:(<span class="built_in">NSURL</span> *)url;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">instancetype</span>)dictionary;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)dictionaryWithObject:(<span class="keyword">id</span>)object forKey:(<span class="keyword">id</span> &lt;<span class="built_in">NSCopying</span>&gt;)key;</span><br><span class="line">+ (<span class="keyword">instancetype</span>)dictionaryWithObjectsAndKeys:(<span class="keyword">id</span>)firstObject, ...;</span><br><span class="line">+ (<span class="keyword">id</span>)dictionaryWithContentsOfFile:(<span class="built_in">NSString</span> *)path;</span><br><span class="line">+ (<span class="keyword">id</span>)dictionaryWithContentsOfURL:(<span class="built_in">NSURL</span> *)url;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>4、NSDictionary的常见使用</p>
 <ul>
@@ -204,10 +243,8 @@
 <li><p>根据key取出value</p>
 <pre><code>- (id)objectForKey:(id)aKey;
 </code></pre></li>
-<li><p>取出字典中所有的Key/Value</p>
-<pre><code>@property (readonly, copy) NSArray&lt;KeyType&gt; *allKeys;
-@property (readonly, copy) NSArray&lt;ObjectType&gt; *allValues;
-</code></pre></li>
+<li><p>取出字典中所有的Key/Value<br>​<br>​    @property (readonly, copy) NSArray<keytype> <em>allKeys;<br>​    @property (readonly, copy) NSArray<objecttype> </objecttype></em>allValues;</keytype></p>
+</li>
 </ul>
 </li>
 <li><p>5、NSDictionary的遍历</p>
@@ -215,9 +252,8 @@
 <li><p>快速遍历</p>
 <pre><code>for (NSString *key in dict) { }
 </code></pre></li>
-<li><p>block遍历</p>
-<pre><code>[dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) { }];
-</code></pre></li>
+<li><p>block遍历<br>​<br>​     [dict enumerateKeysAndObjectsUsingBlock:^(id key, id obj, BOOL *stop) { }];</p>
+</li>
 </ul>
 </li>
 </ul>
@@ -233,12 +269,9 @@
 </code></pre></li>
 <li><p>NSDictionary获取元素</p>
 </li>
-<li><p>以前</p>
-<pre><code>[dict objectForKey:@&quot;name”];
+<li>以前<br>​     <pre><code>[dict objectForKey:@&quot;name”];
 </code></pre></li>
-<li><p>现在</p>
-<pre><code>dict[@&quot;name”];
-</code></pre></li>
+<li>现在<br>​<br>​    dict[@”name”];</li>
 </ul>
 </li>
 <li><p>2、NSDictionary 的文件操作</p>
@@ -307,18 +340,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -382,11 +419,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/05/GCD:RunLoop/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/05/UIDynamic（物理引擎）/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          GCD/RunLoop
+          UIDynamic（物理引擎）
         
       </div>
     </a>
@@ -412,6 +449,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、NSDictionary的介绍及使用"><span class="toc-number">1.</span> <span class="toc-text">一、NSDictionary的介绍及使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1、NSDictionary的介绍"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSDictionary的介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2、NSDictionary的简写及文件操作"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、NSDictionary的简写及文件操作</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#二、NSMutableDictionary介绍和使用"><span class="toc-number">2.</span> <span class="toc-text">二、NSMutableDictionary介绍和使用</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -520,6 +570,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

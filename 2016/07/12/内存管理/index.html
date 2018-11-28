@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>内存管理 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、理解】内存管理的原则1、内存管理的原则 1.原则 只要还有人在使用某个对象,那么这个对象就不会被回收; 只要你想使用这个对象,那么就应该让这个对象的引用计数器+1; 当你不想使用这个对象时,应该让对象的引用计数器-1;   2.谁创建,谁release 1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法. 2)不是你创建的">
+  <meta name="description" content="一、理解】内存管理的原则1、内存管理的原则 1.原则  只要还有人在使用某个对象,那么这个对象就不会被回收; 只要你想使用这个对象,那么就应该让这个对象的引用计数器+1; 当你不想使用这个对象时,应该让对象的引用计数器-1;">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="内存管理">
 <meta property="og:url" content="lonely9209.github.io/2016/07/12/内存管理/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、理解】内存管理的原则1、内存管理的原则 1.原则 只要还有人在使用某个对象,那么这个对象就不会被回收; 只要你想使用这个对象,那么就应该让这个对象的引用计数器+1; 当你不想使用这个对象时,应该让对象的引用计数器-1;   2.谁创建,谁release 1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法. 2)不是你创建的">
+<meta property="og:description" content="一、理解】内存管理的原则1、内存管理的原则 1.原则  只要还有人在使用某个对象,那么这个对象就不会被回收; 只要你想使用这个对象,那么就应该让这个对象的引用计数器+1; 当你不想使用这个对象时,应该让对象的引用计数器-1;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.837Z">
+<meta property="og:updated_time" content="2018-11-28T13:11:48.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="内存管理">
-<meta name="twitter:description" content="一、理解】内存管理的原则1、内存管理的原则 1.原则 只要还有人在使用某个对象,那么这个对象就不会被回收; 只要你想使用这个对象,那么就应该让这个对象的引用计数器+1; 当你不想使用这个对象时,应该让对象的引用计数器-1;   2.谁创建,谁release 1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法. 2)不是你创建的">
+<meta name="twitter:description" content="一、理解】内存管理的原则1、内存管理的原则 1.原则  只要还有人在使用某个对象,那么这个对象就不会被回收; 只要你想使用这个对象,那么就应该让这个对象的引用计数器+1; 当你不想使用这个对象时,应该让对象的引用计数器-1;">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,17 +185,44 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、理解】内存管理的原则"><span class="toc-number">1.</span> <span class="toc-text">一、理解】内存管理的原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、内存管理的原则"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、内存管理的原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、内存管理研究内容"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、内存管理研究内容</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、单个对象内存管理（野指针）"><span class="toc-number">2.</span> <span class="toc-text">二、单个对象内存管理（野指针）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、单个对象的野指针问题"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、单个对象的野指针问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、多个对象内存管理"><span class="toc-number">3.</span> <span class="toc-text">三、多个对象内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方案：在使用房间时，对房间进行一次release。"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">解决方案：在使用房间时，对房间进行一次release。</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="一、理解】内存管理的原则"><a href="#一、理解】内存管理的原则" class="headerlink" title="一、理解】内存管理的原则"></a>一、理解】内存管理的原则</h2><h4 id="1、内存管理的原则"><a href="#1、内存管理的原则" class="headerlink" title="1、内存管理的原则"></a>1、内存管理的原则</h4><ul>
-<li>1.原则<ul>
+<li><p>1.原则</p>
+<ul>
 <li>只要还有人在使用某个对象,那么这个对象就不会被回收;</li>
 <li>只要你想使用这个对象,那么就应该让这个对象的引用计数器+1;</li>
 <li>当你不想使用这个对象时,应该让对象的引用计数器-1;</li>
 </ul>
+<a id="more"></a>
 </li>
-<li>2.谁创建,谁release<ul>
+<li><p>2.谁创建,谁release</p>
+<ul>
 <li>1)如果你通过alloc,new,copy来创建了一个对象,那么你就必须调用release或者 autorelease方法.</li>
 <li>2)不是你创建的就不用你去负责</li>
 </ul>
@@ -235,51 +269,8 @@
 <li><p>思考：对象在堆区的空间已经释放了,还能再使用p吗?</p>
  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Person *p = [[Person alloc] init];</span><br><span class="line">[p release];</span><br><span class="line"><span class="comment">// 因为P已经被释放，此时调用p的run方法，此时会报错。</span></span><br><span class="line"><span class="comment">// 我们把p叫做野指针，把p指向的对象叫做僵尸对象。</span></span><br><span class="line">[p run];</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>野指针错误:访问了一块坏的内存(已经被回收的,不可用的内存)。</p>
-</li>
-<li>僵尸对象:所占内存已经被回收的对象,僵尸对象不能再被使用。(默认情况下xcode为了提高编码效率,不会时时检查僵尸对象,打开僵尸对象检测方法)</li>
-<li><p>注意:</p>
-<ul>
-<li><p><strong>1–空指针:没有指向任何东西的指针,给空指针发送消息不会报错.</strong></p>
-</li>
-<li><p>关于nil和Nil及NULL的区别:</p>
-<ul>
-<li><p>1.nil: A null pointer to an Objective-C object. ( #define nil ((id)0) )</p>
-<ul>
-<li>nil 是一个对象值。</li>
-<li>Person *p = [Person new];</li>
-<li>p = nil;</li>
 </ul>
-</li>
-<li><p>2.Nil: A null pointer to an Objective-C class.</p>
-<ul>
-<li>如:Class someClass = Nil;给类对象赋值</li>
-</ul>
-</li>
-<li><p>3.NULL: A null pointer to anything else. ( #define NULL ((void *)0) )</p>
-<ul>
-<li>NULL是一个通用指针(泛型指针)。</li>
-</ul>
-</li>
-<li><p>4.NSNull: A class defines a singleton object used to represent null values in collection objects (which don’t allow nil values).</p>
-<ul>
-<li>[NSNull null]: The singleton instance of NSNull。</li>
-<li>[NSNull null]是一个对象,他用在不能使用nil的场合。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p><strong>2–不能使用[p retain]让僵尸对象起死复生。</strong></p>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="2、避免使用僵尸对象的方法"><a href="#2、避免使用僵尸对象的方法" class="headerlink" title="2、避免使用僵尸对象的方法"></a>2、避免使用僵尸对象的方法</h4><ul>
-<li>为了防止不小心调用了僵尸对象,可以将对象赋值nil(对象的空值)</li>
-<li><p>给空指针发消息是没有任何反应的。</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">  Student *s = [[Student alloc] init];</span><br><span class="line"></span><br><span class="line">  [s release];</span><br><span class="line"></span><br><span class="line">  s = <span class="literal">nil</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 打印对象的引用计数器值</span></span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"%lu"</span>,[s retainCount]);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">* 野指针错误:访问了一块坏的内存(已经被回收的,不可用的内存)。</span><br><span class="line">* 僵尸对象:所占内存已经被回收的对象,僵尸对象不能再被使用。(默认情况下xcode为了提高编码效率,不会时时检查僵尸对象,打开僵尸对象检测方法)</span><br><span class="line">* 注意:</span><br><span class="line"> * __1--空指针:没有指向任何东西的指针,给空指针发送消息不会报错.__</span><br><span class="line"></span><br><span class="line">  * 关于nil和Nil及NULL的区别:</span><br><span class="line">   * 1.nil: A null pointer to an Objective-C object. ( #define nil ((id)0) )</span><br><span class="line">       * nil 是一个对象值。</span><br><span class="line">       * Person *p = [Person new];</span><br><span class="line">       * p = nil;</span><br><span class="line"></span><br><span class="line">   * 2.Nil: A null pointer to an Objective-C class.</span><br><span class="line">       * 如:Class someClass = Nil;给类对象赋值</span><br><span class="line"></span><br><span class="line">   * 3.NULL: A null pointer to anything else. ( #define NULL ((void *)0) )</span><br><span class="line">      * NULL是一个通用指针(泛型指针)。</span><br><span class="line"></span><br><span class="line">   * 4.NSNull: A class defines a singleton object used to represent null values in collection objects (which don&apos;t allow nil values).</span><br><span class="line">     * [NSNull null]: The singleton instance of NSNull。</span><br><span class="line">     * [NSNull null]是一个对象,他用在不能使用nil的场合。</span><br><span class="line"></span><br><span class="line"> * __2--不能使用[p retain]让僵尸对象起死复生。__</span><br><span class="line"> </span><br><span class="line">#### 2、避免使用僵尸对象的方法</span><br><span class="line"> * 为了防止不小心调用了僵尸对象,可以将对象赋值nil(对象的空值)</span><br><span class="line"> * 给空指针发消息是没有任何反应的。</span><br><span class="line"> </span><br><span class="line">    ```objc</span><br><span class="line">      Student *s = [[Student alloc] init];</span><br><span class="line"></span><br><span class="line">      [s release];</span><br><span class="line"></span><br><span class="line">      s = nil;</span><br><span class="line"></span><br><span class="line">      // 打印对象的引用计数器值</span><br><span class="line">    NSLog(@&quot;%lu&quot;,[s retainCount]);</span><br></pre></td></tr></table></figure>
 <h2 id="三、多个对象内存管理"><a href="#三、多个对象内存管理" class="headerlink" title="三、多个对象内存管理"></a>三、多个对象内存管理</h2><h5 id="解决方案：在使用房间时，对房间进行一次release。"><a href="#解决方案：在使用房间时，对房间进行一次release。" class="headerlink" title="解决方案：在使用房间时，对房间进行一次release。"></a>解决方案：在使用房间时，对房间进行一次release。</h5><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 声明类</span></span><br><span class="line"><span class="class"><span class="keyword">@interface</span> <span class="title">Gamer</span> : <span class="title">NSObject</span></span></span><br><span class="line">&#123;</span><br><span class="line">    Room *_room;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)setRoom:(Room *)room;</span><br><span class="line">- (Room *)room;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 实现类</span></span><br><span class="line"><span class="class"><span class="keyword">@implementation</span> <span class="title">Gamer</span></span></span><br><span class="line">- (<span class="keyword">void</span>)setRoom:(Room *)room</span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    [room <span class="keyword">retain</span>];</span><br><span class="line">    _room = room;</span><br><span class="line">&#125;</span><br><span class="line">- (Room *)room&#123;</span><br><span class="line">    <span class="keyword">return</span> _room;</span><br><span class="line">&#125;</span><br><span class="line">- (<span class="keyword">void</span>)dealloc</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"玩家被释放"</span>);</span><br><span class="line">    [<span class="keyword">super</span> dealloc];</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">@end</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// main函数实现</span></span><br><span class="line">  <span class="comment">// 1、创建玩家对象</span></span><br><span class="line">    Gamer *game = [[Gamer alloc] init];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2、创建房间对象</span></span><br><span class="line">    Room *room = [[Room alloc] init];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3、让玩家进入房间</span></span><br><span class="line">    game.room = room;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4、释放房间对象</span></span><br><span class="line">    [room release];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5、输出玩家的房间</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"玩家的房间是：%@"</span>,game.room);</span><br></pre></td></tr></table></figure>
 <ul>
 <li><p>问题：房间无法被释放了怎么办？</p>
@@ -336,18 +327,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -441,6 +436,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、理解】内存管理的原则"><span class="toc-number">1.</span> <span class="toc-text">一、理解】内存管理的原则</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、内存管理的原则"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、内存管理的原则</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、内存管理研究内容"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、内存管理研究内容</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、单个对象内存管理（野指针）"><span class="toc-number">2.</span> <span class="toc-text">二、单个对象内存管理（野指针）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、单个对象的野指针问题"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、单个对象的野指针问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、多个对象内存管理"><span class="toc-number">3.</span> <span class="toc-text">三、多个对象内存管理</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#解决方案：在使用房间时，对房间进行一次release。"><span class="toc-number">3.0.0.1.</span> <span class="toc-text">解决方案：在使用房间时，对房间进行一次release。</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -549,6 +557,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

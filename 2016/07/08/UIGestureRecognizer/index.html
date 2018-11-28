@@ -9,13 +9,14 @@
   <title>UIGestureRecognizer | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="为了完成手势识别，必须借助于手势识别器——UIGestureRecognizer 利用UIGestureRecognizer，能轻松识别用户在某个view上面做的一些常见手势 UIGestureRecognizer是一个抽象类，定义了所有手势的基本行为，使用它的子类才能处理具体的手势   123456UITapGestureRecognizer(点按)UIPinchGestureRecogniz">
+<meta name="keywords" content="OC基础,UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UIGestureRecognizer">
 <meta property="og:url" content="lonely9209.github.io/2016/07/08/UIGestureRecognizer/index.html">
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="为了完成手势识别，必须借助于手势识别器——UIGestureRecognizer 利用UIGestureRecognizer，能轻松识别用户在某个view上面做的一些常见手势 UIGestureRecognizer是一个抽象类，定义了所有手势的基本行为，使用它的子类才能处理具体的手势   123456UITapGestureRecognizer(点按)UIPinchGestureRecogniz">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.833Z">
+<meta property="og:updated_time" content="2018-11-28T13:14:37.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UIGestureRecognizer">
 <meta name="twitter:description" content="为了完成手势识别，必须借助于手势识别器——UIGestureRecognizer 利用UIGestureRecognizer，能轻松识别用户在某个view上面做的一些常见手势 UIGestureRecognizer是一个抽象类，定义了所有手势的基本行为，使用它的子类才能处理具体的手势   123456UITapGestureRecognizer(点按)UIPinchGestureRecogniz">
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UITapGestureRecognizer（点击）"><span class="toc-number">1.</span> <span class="toc-text">一、UITapGestureRecognizer（点击）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、UILongPressGestureRecognizer-长按"><span class="toc-number">2.</span> <span class="toc-text">二、UILongPressGestureRecognizer(长按)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、UISwipeGestureRecognizer-轻扫"><span class="toc-number">3.</span> <span class="toc-text">三、UISwipeGestureRecognizer(轻扫)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、UIPanGestureRecognizer-平移"><span class="toc-number">4.</span> <span class="toc-text">四、UIPanGestureRecognizer(平移)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：添加视图"><span class="toc-number">4.0.1.</span> <span class="toc-text">第一步：添加视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：添加手势"><span class="toc-number">4.0.2.</span> <span class="toc-text">第二步：添加手势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：实现方法"><span class="toc-number">4.0.3.</span> <span class="toc-text">第三步：实现方法</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#五、UIRotationGestureRecognizer-旋转"><span class="toc-number">5.</span> <span class="toc-text">五、UIRotationGestureRecognizer(旋转)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：添加视图-1"><span class="toc-number">5.0.1.</span> <span class="toc-text">第一步：添加视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：添加手势-1"><span class="toc-number">5.0.2.</span> <span class="toc-text">第二步：添加手势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：实现方法-1"><span class="toc-number">5.0.3.</span> <span class="toc-text">第三步：实现方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、UIPinchGestureRecognizer-捏合"><span class="toc-number">6.</span> <span class="toc-text">六、UIPinchGestureRecognizer(捏合)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：添加视图-2"><span class="toc-number">6.0.1.</span> <span class="toc-text">第一步：添加视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：添加手势-2"><span class="toc-number">6.0.2.</span> <span class="toc-text">第二步：添加手势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：实现方法-2"><span class="toc-number">6.0.3.</span> <span class="toc-text">第三步：实现方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充：如果需要同时响应多个手势需要重写代理方法"><span class="toc-number">7.</span> <span class="toc-text">补充：如果需要同时响应多个手势需要重写代理方法</span></a></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -188,17 +219,19 @@
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UITapGestureRecognizer</span>(点按)</span><br><span class="line"><span class="built_in">UIPinchGestureRecognizer</span>(捏合，用于缩放)</span><br><span class="line"><span class="built_in">UIPanGestureRecognizer</span>(平移)</span><br><span class="line"><span class="built_in">UISwipeGestureRecognizer</span>(轻扫)</span><br><span class="line"><span class="built_in">UIRotationGestureRecognizer</span>(旋转)</span><br><span class="line"><span class="built_in">UILongPressGestureRecognizer</span>(长按)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<a id="more"></a>
 <h2 id="一、UITapGestureRecognizer（点击）"><a href="#一、UITapGestureRecognizer（点击）" class="headerlink" title="一、UITapGestureRecognizer（点击）"></a>一、UITapGestureRecognizer（点击）</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UITapGestureRecognizer</span> *tap=[[<span class="built_in">UITapGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(click)];</span><br><span class="line">    <span class="comment">//设置当前需要点击的次数</span></span><br><span class="line">    [tap setNumberOfTapsRequired:<span class="number">1</span>];</span><br><span class="line">    <span class="comment">//设置当前需要触发事件的手指数量</span></span><br><span class="line">	[tap setNumberOfTouchesRequired:<span class="number">2</span>];</span><br><span class="line">	<span class="comment">//设置当前代理</span></span><br><span class="line">	tap.delegate=<span class="keyword">self</span>;</span><br><span class="line">	[_view addGestureRecognizer:tap];</span><br><span class="line">	</span><br><span class="line"><span class="comment">//触发方法</span></span><br><span class="line">- (<span class="keyword">void</span>) click&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"当前视图被点击了！ "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="二、UILongPressGestureRecognizer-长按"><a href="#二、UILongPressGestureRecognizer-长按" class="headerlink" title="二、UILongPressGestureRecognizer(长按)"></a>二、UILongPressGestureRecognizer(长按)</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UILongPressGestureRecognizer</span> * longPress=[[<span class="built_in">UILongPressGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(longPress)];</span><br><span class="line"><span class="comment">//设置当前长按最小的时长</span></span><br><span class="line">longPress.minimumPressDuration=<span class="number">2</span>;</span><br><span class="line"><span class="comment">//设置允许的移动范围</span></span><br><span class="line"> [longPress setAllowableMovement:<span class="number">2</span>];</span><br><span class="line">[_view addGestureRecognizer:longPress];</span><br><span class="line"></span><br><span class="line"><span class="comment">//触发方法</span></span><br><span class="line">- (<span class="keyword">void</span>) longPress&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"长按事件触发！ "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="三、UISwipeGestureRecognizer-轻扫"><a href="#三、UISwipeGestureRecognizer-轻扫" class="headerlink" title="三、UISwipeGestureRecognizer(轻扫)"></a>三、UISwipeGestureRecognizer(轻扫)</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UISwipeGestureRecognizer</span> * swip=[[<span class="built_in">UISwipeGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(swipMethod)];</span><br><span class="line"><span class="comment">//往左边方向</span></span><br><span class="line">swip.direction=<span class="built_in">UISwipeGestureRecognizerDirectionLeft</span>;</span><br><span class="line"><span class="comment">//往右边方向</span></span><br><span class="line">swip.direction=<span class="built_in">UISwipeGestureRecognizerDirectionRight</span>;</span><br><span class="line"><span class="comment">//往上面方向</span></span><br><span class="line">swip.direction=<span class="built_in">UISwipeGestureRecognizerDirectionUp</span>;</span><br><span class="line"><span class="comment">//往下面方向</span></span><br><span class="line">swip.direction=<span class="built_in">UISwipeGestureRecognizerDirectionDown</span>;</span><br><span class="line">    [_view addGestureRecognizer:swip];</span><br><span class="line">    </span><br><span class="line"><span class="comment">//触发方法</span></span><br><span class="line">- (<span class="keyword">void</span>) swipMethod&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"轻扫事件触发！ "</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p><strong>如果涉及到2个以上方向的手势最好添加多个UISwipeGestureRecognizer 对象并设置不同的方向，不要通过下面方式用符号|来连接:</strong></p>
-<figure class="highlight objc"><figcaption><span>swip.direction</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line">	</span><br><span class="line"><span class="meta">## 四、UIPanGestureRecognizer(平移)</span></span><br><span class="line"><span class="meta">#### 第一步：添加视图</span></span><br><span class="line">```objc</span><br><span class="line">_view=[[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">250</span>, <span class="number">300</span>, <span class="number">200</span>)];</span><br><span class="line">[_view setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:_view];</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><figcaption><span>swip.direction</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="四、UIPanGestureRecognizer-平移"><a href="#四、UIPanGestureRecognizer-平移" class="headerlink" title="四、UIPanGestureRecognizer(平移)"></a>四、UIPanGestureRecognizer(平移)</h2><h4 id="第一步：添加视图"><a href="#第一步：添加视图" class="headerlink" title="第一步：添加视图"></a>第一步：添加视图</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_view=[[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">250</span>, <span class="number">300</span>, <span class="number">200</span>)];</span><br><span class="line">[_view setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:_view];</span><br></pre></td></tr></table></figure>
 <h4 id="第二步：添加手势"><a href="#第二步：添加手势" class="headerlink" title="第二步：添加手势"></a>第二步：添加手势</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIPanGestureRecognizer</span> *pan=[[<span class="built_in">UIPanGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(paned:)];</span><br><span class="line">[_view addGestureRecognizer:pan];</span><br></pre></td></tr></table></figure>
 <h4 id="第三步：实现方法"><a href="#第三步：实现方法" class="headerlink" title="第三步：实现方法"></a>第三步：实现方法</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) paned:(<span class="built_in">UIPanGestureRecognizer</span> *) pan&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取移动的大小</span></span><br><span class="line">    <span class="built_in">CGPoint</span> point= [pan translationInView:pan.view];</span><br><span class="line">    <span class="comment">//更改视图的中心点坐标</span></span><br><span class="line">    <span class="built_in">CGPoint</span> points=_view.center;</span><br><span class="line">    points.x+=point.x;</span><br><span class="line">    points.y+=point.y;</span><br><span class="line">    _view.center=points;</span><br><span class="line">    <span class="comment">//每次都清空一下消除坐标叠加</span></span><br><span class="line">    [pan setTranslation:<span class="built_in">CGPointZero</span> inView:pan.view];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="五、UIRotationGestureRecognizer-旋转"><a href="#五、UIRotationGestureRecognizer-旋转" class="headerlink" title="五、UIRotationGestureRecognizer(旋转)"></a>五、UIRotationGestureRecognizer(旋转)</h2><h4 id="第一步：添加视图"><a href="#第一步：添加视图" class="headerlink" title="第一步：添加视图"></a>第一步：添加视图</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_view=[[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">250</span>, <span class="number">300</span>, <span class="number">200</span>)];</span><br><span class="line">[_view setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:_view];</span><br></pre></td></tr></table></figure>
+<h2 id="五、UIRotationGestureRecognizer-旋转"><a href="#五、UIRotationGestureRecognizer-旋转" class="headerlink" title="五、UIRotationGestureRecognizer(旋转)"></a>五、UIRotationGestureRecognizer(旋转)</h2><h4 id="第一步：添加视图-1"><a href="#第一步：添加视图-1" class="headerlink" title="第一步：添加视图"></a>第一步：添加视图</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_view=[[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">250</span>, <span class="number">300</span>, <span class="number">200</span>)];</span><br><span class="line">[_view setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:_view];</span><br></pre></td></tr></table></figure>
 <h4 id="第二步：添加手势-1"><a href="#第二步：添加手势-1" class="headerlink" title="第二步：添加手势"></a>第二步：添加手势</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIRotationGestureRecognizer</span> * roate=[[<span class="built_in">UIRotationGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(rotate:)];</span><br><span class="line">    [_view addGestureRecognizer:roate];</span><br><span class="line">roate.delegate=<span class="keyword">self</span>;</span><br></pre></td></tr></table></figure>
 <h4 id="第三步：实现方法-1"><a href="#第三步：实现方法-1" class="headerlink" title="第三步：实现方法"></a>第三步：实现方法</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) rotate:(<span class="built_in">UIRotationGestureRecognizer</span> *) rote&#123;</span><br><span class="line">   <span class="comment">//获取当前旋转的度数</span></span><br><span class="line">   <span class="built_in">CGFloat</span> rotation= rote.rotation;</span><br><span class="line">    <span class="comment">//通过仿射变换实现旋转</span></span><br><span class="line">  _view.transform=<span class="built_in">CGAffineTransformRotate</span>(_view.transform, rotation);</span><br><span class="line">    <span class="comment">//防止旋转叠加需要清零</span></span><br><span class="line">    rote.rotation=<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="六、UIPinchGestureRecognizer-捏合"><a href="#六、UIPinchGestureRecognizer-捏合" class="headerlink" title="六、UIPinchGestureRecognizer(捏合)"></a>六、UIPinchGestureRecognizer(捏合)</h2><h4 id="第一步：添加视图-1"><a href="#第一步：添加视图-1" class="headerlink" title="第一步：添加视图"></a>第一步：添加视图</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_view=[[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">250</span>, <span class="number">300</span>, <span class="number">200</span>)];</span><br><span class="line">[_view setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:_view];</span><br></pre></td></tr></table></figure>
+<h2 id="六、UIPinchGestureRecognizer-捏合"><a href="#六、UIPinchGestureRecognizer-捏合" class="headerlink" title="六、UIPinchGestureRecognizer(捏合)"></a>六、UIPinchGestureRecognizer(捏合)</h2><h4 id="第一步：添加视图-2"><a href="#第一步：添加视图-2" class="headerlink" title="第一步：添加视图"></a>第一步：添加视图</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">_view=[[<span class="built_in">UIView</span> alloc] initWithFrame:<span class="built_in">CGRectMake</span>(<span class="number">50</span>, <span class="number">250</span>, <span class="number">300</span>, <span class="number">200</span>)];</span><br><span class="line">[_view setBackgroundColor:[<span class="built_in">UIColor</span> redColor]];</span><br><span class="line">[<span class="keyword">self</span>.view addSubview:_view];</span><br></pre></td></tr></table></figure>
 <h4 id="第二步：添加手势-2"><a href="#第二步：添加手势-2" class="headerlink" title="第二步：添加手势"></a>第二步：添加手势</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIPinchGestureRecognizer</span> * pich=[[<span class="built_in">UIPinchGestureRecognizer</span> alloc] initWithTarget:<span class="keyword">self</span> action:<span class="keyword">@selector</span>(piches:)];</span><br><span class="line">[_view addGestureRecognizer:pich];</span><br><span class="line">pich.delegate=<span class="keyword">self</span>;</span><br></pre></td></tr></table></figure>
 <h4 id="第三步：实现方法-2"><a href="#第三步：实现方法-2" class="headerlink" title="第三步：实现方法"></a>第三步：实现方法</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>) piches:(<span class="built_in">UIPinchGestureRecognizer</span> *) pich&#123;</span><br><span class="line">    <span class="comment">//获取比例</span></span><br><span class="line">    <span class="built_in">CGFloat</span> scale=pich.scale;</span><br><span class="line">    <span class="comment">//通过仿射变换实现缩放</span></span><br><span class="line">    _view.transform=<span class="built_in">CGAffineTransformScale</span>(_view.transform, scale, scale);</span><br><span class="line">    <span class="comment">//防止比例叠加需要置为1</span></span><br><span class="line">    pich.scale=<span class="number">1</span>;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="补充：如果需要同时响应多个手势需要重写代理方法"><a href="#补充：如果需要同时响应多个手势需要重写代理方法" class="headerlink" title="补充：如果需要同时响应多个手势需要重写代理方法"></a>补充：如果需要同时响应多个手势需要重写代理方法</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)gestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer shouldRecognizeSimultaneouslyWithGestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)otherGestureRecognizer&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -231,18 +264,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -336,6 +373,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UITapGestureRecognizer（点击）"><span class="toc-number">1.</span> <span class="toc-text">一、UITapGestureRecognizer（点击）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、UILongPressGestureRecognizer-长按"><span class="toc-number">2.</span> <span class="toc-text">二、UILongPressGestureRecognizer(长按)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、UISwipeGestureRecognizer-轻扫"><span class="toc-number">3.</span> <span class="toc-text">三、UISwipeGestureRecognizer(轻扫)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、UIPanGestureRecognizer-平移"><span class="toc-number">4.</span> <span class="toc-text">四、UIPanGestureRecognizer(平移)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：添加视图"><span class="toc-number">4.0.1.</span> <span class="toc-text">第一步：添加视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：添加手势"><span class="toc-number">4.0.2.</span> <span class="toc-text">第二步：添加手势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：实现方法"><span class="toc-number">4.0.3.</span> <span class="toc-text">第三步：实现方法</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#五、UIRotationGestureRecognizer-旋转"><span class="toc-number">5.</span> <span class="toc-text">五、UIRotationGestureRecognizer(旋转)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：添加视图-1"><span class="toc-number">5.0.1.</span> <span class="toc-text">第一步：添加视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：添加手势-1"><span class="toc-number">5.0.2.</span> <span class="toc-text">第二步：添加手势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：实现方法-1"><span class="toc-number">5.0.3.</span> <span class="toc-text">第三步：实现方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#六、UIPinchGestureRecognizer-捏合"><span class="toc-number">6.</span> <span class="toc-text">六、UIPinchGestureRecognizer(捏合)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#第一步：添加视图-2"><span class="toc-number">6.0.1.</span> <span class="toc-text">第一步：添加视图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第二步：添加手势-2"><span class="toc-number">6.0.2.</span> <span class="toc-text">第二步：添加手势</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#第三步：实现方法-2"><span class="toc-number">6.0.3.</span> <span class="toc-text">第三步：实现方法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#补充：如果需要同时响应多个手势需要重写代理方法"><span class="toc-number">7.</span> <span class="toc-text">补充：如果需要同时响应多个手势需要重写代理方法</span></a></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -444,6 +494,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

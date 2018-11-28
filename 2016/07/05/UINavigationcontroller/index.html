@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>UINavigationController | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、UINavigationController的基本使用 初始化UINavigationController 设置UIWindow的rootViewController为UINavigationController 将第一个视图控制器设置为UINavigationController的根视图控制器 通过push方法新建子控制器 通过pop方法可以返回到上一个控制器  1、UINavigation">
+  <meta name="description" content="一、UINavigationController的基本使用 初始化UINavigationController 设置UIWindow的rootViewController为UINavigationController 将第一个视图控制器设置为UINavigationController的根视图控制器 通过push方法新建子控制器 通过pop方法可以返回到上一个控制器">
+<meta name="keywords" content="OC基础,UI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="UINavigationController">
 <meta property="og:url" content="lonely9209.github.io/2016/07/05/UINavigationcontroller/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、UINavigationController的基本使用 初始化UINavigationController 设置UIWindow的rootViewController为UINavigationController 将第一个视图控制器设置为UINavigationController的根视图控制器 通过push方法新建子控制器 通过pop方法可以返回到上一个控制器  1、UINavigation">
+<meta property="og:description" content="一、UINavigationController的基本使用 初始化UINavigationController 设置UIWindow的rootViewController为UINavigationController 将第一个视图控制器设置为UINavigationController的根视图控制器 通过push方法新建子控制器 通过pop方法可以返回到上一个控制器">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.834Z">
+<meta property="og:updated_time" content="2018-11-28T13:14:34.734Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="UINavigationController">
-<meta name="twitter:description" content="一、UINavigationController的基本使用 初始化UINavigationController 设置UIWindow的rootViewController为UINavigationController 将第一个视图控制器设置为UINavigationController的根视图控制器 通过push方法新建子控制器 通过pop方法可以返回到上一个控制器  1、UINavigation">
+<meta name="twitter:description" content="一、UINavigationController的基本使用 初始化UINavigationController 设置UIWindow的rootViewController为UINavigationController 将第一个视图控制器设置为UINavigationController的根视图控制器 通过push方法新建子控制器 通过pop方法可以返回到上一个控制器">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UINavigationController的基本使用"><span class="toc-number">1.</span> <span class="toc-text">一、UINavigationController的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、UINavigationController子控制器"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、UINavigationController子控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、修改导航栏的内容"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、修改导航栏的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#导航栏的内容由栈顶控制器的navigationItem属性决定"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">导航栏的内容由栈顶控制器的navigationItem属性决定</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#UINavigationItem有以下属性影响着导航栏的内容"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">UINavigationItem有以下属性影响着导航栏的内容</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#当子控制器重新设置了返回键怎样保留手势退出功能"><span class="toc-number">1.0.3.</span> <span class="toc-text">当子控制器重新设置了返回键怎样保留手势退出功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、UINavigationBar属性"><span class="toc-number">1.0.4.</span> <span class="toc-text">3、UINavigationBar属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、修改状态栏颜色"><span class="toc-number">1.0.5.</span> <span class="toc-text">4、修改状态栏颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#创建一个高20的假状态栏背景"><span class="toc-number">1.0.5.0.1.</span> <span class="toc-text">创建一个高20的假状态栏背景</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加到导航栏上"><span class="toc-number">1.0.5.0.2.</span> <span class="toc-text">添加到导航栏上</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#设置导航栏的背景图片"><span class="toc-number">1.0.5.0.3.</span> <span class="toc-text">设置导航栏的背景图片</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Segue"><span class="toc-number">2.</span> <span class="toc-text">二、Segue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是Segue"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、什么是Segue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、Segue的属性"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、Segue的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#每一个Segue对象，都有3个属性"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">每一个Segue对象，都有3个属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、Segue的类型"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、Segue的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#根据Segue的执行（跳转）时刻，Segue可以分为2大类型"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">根据Segue的执行（跳转）时刻，Segue可以分为2大类型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、performSegueWithIdentifier-sender"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、performSegueWithIdentifier:sender:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Modal"><span class="toc-number">3.</span> <span class="toc-text">三、Modal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、案例"><span class="toc-number">4.</span> <span class="toc-text">四、案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、统一设置导航栏样式"><span class="toc-number">4.0.1.</span> <span class="toc-text">1、统一设置导航栏样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、拦截导航栏push方法统一设置子控制器导航栏样式"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、拦截导航栏push方法统一设置子控制器导航栏样式</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -188,6 +219,7 @@
 <li>通过push方法新建子控制器</li>
 <li>通过pop方法可以返回到上一个控制器</li>
 </ul>
+<a id="more"></a>
 <h4 id="1、UINavigationController子控制器"><a href="#1、UINavigationController子控制器" class="headerlink" title="1、UINavigationController子控制器"></a>1、UINavigationController子控制器</h4><ul>
 <li><p>栈内所有子控制器的集合</p>
   <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span>(<span class="keyword">nonatomic</span>,<span class="keyword">copy</span>) <span class="built_in">NSArray</span>&lt;__kindof <span class="built_in">UIViewController</span> *&gt; *viewControllers;</span><br></pre></td></tr></table></figure>
@@ -345,18 +377,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -420,18 +456,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/05/UIDynamic（物理引擎）/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/05/GCD:RunLoop/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          UIDynamic（物理引擎）
+          GCD/RunLoop
         
       </div>
     </a>
   
   
-    <a href="/2016/07/05/GCD:RunLoop/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">GCD/RunLoop</div>
+    <a href="/2016/07/05/UIDynamic（物理引擎）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UIDynamic（物理引擎）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -450,6 +486,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、UINavigationController的基本使用"><span class="toc-number">1.</span> <span class="toc-text">一、UINavigationController的基本使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、UINavigationController子控制器"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、UINavigationController子控制器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、修改导航栏的内容"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、修改导航栏的内容</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#导航栏的内容由栈顶控制器的navigationItem属性决定"><span class="toc-number">1.0.2.0.1.</span> <span class="toc-text">导航栏的内容由栈顶控制器的navigationItem属性决定</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#UINavigationItem有以下属性影响着导航栏的内容"><span class="toc-number">1.0.2.0.2.</span> <span class="toc-text">UINavigationItem有以下属性影响着导航栏的内容</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#当子控制器重新设置了返回键怎样保留手势退出功能"><span class="toc-number">1.0.3.</span> <span class="toc-text">当子控制器重新设置了返回键怎样保留手势退出功能</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、UINavigationBar属性"><span class="toc-number">1.0.4.</span> <span class="toc-text">3、UINavigationBar属性</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、修改状态栏颜色"><span class="toc-number">1.0.5.</span> <span class="toc-text">4、修改状态栏颜色</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#创建一个高20的假状态栏背景"><span class="toc-number">1.0.5.0.1.</span> <span class="toc-text">创建一个高20的假状态栏背景</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加到导航栏上"><span class="toc-number">1.0.5.0.2.</span> <span class="toc-text">添加到导航栏上</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#设置导航栏的背景图片"><span class="toc-number">1.0.5.0.3.</span> <span class="toc-text">设置导航栏的背景图片</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Segue"><span class="toc-number">2.</span> <span class="toc-text">二、Segue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、什么是Segue"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、什么是Segue</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、Segue的属性"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、Segue的属性</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#每一个Segue对象，都有3个属性"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">每一个Segue对象，都有3个属性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、Segue的类型"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、Segue的类型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#根据Segue的执行（跳转）时刻，Segue可以分为2大类型"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">根据Segue的执行（跳转）时刻，Segue可以分为2大类型</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、performSegueWithIdentifier-sender"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、performSegueWithIdentifier:sender:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、Modal"><span class="toc-number">3.</span> <span class="toc-text">三、Modal</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#四、案例"><span class="toc-number">4.</span> <span class="toc-text">四、案例</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、统一设置导航栏样式"><span class="toc-number">4.0.1.</span> <span class="toc-text">1、统一设置导航栏样式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、拦截导航栏push方法统一设置子控制器导航栏样式"><span class="toc-number">4.0.2.</span> <span class="toc-text">2、拦截导航栏push方法统一设置子控制器导航栏样式</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -558,6 +607,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

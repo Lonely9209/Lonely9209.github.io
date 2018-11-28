@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>NSOperation | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、NSOperation简介1、NSOperation的作用 是OC语言中基于GCD的面向对象的封装 使用起来比GCD更加简单（面向对象） 提供了一些用GCD不好实现的功能 苹果推荐使用，使用NSOperation不用关心线程以及线程的生命周期  2、查看NSOperation的头文件 NSOperation是一个抽象类 不能直接使用（方法没有实现） 约束子类都具有共同的属性和方法   NSOp">
+  <meta name="description" content="一、NSOperation简介1、NSOperation的作用 是OC语言中基于GCD的面向对象的封装 使用起来比GCD更加简单（面向对象） 提供了一些用GCD不好实现的功能 苹果推荐使用，使用NSOperation不用关心线程以及线程的生命周期">
+<meta name="keywords" content="网络与多线程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSOperation">
 <meta property="og:url" content="lonely9209.github.io/2016/07/06/NSOperation/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、NSOperation简介1、NSOperation的作用 是OC语言中基于GCD的面向对象的封装 使用起来比GCD更加简单（面向对象） 提供了一些用GCD不好实现的功能 苹果推荐使用，使用NSOperation不用关心线程以及线程的生命周期  2、查看NSOperation的头文件 NSOperation是一个抽象类 不能直接使用（方法没有实现） 约束子类都具有共同的属性和方法   NSOp">
+<meta property="og:description" content="一、NSOperation简介1、NSOperation的作用 是OC语言中基于GCD的面向对象的封装 使用起来比GCD更加简单（面向对象） 提供了一些用GCD不好实现的功能 苹果推荐使用，使用NSOperation不用关心线程以及线程的生命周期">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.830Z">
+<meta property="og:updated_time" content="2018-11-28T13:04:20.107Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSOperation">
-<meta name="twitter:description" content="一、NSOperation简介1、NSOperation的作用 是OC语言中基于GCD的面向对象的封装 使用起来比GCD更加简单（面向对象） 提供了一些用GCD不好实现的功能 苹果推荐使用，使用NSOperation不用关心线程以及线程的生命周期  2、查看NSOperation的头文件 NSOperation是一个抽象类 不能直接使用（方法没有实现） 约束子类都具有共同的属性和方法   NSOp">
+<meta name="twitter:description" content="一、NSOperation简介1、NSOperation的作用 是OC语言中基于GCD的面向对象的封装 使用起来比GCD更加简单（面向对象） 提供了一些用GCD不好实现的功能 苹果推荐使用，使用NSOperation不用关心线程以及线程的生命周期">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、NSOperation简介"><span class="toc-number">1.</span> <span class="toc-text">一、NSOperation简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、NSOperation的作用"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSOperation的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、查看NSOperation的头文件"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、查看NSOperation的头文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、使用步骤"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、使用步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#NSOperation和NSOperationQueue实现多线程的具体步骤"><span class="toc-number">1.0.3.0.1.</span> <span class="toc-text">NSOperation和NSOperationQueue实现多线程的具体步骤</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、NSOperation"><span class="toc-number">2.</span> <span class="toc-text">二、NSOperation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、NSInvocationOperation"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、NSInvocationOperation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#建NSInvocationOperation对象"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">建NSInvocationOperation对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#调用start方法开始执行操作"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">调用start方法开始执行操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#注意"><span class="toc-number">2.0.1.0.3.</span> <span class="toc-text">注意</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、NSBlockOperation"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、NSBlockOperation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#创建NSBlockOperation对象"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">创建NSBlockOperation对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#通过addExecutionBlock-方法添加更多的操作"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">通过addExecutionBlock:方法添加更多的操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、NSOperationQueue"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、NSOperationQueue</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#NSOperationQueue的作用"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">NSOperationQueue的作用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加操作到NSOperationQueue中"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">添加操作到NSOperationQueue中</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#监听操作完成"><span class="toc-number">2.0.3.0.3.</span> <span class="toc-text">监听操作完成</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、最大并发数"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、最大并发数</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#什么是并发数"><span class="toc-number">2.0.4.0.1.</span> <span class="toc-text">什么是并发数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#最大并发数的相关方法"><span class="toc-number">2.0.4.0.2.</span> <span class="toc-text">最大并发数的相关方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、队列的暂停、取消、恢复"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、队列的暂停、取消、恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#取消队列的所有操作"><span class="toc-number">2.0.5.0.1.</span> <span class="toc-text">取消队列的所有操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#暂停和恢复队列"><span class="toc-number">2.0.5.0.2.</span> <span class="toc-text">暂停和恢复队列</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、操作的优先级"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、操作的优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#设置NSOperation在queue中的优先级，可以改变操作的执行优先级"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">设置NSOperation在queue中的优先级，可以改变操作的执行优先级</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#优先级的取值"><span class="toc-number">2.0.6.0.2.</span> <span class="toc-text">优先级的取值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、操作依赖"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、操作依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#NSOperation之间可以设置依赖来保证执行顺序"><span class="toc-number">2.0.7.0.1.</span> <span class="toc-text">NSOperation之间可以设置依赖来保证执行顺序</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、线程间通信"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、线程间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#子线程-gt-主线程"><span class="toc-number">2.0.8.0.1.</span> <span class="toc-text">子线程-&gt;主线程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、自定义NSOperation"><span class="toc-number">2.0.9.</span> <span class="toc-text">9、自定义NSOperation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#重写main方法，把我们想要执行的代码放到该方法中去运行。"><span class="toc-number">2.0.9.0.1.</span> <span class="toc-text">重写main方法，把我们想要执行的代码放到该方法中去运行。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、NSOperation-VS-GCD"><span class="toc-number">3.</span> <span class="toc-text">3、NSOperation VS GCD</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、GCD"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、GCD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、NSOperation"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、NSOperation</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -187,6 +218,7 @@
 <li>提供了一些用GCD不好实现的功能</li>
 <li>苹果推荐使用，使用NSOperation不用关心线程以及线程的生命周期</li>
 </ul>
+<a id="more"></a>
 <h4 id="2、查看NSOperation的头文件"><a href="#2、查看NSOperation的头文件" class="headerlink" title="2、查看NSOperation的头文件"></a>2、查看NSOperation的头文件</h4><ul>
 <li>NSOperation是一个抽象类<ol>
 <li>不能直接使用（方法没有实现）</li>
@@ -274,18 +306,18 @@ iii.NSOperation里提供的方便的操作
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络与多线程</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -379,6 +411,19 @@ iii.NSOperation里提供的方便的操作
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、NSOperation简介"><span class="toc-number">1.</span> <span class="toc-text">一、NSOperation简介</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、NSOperation的作用"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、NSOperation的作用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、查看NSOperation的头文件"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、查看NSOperation的头文件</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、使用步骤"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、使用步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#NSOperation和NSOperationQueue实现多线程的具体步骤"><span class="toc-number">1.0.3.0.1.</span> <span class="toc-text">NSOperation和NSOperationQueue实现多线程的具体步骤</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、NSOperation"><span class="toc-number">2.</span> <span class="toc-text">二、NSOperation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、NSInvocationOperation"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、NSInvocationOperation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#建NSInvocationOperation对象"><span class="toc-number">2.0.1.0.1.</span> <span class="toc-text">建NSInvocationOperation对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#调用start方法开始执行操作"><span class="toc-number">2.0.1.0.2.</span> <span class="toc-text">调用start方法开始执行操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#注意"><span class="toc-number">2.0.1.0.3.</span> <span class="toc-text">注意</span></a></li></ol></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、NSBlockOperation"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、NSBlockOperation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#创建NSBlockOperation对象"><span class="toc-number">2.0.2.0.1.</span> <span class="toc-text">创建NSBlockOperation对象</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#通过addExecutionBlock-方法添加更多的操作"><span class="toc-number">2.0.2.0.2.</span> <span class="toc-text">通过addExecutionBlock:方法添加更多的操作</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、NSOperationQueue"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、NSOperationQueue</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#NSOperationQueue的作用"><span class="toc-number">2.0.3.0.1.</span> <span class="toc-text">NSOperationQueue的作用</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#添加操作到NSOperationQueue中"><span class="toc-number">2.0.3.0.2.</span> <span class="toc-text">添加操作到NSOperationQueue中</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#监听操作完成"><span class="toc-number">2.0.3.0.3.</span> <span class="toc-text">监听操作完成</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、最大并发数"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、最大并发数</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#什么是并发数"><span class="toc-number">2.0.4.0.1.</span> <span class="toc-text">什么是并发数</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#最大并发数的相关方法"><span class="toc-number">2.0.4.0.2.</span> <span class="toc-text">最大并发数的相关方法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、队列的暂停、取消、恢复"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、队列的暂停、取消、恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#取消队列的所有操作"><span class="toc-number">2.0.5.0.1.</span> <span class="toc-text">取消队列的所有操作</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#暂停和恢复队列"><span class="toc-number">2.0.5.0.2.</span> <span class="toc-text">暂停和恢复队列</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、操作的优先级"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、操作的优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#设置NSOperation在queue中的优先级，可以改变操作的执行优先级"><span class="toc-number">2.0.6.0.1.</span> <span class="toc-text">设置NSOperation在queue中的优先级，可以改变操作的执行优先级</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#优先级的取值"><span class="toc-number">2.0.6.0.2.</span> <span class="toc-text">优先级的取值</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、操作依赖"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、操作依赖</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#NSOperation之间可以设置依赖来保证执行顺序"><span class="toc-number">2.0.7.0.1.</span> <span class="toc-text">NSOperation之间可以设置依赖来保证执行顺序</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、线程间通信"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、线程间通信</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#子线程-gt-主线程"><span class="toc-number">2.0.8.0.1.</span> <span class="toc-text">子线程-&gt;主线程</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9、自定义NSOperation"><span class="toc-number">2.0.9.</span> <span class="toc-text">9、自定义NSOperation</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#重写main方法，把我们想要执行的代码放到该方法中去运行。"><span class="toc-number">2.0.9.0.1.</span> <span class="toc-text">重写main方法，把我们想要执行的代码放到该方法中去运行。</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、NSOperation-VS-GCD"><span class="toc-number">3.</span> <span class="toc-text">3、NSOperation VS GCD</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、GCD"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、GCD</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、NSOperation"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、NSOperation</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -487,6 +532,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

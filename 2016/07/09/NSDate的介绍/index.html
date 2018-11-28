@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>NSDate的介绍 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、NSDate的介绍1、【理解】NSDate的介绍和使用 NSDate可以用来表示时间,可以进行一些常见的日期\时间处理。 一个NSDate对象就代表一个时间  2、格式化日期 12345678NSDateFormatter *formatter = [[NSDateFormatter alloc] init];formatter.dateFormat = @&amp;quot;yyyy-MM-dd H">
+  <meta name="description" content="一、NSDate的介绍1、【理解】NSDate的介绍和使用 NSDate可以用来表示时间,可以进行一些常见的日期\时间处理。 一个NSDate对象就代表一个时间">
+<meta name="keywords" content="OC基础,OC">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NSDate的介绍">
 <meta property="og:url" content="lonely9209.github.io/2016/07/09/NSDate的介绍/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、NSDate的介绍1、【理解】NSDate的介绍和使用 NSDate可以用来表示时间,可以进行一些常见的日期\时间处理。 一个NSDate对象就代表一个时间  2、格式化日期 12345678NSDateFormatter *formatter = [[NSDateFormatter alloc] init];formatter.dateFormat = @&amp;quot;yyyy-MM-dd H">
+<meta property="og:description" content="一、NSDate的介绍1、【理解】NSDate的介绍和使用 NSDate可以用来表示时间,可以进行一些常见的日期\时间处理。 一个NSDate对象就代表一个时间">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.829Z">
+<meta property="og:updated_time" content="2018-11-28T13:12:47.307Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NSDate的介绍">
-<meta name="twitter:description" content="一、NSDate的介绍1、【理解】NSDate的介绍和使用 NSDate可以用来表示时间,可以进行一些常见的日期\时间处理。 一个NSDate对象就代表一个时间  2、格式化日期 12345678NSDateFormatter *formatter = [[NSDateFormatter alloc] init];formatter.dateFormat = @&amp;quot;yyyy-MM-dd H">
+<meta name="twitter:description" content="一、NSDate的介绍1、【理解】NSDate的介绍和使用 NSDate可以用来表示时间,可以进行一些常见的日期\时间处理。 一个NSDate对象就代表一个时间">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,6 +185,30 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、NSDate的介绍"><span class="toc-number">1.</span> <span class="toc-text">一、NSDate的介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、【理解】NSDate的介绍和使用"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、【理解】NSDate的介绍和使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、格式化日期"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、格式化日期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、计算日期"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、计算日期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、日期时间对象"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、日期时间对象</span></a></li></ol></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -185,6 +216,7 @@
 <li>NSDate可以用来表示时间,可以进行一些常见的日期\时间处理。</li>
 <li>一个NSDate对象就代表一个时间</li>
 </ul>
+<a id="more"></a>
 <h4 id="2、格式化日期"><a href="#2、格式化日期" class="headerlink" title="2、格式化日期"></a>2、格式化日期</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">NSDateFormatter *formatter = [[NSDateFormatter alloc] init];</span><br><span class="line">formatter.dateFormat = @&quot;yyyy-MM-dd HH:mm:ss&quot;;</span><br><span class="line"></span><br><span class="line">// 将NSString转换为NSDate</span><br><span class="line">NSDate *date = [formatter dateFromString:@&quot;2010-03-24 00:00:00&quot;];</span><br><span class="line"></span><br><span class="line">// 将NSDate转换为NSString</span><br><span class="line">NSLog(@&quot;%@&quot;, [formatter stringFromDate:date]);</span><br></pre></td></tr></table></figure>
 <h4 id="3、计算日期"><a href="#3、计算日期" class="headerlink" title="3、计算日期"></a>3、计算日期</h4><ul>
 <li>[NSDate date]返回的就是当前时间</li>
@@ -230,18 +262,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -335,6 +371,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、NSDate的介绍"><span class="toc-number">1.</span> <span class="toc-text">一、NSDate的介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、【理解】NSDate的介绍和使用"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、【理解】NSDate的介绍和使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、格式化日期"><span class="toc-number">1.0.2.</span> <span class="toc-text">2、格式化日期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、计算日期"><span class="toc-number">1.0.3.</span> <span class="toc-text">3、计算日期</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、日期时间对象"><span class="toc-number">1.0.4.</span> <span class="toc-text">4、日期时间对象</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -443,6 +492,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

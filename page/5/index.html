@@ -55,9 +55,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -117,6 +119,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -137,11 +141,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -180,137 +186,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="一、NSString"><a href="#一、NSString" class="headerlink" title="一、NSString"></a>一、NSString</h1><h3 id="1、NSString的大小写处理"><a href="#1、NSString的大小写处理" class="headerlink" title="1、NSString的大小写处理"></a>1、NSString的大小写处理</h3><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 全部字符转换为大写字母</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)uppercaseString;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 全部字符转换为小写字母</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)lowercaseString;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 首字母变大写，其他字母都变小写</span></span><br><span class="line">- (<span class="built_in">NSString</span> *)capitalizedString;</span><br></pre></td></tr></table></figure>
-<h3 id="2、字符串的比较"><a href="#2、字符串的比较" class="headerlink" title="2、字符串的比较"></a>2、字符串的比较</h3><ul>
-<li><p>1、两个字符串的内容相同就返回YES, 否则返回NO</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)isEqualToString:(<span class="built_in">NSString</span> *)aString;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、这个方法可以用来比较两个字符串内容的大小</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSComparisonResult</span>)compare:(<span class="built_in">NSString</span> *)string;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>比较方法: 逐个字符地进行比较ASCII值，只要有一个值能够比较出大小，就不再继续比较。返回NSComparisonResult作为比较结果</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSComparisonResult</span>是一个枚举，有<span class="number">3</span>个值:</span><br><span class="line">如果左侧   &lt; 右侧,返回<span class="built_in">NSOrderedAscending</span>,<span class="number">-1</span>L  递增</span><br><span class="line">如果左侧   &gt; 右侧,返回<span class="built_in">NSOrderedDescending</span>,    递减</span><br><span class="line">如果左侧  == 右侧返回<span class="built_in">NSOrderedSame</span>            相等</span><br><span class="line"></span><br><span class="line"><span class="comment">//忽略大小写进行比较，返回值与compare:一致</span></span><br><span class="line">- (<span class="built_in">NSComparisonResult</span>) caseInsensitiveCompare:(<span class="built_in">NSString</span> *)string;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>另外,在使用compare方法时可以添加参数来决定是否区分大小写,或者声明为比较字符串个数而不是字符值等比较条件</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> <span class="built_in">NSString</span> *str = <span class="string">@"aBc"</span>;</span><br><span class="line"> <span class="built_in">NSString</span> *str1 = <span class="string">@"abc"</span>;</span><br><span class="line"></span><br><span class="line"> <span class="comment">// 忽略大小写字符串比较</span></span><br><span class="line"> <span class="built_in">NSComparisonResult</span> result = [str caseInsensitiveCompare:str1];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 因为忽略B和b,所以str = str1</span></span><br><span class="line"> <span class="built_in">NSLog</span>(<span class="string">@"%ld"</span>,result);</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="3、NSString前后缀检查及搜索"><a href="#3、NSString前后缀检查及搜索" class="headerlink" title="3、NSString前后缀检查及搜索"></a>3、NSString前后缀检查及搜索</h3><ul>
-<li>1、字符串前后缀检查</li>
-<li><p>前缀检查–是否以aString开头</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)hasPrefix:(<span class="built_in">NSString</span> *)aString;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>后缀检查–是否以aString结尾</p>
- <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)hasSuffix:(<span class="built_in">NSString</span> *)aString;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、字符串查找</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用来检查字符串内容中是否包含了aString</span></span><br><span class="line"><span class="comment">// 如果包含, 就返回aString的范围</span></span><br><span class="line"><span class="comment">// 如果不包含, NSRange的location为NSNotFound, length为0</span></span><br><span class="line"></span><br><span class="line">- (<span class="built_in">NSRange</span>)rangeOfString:(<span class="built_in">NSString</span> *)aString;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h3 id="4、字符串的截取和替换"><a href="#4、字符串的截取和替换" class="headerlink" title="4、字符串的截取和替换"></a>4、字符串的截取和替换</h3><ul>
-<li><p>1、字符串的截取</p>
-<ul>
-<li><p>从指定位置from开始(包括指定位置的字符)到尾部</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)substringFromIndex:(<span class="built_in">NSUInteger</span>)from;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>从字符串的开头一直截取到指定的位置to，但不包括该位置的字符.</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)substringToIndex:(<span class="built_in">NSUInteger</span>)to;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>按照所给出的NSRange从字符串中截取子串</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)substringWithRange:(<span class="built_in">NSRange</span>)range;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>返回数组</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *)componentsSeparatedByString:(<span class="built_in">NSString</span> *)separator;</span><br><span class="line">- (<span class="built_in">NSArray</span>&lt;<span class="built_in">NSString</span> *&gt; *)componentsSeparatedByCharactersInSet:(<span class="built_in">NSCharacterSet</span> *)separator;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>2、字符串的替换函数</p>
-<ul>
-<li>用replacement替换target<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)stringByReplacingOccurrencesOfString:(<span class="built_in">NSString</span> *)target withString:(<span class="built_in">NSString</span> *)replacement;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>3、字符串与路径</p>
-<ul>
-<li><p>是否为绝对路径</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)isAbsolutePath;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>获得最后一个目录</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)lastPathComponent;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除最后一个目录</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)stringByDeletingLastPathComponent;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在路径的后面拼接一个目录</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> - (<span class="built_in">NSString</span> *)stringByAppendingPathComponent:(<span class="built_in">NSString</span> *)str;</span><br><span class="line">也可以使用stringByAppendingString:或者stringByAppendingFormat:拼接字符串内容</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>4、字符串与文件扩展名</p>
-<ul>
-<li><p>获得扩展名</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)pathExtension;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除尾部的拓展名 </p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)stringByDeletingPathExtension;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在尾部添加一个拓展名</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSString</span> *)stringByAppendingPathExtension:(<span class="built_in">NSString</span> *)str;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="5、NSString的其他用法"><a href="#5、NSString的其他用法" class="headerlink" title="5、NSString的其他用法"></a>5、NSString的其他用法</h3><ul>
-<li><p>1、获得字符串的长度</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">NSUInteger</span>)length;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>2、获得具体位置的字符</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">unichar</span>)characterAtIndex:(<span class="built_in">NSUInteger</span>)index;</span><br><span class="line">返回index位置对应的字符,%c输出</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>3、字符串和其他数据类型转换</p>
-<ul>
-<li><p>转为基本数据类型</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">double</span>)doubleValue;</span><br><span class="line">- (<span class="keyword">float</span>)floatValue;</span><br><span class="line">- (<span class="keyword">int</span>)intValue;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>转为C语言中的字符串(数据库)</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">char</span> *)UTF8String;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>4、NSString去除空格</p>
-<ul>
-<li><p>去除所有的空格</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[str stringByReplacingOccurrencesOfString:<span class="string">@" "</span> withString:<span class="string">@""</span>]</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>去除首尾的空格</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[str stringByTrimmingCharactersInSet:[<span class="built_in">NSCharacterSet</span> whitespaceCharacterSet]];</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>5、中文使用%转义( 网络访问请求：中文空格字符编码/解码)</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">stringByAddingPercentEscapesUsingEncoding(只对 `<span class="meta">#%^&#123;&#125;[]|\<span class="meta-string">"&lt;&gt; 加空格共14个字符编码，不包括”&amp;?”等符号), ios9将淘汰，建议用stringByAddingPercentEncodingWithAllowedCharacters方法</span></span></span><br><span class="line"><span class="meta"><span class="meta-string"></span></span></span><br><span class="line"><span class="meta"><span class="meta-string">- (nullable NSString *)stringByAddingPercentEscapesUsingEncoding:(NSStringEncoding)enc （已过期使用下面方法）</span></span></span><br><span class="line"><span class="meta"><span class="meta-string"></span></span></span><br><span class="line"><span class="meta"><span class="meta-string">- (nullable NSString *)stringByAddingPercentEncodingWithAllowedCharacters:(NSCharacterSet *)allowedCharacters;</span></span></span><br><span class="line"><span class="meta"><span class="meta-string"></span></span></span><br><span class="line"><span class="meta"><span class="meta-string">URLFragmentAllowedCharacterSet  "</span>#%<span class="meta-string">&lt;&gt;</span>[\]^`&#123;|&#125;</span></span><br><span class="line">      URLHostAllowedCharacterSet      <span class="string">"#%/&lt;&gt;?@\^`&#123;|&#125;</span></span><br><span class="line"><span class="string">      URLPasswordAllowedCharacterSet  "</span><span class="meta">#%/:<span class="meta-string">&lt;&gt;</span>?@[\]^`&#123;|&#125;</span></span><br><span class="line">      URLPathAllowedCharacterSet      <span class="string">"#%;&lt;&gt;?[\]^`&#123;|&#125;</span></span><br><span class="line"><span class="string">      URLQueryAllowedCharacterSet     "</span><span class="meta">#%<span class="meta-string">&lt;&gt;</span>[\]^`&#123;|&#125;</span></span><br><span class="line">      URLUserAllowedCharacterSet      <span class="string">"#%/:&lt;&gt;?@[\]^`</span></span><br><span class="line"><span class="string">[NSCharacterSet characterSetWithCharactersInString:@"</span>`<span class="meta">#%^&#123;&#125;\<span class="meta-string">"[]|\\&lt;&gt; "</span>].invertedSet];</span></span><br><span class="line">[<span class="built_in">NSCharacterSet</span> URLQueryAllowedCharacterSet]</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h1 id="二、NSMutableString"><a href="#二、NSMutableString" class="headerlink" title="二、NSMutableString"></a>二、NSMutableString</h1><h3 id="1、NSMutableString常用方法"><a href="#1、NSMutableString常用方法" class="headerlink" title="1、NSMutableString常用方法"></a>1、NSMutableString常用方法</h3><ul>
-<li><p>1、NSMutableString常用方法</p>
-</li>
-<li><p>拼接aString到最后面</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)appendString:(<span class="built_in">NSString</span> *)aString;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>拼接一段格式化字符串到最后面</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)appendFormat:(<span class="built_in">NSString</span> *)format, ...;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>删除range范围内的字符串</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)deleteCharactersInRange:(<span class="built_in">NSRange</span>)range;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在loc这个位置中插入aString</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">	- (<span class="keyword">void</span>)insertString:(<span class="built_in">NSString</span> *)aString atIndex:</span><br><span class="line">(<span class="built_in">NSUInteger</span>)loc;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用aString替换range范围内的字符串</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)replaceCharactersInRange:(<span class="built_in">NSRange</span>)range withString:(<span class="built_in">NSString</span> *)aString;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p><strong>注:</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">字符串中的可变和不可变</span><br><span class="line">* <span class="built_in">NSMutableString</span>和<span class="built_in">NSString</span>的区别</span><br><span class="line">* <span class="built_in">NSString</span>是不可变的,里面的文字内容是不能进行修改的。</span><br><span class="line">* <span class="built_in">NSMutableString</span>是可变的,里面的文字内容可以随时更改。</span><br><span class="line">* <span class="built_in">NSMutableString</span>能使用<span class="built_in">NSString</span>的所有方法</span><br><span class="line">* 注: <span class="built_in">NSMutableString</span>是可变字符串，是<span class="built_in">NSString</span>的子类。</span><br></pre></td></tr></table></figure></p>
-<h3 id="使用NSURL读写字符串"><a href="#使用NSURL读写字符串" class="headerlink" title="使用NSURL读写字符串"></a><a href="https://lonely9209.github.io/2016/07/02/使用NSURL读写字符串/">使用NSURL读写字符串</a></h3><h3 id="NSDate的介绍"><a href="#NSDate的介绍" class="headerlink" title="NSDate的介绍"></a><a href="https://lonely9209.github.io/2016/07/09/NSDate的介绍/">NSDate的介绍</a></h3>
+        
+          <a class="article-more-a" href="/2016/07/01/NSString:NSMutableString介绍及基本使用/#more">more >></a>
+        
       
 
       
@@ -318,18 +196,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/OC//" class="article-tag-list-link color3">OC</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
@@ -385,9 +267,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="服务器配置步骤"><a href="#服务器配置步骤" class="headerlink" title="服务器配置步骤:"></a>服务器配置步骤:</h2><h4 id="1、打开服务器配置目录"><a href="#1、打开服务器配置目录" class="headerlink" title="1、打开服务器配置目录"></a>1、打开服务器配置目录</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd /etc/apache2/</span><br></pre></td></tr></table></figure>
-<h4 id="2、查看当前目录下内容"><a href="#2、查看当前目录下内容" class="headerlink" title="2、查看当前目录下内容"></a>2、查看当前目录下内容</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
-<h4 id="3、修改服务器根路径"><a href="#3、修改服务器根路径" class="headerlink" title="3、修改服务器根路径"></a>3、修改服务器根路径</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    sudo vim httpd.conf  <span class="comment">//进入服务器配置文件</span></span><br><span class="line">    </span><br><span class="line">    /DocumentRoot 回车 <span class="comment">//查找服务器默认根路径</span></span><br><span class="line">    </span><br><span class="line">    将默认根路径 DocumentRoot <span class="string">"/Library/WebServer/Documents"</span> 注释掉;</span><br><span class="line">    </span><br><span class="line">    在注释掉的根路径下面一行增加新的根路径</span><br><span class="line">    DocumentRoot <span class="string">"/Users/likaining/Sites"</span></span><br><span class="line">    </span><br><span class="line">    将 &lt;Directory <span class="string">"/Library/WebServer/Documents"</span>&gt; 注释掉;</span><br><span class="line">    增加新的 &lt;Directory <span class="string">"/Users/likaining/Sites"</span>&gt;</span><br><span class="line">    </span><br><span class="line">    注意: Mac <span class="number">10.10</span> 的 Apache 增加如下操作！</span><br><span class="line">    </span><br><span class="line">    (看<span class="string">"服务器配置视频\02-Mac10.10 Apache配置.mp4"</span>)</span><br><span class="line">    </span><br><span class="line">    在 httpd.conf 中找到</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options FollowSymLinks Multiviews"</span></span><br><span class="line">    </span><br><span class="line">    加一个单词 Indexes，修改后的结果如下：</span><br><span class="line">    </span><br><span class="line">    <span class="string">"Options Indexes FollowSymLinks Multiviews"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="4、保存退出"><a href="#4、保存退出" class="headerlink" title="4、保存退出"></a>4、保存退出</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">:wq 回车</span><br><span class="line"></span><br><span class="line"><span class="string">"注意"</span>:如果感觉修改错误了,想重新进入修改,就做不保存退出的操作</span><br><span class="line">不保存退出</span><br><span class="line">:q! 回车</span><br><span class="line"></span><br><span class="line">启动服务器</span><br><span class="line">sudo apachectl -k start 或者 sudo apachectl start</span><br><span class="line"></span><br><span class="line">关闭服务器:</span><br><span class="line">sudo apachectl -k stop 或者 sudo apachectl stop</span><br><span class="line"></span><br><span class="line">重新启动服务器</span><br><span class="line">sudo apachectl -k restart 或者 $sudo apachectl restart</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2016/07/01/服务器配置笔记/#more">more >></a>
+        
       
 
       
@@ -395,22 +277,109 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">网络与多线程</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/01/服务器配置笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-UIApplication" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/01/UIApplication/">UIApplication</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/01/UIApplication/" class="archive-article-date">
+  	<time datetime="2016-07-01T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、UIApplication"><a href="#一、UIApplication" class="headerlink" title="一、UIApplication"></a>一、UIApplication</h2><ul>
+<li>一个UIApplication代表是一个应用程序，而且是<strong>单例</strong>的。<ul>
+<li>用来封装整个应用程序的一个对象,比如当应用程序执行到某个时期要做什么, 生命周期等。</li>
+<li>获取UIApplication对象： [UIApplication sharedApplication];（单例的）</li>
+</ul>
+</li>
+</ul>
+        
+          <a class="article-more-a" href="/2016/07/01/UIApplication/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">OC基础</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">UI</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/01/UIApplication/">展开全文 >></a>
         </p>
       
 
@@ -469,74 +438,11 @@
 </ul>
 </li>
 <li>info.plist文件，项目的配置信息文件</li>
-<li>pch文件，项目中所有公用的类或者宏的头文件<h2 id="2、info-plist文件"><a href="#2、info-plist文件" class="headerlink" title="2、info.plist文件"></a>2、info.plist文件</h2></li>
-<li>在Xcode6以前创建项目的时候为有一个“项目名称-info.plist”名称的文件，在Xcode6之后就直接就是info.plist文件了。</li>
-<li>这个文件主要用来保存当前项目的基本配置信息<ul>
-<li>info.plist文件内容实际上是xml格式的，通过 <strong>右键</strong> –&gt; <strong>open as sourceCode</strong> 可以看到。</li>
-<li>保存的信息如应用版本号，应用要求的可运行的最低系统版本号。</li>
-<li>应用程序启动要加载storyboard文件名称</li>
+<li>pch文件，项目中所有公用的类或者宏的头文件</li>
 </ul>
-</li>
-<li>常用的key：<ul>
-<li>bundle display name 应用名称的key，名称如果太长就不能完全显示了。</li>
-<li>bundle identifier 应用的唯一标示，如果相同就会被覆盖。</li>
-<li>bundle versions String short 最终应用发布时的版本号</li>
-<li>bundle version 针对内部的一个版本号。</li>
-<li>Supported interface ortations 标识设备所支持的方向，对应的选中”项目”-&gt;”General”-&gt;”Deployment Info”-&gt;”Device Orientation”。iPhone只支持3种方向，不支持上下颠倒的旋转，Portrait（竖屏），Landscape Left（横屏向左），Landscape Right（横屏向右）</li>
-</ul>
-</li>
-</ul>
-<h6 id="注意：自己创建的plist文件中不要包含Info关键字。"><a href="#注意：自己创建的plist文件中不要包含Info关键字。" class="headerlink" title="注意：自己创建的plist文件中不要包含Info关键字。"></a>注意：自己创建的plist文件中不要包含Info关键字。</h6><h2 id="3、pch文件"><a href="#3、pch文件" class="headerlink" title="3、pch文件"></a>3、pch文件</h2><ul>
-<li>全称“Prefix Header File（前缀头文件）”，预编译头文件。</li>
-<li><p>在Xcode 6以后苹果就不推荐使用了。</p>
-<ul>
-<li>遇到的问题：<ul>
-<li>整个项目中很多地方都在使用某个类的头文件</li>
-<li>整个项目中很多地方都在使用同一个”宏”</li>
-<li>在项目中很多地方都用到了NSLog（）方法，想一下子全部清除掉</li>
-</ul>
-</li>
-<li><p>解决以上问题，可以通过使用PCH文件，它也是个头文件类似于*.h文件</p>
-<p><strong> 注意：PCH文件的特点，项目中所有其他代码文件无序显示导入该PCH文件，默认就可以访问（其他文件无序手动#import该PCH文件就能使用）</strong></p>
-</li>
-</ul>
-</li>
-<li><p>主要作用：</p>
-<ul>
-<li>可以做一些公用的宏定义</li>
-<li>把公共的Model类的#import导入写到pch文件.</li>
-<li>自定义NSLog()。例如:#define CZLog(…) NSLog(<strong>VA_ARGS</strong>)</li>
-<li>创建pch文件<ul>
-<li>“newFile”-&gt;””-&gt;””</li>
-<li>将通用的头文件和相应的宏放进去。</li>
-</ul>
-</li>
-<li><p>配置头文件，以使用头文件</p>
-<ul>
-<li>选择”项目”-&gt;”Build Setting” -&gt;”All”-&gt;搜索 “Prefix Header”,配置相应的pch文件。</li>
-<li>“$(SRCROOT)/$(PRODUCT_NAME)/PrefixHeader.pch”（如果有问题，更换为下面的方式，可能会与中文有关）</li>
-<li>“$(SRCROOT)/对应的文件夹名/PrefixHeader.pch”</li>
-</ul>
-</li>
-<li><p>在应用程序测试的时候，需要log很多信息，但是如果我们发布程序的时候就要禁止打印信息。</p>
-<ul>
-<li>自定义自己的log方式。</li>
-<li>自定义log的完整形式</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#ifdef DEBUG</span><br><span class="line"></span><br><span class="line">#define CZLog(...) NSLog(__VA_ARGS__)</span><br><span class="line"></span><br><span class="line">#else</span><br><span class="line"></span><br><span class="line">#define CZLog(...)</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>在使用pch文件时的注意点：</p>
-<ul>
-<li>创建c语言文件进去，直接编译就报错，因为默认情况下所有文件都会包含pch文件中的OC内容，C语言文件内不能识别OC代码，所以就会报错。</li>
-<li><p>解决：在pch文件中判断一下，如果是OC文件菜引入响应的宏，如果是普通C语言文件则不引入，否则项目中添加C语言文件时会报错。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#ifdef __OBJC__</span><br><span class="line"></span><br><span class="line">// OC相关的内容</span><br><span class="line"></span><br><span class="line">#endif</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-
+        
+          <a class="article-more-a" href="/2016/07/01/项目文件介绍/#more">more >></a>
+        
       
 
       
@@ -544,255 +450,26 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2016/07/01/项目文件介绍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-UIApplication" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/01/UIApplication/">UIApplication</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/01/UIApplication/" class="archive-article-date">
-  	<time datetime="2016-07-01T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-01</time>
-</a>
-        
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、UIApplication"><a href="#一、UIApplication" class="headerlink" title="一、UIApplication"></a>一、UIApplication</h2><ul>
-<li>一个UIApplication代表是一个应用程序，而且是<strong>单例</strong>的。<ul>
-<li>用来封装整个应用程序的一个对象,比如当应用程序执行到某个时期要做什么, 生命周期等。</li>
-<li>获取UIApplication对象： [UIApplication sharedApplication];（单例的）</li>
-</ul>
-</li>
-<li>设置消息数量及联网状态指示器</li>
-<li>通过应用程序打开一些资源<ul>
-<li>如打电话、发短信、发邮件、打开别的应用等</li>
-</ul>
-</li>
-<li>状态栏的管理<ul>
-<li>默认情况下，状态栏的管理都是交给控制器的</li>
-<li>可以修改配置文件将状态栏的管理权限交给应用程序统一来管理</li>
-<li>在info.plist文件中增加一个key(View controller-based status bar appearance)，设置为NO。（最后一个）</li>
-</ul>
-</li>
-</ul>
-<h4 id="获取当前系统版本号"><a href="#获取当前系统版本号" class="headerlink" title="获取当前系统版本号"></a>获取当前系统版本号</h4><pre><code>NSString *currentVersion = [NSBundle mainBundle].infoDictionary[@&quot;CFBundleShortVersionString&quot;] 
-</code></pre><h2 id="二、应用程序代理对象"><a href="#二、应用程序代理对象" class="headerlink" title="二、应用程序代理对象"></a>二、应用程序代理对象</h2><ul>
-<li><p>应用序代理对象，用来监听应用程序的执行过程</p>
-</li>
-<li><p>常用监听方法</p>
-<ul>
-<li>应用程序加载完毕<ul>
-<li>可执行自定义操作</li>
-</ul>
-</li>
-<li>应用程序失去焦点<ul>
-<li>不接受用户交互</li>
-</ul>
-</li>
-<li>应用程序进入后台<ul>
-<li>双击home键课查看</li>
-</ul>
-</li>
-<li>应用程序进入前台<ul>
-<li>双击home键，选中程序的时候进入前台</li>
-</ul>
-</li>
-<li>应用程序获取焦点<ul>
-<li>接受用户交互</li>
-</ul>
-</li>
-<li>应用程序销毁<ul>
-<li>只有在直接双击home，销毁程序时在会调用</li>
-</ul>
-</li>
-<li>应用程序接收到内存警告<ul>
-<li>当内存不足时，会收到系统的内存警告</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h4 id="常用代理方法解释"><a href="#常用代理方法解释" class="headerlink" title="常用代理方法解释"></a>常用代理方法解释</h4><ul>
-<li><p>应用程序已经加载完成时调用</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions &#123;</span><br><span class="line">重写这个方法可以在程序加载完成后进行自定义操作</span><br><span class="line"><span class="keyword">return</span> <span class="literal">YES</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用即将辞去激活状态，失去焦点</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationWillResignActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">当应用从激活状态变为非激活状态的时会执行这个方法</span><br><span class="line">在某些情况下会暂时中断（如收到电话或短信）或者当用户退出应用程序并且应用程序进入后台的时候</span><br><span class="line"></span><br><span class="line">使用这个方法去暂停正在执行的任务，停止定时器操作，并且节流OpenGL ES的帧率。游戏应用应该在这个方法中暂停游戏</span><br><span class="line">OpenGL（全写Open Graphics Library）是个定义了一个跨编程语言、跨平台的编程接口规格的专业的图形程序接口。它用于三维图像（二维的亦可），是一个功能强大，调用方便的底层图形库。</span><br><span class="line">OpenGL ES (OpenGL <span class="keyword">for</span> Embedded Systems) 是 OpenGL 三维图形 API 的子集，针对手机、PDA和游戏主机等嵌入式设备而设计。该API由Khronos集团定义推广，Khronos是一个图形软硬件行业协会，该协会主要关注图形和多媒体方面的开放标准</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用程序已经进入后台</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationDidEnterBackground:(<span class="built_in">UIApplication</span> *)application &#123;	</span><br><span class="line">使用这个方法去释放共享的资源，保存用户数据，销毁定时器，并且保存足够的应用程序状态信息，防止用户稍后将程序销毁而无法恢复到应用当前的状态。</span><br><span class="line">如果你的应用支持后台执行，当用户退出销毁应用程序的时候，会调用这个方法，而不是applicationWillTerminate:方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用程序即将进入前台</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationWillEnterForeground:(<span class="built_in">UIApplication</span> *)application &#123;	</span><br><span class="line"></span><br><span class="line">作为应用程序从后台到非活跃状态的一个过渡，在这里可以撤销许多在程序进入后台时做出的改变。</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>应用程序已经变为活跃状态</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationDidBecomeActive:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">重新启动任何在应用程序为非活跃状态时暂停的任务，如果应用程序在后太执行，那么界面是否刷新都是可以的</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>程序即将被销毁</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)applicationWillTerminate:(<span class="built_in">UIApplication</span> *)application &#123;</span><br><span class="line">	在应用程序即将被销毁时调用，如果合适，保存数据</span><br><span class="line">   	另请参阅“应用程序进入后台”的方法</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="三、应用启动方法执行过程"><a href="#三、应用启动方法执行过程" class="headerlink" title="三、应用启动方法执行过程"></a>三、应用启动方法执行过程</h2><ul>
-<li>当应用程序启动后：<ul>
-<li>didFinishLaunchingWithOptions</li>
-<li>applicationDidBecomeActive</li>
-</ul>
-</li>
-<li>当应用程序进入后台：<ul>
-<li>applicationWillResignActive</li>
-<li>applicationDidEnterBackground</li>
-</ul>
-</li>
-<li>当应用程序从后台进入前台：<ul>
-<li>applicationWillEnterForeground</li>
-<li>applicationDidBecomeActive</li>
-</ul>
-</li>
-<li>当应用被销毁时：<ul>
-<li>[在应用程序打开时，直接通过双击”home”键，模拟器command+shift+双击”h”]</li>
-<li>applicationWillResignActive</li>
-<li>applicationDidEnterBackground</li>
-<li>applicationWillTerminate</li>
-<li>[先按一下”home”键，模拟器command+shift+”h”键，先让程序进入后台]</li>
-<li>applicationWillResignActive</li>
-<li>applicationDidEnterBackground</li>
-<li>之后再销毁程序的时候不会执行任何方法，程序崩溃</li>
-</ul>
-</li>
-</ul>
-<h2 id="四、设置消息数量及联网状态指示器"><a href="#四、设置消息数量及联网状态指示器" class="headerlink" title="四、设置消息数量及联网状态指示器"></a>四、设置消息数量及联网状态指示器</h2><ul>
-<li>当一个iOS程序启动后，首先创建的第一个对象就是UIApplication对象。</li>
-<li><p>利用UIApplication可以做一些应用级别的操作。</p>
-<ul>
-<li><p>应用级别操作：</p>
-<ul>
-<li><p>QQ有消息的时候右上角的消息条数。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 获取UIApplication对象。</span></span><br><span class="line"><span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 设置右上角, 有10条消息</span></span><br><span class="line">app.applicationIconBadgeNumber = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 取消显示消息</span></span><br><span class="line">app.applicationIconBadgeNumber = <span class="number">0</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 当点击按钮时, 设置右上角消息</span></span><br><span class="line">- (<span class="keyword">IBAction</span>)click:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 获取UIApplication对象</span></span><br><span class="line"><span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</span><br><span class="line"></span><br><span class="line"><span class="comment">// iOS 8 系统要求设置通知的时候必须经过用户许可。</span></span><br><span class="line"><span class="built_in">UIUserNotificationSettings</span> *settings = [<span class="built_in">UIUserNotificationSettings</span> settingsForTypes:<span class="built_in">UIUserNotificationTypeBadge</span> categories:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">[app registerUserNotificationSettings:settings];</span><br><span class="line"></span><br><span class="line">app.applicationIconBadgeNumber = <span class="number">10</span>; <span class="comment">// 有10条消息</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//  app.applicationIconBadgeNumber = app.applicationIconBadgeNumber &gt; 0 ? 0 : 10; // 有10条消息</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>联网操作时，状态栏上的等待图标指示器。waiting图标。</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication]; app.networkActivityIndicatorVisible = <span class="literal">YES</span>;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="五、打开一些资源"><a href="#五、打开一些资源" class="headerlink" title="五、打开一些资源"></a>五、打开一些资源</h2><ul>
-<li><p>利用UIApplication打开某个资源：</p>
-  <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 系统会自动根据协议识别使用某个app打开。</span></span><br><span class="line"><span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</span><br><span class="line"><span class="comment">// 打开一个网页:</span></span><br><span class="line">[app openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"http://ios.icast.cn"</span>]];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 打电话</span></span><br><span class="line">[app openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"tel://10086"</span>]];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发短信</span></span><br><span class="line">[app openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"sms://10086"</span>]];</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发邮件</span></span><br><span class="line">[app openURL:[<span class="built_in">NSURL</span> URLWithString:<span class="string">@"mailto://12345@qq.com"</span>]];</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>使用openURL方法也可以打开其他应用，在不同应用之间互相调用对方。</p>
-<ul>
-<li>美图秀秀, 点击分享到”新浪微博”, 打开”新浪微博”选择账号, 跳转回”美图秀秀”, 开始分享</li>
-<li>喜马拉雅, 使用微博、QQ 账号 登录。都需要应用程序间跳转。</li>
-</ul>
-</li>
-</ul>
-<h2 id="六、状态栏的管理"><a href="#六、状态栏的管理" class="headerlink" title="六、状态栏的管理"></a>六、状态栏的管理</h2><ul>
-<li><p>理状态栏的管理：</p>
-<ul>
-<li><p>自从iOS7开始可以通过两种方式来控制状态栏</p>
-<ul>
-<li>控制器</li>
-<li>通过UIViewController管理（每一个UIViewController都可以拥有自己不同的状态栏）</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark - 通过控制器来管理状态栏是否显示及显示类型</span></span><br><span class="line"><span class="comment">// 是否隐藏"状态栏"</span></span><br><span class="line">- (<span class="built_in">BOOL</span>)prefersStatusBarHidden &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">NO</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 状态栏的样式</span></span><br><span class="line">- (<span class="built_in">UIStatusBarStyle</span>)preferredStatusBarStyle</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 白色</span></span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">UIStatusBarStyleLightContent</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-<li><p>UIApplication</p>
-<ul>
-<li><p>通过UIApplication管理（一个应用程序的状态栏都由它统一管理）</p>
-</li>
-<li><p>iOS7开始状态栏默认交给了控制器来管理，如果希望通过UIApplication来管理，步骤如下:</p>
-</li>
-<li><p>在Info.plist文件中增加一个配置项</p>
-<ul>
-<li>View controller-based status bar appearance = NO</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#pragma mark - 通过应用程序来管理状态栏</span></span><br><span class="line">-  (<span class="keyword">IBAction</span>)click:(<span class="keyword">id</span>)sender &#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIApplication</span> *app = [<span class="built_in">UIApplication</span> sharedApplication];</span><br><span class="line">    <span class="comment">// 设置状态栏是否隐藏                                    //app.statusBarHidden = YES;</span></span><br><span class="line">    <span class="comment">// 动画的方式</span></span><br><span class="line">    [app setStatusBarHidden:<span class="literal">YES</span> withAnimation:<span class="built_in">UIStatusBarAnimationSlide</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 设置状态栏显示为白色</span></span><br><span class="line">    <span class="comment">// app.statusBarStyle = UIStatusBarStyleLightContent;</span></span><br><span class="line">    <span class="comment">// 动画的方式</span></span><br><span class="line">    [app setStatusBarStyle:<span class="built_in">UIStatusBarStyleLightContent</span> animated:<span class="literal">YES</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/UI//" class="article-tag-list-link color3">UI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/01/UIApplication/">展开全文 >></a>
         </p>
       
 
@@ -920,6 +597,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>

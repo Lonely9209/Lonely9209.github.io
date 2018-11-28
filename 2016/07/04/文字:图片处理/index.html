@@ -8,17 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>文字/图片处理 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、文字处理1、计算文本size的方法1、普通文本返回text指定font时的size（默认内容只有一行）1- (CGSize)sizeWithAttributes:(nullable NSDictionary&amp;lt;NSString *, id&amp;gt; *)attrs NS_AVAILABLE(10_0, 7_0); 返回text在指定size内的rect123456- (CGRect)boun">
+  <meta name="description" content="一、文字处理1、计算文本size的方法1、普通文本返回text指定font时的size（默认内容只有一行）">
+<meta name="keywords" content="OC,提高篇">
 <meta property="og:type" content="article">
 <meta property="og:title" content="文字&#x2F;图片处理">
 <meta property="og:url" content="lonely9209.github.io/2016/07/04/文字:图片处理/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、文字处理1、计算文本size的方法1、普通文本返回text指定font时的size（默认内容只有一行）1- (CGSize)sizeWithAttributes:(nullable NSDictionary&amp;lt;NSString *, id&amp;gt; *)attrs NS_AVAILABLE(10_0, 7_0); 返回text在指定size内的rect123456- (CGRect)boun">
+<meta property="og:description" content="一、文字处理1、计算文本size的方法1、普通文本返回text指定font时的size（默认内容只有一行）">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-26T12:58:14.839Z">
+<meta property="og:updated_time" content="2018-11-28T13:15:41.289Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="文字&#x2F;图片处理">
-<meta name="twitter:description" content="一、文字处理1、计算文本size的方法1、普通文本返回text指定font时的size（默认内容只有一行）1- (CGSize)sizeWithAttributes:(nullable NSDictionary&amp;lt;NSString *, id&amp;gt; *)attrs NS_AVAILABLE(10_0, 7_0); 返回text在指定size内的rect123456- (CGRect)boun">
+<meta name="twitter:description" content="一、文字处理1、计算文本size的方法1、普通文本返回text指定font时的size（默认内容只有一行）">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -59,9 +60,11 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/categories/">分类</a></li>
-	        
 				<li><a href="/tags/随笔/">随笔</a></li>
+	        
+				<li><a href="/tags/OC/">OC</a></li>
+	        
+				<li><a href="/tags/Swift/">Swift</a></li>
 	        
 			</ul>
 		</nav>
@@ -121,6 +124,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +146,13 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 25%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
+					<li style="width: 25%"><a href="/tags/随笔/">随笔</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 25%"><a href="/tags/OC/">OC</a></li>
+		        
+					<li style="width: 25%"><a href="/tags/Swift/">Swift</a></li>
 		        
 				</ul>
 			</nav>
@@ -178,10 +185,36 @@
         
       </header>
       
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、文字处理"><span class="toc-number">1.</span> <span class="toc-text">一、文字处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、计算文本size的方法"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、计算文本size的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、普通文本"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">1、普通文本</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、富文本"><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">2、富文本</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、图片处理"><span class="toc-number">2.</span> <span class="toc-text">二、图片处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、拉伸图片："><span class="toc-number">2.0.1.</span> <span class="toc-text">1、拉伸图片：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、图片圆角"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、图片圆角</span></a></li></ol></li>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、文字处理"><a href="#一、文字处理" class="headerlink" title="一、文字处理"></a>一、文字处理</h2><h4 id="1、计算文本size的方法"><a href="#1、计算文本size的方法" class="headerlink" title="1、计算文本size的方法"></a>1、计算文本size的方法</h4><h6 id="1、普通文本"><a href="#1、普通文本" class="headerlink" title="1、普通文本"></a>1、普通文本</h6><p>返回text指定font时的size（默认内容只有一行）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)sizeWithAttributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attrs <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">7</span>_0);</span><br></pre></td></tr></table></figure></p>
+        <h2 id="一、文字处理"><a href="#一、文字处理" class="headerlink" title="一、文字处理"></a>一、文字处理</h2><h4 id="1、计算文本size的方法"><a href="#1、计算文本size的方法" class="headerlink" title="1、计算文本size的方法"></a>1、计算文本size的方法</h4><h6 id="1、普通文本"><a href="#1、普通文本" class="headerlink" title="1、普通文本"></a>1、普通文本</h6><p>返回text指定font时的size（默认内容只有一行）</p>
+<a id="more"></a>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)sizeWithAttributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attrs <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">7</span>_0);</span><br></pre></td></tr></table></figure>
 <p>返回text在指定size内的rect<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGRect</span>)boundingRectWithSize:(<span class="built_in">CGSize</span>)size options:(<span class="built_in">NSStringDrawingOptions</span>)options attributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attributes context:(<span class="keyword">nullable</span> <span class="built_in">NSStringDrawingContext</span> *)context <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_11, <span class="number">7</span>_0);</span><br><span class="line"></span><br><span class="line">实例：</span><br><span class="line">   <span class="comment">//内容宽度</span></span><br><span class="line"><span class="built_in">CGFloat</span> wordW = ZC_SCREEN_WIDTH - <span class="number">40</span>;</span><br><span class="line">_wordHeight = [_course_subject boundingRectWithSize:<span class="built_in">CGSizeMake</span>(wordW, MAXFLOAT) options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> attributes:@&#123;<span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">13</span>]&#125; context:<span class="literal">nil</span>].size.height + <span class="number">5</span>;</span><br></pre></td></tr></table></figure></p>
 <h6 id="2、富文本"><a href="#2、富文本" class="headerlink" title="2、富文本"></a>2、富文本</h6><p>返回text的size（默认内容只有一行）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)size <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">6</span>_0);</span><br></pre></td></tr></table></figure></p>
 <p>返回text在指定size内的rect<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGRect</span>)boundingRectWithSize:(<span class="built_in">CGSize</span>)size options:(<span class="built_in">NSStringDrawingOptions</span>)options context:(<span class="keyword">nullable</span> <span class="built_in">NSStringDrawingContext</span> *)context <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_11, <span class="number">6</span>_0);</span><br></pre></td></tr></table></figure></p>
@@ -216,18 +249,22 @@
     <div class="article-info article-info-index">
       
       
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">OC</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">提高篇</a>
         		</li>
       		
 		</ul>
 	</div>
 
+      
 
       
 
@@ -291,18 +328,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2016/07/04/UITabBarController/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/07/04/多线程概念和NSThread/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          UITabBarController
+          多线程概念和NSThread
         
       </div>
     </a>
   
   
-    <a href="/2016/07/03/NSArray:NSMutableArray的介绍/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">NSArray/NSMutableArray的介绍和基本使用</div>
+    <a href="/2016/07/04/UITabBarController/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">UITabBarController</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -321,6 +358,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、文字处理"><span class="toc-number">1.</span> <span class="toc-text">一、文字处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、计算文本size的方法"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、计算文本size的方法</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#1、普通文本"><span class="toc-number">1.0.1.0.1.</span> <span class="toc-text">1、普通文本</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#2、富文本"><span class="toc-number">1.0.1.0.2.</span> <span class="toc-text">2、富文本</span></a></li></ol></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、图片处理"><span class="toc-number">2.</span> <span class="toc-text">二、图片处理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、拉伸图片："><span class="toc-number">2.0.1.</span> <span class="toc-text">1、拉伸图片：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、图片圆角"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、图片圆角</span></a></li></ol></li>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -429,6 +479,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">OC基础</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">UI</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">OC</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">网络与多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">提高篇</a>
               </li>
             
             <div class="clearfix"></div>
