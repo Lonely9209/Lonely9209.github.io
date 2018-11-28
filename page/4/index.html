@@ -57,7 +57,7 @@
 	        
 				<li><a href="/categories/">分类</a></li>
 	        
-				<li><a href="/tags/">随笔</a></li>
+				<li><a href="/tags/随笔/">随笔</a></li>
 	        
 			</ul>
 		</nav>
@@ -141,7 +141,7 @@
 		        
 					<li style="width: 33.333333333333336%"><a href="/categories/">分类</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/">随笔</a></li>
+					<li style="width: 33.333333333333336%"><a href="/tags/随笔/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -157,6 +157,86 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-文字:图片处理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/04/文字:图片处理/">文字/图片处理</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/04/文字:图片处理/" class="archive-article-date">
+  	<time datetime="2016-07-04T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-04</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、文字处理"><a href="#一、文字处理" class="headerlink" title="一、文字处理"></a>一、文字处理</h2><h4 id="1、计算文本size的方法"><a href="#1、计算文本size的方法" class="headerlink" title="1、计算文本size的方法"></a>1、计算文本size的方法</h4><h6 id="1、普通文本"><a href="#1、普通文本" class="headerlink" title="1、普通文本"></a>1、普通文本</h6><p>返回text指定font时的size（默认内容只有一行）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)sizeWithAttributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attrs <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">7</span>_0);</span><br></pre></td></tr></table></figure></p>
+<p>返回text在指定size内的rect<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGRect</span>)boundingRectWithSize:(<span class="built_in">CGSize</span>)size options:(<span class="built_in">NSStringDrawingOptions</span>)options attributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attributes context:(<span class="keyword">nullable</span> <span class="built_in">NSStringDrawingContext</span> *)context <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_11, <span class="number">7</span>_0);</span><br><span class="line"></span><br><span class="line">实例：</span><br><span class="line">   <span class="comment">//内容宽度</span></span><br><span class="line"><span class="built_in">CGFloat</span> wordW = ZC_SCREEN_WIDTH - <span class="number">40</span>;</span><br><span class="line">_wordHeight = [_course_subject boundingRectWithSize:<span class="built_in">CGSizeMake</span>(wordW, MAXFLOAT) options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> attributes:@&#123;<span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">13</span>]&#125; context:<span class="literal">nil</span>].size.height + <span class="number">5</span>;</span><br></pre></td></tr></table></figure></p>
+<h6 id="2、富文本"><a href="#2、富文本" class="headerlink" title="2、富文本"></a>2、富文本</h6><p>返回text的size（默认内容只有一行）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)size <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">6</span>_0);</span><br></pre></td></tr></table></figure></p>
+<p>返回text在指定size内的rect<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGRect</span>)boundingRectWithSize:(<span class="built_in">CGSize</span>)size options:(<span class="built_in">NSStringDrawingOptions</span>)options context:(<span class="keyword">nullable</span> <span class="built_in">NSStringDrawingContext</span> *)context <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_11, <span class="number">6</span>_0);</span><br></pre></td></tr></table></figure></p>
+<h2 id="二、图片处理"><a href="#二、图片处理" class="headerlink" title="二、图片处理"></a>二、图片处理</h2><h4 id="1、拉伸图片："><a href="#1、拉伸图片：" class="headerlink" title="1、拉伸图片："></a>1、拉伸图片：</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *resizeImage = [image resizableImageWithCapInsets:<span class="built_in">UIEdgeInsetsMake</span>(halfHeight, halfWidth, halfHeight, halfWidth) resizingMode:<span class="built_in">UIImageResizingModeStretch</span>];</span><br><span class="line"></span><br><span class="line">Assets： slicing</span><br></pre></td></tr></table></figure>
+<h4 id="2、图片圆角"><a href="#2、图片圆角" class="headerlink" title="2、图片圆角"></a>2、图片圆角</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIImage</span> *)zc_circleImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//NO -&gt; 透明</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> contex = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//添加圆</span></span><br><span class="line">    <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.size.width, <span class="keyword">self</span>.size.height);</span><br><span class="line">    <span class="built_in">CGContextAddEllipseInRect</span>(contex, rect);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//裁剪</span></span><br><span class="line">    <span class="built_in">CGContextClip</span>(contex);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将图片画上去</span></span><br><span class="line">    [<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//关闭</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/04/文字:图片处理/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-UITabBarController" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
@@ -175,6 +255,7 @@
 </a>
         
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -258,85 +339,6 @@
 
 
   
-    <article id="post-文字:图片处理" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/04/文字:图片处理/">文字/图片处理</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/04/文字:图片处理/" class="archive-article-date">
-  	<time datetime="2016-07-04T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-04</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、文字处理"><a href="#一、文字处理" class="headerlink" title="一、文字处理"></a>一、文字处理</h2><h4 id="1、计算文本size的方法"><a href="#1、计算文本size的方法" class="headerlink" title="1、计算文本size的方法"></a>1、计算文本size的方法</h4><h6 id="1、普通文本"><a href="#1、普通文本" class="headerlink" title="1、普通文本"></a>1、普通文本</h6><p>返回text指定font时的size（默认内容只有一行）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)sizeWithAttributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attrs <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">7</span>_0);</span><br></pre></td></tr></table></figure></p>
-<p>返回text在指定size内的rect<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGRect</span>)boundingRectWithSize:(<span class="built_in">CGSize</span>)size options:(<span class="built_in">NSStringDrawingOptions</span>)options attributes:(<span class="keyword">nullable</span> <span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *, <span class="keyword">id</span>&gt; *)attributes context:(<span class="keyword">nullable</span> <span class="built_in">NSStringDrawingContext</span> *)context <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_11, <span class="number">7</span>_0);</span><br><span class="line"></span><br><span class="line">实例：</span><br><span class="line">   <span class="comment">//内容宽度</span></span><br><span class="line"><span class="built_in">CGFloat</span> wordW = ZC_SCREEN_WIDTH - <span class="number">40</span>;</span><br><span class="line">_wordHeight = [_course_subject boundingRectWithSize:<span class="built_in">CGSizeMake</span>(wordW, MAXFLOAT) options:<span class="built_in">NSStringDrawingUsesLineFragmentOrigin</span> attributes:@&#123;<span class="built_in">NSFontAttributeName</span> : [<span class="built_in">UIFont</span> systemFontOfSize:<span class="number">13</span>]&#125; context:<span class="literal">nil</span>].size.height + <span class="number">5</span>;</span><br></pre></td></tr></table></figure></p>
-<h6 id="2、富文本"><a href="#2、富文本" class="headerlink" title="2、富文本"></a>2、富文本</h6><p>返回text的size（默认内容只有一行）<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGSize</span>)size <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_0, <span class="number">6</span>_0);</span><br></pre></td></tr></table></figure></p>
-<p>返回text在指定size内的rect<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">CGRect</span>)boundingRectWithSize:(<span class="built_in">CGSize</span>)size options:(<span class="built_in">NSStringDrawingOptions</span>)options context:(<span class="keyword">nullable</span> <span class="built_in">NSStringDrawingContext</span> *)context <span class="built_in">NS_AVAILABLE</span>(<span class="number">10</span>_11, <span class="number">6</span>_0);</span><br></pre></td></tr></table></figure></p>
-<h2 id="二、图片处理"><a href="#二、图片处理" class="headerlink" title="二、图片处理"></a>二、图片处理</h2><h4 id="1、拉伸图片："><a href="#1、拉伸图片：" class="headerlink" title="1、拉伸图片："></a>1、拉伸图片：</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *resizeImage = [image resizableImageWithCapInsets:<span class="built_in">UIEdgeInsetsMake</span>(halfHeight, halfWidth, halfHeight, halfWidth) resizingMode:<span class="built_in">UIImageResizingModeStretch</span>];</span><br><span class="line"></span><br><span class="line">Assets： slicing</span><br></pre></td></tr></table></figure>
-<h4 id="2、图片圆角"><a href="#2、图片圆角" class="headerlink" title="2、图片圆角"></a>2、图片圆角</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="built_in">UIImage</span> *)zc_circleImage</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//NO -&gt; 透明</span></span><br><span class="line">    <span class="built_in">UIGraphicsBeginImageContextWithOptions</span>(<span class="keyword">self</span>.size, <span class="literal">NO</span>, <span class="number">0.0</span>);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取上下文</span></span><br><span class="line">    <span class="built_in">CGContextRef</span> contex = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//添加圆</span></span><br><span class="line">    <span class="built_in">CGRect</span> rect = <span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="keyword">self</span>.size.width, <span class="keyword">self</span>.size.height);</span><br><span class="line">    <span class="built_in">CGContextAddEllipseInRect</span>(contex, rect);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//裁剪</span></span><br><span class="line">    <span class="built_in">CGContextClip</span>(contex);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//将图片画上去</span></span><br><span class="line">    [<span class="keyword">self</span> drawInRect:rect];</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//获取图片</span></span><br><span class="line">    <span class="built_in">UIImage</span> *image = <span class="built_in">UIGraphicsGetImageFromCurrentImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="comment">//关闭</span></span><br><span class="line">    <span class="built_in">UIGraphicsEndImageContext</span>();</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">return</span> image;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/提高篇//" class="article-tag-list-link color4">提高篇</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/04/文字:图片处理/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-NSArray:NSMutableArray的介绍" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -354,6 +356,7 @@
 </a>
         
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -534,188 +537,6 @@
 
 
   
-    <article id="post-HTTP请求和数据安全" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/03/HTTP请求和数据安全/">HTTP请求和数据安全</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/03/HTTP请求和数据安全/" class="archive-article-date">
-  	<time datetime="2016-07-03T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="一、HTTP请求"><a href="#一、HTTP请求" class="headerlink" title="一、HTTP请求"></a>一、HTTP请求</h2><h4 id="1、http协议-超文本传输协议-Hypertext-Transfer-Protocol"><a href="#1、http协议-超文本传输协议-Hypertext-Transfer-Protocol" class="headerlink" title="1、http协议: 超文本传输协议(Hypertext Transfer Protocol)"></a>1、http协议: 超文本传输协议(Hypertext Transfer Protocol)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http协议规定了客户端和服务器之间的数据传输格式.</span><br><span class="line">http协议是在网络开发中最常用的协议.不管是移动客户端还是PC端,访问网络资源经常使用http协议.</span><br><span class="line">http优点:</span><br><span class="line">&lt;<span class="number">1</span>&gt; 简单快速:</span><br><span class="line">http协议简单,通信速度很快.</span><br><span class="line">&lt;<span class="number">2</span>&gt; 灵活:</span><br><span class="line">http协议允许传输任意类型的数据.</span><br><span class="line">&lt;<span class="number">3</span>&gt; http协议是短连接(非持续性连接)</span><br><span class="line">http协议限制每次连接只处理一个请求,服务器对客户端的请求作出响应后,马上断开连接.这种方式可以节省传输时间.</span><br></pre></td></tr></table></figure>
-<h4 id="2、http协议的使用"><a href="#2、http协议的使用" class="headerlink" title="2、http协议的使用"></a>2、http协议的使用</h4><p><strong>完整的http通信分为两步:</strong></p>
-<h6 id="1、请求-客户端向服务器索要数据"><a href="#1、请求-客户端向服务器索要数据" class="headerlink" title="1、请求:客户端向服务器索要数据."></a>1、请求:客户端向服务器索要数据.</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http协议规定:一个完整的http请求包含'请求行','请求头','请求体'三个部分;</span><br><span class="line"></span><br><span class="line">'请求行':包含了请求方法,请求资源路径,http协议版本.</span><br><span class="line"></span><br><span class="line"><span class="string">"GET /resources/images/ HTTP/1.1"</span></span><br><span class="line"></span><br><span class="line">'请求头':包含了对客户端的环境描述,客户端请求的主机地址等信息.</span><br><span class="line"></span><br><span class="line">Accept: text/html <span class="comment">// 客户端所能接收的数据类型</span></span><br><span class="line">Accept-Language: zh-cn <span class="comment">// 客户端的语言环境</span></span><br><span class="line">Accept-Encoding: gzip <span class="comment">// 客户端支持的数据压缩格式</span></span><br><span class="line">Host: m.baidu.com <span class="comment">// 客户端想访问的服务器主机地址</span></span><br><span class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; Intel Mac OS X <span class="number">10.10</span>; rv:<span class="number">37.0</span>) Gecko/<span class="number">20100101</span> Firefox/<span class="number">37.0</span> <span class="comment">// 客户端的类型,客户端的软件环境</span></span><br><span class="line"></span><br><span class="line">'请求体':客户端发给服务器的具体数据,比如文件/图片等.</span><br></pre></td></tr></table></figure>
-<h6 id="2、响应-服务器返回客户端想要的数据"><a href="#2、响应-服务器返回客户端想要的数据" class="headerlink" title="2、响应:服务器返回客户端想要的数据"></a>2、响应:服务器返回客户端想要的数据</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http协议规定:一个完整的http响应包含'状态行','响应头','实体内容'三个部分;</span><br><span class="line"></span><br><span class="line">'状态行':包含了http协议版本,状态吗,状态英文名称.</span><br><span class="line"></span><br><span class="line"><span class="string">"HTTP/1.1 200 OK"</span></span><br><span class="line"></span><br><span class="line">'响应头':包含了对服务器的描述,对返回数据的描述.</span><br><span class="line"></span><br><span class="line">Content-Encoding: gzip <span class="comment">// 服务器支持的数据压缩格式</span></span><br><span class="line">Content-Length:  <span class="number">1528</span> <span class="comment">// 返回数据的长度</span></span><br><span class="line">Content-Type:  application/xhtml+xml;charset=utf<span class="number">-8</span> <span class="comment">// 返回数据的类型</span></span><br><span class="line">Date: Mon, <span class="number">15</span> Jun <span class="number">2015</span> <span class="number">09</span>:<span class="number">06</span>:<span class="number">46</span> GMT <span class="comment">// 响应的时间</span></span><br><span class="line">Server: apache  <span class="comment">// 服务器类型</span></span><br><span class="line"></span><br><span class="line">'实体内容':服务器返回给客户端的具体数据(图片/html/文件...).</span><br></pre></td></tr></table></figure>
-<h4 id="3、发送http请求"><a href="#3、发送http请求" class="headerlink" title="3、发送http请求:"></a>3、发送http请求:</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">在iOS开发中,发送http请求的方案有很多,常见的有如下几种:</span><br><span class="line">&lt;<span class="number">1</span>&gt; 苹果原生:</span><br><span class="line">&#123;</span><br><span class="line">    * <span class="built_in">NSURLConnection</span>:用法简单,古老经典的一种方案.</span><br><span class="line"></span><br><span class="line">    * <span class="built_in">NSURLSession</span>:iOS7以后推出的技术,功能比<span class="built_in">NSURLConnection</span>更加强大.</span><br><span class="line"></span><br><span class="line">    * <span class="built_in">CFNetWork</span>:<span class="built_in">NSURL</span> 的底层,纯C语言,一般不用.</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">2</span>&gt; 第三方框架:</span><br><span class="line">&#123;</span><br><span class="line">    * ASIHttpRequest:http终结者,功能很强大,可惜作者已停止更新.</span><br><span class="line">    </span><br><span class="line">    * AFNetWorking:简单易用,提供了基本够用的常用功能,维护和使用者多.</span><br><span class="line">    </span><br><span class="line">    * <span class="built_in">MKNetWorkKit</span>:简单易用,产自印度,维护和使用者少.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="二、GET-和-POST"><a href="#二、GET-和-POST" class="headerlink" title="二、GET 和 POST"></a>二、GET 和 POST</h2><h4 id="1、http方法"><a href="#1、http方法" class="headerlink" title="1、http方法:"></a>1、http方法:</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http协议定义了很多方法对应不同的资源操作,其中最常用的是GET 和 POST 方法.</span><br><span class="line">&#123;</span><br><span class="line">   &#123; GET、POST、OPTIONS、HEAD、PUT、DELETE、TRACE、CONNECT、PATCH &#125;</span><br><span class="line">   </span><br><span class="line">   增:PUT</span><br><span class="line">   删:DELETE</span><br><span class="line">   改:POST</span><br><span class="line">   查:GET</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2、参数"><a href="#2、参数" class="headerlink" title="2、参数"></a>2、参数</h4><pre><code>因为 GET 和 POST 可以实现上述所有操作,所以,在现实开发中,我们只要会用GET 和 POST 方法就可以了.
-在与服务器交互时,有时候需要给服务器发送一些数据,比如登录时需要发送用户名和密码.
-参数:就是指传递给服务器的具体数据.
-</code></pre><h4 id="3、GET-和-POST-的主要区别表现在参数的传递上"><a href="#3、GET-和-POST-的主要区别表现在参数的传递上" class="headerlink" title="3、GET 和 POST 的主要区别表现在参数的传递上"></a>3、GET 和 POST 的主要区别表现在参数的传递上</h4><h6 id="1、GET"><a href="#1、GET" class="headerlink" title="1、GET"></a>1、GET</h6><pre><code>GET的本质是从服务器得到数据,效率更高.并且GET请求可以被缓存.
-
-&apos;注意&apos;: 网络缓存数据,保存在SQLite的数据库中(路径:NSHomeDirectory()).
-查看缓存数据命令行:
-&apos;cd 文件目录&apos;   (打开文件目录)
-&apos;ls&apos;   查看当前文件下目录
-&apos;sqlite3 Cache.db&apos;   打开数据库
-&apos;.tables&apos;    查看数据库中的表单
-&apos;select * from cfurl_cache_response;&apos;   查看服务器响应缓存
-&apos;select * from cfurl_cache_receiver_data;&apos;   查看服务器返回的数据缓存
-
-在请求 URL 后面以 ? 的形式跟上发给服务器的参数,参数以 &quot;参数名&quot;=&quot;参数值&quot;的形式拼接,多个参数之间用 &amp; 分隔.
-
-注意:GET的长度是有限制的,不同的浏览器有不同的长度限制,一般在2~8K之间
-</code></pre><h6 id="2、POST"><a href="#2、POST" class="headerlink" title="2、POST"></a>2、POST</h6><pre><code>POST的本质是向服务器发送数据,也可以获得服务器处理之后的结果,效率不如GET.POST请求不可以被缓存,每次刷新之后都需要重新提交表单.
-
-发送给服务器的参数全部放在&apos;请求体&apos;中;
-
-理论上,POST传递的数据量没有限制.
-
-注意:所有涉及到用户隐私的数据(密码/银行卡号等...)都要用POST的方式传递.
-</code></pre><h4 id="4、注意-URL中不能出现空格以及中文等特殊符号"><a href="#4、注意-URL中不能出现空格以及中文等特殊符号" class="headerlink" title="4、注意:URL中不能出现空格以及中文等特殊符号"></a>4、注意:URL中不能出现空格以及中文等特殊符号</h4><pre><code>1&gt;URL中,所有的字符都必须是 ASCII 码;
-
-2&gt;URL中不能出现中文和特殊符号(如空格);
-
-所以,如果 URL 中出现了中文,需要添加百分号转译.
-urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-</code></pre><h4 id="5、POST-发送登陆请求"><a href="#5、POST-发送登陆请求" class="headerlink" title="5、POST 发送登陆请求"></a>5、POST 发送登陆请求</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt; 用可变请求: <span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:url];</span><br><span class="line"><span class="number">2</span>&gt; 指定请求方法: request.HTTPMethod = <span class="string">@"POST"</span>;</span><br><span class="line"><span class="number">3</span>&gt; 设置请求体数据: request.HTTPBody = data;</span><br><span class="line"><span class="comment">// 实例化请求体字符串</span></span><br><span class="line"><span class="built_in">NSString</span> *body = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"username=%@&amp;password=%@"</span>,<span class="keyword">self</span>.userName.text,<span class="keyword">self</span>.password.text];</span><br><span class="line"><span class="comment">// 将字符串转换成二进制数据</span></span><br><span class="line"><span class="built_in">NSData</span> *data = [body dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="number">4</span>&gt; 发送异步网络请求.</span><br><span class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:request queue:[<span class="built_in">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSData</span> *data, <span class="built_in">NSError</span> *connectionError) &#123;</span><br><span class="line">    <span class="comment">// NSURLResponse *response: 服务器响应</span></span><br><span class="line">    <span class="comment">// NSData *data: 服务器返回的数据</span></span><br><span class="line">    <span class="comment">// NSError *connectionError: 连接错误处理</span></span><br><span class="line">    <span class="comment">// 网络请求的回调.</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
-<h2 id="三、保存用户信息"><a href="#三、保存用户信息" class="headerlink" title="三、保存用户信息"></a>三、保存用户信息</h2><h4 id="1、偏好设置保存用户信息"><a href="#1、偏好设置保存用户信息" class="headerlink" title="1、偏好设置保存用户信息"></a>1、偏好设置保存用户信息</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="number">1</span>&gt;如果用户登陆成功,就保存用户信息.下次直接从偏好设置中读取用户信息,以此做到用户只需要输入一次账号和密码,以后登陆就可以不用再次输入.</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt;.登陆成功,保存用户信息(偏好设置)</span><br><span class="line"><span class="number">2</span>&gt;.再次进入,直接显示用户之前保存的信息.避免用户重复输入.</span><br><span class="line"></span><br><span class="line"><span class="comment">// 偏好设置存储用户信息</span></span><br><span class="line">-(<span class="keyword">void</span>)savaUserInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 实例化偏好设置对象(单例)</span></span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *User = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    <span class="comment">// 保存用户名</span></span><br><span class="line">    [User setObject:<span class="keyword">self</span>.userName.text forKey:kITUSERNAMEKEY];</span><br><span class="line">    <span class="comment">// 保存用户密码</span></span><br><span class="line">    [User setObject:pass forKey:kITUSERPASSKEY];</span><br><span class="line">    <span class="comment">// 同步保存用户信息</span></span><br><span class="line">    [User synchronize];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载偏好设置中的用户信息</span></span><br><span class="line">- (<span class="keyword">void</span>)loadUserInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *User = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([User objectForKey:ITUSERNAMEKEY]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.userName.text = [User objectForKey:ITUSERNAMEKEY];</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">if</span> ([User objectForKey:ITUSERPASSKEY]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.password.text = [User objectForKey:ITUSERPASSKEY];</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">2</span>&gt; 用户登陆业务逻辑</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// &lt;1&gt; 用户登陆需要一个单独的控制器,因为只需要登陆一次(Login.storyboard). 应用程序需要有一个入口:main.storyboard: app 主页面</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;2&gt; 判断用户是否登陆成功过(通过偏好设置中存储的用户信息判断)</span></span><br><span class="line">    <span class="comment">// 1&gt; 如果偏好设置中存有用户信息(说明之前登陆成功过),直接进入 app 主页面 :main.storyboard</span></span><br><span class="line">    <span class="comment">// 2&gt; 如果偏好设置中不存在用户信息(第一次登陆或者之前注销了用户信息),进入登陆界面 :Login.storyboard</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;3&gt; 如果用户登陆成功,跳转到 app 主页面:main.storyboard.并且在偏好设置中保存用户信息.</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;4&gt; 如果用户点击注销按钮,注销用户信息,返回到登陆页面.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;<span class="number">3</span>&gt; 问题: 用户密码不能以明文的形式保存,需要对用户密码加密之后再保存!</span><br><span class="line"></span><br><span class="line">密码的安全原则:</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt; 本地和服务器都不允许保存用户的密码明文.</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; 在网络上,不允许传输用户的密码明文.</span><br><span class="line"></span><br><span class="line">现代密码学趣闻! 中途岛海战(AF)</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">4</span>&gt; 数据加密算法:</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt; 对称加密算法:加密和解密使用同一密钥.加密解密速度快,要保证密钥安全.适合给大数据加密.</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; 非对称加密算法:使用公钥加密,私钥解密.或者使用私钥加密,公钥解密.更加安全,但是加密解密速度慢,适合给小数据加密.</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">5</span>&gt; 小技巧:</span><br><span class="line"></span><br><span class="line">openssl :是一个强大的安全套接字层密码库,囊括主要的密码算法,常用的密钥和证书封装管理功能以及 SSL 协议.提供丰富的应用程序测试功能.</span><br><span class="line"></span><br><span class="line">终端命令:</span><br><span class="line"></span><br><span class="line">    echo hello |openssl md5</span><br><span class="line">    echo hello |openssl sha1</span><br><span class="line">    echo hello |openssl sha -sha256</span><br><span class="line">    echo hello |openssl sha -sha512</span><br></pre></td></tr></table></figure>
-<h2 id="四、信息安全加密"><a href="#四、信息安全加密" class="headerlink" title="四、信息安全加密"></a>四、信息安全加密</h2><p><strong>了解:常用加密方法: 1&gt; base64  2&gt; MD5  3&gt; MD5加盐  4&gt; HMAC  5&gt; 时间戳密码(用户密码动态变化)</strong></p>
-<h4 id="1、base64"><a href="#1、base64" class="headerlink" title="1、base64"></a>1、base64</h4><pre><code>base64 编码是现代密码学的基础.
-
-原本是 8个bit 一组表示数据,改为 6个bit一组表示数据,不足的部分补零,每 两个0 用 一个 = 表示.
-用base64 编码之后,数据长度会变大,增加了大约 1/3 左右.
-
-base64 基本能够达到安全要求,但是,base64能够逆运算,非常不安全!
-base64 编码有个非常显著的特点,末尾有个 &apos;=&apos; 号.
-
-利用终端命令进行base64运算:
-
-    // 将文件 meinv.jpg 进行 base64运算之后存储为 meinv.txt
-    base64 meinv.jpg -o meinv.txt
-
-    // 讲meinv.txt 解码生成 meinv.png
-    base64 -D meinv.txt -o meinv.png
-
-    // 将字符串 &quot;hello&quot; 进行 base 64 编码 结果:aGVsbG8=
-    echo &quot;hello&quot; | base64
-
-    // 将 base64编码之后的结果 aGVsbG8= 反编码为字符串
-    echo aGVsbG8= | base64 -D
-</code></pre><h4 id="2、MD5-–-信息-摘要算法-哈希算法之一"><a href="#2、MD5-–-信息-摘要算法-哈希算法之一" class="headerlink" title="2、MD5 – (信息-摘要算法) 哈希算法之一"></a>2、MD5 – (信息-摘要算法) 哈希算法之一</h4><pre><code>把一个任意长度的字节串变换成一定长度的十六进制的大整数. 注意,字符串的转换过程是不可逆的.
-
-用于确保&apos;信息传输&apos;完整一致.
-
-MD5特点:
-
-*1.压缩性:   任意长度的数据,算出的 MD5 值长度都是固定的.
-*2.容易计算: 从原数据计算出 MD5 值很容易.
-*3.抗修改性: 对原数据进行任何改动,哪怕只修改一个字节,所得到的 MD5 值都有很大区别.
-*4.弱抗碰撞: 已知原数据和其 MD5 值,想找到一个具有相同 MD5 值的数据(即伪造数据)是非常困难的.
-*5.强抗碰撞: 想找到两个不同数据,使他们具有相同的 MD5 值,是非常困难的.
-
-MD5 应用:
-
-*1. 一致性验证: MD5 将整个文件当做一个大文本信息,通过不可逆的字符串变换算法,产生一个唯一的 MD5 信息摘要.就像每个人都有自己独一无二的指纹,MD5 对任何文件产生一个独一无二的&quot;数字指纹&quot;.
-
-    利用 MD5 来进行文件校验, 被大量应用在软件下载站,论坛数据库,系统文件安全等方面.
-
-*2. 数字签名;
-
-*3. 安全访问认证;
-</code></pre><h4 id="3、MD5加盐"><a href="#3、MD5加盐" class="headerlink" title="3、MD5加盐"></a>3、MD5加盐</h4><pre><code>MD5 本身是不可逆运算,但是,目前网络上有很多数据库支持反查询.
-MD5加盐 就是在密码哈希过程中添加的额外的随机值.
-注意:加盐要足够长,足够复杂.
-</code></pre><h4 id="4、HMAC"><a href="#4、HMAC" class="headerlink" title="4、HMAC"></a>4、HMAC</h4><pre><code>HMAC 利用哈希算法,以一个密钥和一个消息为输入,生成一个消息摘要作为输出.
-
-HMAC 主要使用在身份认证中;
-
-认证流程:
-
-*1. 客户端向服务器发送一个请求.
-*2. 服务器接收到请求后,生成一个&apos;随机数&apos;并通过网络传输给客户端.
-*3. 客户端将接收到的&apos;随机数&apos;和&apos;密钥&apos;进行 HMAC-MD5 运算,将得到的结构作为认证数据传递给服务器.
-(实际是将随机数提供给 ePass,密钥也是存储在 ePass中的)
-*4. 与此同时,服务器也使用该&apos;随机数&apos;与存储在服务器数据库中的该客户&apos;密钥&apos;进行 HMAC-MD5 运算,如果
-服务器的运算结果与客户端传回的认证数据相同,则认为客户端是一个合法用法.
-</code></pre><h4 id="5、时间戳密码-用户密码动态变化"><a href="#5、时间戳密码-用户密码动态变化" class="headerlink" title="5、时间戳密码(用户密码动态变化)"></a>5、时间戳密码(用户密码动态变化)</h4><pre><code>相同的密码明文 + 相同的加密算法 ===》 每次计算都得出不同的结果.可以充分保证密码的安全性.
-
-原理:将当前时间加入到密码中;
-
-因为每次登陆时间都不同,所以每次计算出的结果也都不相同.
-
-服务器也需要采用相同的算法.这就需要服务器和客户端时间一致.
-
-注意:服务器端时间和客户端时间,可以有一分钟的误差(比如:第59S发送的网络请求,一秒钟后服务器收到并作出响应,这时服务器当前时间比客户端发送时间晚一分钟).
-
-这就意味着,服务器需要计算两次（当前时间和一分钟之前两个时间点各计算一次）.只要有一个结果是正确的,就可以验证成功!
-</code></pre><h2 id="五、钥匙串访问"><a href="#五、钥匙串访问" class="headerlink" title="五、钥匙串访问"></a>五、钥匙串访问</h2><h4 id="1、钥匙串访问"><a href="#1、钥匙串访问" class="headerlink" title="1、钥匙串访问"></a>1、钥匙串访问</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">苹果在 iOS <span class="number">7.0</span><span class="number">.3</span> 版本以后公布钥匙串访问的SDK. 钥匙串访问接口是纯C语言的.</span><br><span class="line"></span><br><span class="line">钥匙串使用 AES <span class="number">256</span>加密算法,能够保证用户密码的安全.</span><br><span class="line"></span><br><span class="line">钥匙串访问的第三方框架(SSKeychain),是对 C语言框架 的封装.注意:不需要看源码.</span><br><span class="line"></span><br><span class="line">钥匙串访问的密码保存在哪里?只有苹果才知道.这样进一步保障了用户的密码安全.</span><br><span class="line"></span><br><span class="line">使用步骤:</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取应用程序唯一标识.</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *bundleId = [<span class="built_in">NSBundle</span> mainBundle].bundleIdentifier;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.利用第三方框架,将用户密码保存在钥匙串</span></span><br><span class="line">    </span><br><span class="line">    [SSKeychain setPassword:<span class="keyword">self</span>.pwdText.text forService:bundleId account:<span class="keyword">self</span>.usernameText.text];</span><br><span class="line">    </span><br><span class="line">    <span class="string">"注意"</span>三个参数:</span><br><span class="line">    </span><br><span class="line">    <span class="number">1.</span>密码:可以直接使用明文.钥匙串访问本身是使用 AES <span class="number">256</span>加密,就是安全的.所以使用的时候,直接传递密码明文就可以了.</span><br><span class="line">    </span><br><span class="line">    <span class="number">2.</span>服务名:可以随便乱写,建议唯一! 建议使用 bundleId.</span><br><span class="line">    </span><br><span class="line">    bundleId是应用程序的唯一标识,每一个上架的应用程序都有一个唯一的 bundleId</span><br><span class="line">    </span><br><span class="line">    <span class="number">3.</span>账户名:直接用用户名称就可以.</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.从钥匙串加载密码</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.pwdText.text = [SSKeychain passwordForService:bundleId account:<span class="keyword">self</span>.usernameText.text];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="六、指纹识别"><a href="#六、指纹识别" class="headerlink" title="六、指纹识别"></a>六、指纹识别</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">指纹识别功能是 iphone <span class="number">5</span>S之后推出的.SDK是 iOS <span class="number">8.0</span> 推出!</span><br><span class="line"></span><br><span class="line">推出指纹识别功能的目的,是为了简化移动支付环节,占领移动支付市场.</span><br><span class="line"></span><br><span class="line">使用步骤:</span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">1</span>&gt; 导入框架;</span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;LocalAuthentication/LocalAuthentication.h&gt;</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="number">2</span>&gt; 指纹识别的实现:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="number">1.</span> 需要判断手机系统版本是否是 iOS <span class="number">8.0</span> 以上的版本.只有 iOS <span class="number">8.0</span> 以上才支持.</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获得当前系统版本号</span></span><br><span class="line">        <span class="keyword">float</span> version = [<span class="built_in">UIDevice</span> currentDevice].systemVersion.floatValue;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (version &lt; <span class="number">8.0</span> ) <span class="comment">// 判断当前系统版本</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"系统版本太低,请升级至最新系统"</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="number">2.</span> 实例化指纹识别对象,判断当前设备是否支持指纹识别功能(是否带有TouchID).</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 1&gt; 实例化指纹识别对象</span></span><br><span class="line">        LAContext *laCtx = [[LAContext alloc] init];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2&gt; 判断当前设备是否支持指纹识别功能.</span></span><br><span class="line">        <span class="keyword">if</span> (![laCtx canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:<span class="literal">NULL</span>])</span><br><span class="line">        &#123; <span class="comment">// 如果设备不支持指纹识别功能</span></span><br><span class="line">            </span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"该设备不支持指纹识别功能"</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="number">3.</span>指纹登陆(默认是异步方法)</span><br><span class="line">        <span class="comment">// 指纹登陆</span></span><br><span class="line">        [laCtx evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:<span class="string">@"指纹登陆"</span> reply:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> *error)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="comment">// 如果成功,表示指纹输入正确.</span></span><br><span class="line">             <span class="keyword">if</span> (success) &#123;</span><br><span class="line">                 <span class="built_in">NSLog</span>(<span class="string">@"指纹识别成功!"</span>);</span><br><span class="line">                 </span><br><span class="line">             &#125;<span class="keyword">else</span></span><br><span class="line">             &#123;</span><br><span class="line">                 <span class="built_in">NSLog</span>(<span class="string">@"指纹识别错误,请再次尝试"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/03/HTTP请求和数据安全/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-UIResponder:触摸事件" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -733,6 +554,7 @@ HMAC 主要使用在身份认证中;
 </a>
         
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -904,6 +726,7 @@ HMAC 主要使用在身份认证中;
 </a>
         
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -1075,6 +898,189 @@ HMAC 主要使用在身份认证中;
 
 
   
+    <article id="post-HTTP请求和数据安全" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/03/HTTP请求和数据安全/">HTTP请求和数据安全</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/03/HTTP请求和数据安全/" class="archive-article-date">
+  	<time datetime="2016-07-03T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-03</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="一、HTTP请求"><a href="#一、HTTP请求" class="headerlink" title="一、HTTP请求"></a>一、HTTP请求</h2><h4 id="1、http协议-超文本传输协议-Hypertext-Transfer-Protocol"><a href="#1、http协议-超文本传输协议-Hypertext-Transfer-Protocol" class="headerlink" title="1、http协议: 超文本传输协议(Hypertext Transfer Protocol)"></a>1、http协议: 超文本传输协议(Hypertext Transfer Protocol)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http协议规定了客户端和服务器之间的数据传输格式.</span><br><span class="line">http协议是在网络开发中最常用的协议.不管是移动客户端还是PC端,访问网络资源经常使用http协议.</span><br><span class="line">http优点:</span><br><span class="line">&lt;<span class="number">1</span>&gt; 简单快速:</span><br><span class="line">http协议简单,通信速度很快.</span><br><span class="line">&lt;<span class="number">2</span>&gt; 灵活:</span><br><span class="line">http协议允许传输任意类型的数据.</span><br><span class="line">&lt;<span class="number">3</span>&gt; http协议是短连接(非持续性连接)</span><br><span class="line">http协议限制每次连接只处理一个请求,服务器对客户端的请求作出响应后,马上断开连接.这种方式可以节省传输时间.</span><br></pre></td></tr></table></figure>
+<h4 id="2、http协议的使用"><a href="#2、http协议的使用" class="headerlink" title="2、http协议的使用"></a>2、http协议的使用</h4><p><strong>完整的http通信分为两步:</strong></p>
+<h6 id="1、请求-客户端向服务器索要数据"><a href="#1、请求-客户端向服务器索要数据" class="headerlink" title="1、请求:客户端向服务器索要数据."></a>1、请求:客户端向服务器索要数据.</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http协议规定:一个完整的http请求包含'请求行','请求头','请求体'三个部分;</span><br><span class="line"></span><br><span class="line">'请求行':包含了请求方法,请求资源路径,http协议版本.</span><br><span class="line"></span><br><span class="line"><span class="string">"GET /resources/images/ HTTP/1.1"</span></span><br><span class="line"></span><br><span class="line">'请求头':包含了对客户端的环境描述,客户端请求的主机地址等信息.</span><br><span class="line"></span><br><span class="line">Accept: text/html <span class="comment">// 客户端所能接收的数据类型</span></span><br><span class="line">Accept-Language: zh-cn <span class="comment">// 客户端的语言环境</span></span><br><span class="line">Accept-Encoding: gzip <span class="comment">// 客户端支持的数据压缩格式</span></span><br><span class="line">Host: m.baidu.com <span class="comment">// 客户端想访问的服务器主机地址</span></span><br><span class="line">User-Agent: Mozilla/<span class="number">5.0</span> (Macintosh; Intel Mac OS X <span class="number">10.10</span>; rv:<span class="number">37.0</span>) Gecko/<span class="number">20100101</span> Firefox/<span class="number">37.0</span> <span class="comment">// 客户端的类型,客户端的软件环境</span></span><br><span class="line"></span><br><span class="line">'请求体':客户端发给服务器的具体数据,比如文件/图片等.</span><br></pre></td></tr></table></figure>
+<h6 id="2、响应-服务器返回客户端想要的数据"><a href="#2、响应-服务器返回客户端想要的数据" class="headerlink" title="2、响应:服务器返回客户端想要的数据"></a>2、响应:服务器返回客户端想要的数据</h6><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">http协议规定:一个完整的http响应包含'状态行','响应头','实体内容'三个部分;</span><br><span class="line"></span><br><span class="line">'状态行':包含了http协议版本,状态吗,状态英文名称.</span><br><span class="line"></span><br><span class="line"><span class="string">"HTTP/1.1 200 OK"</span></span><br><span class="line"></span><br><span class="line">'响应头':包含了对服务器的描述,对返回数据的描述.</span><br><span class="line"></span><br><span class="line">Content-Encoding: gzip <span class="comment">// 服务器支持的数据压缩格式</span></span><br><span class="line">Content-Length:  <span class="number">1528</span> <span class="comment">// 返回数据的长度</span></span><br><span class="line">Content-Type:  application/xhtml+xml;charset=utf<span class="number">-8</span> <span class="comment">// 返回数据的类型</span></span><br><span class="line">Date: Mon, <span class="number">15</span> Jun <span class="number">2015</span> <span class="number">09</span>:<span class="number">06</span>:<span class="number">46</span> GMT <span class="comment">// 响应的时间</span></span><br><span class="line">Server: apache  <span class="comment">// 服务器类型</span></span><br><span class="line"></span><br><span class="line">'实体内容':服务器返回给客户端的具体数据(图片/html/文件...).</span><br></pre></td></tr></table></figure>
+<h4 id="3、发送http请求"><a href="#3、发送http请求" class="headerlink" title="3、发送http请求:"></a>3、发送http请求:</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">在iOS开发中,发送http请求的方案有很多,常见的有如下几种:</span><br><span class="line">&lt;<span class="number">1</span>&gt; 苹果原生:</span><br><span class="line">&#123;</span><br><span class="line">    * <span class="built_in">NSURLConnection</span>:用法简单,古老经典的一种方案.</span><br><span class="line"></span><br><span class="line">    * <span class="built_in">NSURLSession</span>:iOS7以后推出的技术,功能比<span class="built_in">NSURLConnection</span>更加强大.</span><br><span class="line"></span><br><span class="line">    * <span class="built_in">CFNetWork</span>:<span class="built_in">NSURL</span> 的底层,纯C语言,一般不用.</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">2</span>&gt; 第三方框架:</span><br><span class="line">&#123;</span><br><span class="line">    * ASIHttpRequest:http终结者,功能很强大,可惜作者已停止更新.</span><br><span class="line">    </span><br><span class="line">    * AFNetWorking:简单易用,提供了基本够用的常用功能,维护和使用者多.</span><br><span class="line">    </span><br><span class="line">    * <span class="built_in">MKNetWorkKit</span>:简单易用,产自印度,维护和使用者少.</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、GET-和-POST"><a href="#二、GET-和-POST" class="headerlink" title="二、GET 和 POST"></a>二、GET 和 POST</h2><h4 id="1、http方法"><a href="#1、http方法" class="headerlink" title="1、http方法:"></a>1、http方法:</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">http协议定义了很多方法对应不同的资源操作,其中最常用的是GET 和 POST 方法.</span><br><span class="line">&#123;</span><br><span class="line">   &#123; GET、POST、OPTIONS、HEAD、PUT、DELETE、TRACE、CONNECT、PATCH &#125;</span><br><span class="line">   </span><br><span class="line">   增:PUT</span><br><span class="line">   删:DELETE</span><br><span class="line">   改:POST</span><br><span class="line">   查:GET</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="2、参数"><a href="#2、参数" class="headerlink" title="2、参数"></a>2、参数</h4><pre><code>因为 GET 和 POST 可以实现上述所有操作,所以,在现实开发中,我们只要会用GET 和 POST 方法就可以了.
+在与服务器交互时,有时候需要给服务器发送一些数据,比如登录时需要发送用户名和密码.
+参数:就是指传递给服务器的具体数据.
+</code></pre><h4 id="3、GET-和-POST-的主要区别表现在参数的传递上"><a href="#3、GET-和-POST-的主要区别表现在参数的传递上" class="headerlink" title="3、GET 和 POST 的主要区别表现在参数的传递上"></a>3、GET 和 POST 的主要区别表现在参数的传递上</h4><h6 id="1、GET"><a href="#1、GET" class="headerlink" title="1、GET"></a>1、GET</h6><pre><code>GET的本质是从服务器得到数据,效率更高.并且GET请求可以被缓存.
+
+&apos;注意&apos;: 网络缓存数据,保存在SQLite的数据库中(路径:NSHomeDirectory()).
+查看缓存数据命令行:
+&apos;cd 文件目录&apos;   (打开文件目录)
+&apos;ls&apos;   查看当前文件下目录
+&apos;sqlite3 Cache.db&apos;   打开数据库
+&apos;.tables&apos;    查看数据库中的表单
+&apos;select * from cfurl_cache_response;&apos;   查看服务器响应缓存
+&apos;select * from cfurl_cache_receiver_data;&apos;   查看服务器返回的数据缓存
+
+在请求 URL 后面以 ? 的形式跟上发给服务器的参数,参数以 &quot;参数名&quot;=&quot;参数值&quot;的形式拼接,多个参数之间用 &amp; 分隔.
+
+注意:GET的长度是有限制的,不同的浏览器有不同的长度限制,一般在2~8K之间
+</code></pre><h6 id="2、POST"><a href="#2、POST" class="headerlink" title="2、POST"></a>2、POST</h6><pre><code>POST的本质是向服务器发送数据,也可以获得服务器处理之后的结果,效率不如GET.POST请求不可以被缓存,每次刷新之后都需要重新提交表单.
+
+发送给服务器的参数全部放在&apos;请求体&apos;中;
+
+理论上,POST传递的数据量没有限制.
+
+注意:所有涉及到用户隐私的数据(密码/银行卡号等...)都要用POST的方式传递.
+</code></pre><h4 id="4、注意-URL中不能出现空格以及中文等特殊符号"><a href="#4、注意-URL中不能出现空格以及中文等特殊符号" class="headerlink" title="4、注意:URL中不能出现空格以及中文等特殊符号"></a>4、注意:URL中不能出现空格以及中文等特殊符号</h4><pre><code>1&gt;URL中,所有的字符都必须是 ASCII 码;
+
+2&gt;URL中不能出现中文和特殊符号(如空格);
+
+所以,如果 URL 中出现了中文,需要添加百分号转译.
+urlString = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+</code></pre><h4 id="5、POST-发送登陆请求"><a href="#5、POST-发送登陆请求" class="headerlink" title="5、POST 发送登陆请求"></a>5、POST 发送登陆请求</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>&gt; 用可变请求: <span class="built_in">NSMutableURLRequest</span> *request = [<span class="built_in">NSMutableURLRequest</span> requestWithURL:url];</span><br><span class="line"><span class="number">2</span>&gt; 指定请求方法: request.HTTPMethod = <span class="string">@"POST"</span>;</span><br><span class="line"><span class="number">3</span>&gt; 设置请求体数据: request.HTTPBody = data;</span><br><span class="line"><span class="comment">// 实例化请求体字符串</span></span><br><span class="line"><span class="built_in">NSString</span> *body = [<span class="built_in">NSString</span> stringWithFormat:<span class="string">@"username=%@&amp;password=%@"</span>,<span class="keyword">self</span>.userName.text,<span class="keyword">self</span>.password.text];</span><br><span class="line"><span class="comment">// 将字符串转换成二进制数据</span></span><br><span class="line"><span class="built_in">NSData</span> *data = [body dataUsingEncoding:<span class="built_in">NSUTF8StringEncoding</span>];</span><br><span class="line"><span class="number">4</span>&gt; 发送异步网络请求.</span><br><span class="line">[<span class="built_in">NSURLConnection</span> sendAsynchronousRequest:request queue:[<span class="built_in">NSOperationQueue</span> mainQueue] completionHandler:^(<span class="built_in">NSURLResponse</span> *response, <span class="built_in">NSData</span> *data, <span class="built_in">NSError</span> *connectionError) &#123;</span><br><span class="line">    <span class="comment">// NSURLResponse *response: 服务器响应</span></span><br><span class="line">    <span class="comment">// NSData *data: 服务器返回的数据</span></span><br><span class="line">    <span class="comment">// NSError *connectionError: 连接错误处理</span></span><br><span class="line">    <span class="comment">// 网络请求的回调.</span></span><br><span class="line">&#125;]</span><br></pre></td></tr></table></figure>
+<h2 id="三、保存用户信息"><a href="#三、保存用户信息" class="headerlink" title="三、保存用户信息"></a>三、保存用户信息</h2><h4 id="1、偏好设置保存用户信息"><a href="#1、偏好设置保存用户信息" class="headerlink" title="1、偏好设置保存用户信息"></a>1、偏好设置保存用户信息</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="number">1</span>&gt;如果用户登陆成功,就保存用户信息.下次直接从偏好设置中读取用户信息,以此做到用户只需要输入一次账号和密码,以后登陆就可以不用再次输入.</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt;.登陆成功,保存用户信息(偏好设置)</span><br><span class="line"><span class="number">2</span>&gt;.再次进入,直接显示用户之前保存的信息.避免用户重复输入.</span><br><span class="line"></span><br><span class="line"><span class="comment">// 偏好设置存储用户信息</span></span><br><span class="line">-(<span class="keyword">void</span>)savaUserInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 实例化偏好设置对象(单例)</span></span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *User = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    <span class="comment">// 保存用户名</span></span><br><span class="line">    [User setObject:<span class="keyword">self</span>.userName.text forKey:kITUSERNAMEKEY];</span><br><span class="line">    <span class="comment">// 保存用户密码</span></span><br><span class="line">    [User setObject:pass forKey:kITUSERPASSKEY];</span><br><span class="line">    <span class="comment">// 同步保存用户信息</span></span><br><span class="line">    [User synchronize];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 加载偏好设置中的用户信息</span></span><br><span class="line">- (<span class="keyword">void</span>)loadUserInfo</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSUserDefaults</span> *User = [<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">if</span> ([User objectForKey:ITUSERNAMEKEY]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.userName.text = [User objectForKey:ITUSERNAMEKEY];</span><br><span class="line">        </span><br><span class="line">    &#125;<span class="keyword">if</span> ([User objectForKey:ITUSERPASSKEY]) &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">self</span>.password.text = [User objectForKey:ITUSERPASSKEY];</span><br><span class="line">        </span><br><span class="line">    &#125;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">2</span>&gt; 用户登陆业务逻辑</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// &lt;1&gt; 用户登陆需要一个单独的控制器,因为只需要登陆一次(Login.storyboard). 应用程序需要有一个入口:main.storyboard: app 主页面</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;2&gt; 判断用户是否登陆成功过(通过偏好设置中存储的用户信息判断)</span></span><br><span class="line">    <span class="comment">// 1&gt; 如果偏好设置中存有用户信息(说明之前登陆成功过),直接进入 app 主页面 :main.storyboard</span></span><br><span class="line">    <span class="comment">// 2&gt; 如果偏好设置中不存在用户信息(第一次登陆或者之前注销了用户信息),进入登陆界面 :Login.storyboard</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;3&gt; 如果用户登陆成功,跳转到 app 主页面:main.storyboard.并且在偏好设置中保存用户信息.</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">// &lt;4&gt; 如果用户点击注销按钮,注销用户信息,返回到登陆页面.</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;<span class="number">3</span>&gt; 问题: 用户密码不能以明文的形式保存,需要对用户密码加密之后再保存!</span><br><span class="line"></span><br><span class="line">密码的安全原则:</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt; 本地和服务器都不允许保存用户的密码明文.</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; 在网络上,不允许传输用户的密码明文.</span><br><span class="line"></span><br><span class="line">现代密码学趣闻! 中途岛海战(AF)</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">4</span>&gt; 数据加密算法:</span><br><span class="line"></span><br><span class="line"><span class="number">1</span>&gt; 对称加密算法:加密和解密使用同一密钥.加密解密速度快,要保证密钥安全.适合给大数据加密.</span><br><span class="line"></span><br><span class="line"><span class="number">2</span>&gt; 非对称加密算法:使用公钥加密,私钥解密.或者使用私钥加密,公钥解密.更加安全,但是加密解密速度慢,适合给小数据加密.</span><br><span class="line"></span><br><span class="line">&lt;<span class="number">5</span>&gt; 小技巧:</span><br><span class="line"></span><br><span class="line">openssl :是一个强大的安全套接字层密码库,囊括主要的密码算法,常用的密钥和证书封装管理功能以及 SSL 协议.提供丰富的应用程序测试功能.</span><br><span class="line"></span><br><span class="line">终端命令:</span><br><span class="line"></span><br><span class="line">    echo hello |openssl md5</span><br><span class="line">    echo hello |openssl sha1</span><br><span class="line">    echo hello |openssl sha -sha256</span><br><span class="line">    echo hello |openssl sha -sha512</span><br></pre></td></tr></table></figure>
+<h2 id="四、信息安全加密"><a href="#四、信息安全加密" class="headerlink" title="四、信息安全加密"></a>四、信息安全加密</h2><p><strong>了解:常用加密方法: 1&gt; base64  2&gt; MD5  3&gt; MD5加盐  4&gt; HMAC  5&gt; 时间戳密码(用户密码动态变化)</strong></p>
+<h4 id="1、base64"><a href="#1、base64" class="headerlink" title="1、base64"></a>1、base64</h4><pre><code>base64 编码是现代密码学的基础.
+
+原本是 8个bit 一组表示数据,改为 6个bit一组表示数据,不足的部分补零,每 两个0 用 一个 = 表示.
+用base64 编码之后,数据长度会变大,增加了大约 1/3 左右.
+
+base64 基本能够达到安全要求,但是,base64能够逆运算,非常不安全!
+base64 编码有个非常显著的特点,末尾有个 &apos;=&apos; 号.
+
+利用终端命令进行base64运算:
+
+    // 将文件 meinv.jpg 进行 base64运算之后存储为 meinv.txt
+    base64 meinv.jpg -o meinv.txt
+
+    // 讲meinv.txt 解码生成 meinv.png
+    base64 -D meinv.txt -o meinv.png
+
+    // 将字符串 &quot;hello&quot; 进行 base 64 编码 结果:aGVsbG8=
+    echo &quot;hello&quot; | base64
+
+    // 将 base64编码之后的结果 aGVsbG8= 反编码为字符串
+    echo aGVsbG8= | base64 -D
+</code></pre><h4 id="2、MD5-–-信息-摘要算法-哈希算法之一"><a href="#2、MD5-–-信息-摘要算法-哈希算法之一" class="headerlink" title="2、MD5 – (信息-摘要算法) 哈希算法之一"></a>2、MD5 – (信息-摘要算法) 哈希算法之一</h4><pre><code>把一个任意长度的字节串变换成一定长度的十六进制的大整数. 注意,字符串的转换过程是不可逆的.
+
+用于确保&apos;信息传输&apos;完整一致.
+
+MD5特点:
+
+*1.压缩性:   任意长度的数据,算出的 MD5 值长度都是固定的.
+*2.容易计算: 从原数据计算出 MD5 值很容易.
+*3.抗修改性: 对原数据进行任何改动,哪怕只修改一个字节,所得到的 MD5 值都有很大区别.
+*4.弱抗碰撞: 已知原数据和其 MD5 值,想找到一个具有相同 MD5 值的数据(即伪造数据)是非常困难的.
+*5.强抗碰撞: 想找到两个不同数据,使他们具有相同的 MD5 值,是非常困难的.
+
+MD5 应用:
+
+*1. 一致性验证: MD5 将整个文件当做一个大文本信息,通过不可逆的字符串变换算法,产生一个唯一的 MD5 信息摘要.就像每个人都有自己独一无二的指纹,MD5 对任何文件产生一个独一无二的&quot;数字指纹&quot;.
+
+    利用 MD5 来进行文件校验, 被大量应用在软件下载站,论坛数据库,系统文件安全等方面.
+
+*2. 数字签名;
+
+*3. 安全访问认证;
+</code></pre><h4 id="3、MD5加盐"><a href="#3、MD5加盐" class="headerlink" title="3、MD5加盐"></a>3、MD5加盐</h4><pre><code>MD5 本身是不可逆运算,但是,目前网络上有很多数据库支持反查询.
+MD5加盐 就是在密码哈希过程中添加的额外的随机值.
+注意:加盐要足够长,足够复杂.
+</code></pre><h4 id="4、HMAC"><a href="#4、HMAC" class="headerlink" title="4、HMAC"></a>4、HMAC</h4><pre><code>HMAC 利用哈希算法,以一个密钥和一个消息为输入,生成一个消息摘要作为输出.
+
+HMAC 主要使用在身份认证中;
+
+认证流程:
+
+*1. 客户端向服务器发送一个请求.
+*2. 服务器接收到请求后,生成一个&apos;随机数&apos;并通过网络传输给客户端.
+*3. 客户端将接收到的&apos;随机数&apos;和&apos;密钥&apos;进行 HMAC-MD5 运算,将得到的结构作为认证数据传递给服务器.
+(实际是将随机数提供给 ePass,密钥也是存储在 ePass中的)
+*4. 与此同时,服务器也使用该&apos;随机数&apos;与存储在服务器数据库中的该客户&apos;密钥&apos;进行 HMAC-MD5 运算,如果
+服务器的运算结果与客户端传回的认证数据相同,则认为客户端是一个合法用法.
+</code></pre><h4 id="5、时间戳密码-用户密码动态变化"><a href="#5、时间戳密码-用户密码动态变化" class="headerlink" title="5、时间戳密码(用户密码动态变化)"></a>5、时间戳密码(用户密码动态变化)</h4><pre><code>相同的密码明文 + 相同的加密算法 ===》 每次计算都得出不同的结果.可以充分保证密码的安全性.
+
+原理:将当前时间加入到密码中;
+
+因为每次登陆时间都不同,所以每次计算出的结果也都不相同.
+
+服务器也需要采用相同的算法.这就需要服务器和客户端时间一致.
+
+注意:服务器端时间和客户端时间,可以有一分钟的误差(比如:第59S发送的网络请求,一秒钟后服务器收到并作出响应,这时服务器当前时间比客户端发送时间晚一分钟).
+
+这就意味着,服务器需要计算两次（当前时间和一分钟之前两个时间点各计算一次）.只要有一个结果是正确的,就可以验证成功!
+</code></pre><h2 id="五、钥匙串访问"><a href="#五、钥匙串访问" class="headerlink" title="五、钥匙串访问"></a>五、钥匙串访问</h2><h4 id="1、钥匙串访问"><a href="#1、钥匙串访问" class="headerlink" title="1、钥匙串访问"></a>1、钥匙串访问</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">苹果在 iOS <span class="number">7.0</span><span class="number">.3</span> 版本以后公布钥匙串访问的SDK. 钥匙串访问接口是纯C语言的.</span><br><span class="line"></span><br><span class="line">钥匙串使用 AES <span class="number">256</span>加密算法,能够保证用户密码的安全.</span><br><span class="line"></span><br><span class="line">钥匙串访问的第三方框架(SSKeychain),是对 C语言框架 的封装.注意:不需要看源码.</span><br><span class="line"></span><br><span class="line">钥匙串访问的密码保存在哪里?只有苹果才知道.这样进一步保障了用户的密码安全.</span><br><span class="line"></span><br><span class="line">使用步骤:</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">// 获取应用程序唯一标识.</span></span><br><span class="line">    </span><br><span class="line">    <span class="built_in">NSString</span> *bundleId = [<span class="built_in">NSBundle</span> mainBundle].bundleIdentifier;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 1.利用第三方框架,将用户密码保存在钥匙串</span></span><br><span class="line">    </span><br><span class="line">    [SSKeychain setPassword:<span class="keyword">self</span>.pwdText.text forService:bundleId account:<span class="keyword">self</span>.usernameText.text];</span><br><span class="line">    </span><br><span class="line">    <span class="string">"注意"</span>三个参数:</span><br><span class="line">    </span><br><span class="line">    <span class="number">1.</span>密码:可以直接使用明文.钥匙串访问本身是使用 AES <span class="number">256</span>加密,就是安全的.所以使用的时候,直接传递密码明文就可以了.</span><br><span class="line">    </span><br><span class="line">    <span class="number">2.</span>服务名:可以随便乱写,建议唯一! 建议使用 bundleId.</span><br><span class="line">    </span><br><span class="line">    bundleId是应用程序的唯一标识,每一个上架的应用程序都有一个唯一的 bundleId</span><br><span class="line">    </span><br><span class="line">    <span class="number">3.</span>账户名:直接用用户名称就可以.</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// 2.从钥匙串加载密码</span></span><br><span class="line">    </span><br><span class="line">    <span class="keyword">self</span>.pwdText.text = [SSKeychain passwordForService:bundleId account:<span class="keyword">self</span>.usernameText.text];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="六、指纹识别"><a href="#六、指纹识别" class="headerlink" title="六、指纹识别"></a>六、指纹识别</h2><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line">指纹识别功能是 iphone <span class="number">5</span>S之后推出的.SDK是 iOS <span class="number">8.0</span> 推出!</span><br><span class="line"></span><br><span class="line">推出指纹识别功能的目的,是为了简化移动支付环节,占领移动支付市场.</span><br><span class="line"></span><br><span class="line">使用步骤:</span><br><span class="line">&#123;</span><br><span class="line">    <span class="number">1</span>&gt; 导入框架;</span><br><span class="line"><span class="meta">#import <span class="meta-string">&lt;LocalAuthentication/LocalAuthentication.h&gt;</span></span></span><br><span class="line">    </span><br><span class="line">    <span class="number">2</span>&gt; 指纹识别的实现:</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="number">1.</span> 需要判断手机系统版本是否是 iOS <span class="number">8.0</span> 以上的版本.只有 iOS <span class="number">8.0</span> 以上才支持.</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 获得当前系统版本号</span></span><br><span class="line">        <span class="keyword">float</span> version = [<span class="built_in">UIDevice</span> currentDevice].systemVersion.floatValue;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">if</span> (version &lt; <span class="number">8.0</span> ) <span class="comment">// 判断当前系统版本</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"系统版本太低,请升级至最新系统"</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        <span class="number">2.</span> 实例化指纹识别对象,判断当前设备是否支持指纹识别功能(是否带有TouchID).</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 1&gt; 实例化指纹识别对象</span></span><br><span class="line">        LAContext *laCtx = [[LAContext alloc] init];</span><br><span class="line">        </span><br><span class="line">        <span class="comment">// 2&gt; 判断当前设备是否支持指纹识别功能.</span></span><br><span class="line">        <span class="keyword">if</span> (![laCtx canEvaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics error:<span class="literal">NULL</span>])</span><br><span class="line">        &#123; <span class="comment">// 如果设备不支持指纹识别功能</span></span><br><span class="line">            </span><br><span class="line">            <span class="built_in">NSLog</span>(<span class="string">@"该设备不支持指纹识别功能"</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;;</span><br><span class="line">        </span><br><span class="line">        <span class="number">3.</span>指纹登陆(默认是异步方法)</span><br><span class="line">        <span class="comment">// 指纹登陆</span></span><br><span class="line">        [laCtx evaluatePolicy:LAPolicyDeviceOwnerAuthenticationWithBiometrics localizedReason:<span class="string">@"指纹登陆"</span> reply:^(<span class="built_in">BOOL</span> success, <span class="built_in">NSError</span> *error)</span><br><span class="line">         &#123;</span><br><span class="line">             <span class="comment">// 如果成功,表示指纹输入正确.</span></span><br><span class="line">             <span class="keyword">if</span> (success) &#123;</span><br><span class="line">                 <span class="built_in">NSLog</span>(<span class="string">@"指纹识别成功!"</span>);</span><br><span class="line">                 </span><br><span class="line">             &#125;<span class="keyword">else</span></span><br><span class="line">             &#123;</span><br><span class="line">                 <span class="built_in">NSLog</span>(<span class="string">@"指纹识别错误,请再次尝试"</span>);</span><br><span class="line">             &#125;</span><br><span class="line">         &#125;];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/03/HTTP请求和数据安全/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-远程推送" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1092,6 +1098,7 @@ HMAC 主要使用在身份认证中;
 </a>
         
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -1289,6 +1296,7 @@ HMAC 主要使用在身份认证中;
 </a>
         
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -1394,125 +1402,6 @@ HMAC 主要使用在身份认证中;
 
 
   
-    <article id="post-web服务器安装笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/07/02/web服务器安装笔记/">Web服务器安装笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2016/07/02/web服务器安装笔记/" class="archive-article-date">
-  	<time datetime="2016-07-02T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><strong>安装Apache</strong></p>
-<h2 id="一、目的："><a href="#一、目的：" class="headerlink" title="一、目的："></a>一、目的：</h2><ol>
-<li>能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！</li>
-</ol>
-<h2 id="二、为什么是-“Apache”"><a href="#二、为什么是-“Apache”" class="headerlink" title="二、为什么是 “Apache”"></a>二、为什么是 “Apache”</h2><ol>
-<li>使用最广的 Web 服务器</li>
-<li>Mac自带，只需要修改几个配置就可以，简单，快捷</li>
-<li>有些特殊的服务器功能，Apache都能很好的支持</li>
-</ol>
-<p><strong>例如：HTTP PUT/DELETE 操作，知识补充涉及的 HTTPS 服务</strong></p>
-<h2 id="三、-准备工作"><a href="#三、-准备工作" class="headerlink" title="三、    准备工作"></a>三、    准备工作</h2><ul>
-<li>设置用户密码</li>
-</ul>
-<h2 id="四、-配置服务器"><a href="#四、-配置服务器" class="headerlink" title="四、 配置服务器"></a>四、 配置服务器</h2><h4 id="1、配置服务器的工作"><a href="#1、配置服务器的工作" class="headerlink" title="1、配置服务器的工作"></a>1、配置服务器的工作</h4><ul>
-<li>1、在Finder中创建一个”Sites”的文件夹，直接创建在/Users/apple(当前用户名)目录下</li>
-<li>2、修改配置文件中的”两个路径”，指向刚刚创建的文件夹</li>
-<li>3、拷贝一个文件</li>
-</ul>
-<h4 id="2、配置服务器注意事项"><a href="#2、配置服务器注意事项" class="headerlink" title="2、配置服务器注意事项"></a>2、配置服务器注意事项</h4><ul>
-<li>1、关闭中文输入法</li>
-<li>2、命令和参数之间需要有”空格”</li>
-<li>3、修改系统文件一定记住”sudo”，否则会没有权限</li>
-<li>4、目录要在/Users/apple(当前用户名)</li>
-</ul>
-<h4 id="3、配置服务器"><a href="#3、配置服务器" class="headerlink" title="3、配置服务器"></a>3、配置服务器</h4><p><strong>提示：$开头的，可以拷贝，但是不要拷贝$</strong></p>
-<ul>
-<li>切换工作目录<ul>
-<li>$cd /etc/apache2</li>
-</ul>
-</li>
-<li>常用命令<ol>
-<li>cd 切换目录</li>
-<li>pwd 确认当前目录</li>
-<li>ls 列表显示当前目录的内容</li>
-</ol>
-</li>
-</ul>
-<h6 id="vim命令"><a href="#vim命令" class="headerlink" title="vim命令"></a>vim命令</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// *** 备份文件，以防不测，只需要执行一次就可以了</span></span><br><span class="line">$sudo cp httpd.conf httpd.conf.bak</span><br><span class="line"></span><br><span class="line">格式 cp (<span class="keyword">copy</span> 的缩写) httpd.conf (源文件) httpd.conf.bak (目标文件)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提示：如果后续操作出现错误！可以使用以下命令，恢复备份过的 httpd.conf 文件</span></span><br><span class="line">$ sudo cp httpd.conf.bak httpd.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">// vim里面只能用键盘，不能用鼠标</span></span><br><span class="line"><span class="comment">// 用vim编辑httpd.conf</span></span><br><span class="line">$sudo vim httpd.conf</span><br><span class="line"><span class="comment">// 查找DocumentRoot</span></span><br><span class="line">* /DocumentRoot</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 进入编辑模式</span></span><br><span class="line">* i</span><br><span class="line"><span class="string">"修改引号中的路径"</span></span><br><span class="line"><span class="comment">// 进入命令模式</span></span><br><span class="line">* ESC</span><br><span class="line"><span class="comment">// 查找DocumentRoot</span></span><br><span class="line">* n</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 进入编辑模式</span></span><br><span class="line">* i</span><br><span class="line"><span class="string">"修改括号中的路径"</span></span><br><span class="line"><span class="comment">// 进入命令模式</span></span><br><span class="line">* ESC</span><br><span class="line"><span class="comment">// 查找php</span></span><br><span class="line">* /php</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 删除行首注释#</span></span><br><span class="line">* x</span><br><span class="line"><span class="comment">// 保存并退出</span></span><br><span class="line">* :wq</span><br><span class="line"><span class="comment">// 不保存退出!!!!!!!!!</span></span><br><span class="line">* :q!</span><br><span class="line"><span class="comment">// 切换工作目录</span></span><br><span class="line">$cd /etc</span><br></pre></td></tr></table></figure>
-<h4 id="4、etc-目录有点类似于-windows-system32，存放配置文件的目录"><a href="#4、etc-目录有点类似于-windows-system32，存放配置文件的目录" class="headerlink" title="4、etc 目录有点类似于 windows/system32，存放配置文件的目录"></a>4、etc 目录有点类似于 windows/system32，存放配置文件的目录</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拷贝php.ini文件</span></span><br><span class="line">$sudo cp php.ini.default php.ini</span><br><span class="line"><span class="comment">// 重新启动apache服务器</span></span><br><span class="line">$sudo apachectl -k restart</span><br></pre></td></tr></table></figure>
-<p>如果提示以下错误是正常的：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">httpd: Could not reliably determine the server's fully qualified domain name, using teacher.local for ServerName</span><br><span class="line">httpd not running, trying to start</span><br></pre></td></tr></table></figure></p>
-<p>================================================================================</p>
-<h6 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h6><h6 id="1-如果点击info-php文件，出现下载，或者只是显示一小段文字"><a href="#1-如果点击info-php文件，出现下载，或者只是显示一小段文字" class="headerlink" title="1. 如果点击info.php文件，出现下载，或者只是显示一小段文字"></a>1. 如果点击info.php文件，出现下载，或者只是显示一小段文字</h6><p><strong>解决办法：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在终端中输入以下两个命令：</span><br><span class="line"><span class="comment">// 关闭 apache 服务器</span></span><br><span class="line">$sudo apachectl -k stop</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重新再次启动 apache</span></span><br><span class="line">$sudo apachectl -k start</span><br></pre></td></tr></table></figure></p>
-<h6 id="2-每次启动计算机，Apache服务器默认是不会自动启动的！"><a href="#2-每次启动计算机，Apache服务器默认是不会自动启动的！" class="headerlink" title="2. 每次启动计算机，Apache服务器默认是不会自动启动的！"></a>2. 每次启动计算机，Apache服务器默认是不会自动启动的！</h6><p>可以启动计算机之后，打开终端，输入以下命令：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 启动 apache</span></span><br><span class="line">$sudo apachectl -k start</span><br></pre></td></tr></table></figure></p>
-<h6 id="3-最常见的问题"><a href="#3-最常见的问题" class="headerlink" title="3. 最常见的问题"></a>3. 最常见的问题</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">交换文件已经存在，直接按字母 <span class="string">"d"</span>，可以删除交换文件！</span><br></pre></td></tr></table></figure>
-<h6 id="4-Mac-10-10-的-Apache-配置略微有一些不一样！"><a href="#4-Mac-10-10-的-Apache-配置略微有一些不一样！" class="headerlink" title="4. Mac 10.10 的 Apache 配置略微有一些不一样！"></a>4. Mac 10.10 的 Apache 配置略微有一些不一样！</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">看<span class="string">"服务器配置视频\02-Mac10.10 Apache配置.mp4"</span></span><br><span class="line"></span><br><span class="line">在 httpd.conf 中找到</span><br><span class="line"></span><br><span class="line"><span class="string">"Options FollowSymLinks Multiviews"</span></span><br><span class="line"></span><br><span class="line">加一个单词 Indexes，修改后的结果如下：</span><br><span class="line"></span><br><span class="line"><span class="string">"Options Indexes FollowSymLinks Multiviews"</span></span><br><span class="line"></span><br><span class="line">提示：目前不要花一分钟去学习vim。</span><br></pre></td></tr></table></figure>
-<h6 id="5-执行脚本的时候，显示没有拒绝访问！大家用-NTFS-格式的-U-盘拷贝网络素材！会把文件本身的权限过滤掉！"><a href="#5-执行脚本的时候，显示没有拒绝访问！大家用-NTFS-格式的-U-盘拷贝网络素材！会把文件本身的权限过滤掉！" class="headerlink" title="5. 执行脚本的时候，显示没有拒绝访问！大家用 NTFS 格式的 U 盘拷贝网络素材！会把文件本身的权限过滤掉！"></a>5. 执行脚本的时候，显示没有拒绝访问！大家用 NTFS 格式的 U 盘拷贝网络素材！会把文件本身的权限过滤掉！</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">以下是在终端中修改文件权限的指令！</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  查看当前文件夹中的文件访问权限</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$ ls -la</span><br><span class="line">$ chmod <span class="number">644</span> info.php（没有权限的文件名）</span><br><span class="line">$ chmod <span class="number">644</span> *.*</span><br></pre></td></tr></table></figure>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/07/02/web服务器安装笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-UIWindow和控制器" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
   <div class="article-inner">
     
@@ -1530,6 +1419,7 @@ HMAC 主要使用在身份认证中;
 </a>
         
       </header>
+      
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -1681,6 +1571,126 @@ HMAC 主要使用在身份认证中;
 
 
   
+    <article id="post-web服务器安装笔记" class="article article-type-post  article-index" itemscope="" itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/07/02/web服务器安装笔记/">Web服务器安装笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2016/07/02/web服务器安装笔记/" class="archive-article-date">
+  	<time datetime="2016-07-02T02:31:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-07-02</time>
+</a>
+        
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>安装Apache</strong></p>
+<h2 id="一、目的："><a href="#一、目的：" class="headerlink" title="一、目的："></a>一、目的：</h2><ol>
+<li>能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！</li>
+</ol>
+<h2 id="二、为什么是-“Apache”"><a href="#二、为什么是-“Apache”" class="headerlink" title="二、为什么是 “Apache”"></a>二、为什么是 “Apache”</h2><ol>
+<li>使用最广的 Web 服务器</li>
+<li>Mac自带，只需要修改几个配置就可以，简单，快捷</li>
+<li>有些特殊的服务器功能，Apache都能很好的支持</li>
+</ol>
+<p><strong>例如：HTTP PUT/DELETE 操作，知识补充涉及的 HTTPS 服务</strong></p>
+<h2 id="三、-准备工作"><a href="#三、-准备工作" class="headerlink" title="三、    准备工作"></a>三、    准备工作</h2><ul>
+<li>设置用户密码</li>
+</ul>
+<h2 id="四、-配置服务器"><a href="#四、-配置服务器" class="headerlink" title="四、 配置服务器"></a>四、 配置服务器</h2><h4 id="1、配置服务器的工作"><a href="#1、配置服务器的工作" class="headerlink" title="1、配置服务器的工作"></a>1、配置服务器的工作</h4><ul>
+<li>1、在Finder中创建一个”Sites”的文件夹，直接创建在/Users/apple(当前用户名)目录下</li>
+<li>2、修改配置文件中的”两个路径”，指向刚刚创建的文件夹</li>
+<li>3、拷贝一个文件</li>
+</ul>
+<h4 id="2、配置服务器注意事项"><a href="#2、配置服务器注意事项" class="headerlink" title="2、配置服务器注意事项"></a>2、配置服务器注意事项</h4><ul>
+<li>1、关闭中文输入法</li>
+<li>2、命令和参数之间需要有”空格”</li>
+<li>3、修改系统文件一定记住”sudo”，否则会没有权限</li>
+<li>4、目录要在/Users/apple(当前用户名)</li>
+</ul>
+<h4 id="3、配置服务器"><a href="#3、配置服务器" class="headerlink" title="3、配置服务器"></a>3、配置服务器</h4><p><strong>提示：$开头的，可以拷贝，但是不要拷贝$</strong></p>
+<ul>
+<li>切换工作目录<ul>
+<li>$cd /etc/apache2</li>
+</ul>
+</li>
+<li>常用命令<ol>
+<li>cd 切换目录</li>
+<li>pwd 确认当前目录</li>
+<li>ls 列表显示当前目录的内容</li>
+</ol>
+</li>
+</ul>
+<h6 id="vim命令"><a href="#vim命令" class="headerlink" title="vim命令"></a>vim命令</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// *** 备份文件，以防不测，只需要执行一次就可以了</span></span><br><span class="line">$sudo cp httpd.conf httpd.conf.bak</span><br><span class="line"></span><br><span class="line">格式 cp (<span class="keyword">copy</span> 的缩写) httpd.conf (源文件) httpd.conf.bak (目标文件)</span><br><span class="line"></span><br><span class="line"><span class="comment">// 提示：如果后续操作出现错误！可以使用以下命令，恢复备份过的 httpd.conf 文件</span></span><br><span class="line">$ sudo cp httpd.conf.bak httpd.conf</span><br><span class="line"></span><br><span class="line"><span class="comment">// vim里面只能用键盘，不能用鼠标</span></span><br><span class="line"><span class="comment">// 用vim编辑httpd.conf</span></span><br><span class="line">$sudo vim httpd.conf</span><br><span class="line"><span class="comment">// 查找DocumentRoot</span></span><br><span class="line">* /DocumentRoot</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 进入编辑模式</span></span><br><span class="line">* i</span><br><span class="line"><span class="string">"修改引号中的路径"</span></span><br><span class="line"><span class="comment">// 进入命令模式</span></span><br><span class="line">* ESC</span><br><span class="line"><span class="comment">// 查找DocumentRoot</span></span><br><span class="line">* n</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 进入编辑模式</span></span><br><span class="line">* i</span><br><span class="line"><span class="string">"修改括号中的路径"</span></span><br><span class="line"><span class="comment">// 进入命令模式</span></span><br><span class="line">* ESC</span><br><span class="line"><span class="comment">// 查找php</span></span><br><span class="line">* /php</span><br><span class="line"><span class="string">"将光标移动到首行"</span></span><br><span class="line"><span class="comment">// 删除行首注释#</span></span><br><span class="line">* x</span><br><span class="line"><span class="comment">// 保存并退出</span></span><br><span class="line">* :wq</span><br><span class="line"><span class="comment">// 不保存退出!!!!!!!!!</span></span><br><span class="line">* :q!</span><br><span class="line"><span class="comment">// 切换工作目录</span></span><br><span class="line">$cd /etc</span><br></pre></td></tr></table></figure>
+<h4 id="4、etc-目录有点类似于-windows-system32，存放配置文件的目录"><a href="#4、etc-目录有点类似于-windows-system32，存放配置文件的目录" class="headerlink" title="4、etc 目录有点类似于 windows/system32，存放配置文件的目录"></a>4、etc 目录有点类似于 windows/system32，存放配置文件的目录</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 拷贝php.ini文件</span></span><br><span class="line">$sudo cp php.ini.default php.ini</span><br><span class="line"><span class="comment">// 重新启动apache服务器</span></span><br><span class="line">$sudo apachectl -k restart</span><br></pre></td></tr></table></figure>
+<p>如果提示以下错误是正常的：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">httpd: Could not reliably determine the server's fully qualified domain name, using teacher.local for ServerName</span><br><span class="line">httpd not running, trying to start</span><br></pre></td></tr></table></figure></p>
+<p>================================================================================</p>
+<h6 id="常见问题："><a href="#常见问题：" class="headerlink" title="常见问题："></a>常见问题：</h6><h6 id="1-如果点击info-php文件，出现下载，或者只是显示一小段文字"><a href="#1-如果点击info-php文件，出现下载，或者只是显示一小段文字" class="headerlink" title="1. 如果点击info.php文件，出现下载，或者只是显示一小段文字"></a>1. 如果点击info.php文件，出现下载，或者只是显示一小段文字</h6><p><strong>解决办法：</strong><br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">在终端中输入以下两个命令：</span><br><span class="line"><span class="comment">// 关闭 apache 服务器</span></span><br><span class="line">$sudo apachectl -k stop</span><br><span class="line"></span><br><span class="line"><span class="comment">// 重新再次启动 apache</span></span><br><span class="line">$sudo apachectl -k start</span><br></pre></td></tr></table></figure></p>
+<h6 id="2-每次启动计算机，Apache服务器默认是不会自动启动的！"><a href="#2-每次启动计算机，Apache服务器默认是不会自动启动的！" class="headerlink" title="2. 每次启动计算机，Apache服务器默认是不会自动启动的！"></a>2. 每次启动计算机，Apache服务器默认是不会自动启动的！</h6><p>可以启动计算机之后，打开终端，输入以下命令：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 启动 apache</span></span><br><span class="line">$sudo apachectl -k start</span><br></pre></td></tr></table></figure></p>
+<h6 id="3-最常见的问题"><a href="#3-最常见的问题" class="headerlink" title="3. 最常见的问题"></a>3. 最常见的问题</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">交换文件已经存在，直接按字母 <span class="string">"d"</span>，可以删除交换文件！</span><br></pre></td></tr></table></figure>
+<h6 id="4-Mac-10-10-的-Apache-配置略微有一些不一样！"><a href="#4-Mac-10-10-的-Apache-配置略微有一些不一样！" class="headerlink" title="4. Mac 10.10 的 Apache 配置略微有一些不一样！"></a>4. Mac 10.10 的 Apache 配置略微有一些不一样！</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">看<span class="string">"服务器配置视频\02-Mac10.10 Apache配置.mp4"</span></span><br><span class="line"></span><br><span class="line">在 httpd.conf 中找到</span><br><span class="line"></span><br><span class="line"><span class="string">"Options FollowSymLinks Multiviews"</span></span><br><span class="line"></span><br><span class="line">加一个单词 Indexes，修改后的结果如下：</span><br><span class="line"></span><br><span class="line"><span class="string">"Options Indexes FollowSymLinks Multiviews"</span></span><br><span class="line"></span><br><span class="line">提示：目前不要花一分钟去学习vim。</span><br></pre></td></tr></table></figure>
+<h6 id="5-执行脚本的时候，显示没有拒绝访问！大家用-NTFS-格式的-U-盘拷贝网络素材！会把文件本身的权限过滤掉！"><a href="#5-执行脚本的时候，显示没有拒绝访问！大家用-NTFS-格式的-U-盘拷贝网络素材！会把文件本身的权限过滤掉！" class="headerlink" title="5. 执行脚本的时候，显示没有拒绝访问！大家用 NTFS 格式的 U 盘拷贝网络素材！会把文件本身的权限过滤掉！"></a>5. 执行脚本的时候，显示没有拒绝访问！大家用 NTFS 格式的 U 盘拷贝网络素材！会把文件本身的权限过滤掉！</h6><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">以下是在终端中修改文件权限的指令！</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  查看当前文件夹中的文件访问权限</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">$ ls -la</span><br><span class="line">$ chmod <span class="number">644</span> info.php（没有权限的文件名）</span><br><span class="line">$ chmod <span class="number">644</span> *.*</span><br></pre></td></tr></table></figure>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/网络与多线程//" class="article-tag-list-link color2">网络与多线程</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2016/07/02/web服务器安装笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
@@ -1778,7 +1788,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">个人随笔</a>
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
             
             <div class="clearfix"></div>
