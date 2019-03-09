@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>Git学习笔记 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！">
+  <meta name="description" content="一、Git：1、分布式版本控制系统！">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习笔记">
 <meta property="og:url" content="lonely9209.github.io/2018/11/25/Git学习笔记/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！">
+<meta property="og:description" content="一、Git：1、分布式版本控制系统！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-28T13:16:48.413Z">
+<meta property="og:updated_time" content="2019-03-09T06:34:56.724Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记">
-<meta name="twitter:description" content="安装Apache 一、目的： 能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！">
+<meta name="twitter:description" content="一、Git：1、分布式版本控制系统！">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -192,7 +192,7 @@
     <div id="toc-article" class="toc-article">
         <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
         <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、目的："><span class="toc-number">1.</span> <span class="toc-text">一、目的：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、为什么是-“Apache”"><span class="toc-number">2.</span> <span class="toc-text">二、为什么是 “Apache”</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Git："><span class="toc-number">1.</span> <span class="toc-text">一、Git：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、分布式版本控制系统！"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、分布式版本控制系统！</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Git使用"><span class="toc-number">2.</span> <span class="toc-text">二、Git使用</span></a></li>
          </div>
    <script type="text/javascript">
     function showToc(){
@@ -212,12 +212,78 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><strong><strong>安装Apache</strong></strong></p>
-<h2 id="一、目的："><a href="#一、目的：" class="headerlink" title="一、目的："></a>一、目的：</h2><ol>
-<li>能够有一个测试的服务器，不是所有的特殊网络服务都能找到免费的！</li>
-</ol>
-<a id="more"></a>
-<h2 id="二、为什么是-“Apache”"><a href="#二、为什么是-“Apache”" class="headerlink" title="二、为什么是 “Apache”"></a>二、为什么是 “Apache”</h2>
+        <h2 id="一、Git："><a href="#一、Git：" class="headerlink" title="一、Git："></a>一、Git：</h2><h4 id="1、分布式版本控制系统！"><a href="#1、分布式版本控制系统！" class="headerlink" title="1、分布式版本控制系统！"></a>1、分布式版本控制系统！</h4><a id="more"></a>
+<h2 id="二、Git使用"><a href="#二、Git使用" class="headerlink" title="二、Git使用"></a>二、Git使用</h2><p>####1、git clone (克隆代码)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;source repository&gt; &lt;destination repository&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/Lonely9209/WZBTitleBGScrollerViewDemo.git (此处以本人一Demo为例)</span><br></pre></td></tr></table></figure>
+<p>####2、git status ((查看工作目录和暂存区的状态)</p>
+<p>####3、提交</p>
+<figure class="highlight plain"><figcaption><span>add [filename]</span><a href="//">添加单个文件到暂存区</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add [filename] // 添加单个文件到暂存区</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>commit -m "[message]"</span><a href="//">[message]为git commit 提交信息，是对这个提交的概述（将暂存区内容添加到仓库）</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;[message]&quot; // [message]为git commit 提交信息，是对这个提交的概述（将暂存区内容添加到仓库）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD [filename]/. // 取消暂存区的内容（即：取消 add）</span><br></pre></td></tr></table></figure>
+<p>####4、git commit –amend（修改提交文件/提交信息）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add // 添加需要修改的文件到暂存区（不需要修改文件则不添加）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend // 可编辑提交信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit –amend –no-edit // 不修改提交信息</span><br></pre></td></tr></table></figure>
+<p>####5、代码撤销与回退</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log // 查看提交信息日志，复制要回退日志的哈希值（57f9c6e1ba206c96487e732b8487cfea53400fac）</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [commitId] // [commitId]为上一步复制的哈希值，回退但保留本地文件的修改</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [commitId] --hard // 回退到[commitId]时的代码，本地修改全部撤销</span><br></pre></td></tr></table></figure>
+<p>####6、推进历史</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog // 查看仓库的操作日志，找到要推历史的哈希值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hrad  [commitId] //  [commitId]为要推进历史的哈希值</span><br></pre></td></tr></table></figure>
+<p>####7、分支操作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch // 显示分支一览表，同时确认当前所在的分支</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b branchName // 创建名为branchName的分支，并且切换到branchName分支</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch branchName // 创建名为branchName的分支</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout branchName // 切换到branchName分支</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout - // 切换到上一分支</span><br></pre></td></tr></table></figure>
+<p>####8、打包/发布补丁</p>
+<blockquote>
+<p>a、通过git diff创建补丁</p>
+</blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; git diff &gt; my.patch</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>b、通过某次提交创建补丁</p>
+</blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; git format-patch &lt;commit id&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>c、最近的commit提交的补丁</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 命令：git format-patch HEAD^  &lt;==最近的1次commit的patch</span><br><span class="line">&gt; 命令：git format-patch HEAD^^ &lt;==最近的2次commit的patch</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>d、git撤销打补丁</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>撤销该补丁的修改效果回到打补丁前代码的状态</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;命令：patch -R -p1 &lt; my.patch</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<blockquote>
+<p>e、打入补丁 git am</p>
+</blockquote>
+<blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;把生成的patch 文件copy 到一个文件夹中来</span><br><span class="line">&gt;</span><br><span class="line">&gt;先检查patch文件：git apply --stat newpatch.patch</span><br><span class="line">&gt;</span><br><span class="line">&gt;检查能否应用成功：git apply --check newpatch.patch</span><br><span class="line">&gt;</span><br><span class="line">&gt;git am --abort // 放弃掉以前的am信息</span><br><span class="line">&gt;</span><br><span class="line">&gt;git am // 应用补丁</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</blockquote>
+<p>##三、vim使用</p>
+<p>####1、命令模式/一般模式</p>
+<p><strong>一般模式切换到编辑模式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i   从目前光标所在处插入</span><br><span class="line">I   在目前所在行的第一个非空格符处开始插入</span><br><span class="line"></span><br><span class="line">a   从目前光标所在的下一个字符处开始插入</span><br><span class="line">A   从光标所在行的最后一个字符处开始插入</span><br><span class="line"></span><br><span class="line">o   在目前光标所在的下一行处插入新的一行</span><br><span class="line">O   在目前光标所在处的上一行插入新的一行</span><br><span class="line"></span><br><span class="line">r   只会取代光标所在的那一个字符一次</span><br><span class="line">R   会一直取代光标所在的文字，直到按下 ESC 为止</span><br></pre></td></tr></table></figure>
+<p><strong>Shift + :</strong> // 切换到底线命令模式，以在最底一行输入命令（注意此时输入法得切换到英文）</p>
+<p>####2、编辑模式</p>
+<p><strong>在命令模式下按下 i 就进入了输入模式</strong></p>
+<p><strong>在输入模式中，可以使用以下按键：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ENTER(回车键) 			换行</span><br><span class="line">BACK SPACE(退格键) 		删除光标前一个字符</span><br><span class="line">方向键        　　　　　　　	在文本中移动光标</span><br><span class="line">HOME/END               　　	移动光标到行首/行尾</span><br><span class="line">Page Up/Page Down        	上/下翻页</span><br><span class="line">ESC                    　　　　	退出输入模式，切换到命令模式</span><br></pre></td></tr></table></figure>
+<p><strong>一般模式切换到指令行模式</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">:w      	将编辑的数据写入硬盘档案中</span><br><span class="line">:w!     	强制将编辑的数据写入硬盘档案中</span><br><span class="line">:q      	离开</span><br><span class="line">:q!     	为强制离开不储存档案</span><br><span class="line">:wq     	储存后离开</span><br><span class="line">:wq!    	强制储存后离开</span><br><span class="line">:set nu   	显示行号，设定之后，会在每一行的前缀显示该行的行号</span><br><span class="line">:set nonu	取消行号</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -350,7 +416,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、目的："><span class="toc-number">1.</span> <span class="toc-text">一、目的：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、为什么是-“Apache”"><span class="toc-number">2.</span> <span class="toc-text">二、为什么是 “Apache”</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Git："><span class="toc-number">1.</span> <span class="toc-text">一、Git：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、分布式版本控制系统！"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、分布式版本控制系统！</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Git使用"><span class="toc-number">2.</span> <span class="toc-text">二、Git使用</span></a></li>
                     </div>
                 </span>
             </div>
@@ -379,7 +445,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2018 Lonely9209
+    		&copy; 2019 Lonely9209
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
