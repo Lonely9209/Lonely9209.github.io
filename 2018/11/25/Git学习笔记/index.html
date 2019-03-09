@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="lonely9209.github.io">
   <title>Git学习笔记 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="一、Git： 分布式版本控制系统！">
+  <meta name="description" content="一、Git：1、分布式版本控制系统！">
 <meta name="keywords" content="随笔">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习笔记">
 <meta property="og:url" content="lonely9209.github.io/2018/11/25/Git学习笔记/index.html">
 <meta property="og:site_name" content="Lonely9209">
-<meta property="og:description" content="一、Git： 分布式版本控制系统！">
+<meta property="og:description" content="一、Git：1、分布式版本控制系统！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-09T06:59:23.862Z">
+<meta property="og:updated_time" content="2019-03-09T07:04:00.156Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记">
-<meta name="twitter:description" content="一、Git： 分布式版本控制系统！">
+<meta name="twitter:description" content="一、Git：1、分布式版本控制系统！">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -192,7 +192,7 @@
     <div id="toc-article" class="toc-article">
         <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
         <strong class="toc-title">文章目录</strong>
-           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Git："><span class="toc-number">1.</span> <span class="toc-text">一、Git：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Git使用"><span class="toc-number">2.</span> <span class="toc-text">二、Git使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、vim使用"><span class="toc-number">3.</span> <span class="toc-text">三、vim使用</span></a></li></ol>
+           <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Git："><span class="toc-number">1.</span> <span class="toc-text">一、Git：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、分布式版本控制系统！"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、分布式版本控制系统！</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Git使用"><span class="toc-number">2.</span> <span class="toc-text">二、Git使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、git-clone-克隆代码"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、git clone (克隆代码)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、git-status-查看工作目录和暂存区的状态"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、git status ((查看工作目录和暂存区的状态)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、提交"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、git-commit-–amend（修改提交文件-提交信息）"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、git commit –amend（修改提交文件/提交信息）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、代码撤销与回退"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、代码撤销与回退</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、推进历史"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、推进历史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、分支操作"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、分支操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、打包-发布补丁"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、打包/发布补丁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、vim使用"><span class="toc-number">3.</span> <span class="toc-text">三、vim使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、命令模式-一般模式"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、命令模式/一般模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、编辑模式"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、编辑模式</span></a></li></ol></li>
          </div>
    <script type="text/javascript">
     function showToc(){
@@ -212,55 +212,26 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、Git："><a href="#一、Git：" class="headerlink" title="一、Git："></a>一、Git：</h2><ol>
-<li>分布式版本控制系统！</li>
-</ol>
-<a id="more"></a>
-<h2 id="二、Git使用"><a href="#二、Git使用" class="headerlink" title="二、Git使用"></a>二、Git使用</h2><ol>
-<li>git clone (克隆代码)</li>
-</ol>
-<p>`objc</p>
-<p>git clone <source repository=""> <destination repository=""></destination></p>
-<p>`</p>
+        <h2 id="一、Git："><a href="#一、Git：" class="headerlink" title="一、Git："></a>一、Git：</h2><h4 id="1、分布式版本控制系统！"><a href="#1、分布式版本控制系统！" class="headerlink" title="1、分布式版本控制系统！"></a>1、分布式版本控制系统！</h4><a id="more"></a>
+<h2 id="二、Git使用"><a href="#二、Git使用" class="headerlink" title="二、Git使用"></a>二、Git使用</h2><h4 id="1、git-clone-克隆代码"><a href="#1、git-clone-克隆代码" class="headerlink" title="1、git clone (克隆代码)"></a>1、git clone (克隆代码)</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone &lt;source repository&gt; &lt;destination repository&gt;</span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:<span class="comment">//github.com/Lonely9209/WZBTitleBGScrollerViewDemo.git (此处以本人一Demo为例)</span></span><br></pre></td></tr></table></figure>
-<ol start="2">
-<li><p>git status ((查看工作目录和暂存区的状态)</p>
-</li>
-<li><p>提交</p>
-</li>
-</ol>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add [filename] <span class="comment">// 添加单个文件到暂存区</span></span><br></pre></td></tr></table></figure>
+<h4 id="2、git-status-查看工作目录和暂存区的状态"><a href="#2、git-status-查看工作目录和暂存区的状态" class="headerlink" title="2、git status ((查看工作目录和暂存区的状态)"></a>2、git status ((查看工作目录和暂存区的状态)</h4><h4 id="3、提交"><a href="#3、提交" class="headerlink" title="3、提交"></a>3、提交</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add [filename] <span class="comment">// 添加单个文件到暂存区</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m <span class="string">"[message]"</span> <span class="comment">// [message]为git commit 提交信息，是对这个提交的概述（将暂存区内容添加到仓库）</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD [filename]/[.] <span class="comment">// 取消暂存区的内容（即：取消 add）</span></span><br></pre></td></tr></table></figure>
-<ol start="4">
-<li>git commit –amend（修改提交文件/提交信息）</li>
-</ol>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add <span class="comment">// 添加需要修改的文件到暂存区（不需要修改文件则不添加）</span></span><br></pre></td></tr></table></figure>
+<h4 id="4、git-commit-–amend（修改提交文件-提交信息）"><a href="#4、git-commit-–amend（修改提交文件-提交信息）" class="headerlink" title="4、git commit –amend（修改提交文件/提交信息）"></a>4、git commit –amend（修改提交文件/提交信息）</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add <span class="comment">// 添加需要修改的文件到暂存区（不需要修改文件则不添加）</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend <span class="comment">// 可编辑提交信息</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit –amend –no-edit <span class="comment">// 不修改提交信息</span></span><br></pre></td></tr></table></figure>
-<ol start="5">
-<li>代码撤销与回退</li>
-</ol>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log <span class="comment">// 查看提交信息日志，复制要回退日志的哈希值（57f9c6e1ba206c96487e732b8487cfea53400fac）</span></span><br></pre></td></tr></table></figure>
+<h4 id="5、代码撤销与回退"><a href="#5、代码撤销与回退" class="headerlink" title="5、代码撤销与回退"></a>5、代码撤销与回退</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log <span class="comment">// 查看提交信息日志，复制要回退日志的哈希值（57f9c6e1ba206c96487e732b8487cfea53400fac）</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [commitId] <span class="comment">// [commitId]为上一步复制的哈希值，回退但保留本地文件的修改</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [commitId] --hard <span class="comment">// 回退到[commitId]时的代码，本地修改全部撤销</span></span><br></pre></td></tr></table></figure>
-<ol start="6">
-<li>推进历史</li>
-</ol>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog <span class="comment">// 查看仓库的操作日志，找到要推历史的哈希值</span></span><br></pre></td></tr></table></figure>
+<h4 id="6、推进历史"><a href="#6、推进历史" class="headerlink" title="6、推进历史"></a>6、推进历史</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog <span class="comment">// 查看仓库的操作日志，找到要推历史的哈希值</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hrad  [commitId] <span class="comment">//  [commitId]为要推进历史的哈希值</span></span><br></pre></td></tr></table></figure>
-<ol start="7">
-<li>分支操作</li>
-</ol>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="comment">// 显示分支一览表，同时确认当前所在的分支</span></span><br></pre></td></tr></table></figure>
+<h4 id="7、分支操作"><a href="#7、分支操作" class="headerlink" title="7、分支操作"></a>7、分支操作</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch <span class="comment">// 显示分支一览表，同时确认当前所在的分支</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b branchName <span class="comment">// 创建名为branchName的分支，并且切换到branchName分支</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch branchName <span class="comment">// 创建名为branchName的分支</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout branchName <span class="comment">// 切换到branchName分支</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout - <span class="comment">// 切换到上一分支</span></span><br></pre></td></tr></table></figure>
-<ol start="8">
-<li>打包/发布补丁</li>
-</ol>
-<blockquote>
+<h4 id="8、打包-发布补丁"><a href="#8、打包-发布补丁" class="headerlink" title="8、打包/发布补丁"></a>8、打包/发布补丁</h4><blockquote>
 <p>a、通过git diff创建补丁</p>
 </blockquote>
 <blockquote>
@@ -291,18 +262,12 @@
 <p>e、打入补丁 git am</p>
 </blockquote>
 <blockquote>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&gt;把生成的patch 文件<span class="keyword">copy</span> 到一个文件夹中来</span><br><span class="line">&gt;先检查patch文件：git apply --stat newpatch.patch</span><br><span class="line">&gt;检查能否应用成功：git apply --check newpatch.patch</span><br><span class="line">&gt;git am --abort <span class="comment">// 放弃掉以前的am信息</span></span><br><span class="line">&gt;git am <span class="comment">// 应用补丁</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;把生成的patch 文件<span class="keyword">copy</span> 到一个文件夹中来</span><br><span class="line">&gt;</span><br><span class="line">&gt;先检查patch文件：git apply --stat newpatch.patch</span><br><span class="line">&gt;</span><br><span class="line">&gt;检查能否应用成功：git apply --check newpatch.patch</span><br><span class="line">&gt;</span><br><span class="line">&gt;git am --abort <span class="comment">// 放弃掉以前的am信息</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;git am <span class="comment">// 应用补丁</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
-<h2 id="三、vim使用"><a href="#三、vim使用" class="headerlink" title="三、vim使用"></a>三、vim使用</h2><ol>
-<li>命令模式/一般模式</li>
-</ol>
-<p><strong>一般模式切换到编辑模式</strong></p>
+<h2 id="三、vim使用"><a href="#三、vim使用" class="headerlink" title="三、vim使用"></a>三、vim使用</h2><h4 id="1、命令模式-一般模式"><a href="#1、命令模式-一般模式" class="headerlink" title="1、命令模式/一般模式"></a>1、命令模式/一般模式</h4><p><strong>一般模式切换到编辑模式</strong></p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">i   从目前光标所在处插入</span><br><span class="line">I   在目前所在行的第一个非空格符处开始插入</span><br><span class="line"></span><br><span class="line">a   从目前光标所在的下一个字符处开始插入</span><br><span class="line">A   从光标所在行的最后一个字符处开始插入</span><br><span class="line"></span><br><span class="line">o   在目前光标所在的下一行处插入新的一行</span><br><span class="line">O   在目前光标所在处的上一行插入新的一行</span><br><span class="line"></span><br><span class="line">r   只会取代光标所在的那一个字符一次</span><br><span class="line">R   会一直取代光标所在的文字，直到按下 ESC 为止</span><br></pre></td></tr></table></figure>
 <p><strong>Shift + :</strong> // 切换到底线命令模式，以在最底一行输入命令（注意此时输入法得切换到英文）</p>
-<ol start="2">
-<li>编辑模式</li>
-</ol>
-<p><strong>在命令模式下按下 i 就进入了输入模式</strong></p>
+<h4 id="2、编辑模式"><a href="#2、编辑模式" class="headerlink" title="2、编辑模式"></a>2、编辑模式</h4><p><strong>在命令模式下按下 i 就进入了输入模式</strong></p>
 <p><strong>在输入模式中，可以使用以下按键：</strong></p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ENTER(回车键) 			换行</span><br><span class="line">BACK SPACE(退格键) 		删除光标前一个字符</span><br><span class="line">方向键        　　　　　　　	在文本中移动光标</span><br><span class="line">HOME/END               　　	移动光标到行首/行尾</span><br><span class="line">Page Up/Page Down        	上/下翻页</span><br><span class="line">ESC                    　　　　	退出输入模式，切换到命令模式</span><br></pre></td></tr></table></figure>
 <p><strong>一般模式切换到指令行模式</strong></p>
@@ -440,7 +405,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Git："><span class="toc-number">1.</span> <span class="toc-text">一、Git：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Git使用"><span class="toc-number">2.</span> <span class="toc-text">二、Git使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、vim使用"><span class="toc-number">3.</span> <span class="toc-text">三、vim使用</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#一、Git："><span class="toc-number">1.</span> <span class="toc-text">一、Git：</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、分布式版本控制系统！"><span class="toc-number">1.0.1.</span> <span class="toc-text">1、分布式版本控制系统！</span></a></li></ol></li></ol><li class="toc-item toc-level-2"><a class="toc-link" href="#二、Git使用"><span class="toc-number">2.</span> <span class="toc-text">二、Git使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、git-clone-克隆代码"><span class="toc-number">2.0.1.</span> <span class="toc-text">1、git clone (克隆代码)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、git-status-查看工作目录和暂存区的状态"><span class="toc-number">2.0.2.</span> <span class="toc-text">2、git status ((查看工作目录和暂存区的状态)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、提交"><span class="toc-number">2.0.3.</span> <span class="toc-text">3、提交</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、git-commit-–amend（修改提交文件-提交信息）"><span class="toc-number">2.0.4.</span> <span class="toc-text">4、git commit –amend（修改提交文件/提交信息）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5、代码撤销与回退"><span class="toc-number">2.0.5.</span> <span class="toc-text">5、代码撤销与回退</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、推进历史"><span class="toc-number">2.0.6.</span> <span class="toc-text">6、推进历史</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、分支操作"><span class="toc-number">2.0.7.</span> <span class="toc-text">7、分支操作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、打包-发布补丁"><span class="toc-number">2.0.8.</span> <span class="toc-text">8、打包/发布补丁</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#三、vim使用"><span class="toc-number">3.</span> <span class="toc-text">三、vim使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、命令模式-一般模式"><span class="toc-number">3.0.1.</span> <span class="toc-text">1、命令模式/一般模式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、编辑模式"><span class="toc-number">3.0.2.</span> <span class="toc-text">2、编辑模式</span></a></li></ol></li>
                     </div>
                 </span>
             </div>
