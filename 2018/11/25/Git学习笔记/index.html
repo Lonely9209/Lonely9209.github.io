@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="一、Git：1、分布式版本控制系统！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-12T13:48:35.854Z">
+<meta property="og:updated_time" content="2019-03-12T13:52:07.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记">
 <meta name="twitter:description" content="一、Git：1、分布式版本控制系统！">
@@ -253,17 +253,17 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout - <span class="comment">// 切换到上一分支</span></span><br></pre></td></tr></table></figure>
 <h4 id="9、打包-发布补丁"><a href="#9、打包-发布补丁" class="headerlink" title="9、打包/发布补丁"></a>9、打包/发布补丁</h4><blockquote>
 <p>a、通过git diff创建补丁</p>
-</blockquote>
-<blockquote>
 <blockquote>
 <p>git diff &gt; my.patch</p>
 </blockquote>
-<p>b、通过某次提交创建补丁</p>
 </blockquote>
 <blockquote>
+<p>b、通过某次提交创建补丁</p>
 <blockquote>
 <p>git format-patch <commit id=""></commit></p>
 </blockquote>
+</blockquote>
+<blockquote>
 <p>c、最近的commit提交的补丁</p>
 <blockquote>
 <p>命令：git format-patch HEAD^  &lt;==最近的1次commit的patch<br>命令：git format-patch HEAD^^ &lt;==最近的2次commit的patch</p>
@@ -271,16 +271,12 @@
 </blockquote>
 <blockquote>
 <p>d、git撤销打补丁</p>
-</blockquote>
-<blockquote>
 <blockquote>
 <p>撤销该补丁的修改效果回到打补丁前代码的状态<br>命令：patch -R -p1 &lt; my.patch</p>
 </blockquote>
 </blockquote>
 <blockquote>
 <p>e、打入补丁 git am</p>
-</blockquote>
-<blockquote>
 <blockquote>
 <p>把生成的patch 文件copy 到一个文件夹中来<br>先检查patch文件：git apply –stat newpatch.patch<br>检查能否应用成功：git apply –check newpatch.patch<br>git am –abort // 放弃掉以前的am信息<br>git am // 应用补丁</p>
 </blockquote>
