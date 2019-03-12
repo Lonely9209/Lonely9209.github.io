@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="一、Git：1、分布式版本控制系统！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-12T13:43:27.452Z">
+<meta property="og:updated_time" content="2019-03-12T13:48:35.854Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记">
 <meta name="twitter:description" content="一、Git：1、分布式版本控制系统！">
@@ -255,34 +255,35 @@
 <p>a、通过git diff创建补丁</p>
 </blockquote>
 <blockquote>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; git diff &gt; my.patch</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
 <blockquote>
+<p>git diff &gt; my.patch</p>
+</blockquote>
 <p>b、通过某次提交创建补丁</p>
 </blockquote>
 <blockquote>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt; git format-patch &lt;commit <span class="keyword">id</span>&gt;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
 <blockquote>
+<p>git format-patch <commit id=""></commit></p>
+</blockquote>
 <p>c、最近的commit提交的补丁</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; 命令：git format-patch HEAD^  &lt;==最近的<span class="number">1</span>次commit的patch</span><br><span class="line">&gt; 命令：git format-patch HEAD^^ &lt;==最近的<span class="number">2</span>次commit的patch</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>命令：git format-patch HEAD^  &lt;==最近的1次commit的patch<br>命令：git format-patch HEAD^^ &lt;==最近的2次commit的patch</p>
+</blockquote>
 </blockquote>
 <blockquote>
 <p>d、git撤销打补丁</p>
 </blockquote>
 <blockquote>
 <blockquote>
-<p>撤销该补丁的修改效果回到打补丁前代码的状态</p>
+<p>撤销该补丁的修改效果回到打补丁前代码的状态<br>命令：patch -R -p1 &lt; my.patch</p>
 </blockquote>
-</blockquote>
-<blockquote>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&gt;命令：patch -R -p1 &lt; my.patch</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
 </blockquote>
 <blockquote>
 <p>e、打入补丁 git am</p>
 </blockquote>
 <blockquote>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&gt;把生成的patch 文件<span class="keyword">copy</span> 到一个文件夹中来</span><br><span class="line">&gt;</span><br><span class="line">&gt;先检查patch文件：git apply --stat newpatch.patch</span><br><span class="line">&gt;</span><br><span class="line">&gt;检查能否应用成功：git apply --check newpatch.patch</span><br><span class="line">&gt;</span><br><span class="line">&gt;git am --abort <span class="comment">// 放弃掉以前的am信息</span></span><br><span class="line">&gt;</span><br><span class="line">&gt;git am <span class="comment">// 应用补丁</span></span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>把生成的patch 文件copy 到一个文件夹中来<br>先检查patch文件：git apply –stat newpatch.patch<br>检查能否应用成功：git apply –check newpatch.patch<br>git am –abort // 放弃掉以前的am信息<br>git am // 应用补丁</p>
+</blockquote>
 </blockquote>
 <h4 id="10、untracked-files"><a href="#10、untracked-files" class="headerlink" title="10、untracked files"></a>10、untracked files</h4><p>删除 untracked files</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -f</span><br></pre></td></tr></table></figure>
