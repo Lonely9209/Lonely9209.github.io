@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="Lonely9209">
 <meta property="og:description" content="一、Git：1、分布式版本控制系统！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-12T13:52:07.760Z">
+<meta property="og:updated_time" content="2019-03-13T12:02:32.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git学习笔记">
 <meta name="twitter:description" content="一、Git：1、分布式版本控制系统！">
@@ -220,12 +220,13 @@
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD [filename]/[.] <span class="comment">// 取消暂存区的内容（即：取消 add）</span></span><br></pre></td></tr></table></figure>
 <h4 id="4、git-commit-–amend（修改提交文件-提交信息）"><a href="#4、git-commit-–amend（修改提交文件-提交信息）" class="headerlink" title="4、git commit –amend（修改提交文件/提交信息）"></a>4、git commit –amend（修改提交文件/提交信息）</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add <span class="comment">// 添加需要修改的文件到暂存区（不需要修改文件则不添加）</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend <span class="comment">// 可编辑提交信息</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit –amend –no-edit <span class="comment">// 不修改提交信息</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit --amend --no-edit <span class="comment">// 不修改提交信息</span></span><br></pre></td></tr></table></figure>
 <h4 id="5、代码撤销与回退"><a href="#5、代码撤销与回退" class="headerlink" title="5、代码撤销与回退"></a>5、代码撤销与回退</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log <span class="comment">// 查看提交信息日志，复制要回退日志的哈希值（57f9c6e1ba206c96487e732b8487cfea53400fac）</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [commitId] <span class="comment">// [commitId]为上一步复制的哈希值，回退但保留本地文件的修改</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset [commitId] --hard <span class="comment">// 回退到[commitId]时的代码，本地修改全部撤销</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout . // 撤销本地所有修改，但不包括新增文件！</span><br></pre></td></tr></table></figure>
 <h4 id="6、推进历史"><a href="#6、推进历史" class="headerlink" title="6、推进历史"></a>6、推进历史</h4><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog <span class="comment">// 查看仓库的操作日志，找到要推历史的哈希值</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hrad  [commitId] <span class="comment">//  [commitId]为要推进历史的哈希值</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset --hard  [commitId] <span class="comment">//  [commitId]为要推进历史的哈希值</span></span><br></pre></td></tr></table></figure>
 <h4 id="7、git-stash（暂存）"><a href="#7、git-stash（暂存）" class="headerlink" title="7、git stash（暂存）"></a>7、git stash（暂存）</h4><p><strong>要暂存的内容首先加入暂存区（git add ）</strong></p>
 <blockquote>
 <p>git stash save [message] // 暂存当前修改，message:暂存说明</p>
@@ -281,7 +282,8 @@
 <p>把生成的patch 文件copy 到一个文件夹中来<br>先检查patch文件：git apply –stat newpatch.patch<br>检查能否应用成功：git apply –check newpatch.patch<br>git am –abort // 放弃掉以前的am信息<br>git am // 应用补丁</p>
 </blockquote>
 </blockquote>
-<h4 id="10、untracked-files"><a href="#10、untracked-files" class="headerlink" title="10、untracked files"></a>10、untracked files</h4><p>删除 untracked files</p>
+<h4 id="10、untracked-files"><a href="#10、untracked-files" class="headerlink" title="10、untracked files"></a>10、untracked files</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -n // 是一次clean的演习，告诉你哪些文件会删除，记住不会真的删除文件，只是一个提醒</span><br></pre></td></tr></table></figure>
+<p>删除 untracked files</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -f</span><br></pre></td></tr></table></figure>
 <p>连 untracked 的目录也一起删掉</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clean -fd</span><br></pre></td></tr></table></figure>
