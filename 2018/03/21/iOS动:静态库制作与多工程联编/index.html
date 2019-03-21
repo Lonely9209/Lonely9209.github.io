@@ -6,15 +6,34 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="lonely9209.github.io">
-  <title>Archives: 2019/3 | Lonely9209</title>
+  <title>iOS动/静态库制作与多工程联编 | Lonely9209</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Lonely9209">
-<meta property="og:url" content="lonely9209.github.io/archives/2019/03/index.html">
+  <meta name="description" content="1、在桌面新建文件夹TextWorkSpace2、新建工作空间 打开XCode，File -&amp;gt; New -&amp;gt; Workspace">
+<meta name="keywords" content="随笔">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS动&#x2F;静态库制作与多工程联编">
+<meta property="og:url" content="lonely9209.github.io/2018/03/21/iOS动:静态库制作与多工程联编/index.html">
 <meta property="og:site_name" content="Lonely9209">
+<meta property="og:description" content="1、在桌面新建文件夹TextWorkSpace2、新建工作空间 打开XCode，File -&amp;gt; New -&amp;gt; Workspace">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_1.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_2.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_3.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_6.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_15.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_7.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_8.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_12.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_16.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_17.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_18.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_19.png">
+<meta property="og:image" content="/Users/lonely920/Desktop/Snip20190321_20.png">
+<meta property="og:updated_time" content="2019-03-21T14:23:34.990Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lonely9209">
+<meta name="twitter:title" content="iOS动&#x2F;静态库制作与多工程联编">
+<meta name="twitter:description" content="1、在桌面新建文件夹TextWorkSpace2、新建工作空间 打开XCode，File -&amp;gt; New -&amp;gt; Workspace">
+<meta name="twitter:image" content="/Users/lonely920/Desktop/Snip20190321_1.png">
   
     <link rel="alternative" href="/atom.xml" title="Lonely9209" type="application/atom+xml">
   
@@ -162,36 +181,143 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-iOS动:静态库制作与多工程联编" class="article article-type-post " itemscope="" itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/21/iOS动:静态库制作与多工程联编/" class="archive-article-date">
-  	<time datetime="2019-03-21T12:25:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/21/iOS动:静态库制作与多工程联编/">iOS动/静态库制作与多工程联编</a>
+    <h1 class="article-title" itemprop="name">
+      iOS动/静态库制作与多工程联编
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/03/21/iOS动:静态库制作与多工程联编/" class="archive-article-date">
+  	<time datetime="2018-03-21T12:25:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-21</time>
+</a>
+        
+      </header>
+      
+    <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+          <span class="btn-bg"></span>
+          <span class="btn-text">文章导航</span>
+          </p>
+    <div id="toc-article" class="toc-article">
+        <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+        <strong class="toc-title">文章目录</strong>
+           <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、在桌面新建文件夹TextWorkSpace"><span class="toc-number">1.</span> <span class="toc-text">1、在桌面新建文件夹TextWorkSpace</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、新建工作空间"><span class="toc-number">2.</span> <span class="toc-text">2、新建工作空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、创建主工程Text"><span class="toc-number">4.</span> <span class="toc-text">3、创建主工程Text</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、添加工程到工作空间"><span class="toc-number">5.</span> <span class="toc-text">4、添加工程到工作空间</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5、在Finder中新建Moudle文件并加入到工程中（此处动-静态库加入到该文件夹，如果不需要，此步骤可省略）"><span class="toc-number">5.1.</span> <span class="toc-text">5、在Finder中新建Moudle文件并加入到工程中（此处动/静态库加入到该文件夹，如果不需要，此步骤可省略）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、创建动-静态库"><span class="toc-number">6.</span> <span class="toc-text">6、创建动/静态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、引用动-静态库"><span class="toc-number">7.</span> <span class="toc-text">7、引用动/静态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、动态库外部需要引用的文件设置"><span class="toc-number">8.</span> <span class="toc-text">8、动态库外部需要引用的文件设置</span></a></li></ol>
+         </div>
+   <script type="text/javascript">
+    function showToc(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:block");
+        show_toc_btn.setAttribute("style","display:none");
+        };
+    function showBtn(){
+        var toc_article = document.getElementById("toc-article");
+        var show_toc_btn = document.getElementById("show-toc-btn");
+        toc_article.setAttribute("style","display:none");
+        show_toc_btn.setAttribute("style","display:block");
+        };
+   </script>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h4 id="1、在桌面新建文件夹TextWorkSpace"><a href="#1、在桌面新建文件夹TextWorkSpace" class="headerlink" title="1、在桌面新建文件夹TextWorkSpace"></a>1、在桌面新建文件夹TextWorkSpace</h4><h4 id="2、新建工作空间"><a href="#2、新建工作空间" class="headerlink" title="2、新建工作空间"></a>2、新建工作空间</h4><ul>
+<li>打开XCode，File -&gt; New -&gt; Workspace</li>
+</ul>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_1.png" alt="Snip20190321_1"></p>
+<h4 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h4><ul>
+<li>设置工作空间名及所在文件夹</li>
+</ul>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_2.png" alt="Snip20190321_2"></p>
+<h4 id="3、创建主工程Text"><a href="#3、创建主工程Text" class="headerlink" title="3、创建主工程Text"></a>3、创建主工程Text</h4><blockquote>
+<p>File -&gt; New -&gt; Project -&gt; Single View<br>App，工程位置与工作空间在同一目录，也可自行修改（Demo保持和工作空间在同一目录）</p>
+</blockquote>
+<h4 id="4、添加工程到工作空间"><a href="#4、添加工程到工作空间" class="headerlink" title="4、添加工程到工作空间"></a>4、添加工程到工作空间</h4><blockquote>
+<p> 打开工作空间（此时为空白）,File -&gt; Add Files to “TextWorkSpace”或在文件空白处右键选择Add Files to “TextWorkSpace”，将工程加入工作空间</p>
+</blockquote>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_3.png" alt="Snip20190321_3"></p>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_6.png" alt="Snip20190321_6"></p>
+<p><strong>注：此处使用第三步可直接加入工作空间，如下截图：（截图使用的是动态库截图，意思是一样的）</strong></p>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_15.png" alt="Snip20190321_15"></p>
+<h5 id="5、在Finder中新建Moudle文件并加入到工程中（此处动-静态库加入到该文件夹，如果不需要，此步骤可省略）"><a href="#5、在Finder中新建Moudle文件并加入到工程中（此处动-静态库加入到该文件夹，如果不需要，此步骤可省略）" class="headerlink" title="5、在Finder中新建Moudle文件并加入到工程中（此处动/静态库加入到该文件夹，如果不需要，此步骤可省略）"></a>5、在Finder中新建Moudle文件并加入到工程中（此处动/静态库加入到该文件夹，如果不需要，此步骤可省略）</h5><ul>
+<li>在Finder中进入工程路径，新建Moudle文件夹</li>
+</ul>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_7.png" alt="Snip20190321_7"></p>
+<ul>
+<li>拖到工程中</li>
+</ul>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_8.png" alt="Snip20190321_8"></p>
+<h4 id="6、创建动-静态库"><a href="#6、创建动-静态库" class="headerlink" title="6、创建动/静态库"></a>6、创建动/静态库</h4><ul>
+<li>动态库：File -&gt; New -&gt; Project -&gt; Cocoa Touch Framework</li>
+<li>静态库：File -&gt; New -&gt; Project -&gt; Cocoa Touch Static Libraary</li>
+</ul>
+<blockquote>
+<p> 这里动态库命名：TextFramework-SDK   静态库：TextStatic-SDK</p>
+</blockquote>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_12.png" alt="Snip20190321_12"></p>
+<p>静/动态库及工程新建完完整目录结构如下图：</p>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_16.png" alt="Snip20190321_16"></p>
+<h4 id="7、引用动-静态库"><a href="#7、引用动-静态库" class="headerlink" title="7、引用动/静态库"></a>7、引用动/静态库</h4><ul>
+<li>选中主工程，添加依赖库。是主工程需要引用静态库和动态库，所有是在主工程中引入静态库与动态库</li>
+<li>主工程(Appgame) -&gt; TARGETS -&gt; Build Phases -&gt; Link Binary With Libraries</li>
+</ul>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_17.png" alt="Snip20190321_17"></p>
+<h4 id="8、动态库外部需要引用的文件设置"><a href="#8、动态库外部需要引用的文件设置" class="headerlink" title="8、动态库外部需要引用的文件设置"></a>8、动态库外部需要引用的文件设置</h4><ul>
+<li>动态库外部需要引用的文件设置为Public</li>
+</ul>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_18.png" alt="Snip20190321_18"></p>
+<ul>
+<li>设置Public后还需在TextFramework_SDK.h文件中引入（此时.h文件无语法提示，不知道什么原因???）</li>
+</ul>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_19.png" alt="Snip20190321_19"></p>
+<blockquote>
+<p><strong>注：缺少上面引入头文件并不会报错，只会产生一个警告！</strong></p>
+</blockquote>
+<p><img src="/Users/lonely920/Desktop/Snip20190321_20.png" alt="Snip20190321_20"></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/alipay.JPG">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/assets/img/wechat.JPG">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -203,19 +329,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:lonely9209.github.io/2018/03/21/iOS动:静态库制作与多工程联编/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2018/11/25/Git学习笔记/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          Git学习笔记
+        
+      </div>
+    </a>
   
   
-    </div></section>
+    <a href="/2016/07/19/ios面试题集/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ios面试题集</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、在桌面新建文件夹TextWorkSpace"><span class="toc-number">1.</span> <span class="toc-text">1、在桌面新建文件夹TextWorkSpace</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、新建工作空间"><span class="toc-number">2.</span> <span class="toc-text">2、新建工作空间</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#"><span class="toc-number">3.</span> <span class="toc-text"></span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、创建主工程Text"><span class="toc-number">4.</span> <span class="toc-text">3、创建主工程Text</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4、添加工程到工作空间"><span class="toc-number">5.</span> <span class="toc-text">4、添加工程到工作空间</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#5、在Finder中新建Moudle文件并加入到工程中（此处动-静态库加入到该文件夹，如果不需要，此步骤可省略）"><span class="toc-number">5.1.</span> <span class="toc-text">5、在Finder中新建Moudle文件并加入到工程中（此处动/静态库加入到该文件夹，如果不需要，此步骤可省略）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6、创建动-静态库"><span class="toc-number">6.</span> <span class="toc-text">6、创建动/静态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7、引用动-静态库"><span class="toc-number">7.</span> <span class="toc-text">7、引用动/静态库</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8、动态库外部需要引用的文件设置"><span class="toc-number">8.</span> <span class="toc-text">8、动态库外部需要引用的文件设置</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -238,8 +473,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
