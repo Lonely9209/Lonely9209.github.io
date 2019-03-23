@@ -38,7 +38,7 @@
 <meta property="og:image" content="lonely9209.github.io/2019/03/21/iOS动:静态库制作与多工程联编/image-20190323104811205.png">
 <meta property="og:image" content="lonely9209.github.io/2019/03/21/iOS动:静态库制作与多工程联编/image-20190323105425853.png">
 <meta property="og:image" content="lonely9209.github.io/2019/03/21/iOS动:静态库制作与多工程联编/image-20190323110545671.png">
-<meta property="og:updated_time" content="2019-03-23T03:13:06.094Z">
+<meta property="og:updated_time" content="2019-03-23T03:18:58.664Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS动&#x2F;静态库制作与多工程联编">
 <meta name="twitter:description" content="1、在桌面新建文件夹TextWorkSpace2、新建工作空间 打开XCode，File -&amp;gt; New -&amp;gt; Workspace">
@@ -279,13 +279,11 @@
 <p><img src="Snip20190321_17.png" alt="Snip20190321_17"></p>
 <blockquote>
 <p><strong>注动态库按照上述操作，真机运行依然会报错，如下图；</strong></p>
-<p>解决方法：先把Link Binary With Libraries这里引入的动态库删除，TARGETS -&gt; General -&gt; Embedded Binaries,添加动态库，添加后Link Binary With Libraries里也会自动加入新引入的动态库如下图：</p>
+<p><strong>解决方法</strong>：先把Link Binary With Libraries这里引入的动态库删除，TARGETS -&gt; General -&gt; Embedded Binaries,添加动态库，添加后Link Binary With Libraries里也会自动加入新引入的动态库如下图：</p>
 </blockquote>
 <p><img src="image-20190323103439726.png" alt="image-20190323103439726"></p>
 <p><img src="image-20190323103933591.png" alt="image-20190323103933591"></p>
-<h4 id="8、动-静态库外部需要引用的文件设置"><a href="#8、动-静态库外部需要引用的文件设置" class="headerlink" title="8、动/静态库外部需要引用的文件设置"></a>8、动/静态库外部需要引用的文件设置</h4><ol>
-<li><strong>动态库外部需要引用的文件设置</strong></li>
-</ol>
+<h4 id="8、动-静态库外部需要引用的文件设置"><a href="#8、动-静态库外部需要引用的文件设置" class="headerlink" title="8、动/静态库外部需要引用的文件设置"></a>8、动/静态库外部需要引用的文件设置</h4><p><strong>1、动态库外部需要引用的文件设置</strong></p>
 <blockquote>
 <ul>
 <li>动态库外部需要引用的文件设置为Public</li>
@@ -302,9 +300,7 @@
 <p><strong>注：缺少上面引入头文件并不会报错，只会产生一个警告！</strong></p>
 </blockquote>
 <p><img src="Snip20190321_20.png" alt="Snip20190321_20"></p>
-<ol start="2">
-<li><strong>静态库外部需要引用的文件设置</strong></li>
-</ol>
+<p><strong>2、静态库外部需要引用的文件设置</strong></p>
 <blockquote>
 <ul>
 <li>静态库里的文件外部引用需要Build Phases - Copy Files添加相应的头文件（作用是生成的静态库include文件会包含已添加的头文件</li>
@@ -316,30 +312,21 @@
 </blockquote>
 <p><img src="image-20190323102707546.png" alt="image-20190323102707546"></p>
 <h4 id="9、扩展"><a href="#9、扩展" class="headerlink" title="9、扩展"></a>9、扩展</h4><blockquote>
-<ol>
-<li><p><strong>编译相关</strong></p>
+<p><strong>1、编译相关</strong></p>
 <p>动/静态库在编译之前显示红色，如下图；（编译过为实体黑色，Clean之后又会变回红色），只有当库文件为实体黑色时，在Xcode中才会有提示</p>
-</li>
-</ol>
 </blockquote>
 <p><img src="image-20190323104139127.png" alt="image-20190323104139127"></p>
 <p><img src="image-20190323104542025.png" alt="image-20190323104542025"></p>
 <blockquote>
-<ol start="2">
-<li><p><strong>Xcode始终没有提示怎么处理？</strong></p>
+<p><strong>2、Xcode始终没有提示怎么处理？</strong></p>
 <p>按照下图设置即可！（注：这里只是引入动/静态库的工程路径，而实际项目是使用生成的动/静态库，此处不要产生误解!）</p>
-</li>
-</ol>
 </blockquote>
 <p><img src="image-20190323104811205.png" alt="image-20190323104811205"></p>
 <blockquote>
-<ol start="3">
-<li><p><strong>项目中如何直接引用自己生成的动静态库？</strong></p>
+<p><strong>3、项目中如何直接引用自己生成的动静态库？</strong></p>
 <p>动静态库工程build后（build需注意是模拟器还是真机，并且区分手机型号），show in finder</p>
 <p>动态库：直接拷贝到工程，路径随意，之后按照<strong><em>第7步</em></strong>操作即可；</p>
-<p>静态库：静态库两个文件都需要拷贝到工程，之后按照<strong><em>第7步</em></strong>引入，之后按照<strong>第九步2中</strong>的方法，引入<strong>include</strong>文件夹路径</p>
-</li>
-</ol>
+<p>静态库：静态库两个文件都需要拷贝到工程，之后按照<strong><em>第7步</em></strong>引入，之后按照<strong>第九        步2中</strong>的方法，引入<strong>include</strong>文件夹路径</p>
 </blockquote>
 <p><img src="image-20190323105425853.png" alt="image-20190323105425853"></p>
 <p><img src="image-20190323110545671.png" alt="image-20190323110545671"></p>
